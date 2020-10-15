@@ -1,72 +1,62 @@
-inherited SignForm_LgXhdpiPh: TSignForm_LgXhdpiPh
-  ClientHeight = 695
-  ClientWidth = 450
+inherited SignForm_SmXhdpiPh: TSignForm_SmXhdpiPh
+  ClientHeight = 375
+  ClientWidth = 250
   DesignerMasterStyle = 3
   inherited MainLayout: TLayout
-    Size.Width = 450.000000000000000000
-    Size.Height = 695.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 375.000000000000000000
     inherited SignHeaderTB: TToolBar
-      Size.Width = 450.000000000000000000
+      Size.Width = 250.000000000000000000
       inherited SettingParamSBtn: TSpeedButton
-        Position.X = 417.000000000000000000
+        Position.X = 217.000000000000000000
       end
       inherited SignHeadeLbl: TLabel
-        Size.Width = 417.000000000000000000
+        Size.Width = 217.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end
     inherited SignBottomTB: TToolBar
-      Position.Y = 647.000000000000000000
-      Size.Width = 450.000000000000000000
+      Position.Y = 327.000000000000000000
+      Size.Width = 250.000000000000000000
       inherited SignSBtn: TSpeedButton
-        Position.X = 417.000000000000000000
+        Position.X = 217.000000000000000000
       end
     end
     inherited AOuthRect: TRectangle
-      Size.Width = 450.000000000000000000
-      Size.Height = 599.000000000000000000
+      Size.Width = 250.000000000000000000
+      Size.Height = 279.000000000000000000
     end
     inherited AOuthLB: TListBox
-      Position.Y = 293.000000000000000000
-      Size.Width = 430.000000000000000000
-      Viewport.Width = 430.000000000000000000
+      Position.Y = 133.000000000000000000
+      Size.Width = 230.000000000000000000
+      Viewport.Width = 230.000000000000000000
       Viewport.Height = 109.000000000000000000
       inherited SignLBGH: TListBoxGroupHeader
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        Size.Width = 430.000000000000000000
+        Size.Width = 230.000000000000000000
       end
       inherited ServerLBI: TListBoxItem
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        Size.Width = 430.000000000000000000
+        Size.Width = 230.000000000000000000
         inherited ServerEdit: TEdit
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          Size.Width = 330.000000000000000000
+          Size.Width = 130.000000000000000000
         end
       end
       inherited UserLBI: TListBoxItem
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        Size.Width = 430.000000000000000000
+        Size.Width = 230.000000000000000000
         inherited UserEdit: TEdit
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          Size.Width = 296.000000000000000000
+          Size.Width = 97.000000000000000000
         end
         inherited UserBtn: TButton
-          Padding.Left = 100.000000000000000000
-          Margins.Left = 1.000000000000000000
-          Margins.Bottom = 64.000000000000000000
-          Position.X = 382.000000000000000000
+          Position.X = 182.000000000000000000
         end
       end
     end
   end
   inherited UserLayout: TLayout
-    inherited UserLV: TListView
-      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-        item
-          AppearanceObjectName = 'Text1'
-          AppearanceClassName = 'TTextObjectAppearance'
-        end>
-    end
     inherited UserHeaderTB: TToolBar
       inherited UserHeaderLbl: TLabel
         TextSettings.Font.StyleExt = {00070000000000000004000000}

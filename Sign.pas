@@ -56,6 +56,9 @@ implementation
 {$R *.fmx}
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
+{$R *.SmXhdpiPh.fmx ANDROID}
+{$R *.LgXhdpiTb.fmx ANDROID}
+{$R *.SSW3.fmx ANDROID}
 
 procedure TSignForm.PanelUserHide;
 begin

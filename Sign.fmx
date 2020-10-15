@@ -2,10 +2,326 @@ object SignForm: TSignForm
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 520
-  ClientWidth = 360
+  ClientHeight = 540
+  ClientWidth = 357
+  WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 3
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 357.000000000000000000
+    Size.Height = 540.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object SignHeaderTB: TToolBar
+      Size.Width = 357.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      TintColor = claPowderblue
+      object SettingParamSBtn: TSpeedButton
+        Align = Right
+        Images = Images
+        ImageIndex = 0
+        Position.X = 324.000000000000000000
+        Size.Width = 33.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object SignHeadeLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family, Size]
+        Position.Y = 15.000000000000000000
+        Size.Width = 324.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF6F0F0F
+        TextSettings.HorzAlign = Center
+        Text = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
+        TabOrder = 1
+      end
+    end
+    object SignBottomTB: TToolBar
+      Align = Bottom
+      Position.Y = 492.000000000000000000
+      Size.Width = 357.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      TintColor = claPowderblue
+      object SignSBtn: TSpeedButton
+        Align = Right
+        Images = Images
+        ImageIndex = 1
+        Position.X = 324.000000000000000000
+        Size.Width = 33.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object DefaultSBtn: TSpeedButton
+        Align = Left
+        Images = Images
+        ImageIndex = 2
+        Size.Width = 33.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object AOuthRect: TRectangle
+      Align = Client
+      Fill.Color = xFF0D8C8C
+      Size.Width = 357.000000000000000000
+      Size.Height = 444.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object AOuthLB: TListBox
+      Align = VertCenter
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 210.000000000000000000
+      Size.Width = 337.000000000000000000
+      Size.Height = 119.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      DisableFocusEffect = True
+      ItemHeight = 36.000000000000000000
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 337.000000000000000000
+      Viewport.Height = 119.000000000000000000
+      object SignLBGH: TListBoxGroupHeader
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Size, Style, FontColor]
+        Size.Width = 337.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+      end
+      object ServerLBI: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 85.000000000000000000
+        Padding.Right = 50.000000000000000000
+        Position.Y = 36.000000000000000000
+        Size.Width = 337.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = #1057#1077#1088#1074#1077#1088
+        object ServerEdit: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = VertCenter
+          TabOrder = 0
+          ReadOnly = True
+          Text = 'DC-07\F2012SQL'
+          TextSettings.Font.Size = 11.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          TextSettings.HorzAlign = Center
+          Position.X = 85.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 202.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family]
+          object ClearServerEditBtn: TClearEditButton
+            CanFocus = False
+            Cursor = crArrow
+            Size.Width = 32.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+          end
+        end
+      end
+      object UserLBI: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 85.000000000000000000
+        Position.Y = 72.000000000000000000
+        Size.Width = 337.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+        object UserEdit: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = VertCenter
+          TabOrder = 0
+          TextSettings.Font.Size = 11.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          TextSettings.HorzAlign = Center
+          Position.X = 85.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 204.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family]
+          object ClearUserEditBtn: TClearEditButton
+            CanFocus = False
+            Cursor = crArrow
+            Size.Width = 32.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+          end
+        end
+        object UserBtn: TButton
+          Align = Right
+          Position.X = 289.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'detailstoolbutton'
+          TabOrder = 1
+          Text = 'UserBtn'
+        end
+      end
+    end
+  end
+  object Images: TImageList
+    Source = <
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 1.500000000000000000
+            Width = 24
+            Height = 24
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+              F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              040149444154484BD5957F6C144514C7DFCCDEEEDED1DA3B50A0393150CA0F13
+              5B527F24D03F6A0DC64A458BC4808931FC614C208646A306032AF594A269A557
+              352DD8C8DF2682245A226A30FEC13F6A2EF0478D4D2598483095D2D61E70B777
+              BBB3F37C33B7BD5EAFA7E15FBE97B937997DF37933EFCDEEC06D2F16D88AEAEA
+              EAE2566C590797F2D2FED73A478261ADEE9E810D02B04E66AE0D271209190C2F
+              D07F0638941C6CE7889F50B73E2FE0AA69C03E5B66BFBC1989B09083CFA0EBF7
+              60882F93BEB80460EC4D1C78F9DBC2CCF9AA18E070DFC09EBCE30CDA04432C8C
+              61D0515675B5553F659D2CA21D7EE9BD03AF1ED34E25E2819D27866CEA96E1AA
+              D961F26513DAA94C150320FA8E0215FA850E63E056998BD2555624CD38738B70
+              DD00842F73DAB14C150348C6372BAB267B2ECF37AC5F2DB73EDA626D696B8E3E
+              D9DE12DDD9D1666D7CA05132379F5770A9FE18EA39E55A5083EE2303ADAE03DF
+              9961B4BD3CCF6F7E7883BD241685F11B3E9CBF7C1338E7B0A93E06AB9656C33F
+              E91B70F2E4D77911326DAA42CE42D9D6DBF5C6B900A5550CD09D1C781A84DC4E
+              84E768E52135D6706FBDAC5FB9820FFF3A0347CE5E014FD06944093647786BDB
+              7A78B679258C8C8ECA1FCEA5E8C0214899F5245A9FFB829DEA3FBCFF2BC5984B
+              91843E82EF9A857BB99C57774F9CFF4D2BEF2B8133F4C1F33C78FFD4088CCFE4
+              A1A9A18153F2859414006D534AD82598E8D34C523100A525AE56A1A46C4D752C
+              6B9A26A4282D6E099C491F383515E4A7B1AB60DB36D4D6D464243D2F0421BF0C
+              C4358834B783300A65145CD78CFA86610067E452062FF639D33E0E3A45B8B218
+              2AB0948A010C803182EB03A182A4AF4F2F52FB695E13D3392F87870D84D6C615
+              049430399EAB9A8567332825F3C70AD49200075FDFFBA010C65AF4E5695A0380
+              65997FFC7945AAD3F266C73AB0D9DC2E6C82BFFB7C33ACAA5D0CA9D479193245
+              48EF40E070C4646B067B130F05D885C7943E70961F5EFC33076CA214B8DB9F78
+              CC5ABEF44EF86BDA815F2E5ED36969B9EF6E581D5F021393D3D03FF429952364
+              FA425C10E9F8C6A1A1DD5E80D2AAF82D3AF841723725EB98AE05BD4CAD8F6C32
+              9B1A1BB965593AE76AB5A9D40579FAC7B39EEB856CF2051FE58B477BDE391E20
+              8AAA18E0ED43C97664F88D2A48A1E8082EE7EEF2EA3B9C2C64616A261F313CCF
+              D20555A9A1FC937DFCE88789EF03445173A7A84434A5A914AE9AE1096B627A2A
+              7A7D321B2D87ABBE8F787F307D9E2A062067861EBDFC015C17D097BF53113FF2
+              517CECF978B1144E8BA1B3212BB22AA648695FA2B79DA6F6D31BBE4EA2F8ECF2
+              E8DA3D274EECF4D5B31D3BBE30EEAAFB6D8882BCE04B1C93E8BF723CD97DEB17
+              CEACD4959991E1A7AA78EE0C5D8B6E30ACD5D9D969BB766C4B6D15FFDF2BF376
+              17C0BF98E984E7304C67EF0000000049454E44AE426082}
+            FileName = 'D:\Projects\Audit\Images\icons8_settings_24px.png'
+          end>
+        Name = 'icons8_settings_24px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 1.500000000000000000
+            Width = 24
+            Height = 24
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+              F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              021149444154484BD5954D4FD44018C79F76BB93650D11014DDC13E20DBD7AD0
+              C37AE7C2010F44E3C18F40F802F001FC06C61389892470235C8CD98B890957C1
+              0BA0C16860CD52E82EDB4EDB199F69A7EB4E67F685E5A2BFCDBFF3D2E9F37F66
+              A6D385FF1E4B96466E555FCF8716DF70A050965D7D0929B40861CFCE6A2B3BB2
+              4B3778FAF1A8E4D29BEB21B06AFCAB5E77B776E7487942DEED0FF51AE07B8DB5
+              F3DAF2AAEC025B961DCEDAE32FE2882D02E5B7ED89A939325BC15E91C7301230
+              59A668063460564863888218A71C03E3EA0357453368BBADF528609B21657EFB
+              E7C97E7878021CB31B56793483EFAFEEF9074B77178F9E57C69A5B1FDE03BBDE
+              0C14CB07DBEEFD8215BD8D2CEB91C3612CF083C86A349DCBCF3F80357D39AA37
+              F4A20E81F71B3779C5BCC9368FDFA0675504E7D82625E2142B93507E3C930E18
+              017589ACE809E71C84F082C23E54717A3CABF69589DC1E1488AC74481EB6BB5F
+              C54152510C3A8977A9676A92C20D02A5D9E9B481F1ED41E720210BAC38E5334D
+              15700F2E484BB675723348D7FFEF4FFA2477CD389725205F7BBF6139033CBADD
+              51A5381366E68395571E758958F165169731FB6152C74BEBD3377177241483BD
+              853BEF92E8A8FD85A92FE9DA73088F5D5C62CC6EA0C478156D9393B54F02A7D9
+              CBEAC86806C90C3430BBA1A562369026D90CB2AE4132A1193060DBF82F5013F5
+              F8DC3BA0C7A75833656A92E07A5FDF7F0D803FFFA9139B73FBECFE0000000049
+              454E44AE426082}
+            FileName = 'D:\Projects\Audit\Images\icons8_retirement_24px.png'
+          end>
+        Name = 'icons8_retirement_24px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 1.500000000000000000
+            Width = 24
+            Height = 24
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+              F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              01D649444154484BC5943B4E23411086ABA66119124E005A6965F3B8020944E6
+              0224BBAB0D907826BC44040C066C36D86461A5956C488DC4154C000912374030
+              B68488B980C75277D1D353029AC1F2D883C49774FDBFADF967AABB0B3E15F7C0
+              FFC165D738BCDAE4C9710BFE09109EB2D335F180F0E13DB53220CEB2930AE435
+              8208DD42FD50C72EB39384A622B846903381377ACFDE3356C097FDBB31C7716E
+              58768404F520A877A2E17D7B60CB60B5A8E90DDF82827F2C3B4280F355C75CF4
+              E7FD41B60C768B42C2361DD4FFEA6A25948DED6CFC3F6F100BD55DBD67792388
+              F664796AD7D49AF82623927EE82A0114D949C5FBC754136C673D1DF69D65D758
+              01CE7C755D2C9E57F4779AB634B63267E6871458018830A0979F3AE44FE42404
+              F19AAB182D5A841B62A99A63D11659CA55096887A545CB3DD0C7759CAB44A852
+              AE080415DDDC47B60CAD0312F23210916439F74B95A6FE473A2275403810DDA2
+              7F1CCE30762CD2071870CE0CC87742AC5BDAF7BB96510A2E058075DD3BE0481F
+              EDB5F0B2B28E8F8A28445E0810436C75844239D6DC1ABD65196F51B099AD3B02
+              2715D01548F9FC2609396A6E8EDC716D683BC8DAE1166BE62548C161E065D65F
+              B727E4433699080AC14ED6EAFD87D1BFEF4F73F919003C0112128F1C5F5689A9
+              0000000049454E44AE426082}
+            FileName = 'D:\Projects\Audit\Images\icons8_repeat_24px.png'
+          end>
+        Name = 'icons8_repeat_24px'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'icons8_settings_24px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_retirement_24px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_repeat_24px'
+          end>
+      end>
+    Left = 320
+    Top = 408
+  end
 end

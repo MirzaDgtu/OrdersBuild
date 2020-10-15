@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2020.10.15 15:07:48.750,=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020.10.15 15:09:05.666,D:\Projects\OrdersBuild\Sign.pas=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020.10.15 15:09:05.666,D:\Projects\OrdersBuild\Sign.fmx=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2020.10.15 15:09:12.917,D:\Projects\OrdersBuild\OrdersBuild.dproj=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+  <ActiveMobileDevice>   <NoProfile Android64="VirtualPhone" Android="VirtualPhone"/>
+  </ActiveMobileDevice>
+</BorlandProject>

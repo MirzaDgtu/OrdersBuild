@@ -27,10 +27,10 @@ inherited SignForm_XLgXhdpiTb: TSignForm_XLgXhdpiTb
       Size.Height = 1159.000000000000000000
     end
     inherited AOuthLB: TListBox
-      Position.Y = 568.000000000000000000
+      Position.Y = 572.000000000000000000
       Size.Width = 780.000000000000000000
       Viewport.Width = 780.000000000000000000
-      Viewport.Height = 119.000000000000000000
+      Viewport.Height = 111.000000000000000000
       inherited SignLBGH: TListBoxGroupHeader
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         Size.Width = 780.000000000000000000
@@ -50,9 +50,20 @@ inherited SignForm_XLgXhdpiTb: TSignForm_XLgXhdpiTb
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           Size.Width = 647.000000000000000000
         end
-        inherited UserBtn: TButton
-          Position.X = 732.000000000000000000
-        end
+      end
+    end
+  end
+  inherited UserLayout: TLayout
+    inherited UserLV: TListView
+      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Text1'
+          AppearanceClassName = 'TTextObjectAppearance'
+        end>
+    end
+    inherited UserHeaderTB: TToolBar
+      inherited UserHeaderLbl: TLabel
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end
   end

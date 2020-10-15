@@ -40,6 +40,7 @@ type
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     procedure PanelUserView();
@@ -54,11 +55,19 @@ var
 implementation
 
 {$R *.fmx}
+
+uses ModuleDataLocal, SConsts;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
 {$R *.LgXhdpiTb.fmx ANDROID}
 {$R *.SSW3.fmx ANDROID}
+
+procedure TSignForm.FormCreate(Sender: TObject);
+begin
+    AppDataLocal := TAppDataLocal.Create(Application);
+
+end;
 
 procedure TSignForm.PanelUserHide;
 begin

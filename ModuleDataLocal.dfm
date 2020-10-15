@@ -1,7 +1,7 @@
 object AppDataLocal: TAppDataLocal
   OldCreateOrder = False
   Height = 296
-  Width = 335
+  Width = 365
   object Connection: TFDConnection
     Params.Strings = (
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
@@ -22,7 +22,7 @@ object AppDataLocal: TAppDataLocal
   object Users: TFDQuery
     Connection = Connection
     Left = 24
-    Top = 64
+    Top = 72
     object UsersID: TIntegerField
       FieldName = 'ID'
     end
@@ -37,5 +37,18 @@ object AppDataLocal: TAppDataLocal
     object UsersLastUser: TSmallintField
       FieldName = 'LastUser'
     end
+    object UsersScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object Command: TFDQuery
+    Connection = Connection
+    Left = 240
+    Top = 16
+  end
+  object EveryOne: TFDQuery
+    Connection = Connection
+    Left = 304
+    Top = 16
   end
 end

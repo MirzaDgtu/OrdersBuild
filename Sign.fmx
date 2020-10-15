@@ -8,6 +8,7 @@ object SignForm: TSignForm
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
@@ -186,6 +187,7 @@ object SignForm: TSignForm
           Size.PlatformDefault = False
           StyleLookup = 'detailstoolbutton'
           TabOrder = 1
+          OnClick = UserBtnClick
         end
       end
     end

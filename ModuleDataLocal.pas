@@ -20,6 +20,9 @@ type
     UsersUserLogin: TStringField;
     UsersUserName: TStringField;
     UsersLastUser: TSmallintField;
+    UsersScreen: TBlobField;
+    Command: TFDQuery;
+    EveryOne: TFDQuery;
   private
     { Private declarations }
   public

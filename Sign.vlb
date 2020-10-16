@@ -109,9 +109,6 @@ Coordinates=349,249,132,51
 [DataBaseSettingParamLBI]
 Coordinates=134,539,144,33
 
-[ClearEditButton1]
-Coordinates=10,539,98,33
-
 [SettingHeaderLbl]
 Coordinates=338,326,99,51
 
@@ -120,9 +117,6 @@ Coordinates=805,480,97,33
 
 [SettingParamLBGH]
 Coordinates=670,480,109,33
-
-[ClearEditButton4]
-Coordinates=546,480,98,33
 
 [LoginSettingParamLBI]
 Coordinates=395,480,125,33
@@ -151,9 +145,6 @@ Coordinates=10,326,148,51
 [SettingRect]
 Coordinates=10,480,71,33
 
-[ClearEditButton3]
-Coordinates=757,403,98,33
-
 [LoginSettingParamEdit]
 Coordinates=184,326,128,51
 
@@ -163,9 +154,18 @@ Coordinates=793,249,91,51
 [PasswordSettingParamLBI]
 Coordinates=586,403,145,33
 
-[ClearEditButton2]
-Coordinates=462,403,98,33
-
 [ViewPasswordBtn]
 Coordinates=751,10,103,51
+
+[ClearServerSettingParamEBtn]
+Coordinates=10,539,98,33
+
+[ClearDataBaseSettingParamEditBtn]
+Coordinates=462,403,98,33
+
+[ClearLoginSettingParamBtn]
+Coordinates=757,403,98,33
+
+[CleaPasswordSettingParamBtn]
+Coordinates=546,480,98,33
 

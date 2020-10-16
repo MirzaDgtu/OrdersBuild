@@ -9,8 +9,18 @@ type
     Name: string;
   end;
 
+type
+  TConnectLocal = record
+    Sever: string;
+    InitialCatalog: string;
+    login: string;
+    Password: string;
+    Port: integer;
+  end;
+
 var
     CurrentUser: TUser;
+    ConnectLocal: TConnectLocal;
 
 implementation
 

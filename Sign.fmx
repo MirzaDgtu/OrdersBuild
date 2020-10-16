@@ -333,21 +333,21 @@ object SignForm: TSignForm
   end
   object SettingLayout: TLayout
     Align = Client
-    Size.Width = 360.000000000000000000
+    Size.Width = 356.000000000000000000
     Size.Height = 613.000000000000000000
     Size.PlatformDefault = False
     Visible = False
     TabOrder = 6
     object SettingRect: TRectangle
       Align = Client
-      Fill.Color = xFF151414
+      Fill.Color = xFF0C1341
       Opacity = 0.699999988079071000
-      Size.Width = 360.000000000000000000
+      Size.Width = 356.000000000000000000
       Size.Height = 565.000000000000000000
       Size.PlatformDefault = False
     end
     object SettingHeaderTB: TToolBar
-      Size.Width = 360.000000000000000000
+      Size.Width = 356.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -363,7 +363,7 @@ object SignForm: TSignForm
       end
       object SaveSettingBtn: TButton
         Align = Right
-        Position.X = 312.000000000000000000
+        Position.X = 308.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -375,7 +375,7 @@ object SignForm: TSignForm
         StyledSettings = [Family, Size]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 264.000000000000000000
+        Size.Width = 260.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -390,9 +390,9 @@ object SignForm: TSignForm
       Margins.Left = 5.000000000000000000
       Margins.Right = 5.000000000000000000
       Position.X = 5.000000000000000000
-      Position.Y = 238.000000000000000000
-      Size.Width = 350.000000000000000000
-      Size.Height = 185.000000000000000000
+      Position.Y = 221.000000000000000000
+      Size.Width = 346.000000000000000000
+      Size.Height = 219.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       DisableFocusEffect = True
@@ -400,13 +400,13 @@ object SignForm: TSignForm
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 350.000000000000000000
-      Viewport.Height = 185.000000000000000000
+      Viewport.Width = 346.000000000000000000
+      Viewport.Height = 219.000000000000000000
       object SettingParamLBGH: TListBoxGroupHeader
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.HorzAlign = Center
         StyledSettings = [Family, Size, Style, FontColor]
-        Size.Width = 350.000000000000000000
+        Size.Width = 346.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -420,7 +420,7 @@ object SignForm: TSignForm
         Padding.Left = 85.000000000000000000
         Padding.Right = 40.000000000000000000
         Position.Y = 36.000000000000000000
-        Size.Width = 350.000000000000000000
+        Size.Width = 346.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -434,11 +434,11 @@ object SignForm: TSignForm
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
           Position.Y = 2.000000000000000000
-          Size.Width = 225.000000000000000000
+          Size.Width = 221.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Size]
-          object ClearEditButton1: TClearEditButton
+          object ClearServerSettingParamEBtn: TClearEditButton
             CanFocus = False
             Cursor = crArrow
             Size.Width = 32.000000000000000000
@@ -456,7 +456,7 @@ object SignForm: TSignForm
         Padding.Left = 85.000000000000000000
         Padding.Right = 40.000000000000000000
         Position.Y = 72.000000000000000000
-        Size.Width = 350.000000000000000000
+        Size.Width = 346.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -470,11 +470,11 @@ object SignForm: TSignForm
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
           Position.Y = 2.000000000000000000
-          Size.Width = 225.000000000000000000
+          Size.Width = 221.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Size]
-          object ClearEditButton2: TClearEditButton
+          object ClearDataBaseSettingParamEditBtn: TClearEditButton
             CanFocus = False
             Cursor = crArrow
             Size.Width = 32.000000000000000000
@@ -492,7 +492,7 @@ object SignForm: TSignForm
         Padding.Left = 85.000000000000000000
         Padding.Right = 40.000000000000000000
         Position.Y = 108.000000000000000000
-        Size.Width = 350.000000000000000000
+        Size.Width = 346.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 3
@@ -506,11 +506,11 @@ object SignForm: TSignForm
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
           Position.Y = 2.000000000000000000
-          Size.Width = 225.000000000000000000
+          Size.Width = 221.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Size]
-          object ClearEditButton3: TClearEditButton
+          object ClearLoginSettingParamBtn: TClearEditButton
             CanFocus = False
             Cursor = crArrow
             Size.Width = 32.000000000000000000
@@ -527,7 +527,7 @@ object SignForm: TSignForm
         StyledSettings = [Family, Other]
         Padding.Left = 85.000000000000000000
         Position.Y = 144.000000000000000000
-        Size.Width = 350.000000000000000000
+        Size.Width = 346.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
@@ -542,11 +542,11 @@ object SignForm: TSignForm
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
           Position.Y = 2.000000000000000000
-          Size.Width = 225.000000000000000000
+          Size.Width = 221.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Size]
-          object ClearEditButton4: TClearEditButton
+          object CleaPasswordSettingParamBtn: TClearEditButton
             CanFocus = False
             Cursor = crArrow
             Size.Width = 32.000000000000000000
@@ -557,7 +557,7 @@ object SignForm: TSignForm
         end
         object PasswordPanelBtn: TPanel
           Align = Right
-          Position.X = 310.000000000000000000
+          Position.X = 306.000000000000000000
           Size.Width = 40.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
@@ -571,6 +571,38 @@ object SignForm: TSignForm
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             OnClick = ViewPasswordBtnClick
+          end
+        end
+      end
+      object PortParamSettingLBI: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 85.000000000000000000
+        Padding.Right = 40.000000000000000000
+        Position.Y = 180.000000000000000000
+        Size.Width = 346.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = #1055#1086#1088#1090
+        object PortParamSettingEdit: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = VertCenter
+          TabOrder = 1
+          Position.X = 85.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 221.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          object ClearParamSettingBtn: TClearEditButton
+            CanFocus = False
+            Cursor = crArrow
+            Size.Width = 32.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
           end
         end
       end

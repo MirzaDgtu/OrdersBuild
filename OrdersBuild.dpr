@@ -7,7 +7,9 @@ uses
   ModuleDataLocal in 'ModuleDataLocal.pas' {AppDataLocal: TDataModule},
   SConsts in 'SConsts.pas',
   Users in 'Users.pas',
-  Globals in 'Globals.pas';
+  Globals in 'Globals.pas',
+  DataBaseLocal in 'DataBaseLocal.pas',
+  ConnectRemove in 'ConnectRemove.pas';
 
 {$R *.res}
 

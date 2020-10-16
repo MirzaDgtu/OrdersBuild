@@ -23,6 +23,8 @@ type
     UsersScreen: TBlobField;
     Command: TFDQuery;
     EveryOne: TFDQuery;
+    UsersLastUserScreen: TBlobField;
+    procedure ConnectionBeforeConnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,6 +44,18 @@ implementation
 {$R *.dfm}
 
 { TAppDataLocal }
+
+procedure TAppDataLocal.ConnectionBeforeConnect(Sender: TObject);
+begin
+
+    {$IFDEF ANDROID}
+        Connection.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'SqlLiteBase.db');
+    {$ENDIF}
+
+    {$IFDEF MSWINDOWS}
+        Connection.Params.Values['DataBase'] := ExtractFilePath(ParamStr(0)) + 'SqlLiteBase.db';
+    {$ENDIF}
+end;
 
 function TAppDataLocal.ConnectionToLocalDB: Boolean;
 begin

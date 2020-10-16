@@ -7,6 +7,7 @@ object AppDataLocal: TAppDataLocal
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
       'DriverID=SQLite')
     LoginPrompt = False
+    BeforeConnect = ConnectionBeforeConnect
     Left = 24
     Top = 16
   end
@@ -39,6 +40,9 @@ object AppDataLocal: TAppDataLocal
     end
     object UsersScreen: TBlobField
       FieldName = 'Screen'
+    end
+    object UsersLastUserScreen: TBlobField
+      FieldName = 'LastUserScreen'
     end
   end
   object Command: TFDQuery

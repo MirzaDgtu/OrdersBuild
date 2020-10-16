@@ -17,9 +17,14 @@ resourcestring
                                    'UserLogin, ' +                          //-----************************-----//
             	                     'UserName,    ' +                        //--Получение списка пользователей--//
                                    'LastUser, ' +                           //----из локальной таблицы Users----//
-                                   'I.Screen ' +                            //-----************************-----//
-                            'FROM Users ' +                                 //-----************************-----//
+                                   'I.Screen, ' +                            //-----************************-----//
+                                   ' (SELECT II.SCREEN ' +
+                                   '  FROM USERS UU ' +
+                                   '  WHERE UU.LastUser = 1 ' +
+                                   '	      AND UU.ID = U.ID) AS "LastUserScreen" ' +
+                            'FROM Users U ' +                                 //-----************************-----//
                             ' LEFT JOIN Icons I ON I.UID = 2 ' +            //-----************************-----//
+                            ' LEFT JOIN Icons II ON II.UID = 13 '+
                             'Order BY UserName';                            //-----************************-----//
 
       SSQLUpdateLastUserLocal = 'UPDATE Users ' +                           //-----************************-----//
@@ -31,7 +36,7 @@ resourcestring
             	                      'UserName,    ' +                        //--Получение последнего пользователя--//
                                     'LastUser ' +                            //----из локальной таблицы Users----//
                             'FROM Users ' +                                  //----который выбирался для входа в программу
-                            ' WHERE LasеUser = 1 ' +                         //-----************************-----//
+                            ' WHERE LastUser = 1 ' +                         //-----************************-----//
                             'Order BY UserName';                             //-----************************-----//
 
 

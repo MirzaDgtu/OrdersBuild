@@ -1,101 +1,171 @@
 ﻿[UserEdit]
-Coordinates=313,376,64,58
+Coordinates=507,249,56,51
 
 [UserLBI]
-Coordinates=223,522,61,36
+Coordinates=10,598,53,33
 
 [UserLayout]
-Coordinates=117,522,80,36
+Coordinates=851,539,70,33
+Visible=True
 
 [UserFA]
-Coordinates=442,441,58,36
+Coordinates=442,441,50,33
 
 [DefaultSBtn]
-Coordinates=440,292,83,58
+Coordinates=128,403,73,51
 
 [RefreshUserBtn]
-Coordinates=508,10,106,58
-
-[SettingRect]
-Coordinates=10,522,81,36
+Coordinates=10,403,92,51
 
 [AppDataLocal.Users]
-Coordinates=780,510,132,36
+Coordinates=780,510,115,33
 Visible=False
 
 [SignLBGH]
-Coordinates=653,460,75,36
+Coordinates=271,598,65,33
 
 [SignBottomTB]
-Coordinates=530,460,97,36
+Coordinates=614,539,86,33
 
 [UserHeaderTB]
-Coordinates=404,460,100,36
+Coordinates=413,539,85,33
 
 [SettingParamSBtn]
-Coordinates=640,10,120,58
+Coordinates=332,403,104,51
 
 [UserLV]
-Coordinates=10,10,107,256
+Coordinates=10,10,103,231
 
 [Images]
-Coordinates=0,431,57,36
+Coordinates=0,431,49,33
 
 [SignSBtn]
-Coordinates=403,376,68,58
+Coordinates=10,249,60,51
 
 [BackUserBtn]
-Coordinates=97,376,89,58
+Coordinates=227,403,79,51
 
 [ClearServerEditBtn]
-Coordinates=253,460,125,36
+Coordinates=362,598,108,33
 
 [ClearUserEditBtn]
-Coordinates=113,460,114,36
+Coordinates=726,539,99,33
 
 [AOuthRect]
-Coordinates=10,460,77,36
+Coordinates=607,598,68,33
 Visible=True
 
 [SignHeadeLbl]
-Coordinates=137,292,95,58
+Coordinates=579,326,83,51
 
 [AOuthLB]
-Coordinates=343,10,139,212
+Coordinates=305,10,116,177
 
 [UserHeaderLbl]
-Coordinates=10,292,101,58
+Coordinates=680,249,87,51
 
 [ServerEdit]
-Coordinates=212,376,75,58
+Coordinates=589,249,65,51
 
 [ServerLBI]
-Coordinates=729,376,72,36
+Coordinates=701,598,62,33
 
 [AppDataLocal.Command]
-Coordinates=549,292,158,58
+Coordinates=589,10,136,51
 
 [SignHeaderTB]
-Coordinates=604,376,99,36
+Coordinates=496,598,85,33
 
 [MainLayout]
-Coordinates=497,376,81,36
+Coordinates=89,598,71,33
 
 [AppDataLocal.EveryOne]
-Coordinates=258,292,156,58
+Coordinates=688,326,134,51
 
 []
 Coordinates=10,376,61,58
 
 [SignLB]
-Coordinates=0,0,56,36
+Coordinates=0,0,50,33
 
 [UsersBS]
-Coordinates=210,30,120,190
+Coordinates=179,37,100,177
 
 [UserPanel]
-Coordinates=136,239,75,36
+Coordinates=524,539,64,33
 
 [UserBtn]
-Coordinates=520,87,61,58
+Coordinates=269,249,54,51
+
+[UserRect]
+Coordinates=186,598,59,33
+
+[SettingLayout]
+Coordinates=304,539,83,33
+
+[ServerSettingParamEdit]
+Coordinates=349,249,132,51
+
+[DataBaseSettingParamLBI]
+Coordinates=134,539,144,33
+
+[ClearEditButton1]
+Coordinates=10,539,98,33
+
+[SettingHeaderLbl]
+Coordinates=338,326,99,51
+
+[SettingHeaderTB]
+Coordinates=805,480,97,33
+
+[SettingParamLBGH]
+Coordinates=670,480,109,33
+
+[ClearEditButton4]
+Coordinates=546,480,98,33
+
+[LoginSettingParamLBI]
+Coordinates=395,480,125,33
+
+[SaveSettingBtn]
+Coordinates=463,326,90,51
+
+[SettingFA]
+Coordinates=118,193,62,33
+
+[DataBaseSettingParamEdit]
+Coordinates=96,249,147,51
+
+[ServerSettingParamLBI]
+Coordinates=240,480,129,33
+
+[PasswordPanelBtn]
+Coordinates=107,480,107,33
+
+[SettingLB]
+Coordinates=447,10,116,177
+
+[PasswordSettingParamEdit]
+Coordinates=10,326,148,51
+
+[SettingRect]
+Coordinates=10,480,71,33
+
+[ClearEditButton3]
+Coordinates=757,403,98,33
+
+[LoginSettingParamEdit]
+Coordinates=184,326,128,51
+
+[BackSettingBtn]
+Coordinates=793,249,91,51
+
+[PasswordSettingParamLBI]
+Coordinates=586,403,145,33
+
+[ClearEditButton2]
+Coordinates=462,403,98,33
+
+[ViewPasswordBtn]
+Coordinates=751,10,103,51
 

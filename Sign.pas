@@ -31,7 +31,7 @@ type
     UserEdit: TEdit;
     ClearUserEditBtn: TClearEditButton;
     UserLayout: TLayout;
-    SettingRect: TRectangle;
+    UserRect: TRectangle;
     UserHeaderTB: TToolBar;
     UserLV: TListView;
     BackUserBtn: TButton;
@@ -43,16 +43,44 @@ type
     LinkListControlToField1: TLinkListControlToField;
     UserPanel: TPanel;
     UserBtn: TButton;
+    SettingLayout: TLayout;
+    SettingRect: TRectangle;
+    SettingHeaderTB: TToolBar;
+    BackSettingBtn: TButton;
+    SaveSettingBtn: TButton;
+    SettingHeaderLbl: TLabel;
+    SettingLB: TListBox;
+    SettingParamLBGH: TListBoxGroupHeader;
+    ServerSettingParamLBI: TListBoxItem;
+    DataBaseSettingParamLBI: TListBoxItem;
+    LoginSettingParamLBI: TListBoxItem;
+    PasswordSettingParamLBI: TListBoxItem;
+    ServerSettingParamEdit: TEdit;
+    DataBaseSettingParamEdit: TEdit;
+    LoginSettingParamEdit: TEdit;
+    PasswordSettingParamEdit: TEdit;
+    ClearEditButton1: TClearEditButton;
+    ClearEditButton2: TClearEditButton;
+    ClearEditButton3: TClearEditButton;
+    ClearEditButton4: TClearEditButton;
+    PasswordPanelBtn: TPanel;
+    ViewPasswordBtn: TSpeedButton;
+    SettingFA: TFloatAnimation;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure DefaultSBtnClick(Sender: TObject);
+    procedure ViewPasswordBtnClick(Sender: TObject);
+    procedure SettingParamSBtnClick(Sender: TObject);
+    procedure BackSettingBtnClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
     procedure PanelUserView();
     procedure PanelUserHide();
+    procedure PanelSettingView();
+    procedure PanelSettingHide();
   public
     { Public declarations }
   end;
@@ -71,6 +99,11 @@ uses ModuleDataLocal, SConsts, Globals;
 {$R *.LgXhdpiTb.fmx ANDROID}
 {$R *.SSW3.fmx ANDROID}
 
+procedure TSignForm.BackSettingBtnClick(Sender: TObject);
+begin
+   PanelSettingHide();
+end;
+
 procedure TSignForm.DefaultSBtnClick(Sender: TObject);
 begin
     ShowMessage((CurrentUser.ID).ToString + ' ' + CurrentUser.Login + ' ' + CurrentUser.Name);
@@ -81,6 +114,24 @@ begin
    AppDataLocal := TAppDataLocal.Create(Self);
    AppDataLocal.ConnectionToLocalDB();
    usersUn := TUsers.Create();
+   UserEdit.Text := CurrentUser.Name;
+end;
+
+procedure TSignForm.PanelSettingHide;
+begin
+      SettingLayout.Visible := False;
+      UserFA.Inverse := True;
+      UserFA.Start;
+end;
+
+procedure TSignForm.PanelSettingView;
+begin
+      SettingLayout.Position.Y := Self.Height + 20;
+      SettingLayout.Visible := True;
+
+      SettingFA.Inverse := False;
+      SettingFA.StartValue := Self.Height  + 20;
+      SettingFA.Start;
 end;
 
 procedure TSignForm.PanelUserHide;
@@ -100,6 +151,11 @@ begin
       UserFA.Start;
 end;
 
+procedure TSignForm.SettingParamSBtnClick(Sender: TObject);
+begin
+  PanelSettingView();
+end;
+
 procedure TSignForm.UserBtnClick(Sender: TObject);
 begin
   PanelUserView();
@@ -110,9 +166,23 @@ procedure TSignForm.UserLVItemClick(const Sender: TObject;
 begin
   PanelUserHide();
   UserEdit.Text := AItem.Data['Name'].AsString;
+
   usersUn.SetCurrentuser((AItem.Data['ID'].AsString).toInteger,
                           AItem.Data['Login'].AsString,
                           AItem.Data['Name'].AsString);
+  if (AppDataLocal.Users.Active) and
+     (not AppDataLocal.Users.IsEmpty) then
+      if AppDataLocal.Users.Locate('LastUser', '1', []) then
+
+       usersUn.UpdatelastUser(AppDataLocal.Users.FieldByName('ID').AsInteger, 0); // ѕрисвоение последнему пользователю статуса 0
+
+  usersUn.UpdatelastUser(CurrentUser.ID, 1); // ѕрисвоение новому пользователю 1
+  usersUn.Get();
+end;
+
+procedure TSignForm.ViewPasswordBtnClick(Sender: TObject);
+begin
+    PasswordSettingParamEdit.Password := not(PasswordSettingParamEdit.Password);
 end;
 
 end.

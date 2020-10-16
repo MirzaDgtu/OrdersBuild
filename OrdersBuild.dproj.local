@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.666,C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\Projects\OrdersBuild\Sign.fmx</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.917,C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projects\OrdersBuild\OrdersBuild.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.418,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.891,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Users.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.090,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.746,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Globals.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.461,D:\Projects\OrdersBuild\Unit1.dfm=D:\Projects\OrdersBuild\ModuleDataLocal.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.917,D:\Projects\OrdersBuild\OrdersBuild.dproj=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.666,D:\Projects\OrdersBuild\Sign.pas=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.750,=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.666,C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projects\OrdersBuild\Sign.pas</Transaction>
-    <Transaction>2020.10.15 17:49:27.021,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 17:50:40.461,D:\Projects\OrdersBuild\ModuleDataLocal.dfm=D:\Projects\OrdersBuild\Unit1.dfm</Transaction>
-    <Transaction>2020.10.15 17:50:40.461,D:\Projects\OrdersBuild\ModuleDataLocal.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 17:56:41.842,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 17:56:50.775,D:\Projects\OrdersBuild\SConsts.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 18:19:14.090,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 18:19:26.891,D:\Projects\OrdersBuild\Users.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 18:46:49.418,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>2020.10.15 18:46:57.746,D:\Projects\OrdersBuild\Globals.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.666,D:\Projects\OrdersBuild\Sign.fmx=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.775,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\SConsts.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.842,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.461,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\ModuleDataLocal.pas</Transaction>
+    <Transaction>2020.10.16 14:56:41.987,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.10.16 14:57:16.871,D:\Projects\OrdersBuild\DataBaseLocal.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.10.16 16:57:52.360,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.10.16 16:58:33.929,D:\Projects\OrdersBuild\ConnectRemove.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile Android64="VirtualPhone" Android="VirtualPhone"/>

@@ -201,6 +201,8 @@
         <DCCReference Include="SConsts.pas"/>
         <DCCReference Include="Users.pas"/>
         <DCCReference Include="Globals.pas"/>
+        <DCCReference Include="DataBaseLocal.pas"/>
+        <DCCReference Include="ConnectRemove.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

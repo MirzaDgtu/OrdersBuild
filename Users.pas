@@ -1,7 +1,7 @@
 unit Users;
 
 interface
-  uses System.SysUtils;
+  uses System.SysUtils, Globals;
 
 type
   TUsers = class
@@ -9,9 +9,9 @@ type
     public
       procedure Clear();
       class procedure Get();
-      procedure GetLastUser(out ID: integer);
+      procedure GetLastUser(out User: TUser);
       procedure Add(ID: integer; Login, Name: String);
-      procedure Update(ID: integer; Status: smallint);
+      procedure UpdatelastUser(ID: integer; Status: smallint);
       procedure SetCurrentuser(ID: integer; Login, Name: String);
 
     constructor Create();
@@ -21,7 +21,7 @@ type
 
 implementation
 
-uses SConsts, ModuleDataLocal, Globals;
+uses SConsts, ModuleDataLocal;
 
 
 
@@ -53,6 +53,7 @@ constructor TUsers.Create;
 begin
   inherited Create();
   Get();
+  GetLastUser(CurrentUser);
 end;
 
 class procedure TUsers.Get;
@@ -62,7 +63,7 @@ begin
     AppDataLocal.Users.Active := True;
 end;
 
-procedure TUsers.GetLastUser(out ID: integer);
+procedure TUsers.GetLastUser(out User: TUser);
 begin
   try
      AppDataLocal.EveryOne.Active := False;
@@ -70,7 +71,11 @@ begin
      AppDataLocal.EveryOne.Active := True;
   finally
     if not AppDataLocal.EveryOne.IsEmpty then
-      ID := AppDataLocal.EveryOne.FieldByName('ID').AsInteger;
+      Begin
+       User.ID := AppDataLocal.EveryOne.FieldByName('ID').AsInteger;
+       User.Login := AppDataLocal.EveryOne.FieldByName('UserLogin').AsString;
+       User.Name := AppDataLocal.EveryOne.FieldByName('UserName').AsString;
+      End;
   end;
 end;
 
@@ -83,15 +88,15 @@ begin
   except
     FillChar(CurrentUser, SizeOf(TUsers), #0);
   end;
-
 end;
 
-procedure TUsers.Update(ID: integer; Status: smallint);
+procedure TUsers.UpdatelastUser(ID: integer; Status: smallint);
 begin
   try
     AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.ExecSQL(Format(SSQLUpdateLastUserLocal, [id,
-                                                                  Status]));
+    AppDataLocal.Command.SQL.Text := Format(SSQLUpdateLastUserLocal, [Status,
+                                                                      id]);
+    AppDataLocal.Command.ExecSQL;
   except
     AppDataLocal.Connection.Rollback;
   end;

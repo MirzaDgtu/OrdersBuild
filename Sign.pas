@@ -38,10 +38,11 @@ type
     RefreshUserBtn: TButton;
     UserHeaderLbl: TLabel;
     UserFA: TFloatAnimation;
-    UserBtn: TButton;
     UsersBS: TBindSourceDB;
     SignLB: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
+    UserPanel: TPanel;
+    UserBtn: TButton;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);

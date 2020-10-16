@@ -241,8 +241,9 @@ object SignForm: TSignForm
           Appearance.TextColor = claRoyalblue
           Appearance.Width = 203.000000000000000000
           Appearance.Height = 28.000000000000000000
+          Appearance.Align = Center
           Appearance.VertAlign = Center
-          Appearance.PlaceOffset.X = 28.000000000000000000
+          Appearance.PlaceOffset.X = -32.000000000000000000
         end
         item
           AppearanceObjectName = 'Screen'
@@ -256,7 +257,8 @@ object SignForm: TSignForm
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.Width = 55.000000000000000000
           Appearance.Height = 28.000000000000000000
-          Appearance.PlaceOffset.X = 230.000000000000000000
+          Appearance.Align = Center
+          Appearance.PlaceOffset.X = 232.000000000000000000
         end
         item
           AppearanceObjectName = 'LogIn'
@@ -265,8 +267,8 @@ object SignForm: TSignForm
           Appearance.TextColor = claRed
           Appearance.Width = 41.000000000000000000
           Appearance.Height = 31.000000000000000000
-          Appearance.PlaceOffset.X = 284.000000000000000000
-          Appearance.PlaceOffset.Y = -1.000000000000000000
+          Appearance.Align = Center
+          Appearance.PlaceOffset.X = 285.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item

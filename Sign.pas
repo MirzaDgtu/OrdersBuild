@@ -47,6 +47,7 @@ type
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure DefaultSBtnClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
@@ -63,12 +64,17 @@ implementation
 
 {$R *.fmx}
 
-uses ModuleDataLocal, SConsts;
+uses ModuleDataLocal, SConsts, Globals;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
 {$R *.LgXhdpiTb.fmx ANDROID}
 {$R *.SSW3.fmx ANDROID}
+
+procedure TSignForm.DefaultSBtnClick(Sender: TObject);
+begin
+    ShowMessage((CurrentUser.ID).ToString + ' ' + CurrentUser.Login + ' ' + CurrentUser.Name);
+end;
 
 procedure TSignForm.FormCreate(Sender: TObject);
 begin
@@ -104,6 +110,9 @@ procedure TSignForm.UserLVItemClick(const Sender: TObject;
 begin
   PanelUserHide();
   UserEdit.Text := AItem.Data['Name'].AsString;
+  usersUn.SetCurrentuser((AItem.Data['ID'].AsString).toInteger,
+                          AItem.Data['Login'].AsString,
+                          AItem.Data['Name'].AsString);
 end;
 
 end.

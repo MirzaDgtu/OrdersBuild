@@ -69,6 +69,7 @@ object SignForm: TSignForm
         Size.Width = 33.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
+        OnClick = DefaultSBtnClick
       end
     end
     object AOuthRect: TRectangle
@@ -186,6 +187,7 @@ object SignForm: TSignForm
           Size.Width = 52.000000000000000000
           Size.Height = 31.000000000000000000
           Size.PlatformDefault = False
+          StyleLookup = 'pushpanel'
           TabOrder = 1
           object UserBtn: TButton
             Align = VertCenter

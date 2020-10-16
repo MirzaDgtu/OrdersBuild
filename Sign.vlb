@@ -91,5 +91,11 @@ Coordinates=10,376,61,58
 Coordinates=0,0,56,36
 
 [UsersBS]
-Coordinates=140,30,120,190
+Coordinates=210,30,120,190
+
+[UserPanel]
+Coordinates=136,239,75,36
+
+[UserBtn]
+Coordinates=520,87,61,58
 

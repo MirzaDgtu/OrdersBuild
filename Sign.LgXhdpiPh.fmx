@@ -60,7 +60,15 @@ inherited SignForm_LgXhdpiPh: TSignForm_LgXhdpiPh
     end
   end
   inherited UserLayout: TLayout
+    Size.Width = 450.000000000000000000
+    Size.Height = 695.000000000000000000
+    inherited SettingRect: TRectangle
+      Size.Width = 450.000000000000000000
+      Size.Height = 647.000000000000000000
+    end
     inherited UserLV: TListView
+      Size.Width = 436.000000000000000000
+      Size.Height = 633.000000000000000000
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
         item
           AppearanceObjectName = 'Text1'
@@ -68,7 +76,9 @@ inherited SignForm_LgXhdpiPh: TSignForm_LgXhdpiPh
         end>
     end
     inherited UserHeaderTB: TToolBar
+      Size.Width = 450.000000000000000000
       inherited UserHeaderLbl: TLabel
+        Size.Width = 354.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end

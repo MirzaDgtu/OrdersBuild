@@ -3,7 +3,7 @@ object SignForm: TSignForm
   Top = 0
   Caption = 'Form1'
   ClientHeight = 613
-  ClientWidth = 339
+  ClientWidth = 360
   WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -12,12 +12,12 @@ object SignForm: TSignForm
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
-    Size.Width = 339.000000000000000000
+    Size.Width = 360.000000000000000000
     Size.Height = 613.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object SignHeaderTB: TToolBar
-      Size.Width = 339.000000000000000000
+      Size.Width = 360.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -26,7 +26,7 @@ object SignForm: TSignForm
         Align = Right
         Images = Images
         ImageIndex = 0
-        Position.X = 306.000000000000000000
+        Position.X = 327.000000000000000000
         Size.Width = 33.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -35,7 +35,7 @@ object SignForm: TSignForm
         Align = VertCenter
         StyledSettings = [Family, Size]
         Position.Y = 15.000000000000000000
-        Size.Width = 306.000000000000000000
+        Size.Width = 327.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -48,7 +48,7 @@ object SignForm: TSignForm
     object SignBottomTB: TToolBar
       Align = Bottom
       Position.Y = 565.000000000000000000
-      Size.Width = 339.000000000000000000
+      Size.Width = 360.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -57,7 +57,7 @@ object SignForm: TSignForm
         Align = Right
         Images = Images
         ImageIndex = 1
-        Position.X = 306.000000000000000000
+        Position.X = 327.000000000000000000
         Size.Width = 33.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -74,7 +74,7 @@ object SignForm: TSignForm
     object AOuthRect: TRectangle
       Align = Client
       Fill.Color = xFF0D8C8C
-      Size.Width = 339.000000000000000000
+      Size.Width = 360.000000000000000000
       Size.Height = 517.000000000000000000
       Size.PlatformDefault = False
     end
@@ -84,7 +84,7 @@ object SignForm: TSignForm
       Margins.Right = 10.000000000000000000
       Position.X = 10.000000000000000000
       Position.Y = 252.000000000000000000
-      Size.Width = 319.000000000000000000
+      Size.Width = 340.000000000000000000
       Size.Height = 109.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
@@ -93,13 +93,13 @@ object SignForm: TSignForm
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 319.000000000000000000
+      Viewport.Width = 340.000000000000000000
       Viewport.Height = 109.000000000000000000
       object SignLBGH: TListBoxGroupHeader
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.HorzAlign = Center
         StyledSettings = [Family, Size, Style, FontColor]
-        Size.Width = 319.000000000000000000
+        Size.Width = 340.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -114,7 +114,7 @@ object SignForm: TSignForm
         Padding.Right = 15.000000000000000000
         Padding.Bottom = 5.000000000000000000
         Position.Y = 36.000000000000000000
-        Size.Width = 319.000000000000000000
+        Size.Width = 340.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -130,7 +130,7 @@ object SignForm: TSignForm
           TextSettings.FontColor = claBlue
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
-          Size.Width = 219.000000000000000000
+          Size.Width = 240.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family]
@@ -152,7 +152,7 @@ object SignForm: TSignForm
         Padding.Left = 85.000000000000000000
         Padding.Bottom = 5.000000000000000000
         Position.Y = 72.000000000000000000
-        Size.Width = 319.000000000000000000
+        Size.Width = 340.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -161,12 +161,13 @@ object SignForm: TSignForm
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = VertCenter
           TabOrder = 0
+          ReadOnly = True
           TextSettings.Font.Size = 11.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.FontColor = claBlue
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
-          Size.Width = 186.000000000000000000
+          Size.Width = 207.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family]
@@ -181,7 +182,7 @@ object SignForm: TSignForm
         end
         object UserBtn: TButton
           Align = Right
-          Position.X = 271.000000000000000000
+          Position.X = 292.000000000000000000
           Size.Width = 48.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
@@ -194,17 +195,16 @@ object SignForm: TSignForm
   end
   object UserLayout: TLayout
     Align = Client
-    Size.Width = 357.000000000000000000
-    Size.Height = 540.000000000000000000
+    Size.Width = 360.000000000000000000
+    Size.Height = 613.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 2
     object SettingRect: TRectangle
       Align = Client
       Fill.Color = claBlack
       Opacity = 0.600000023841857900
-      Size.Width = 357.000000000000000000
-      Size.Height = 492.000000000000000000
+      Size.Width = 360.000000000000000000
+      Size.Height = 565.000000000000000000
       Size.PlatformDefault = False
     end
     object UserLV: TListView
@@ -217,8 +217,8 @@ object SignForm: TSignForm
       Margins.Top = 7.000000000000000000
       Margins.Right = 7.000000000000000000
       Margins.Bottom = 7.000000000000000000
-      Size.Width = 343.000000000000000000
-      Size.Height = 478.000000000000000000
+      Size.Width = 346.000000000000000000
+      Size.Height = 551.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       ItemAppearance.ItemHeight = 28
@@ -241,7 +241,7 @@ object SignForm: TSignForm
           Appearance.Height = 28.000000000000000000
         end
         item
-          AppearanceObjectName = 'UID'
+          AppearanceObjectName = 'ID'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.Width = 55.000000000000000000
@@ -253,9 +253,10 @@ object SignForm: TSignForm
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claRed
-          Appearance.Width = 38.000000000000000000
-          Appearance.Height = 30.000000000000000000
+          Appearance.Width = 41.000000000000000000
+          Appearance.Height = 31.000000000000000000
           Appearance.PlaceOffset.X = 284.000000000000000000
+          Appearance.PlaceOffset.Y = -1.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item
@@ -274,7 +275,7 @@ object SignForm: TSignForm
       end
     end
     object UserHeaderTB: TToolBar
-      Size.Width = 357.000000000000000000
+      Size.Width = 360.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -289,7 +290,7 @@ object SignForm: TSignForm
       end
       object RefreshUserBtn: TButton
         Align = Right
-        Position.X = 309.000000000000000000
+        Position.X = 312.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -301,7 +302,7 @@ object SignForm: TSignForm
         StyledSettings = [Family, Size]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 261.000000000000000000
+        Size.Width = 264.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -472,5 +473,41 @@ object SignForm: TSignForm
       end>
     Left = 296
     Top = 416
+  end
+  object UsersBS: TBindSourceDB
+    DataSet = AppDataLocal.Users
+    ScopeMappings = <>
+    Left = 48
+    Top = 432
+  end
+  object SignLB: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 44
+    Top = 381
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = UsersBS
+      Control = UserLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'ID'
+          ControlMemberName = 'ID'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'UserLogin'
+          ControlMemberName = 'LogIn'
+        end
+        item
+          SourceMemberName = 'UserName'
+          ControlMemberName = 'Name'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
   end
 end

@@ -57,8 +57,20 @@ inherited SignForm_SmXhdpiPh: TSignForm_SmXhdpiPh
     end
   end
   inherited UserLayout: TLayout
+    Size.Width = 250.000000000000000000
+    Size.Height = 375.000000000000000000
+    inherited SettingRect: TRectangle
+      Size.Width = 250.000000000000000000
+      Size.Height = 327.000000000000000000
+    end
+    inherited UserLV: TListView
+      Size.Width = 236.000000000000000000
+      Size.Height = 313.000000000000000000
+    end
     inherited UserHeaderTB: TToolBar
+      Size.Width = 250.000000000000000000
       inherited UserHeaderLbl: TLabel
+        Size.Width = 154.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end

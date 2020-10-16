@@ -27,6 +27,9 @@ type
     { Private declarations }
   public
     { Public declarations }
+    function ConnectionToLocalDB: Boolean;
+
+    constructor Create(AOwner: TComponent); override;
   end;
 
 var
@@ -37,5 +40,24 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
+
+{ TAppDataLocal }
+
+function TAppDataLocal.ConnectionToLocalDB: Boolean;
+begin
+     try
+      Connection.Connected := True;
+   except
+      Connection.Connected := False;
+   end;
+
+    Result := Connection.Connected;
+end;
+
+constructor TAppDataLocal.Create(AOwner: TComponent);
+begin
+  inherited;
+  ConnectionToLocalDB();
+end;
 
 end.

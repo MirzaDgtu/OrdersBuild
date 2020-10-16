@@ -7,7 +7,9 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, System.ImageList, FMX.ImgList, FMX.Controls.Presentation,
   FMX.Edit, FMX.ListBox, FMX.Objects, FMX.ListView.Types,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView, FMX.Ani;
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView, FMX.Ani, Users,
+  System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TSignForm = class(TForm)
@@ -37,12 +39,16 @@ type
     UserHeaderLbl: TLabel;
     UserFA: TFloatAnimation;
     UserBtn: TButton;
+    UsersBS: TBindSourceDB;
+    SignLB: TBindingsList;
+    LinkListControlToField1: TLinkListControlToField;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+    usersUn: TUsers;
     procedure PanelUserView();
     procedure PanelUserHide();
   public
@@ -65,8 +71,9 @@ uses ModuleDataLocal, SConsts;
 
 procedure TSignForm.FormCreate(Sender: TObject);
 begin
-    AppDataLocal := TAppDataLocal.Create(Application);
-
+   AppDataLocal := TAppDataLocal.Create(Self);
+   AppDataLocal.ConnectionToLocalDB();
+   usersUn := TUsers.Create();
 end;
 
 procedure TSignForm.PanelUserHide;

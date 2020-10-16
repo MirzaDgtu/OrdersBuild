@@ -8,13 +8,13 @@ type
     private
     public
       procedure Clear();
-      procedure Get();
+      class procedure Get();
       procedure GetLastUser(out ID: integer);
       procedure Add(ID: integer; Login, Name: String);
       procedure Update(ID: integer; Status: smallint);
       procedure SetCurrentuser(ID: integer; Login, Name: String);
 
-    constructor Create(); overload;
+    constructor Create();
   end;
 
 
@@ -51,10 +51,11 @@ end;
 
 constructor TUsers.Create;
 begin
-    Get();
+  inherited Create();
+  Get();
 end;
 
-procedure TUsers.Get;
+class procedure TUsers.Get;
 begin
     AppDataLocal.Users.Active := False;
     AppDataLocal.Users.SQL.Text := SSQLGetUsersLocal;
@@ -65,11 +66,11 @@ procedure TUsers.GetLastUser(out ID: integer);
 begin
   try
      AppDataLocal.EveryOne.Active := False;
-     AppDataLocal.EveryOne.SQL.Text := SSQLGetLastUserLocal();
+     AppDataLocal.EveryOne.SQL.Text := SSQLGetLastUserLocal;
      AppDataLocal.EveryOne.Active := True;
   finally
     if not AppDataLocal.EveryOne.IsEmpty then
-      ID := AppDataLocal.EveryOne.FieldByName('ID').AsString;
+      ID := AppDataLocal.EveryOne.FieldByName('ID').AsInteger;
   end;
 end;
 

@@ -57,8 +57,20 @@ inherited SignForm_SSW3: TSignForm_SSW3
     end
   end
   inherited UserLayout: TLayout
+    Size.Width = 183.000000000000000000
+    Size.Height = 183.000000000000000000
+    inherited SettingRect: TRectangle
+      Size.Width = 183.000000000000000000
+      Size.Height = 135.000000000000000000
+    end
+    inherited UserLV: TListView
+      Size.Width = 169.000000000000000000
+      Size.Height = 121.000000000000000000
+    end
     inherited UserHeaderTB: TToolBar
+      Size.Width = 183.000000000000000000
       inherited UserHeaderLbl: TLabel
+        Size.Width = 87.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end

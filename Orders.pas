@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.TabControl, FMX.ListView.Types,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
-  FMX.Objects, System.ImageList, FMX.ImgList, FMX.Ani;
+  FMX.Objects, System.ImageList, FMX.ImgList, FMX.Ani, FMX.ListBox, FMX.Edit,
+  FMX.DateTimeCtrls, FMX.EditBox, FMX.SpinBox;
 
 type
   TOrdersForm = class(TForm)
@@ -34,7 +35,47 @@ type
     RightMenuVCLayout: TLayout;
     NaklRightMenuFA: TFloatAnimation;
     NaklRigthMenuRect: TRoundRect;
+    FilterSettingLayout: TLayout;
+    FilterSettingRect: TRectangle;
+    FilterSettingFA: TFloatAnimation;
+    FilterSettingHeaderTB: TToolBar;
+    BackFilterSettingBtn: TButton;
+    RefreshFilterSettingBtn: TButton;
+    Label7: TLabel;
+    FilterSettingLB: TListBox;
+    JournalNumLBI: TListBoxItem;
+    JournalSpin: TSpinBox;
+    DateBetweenLBGH: TListBoxGroupHeader;
+    BegDateLBI: TListBoxItem;
+    BegDate: TDateEdit;
+    EndDateLBI: TListBoxItem;
+    EndDate: TDateEdit;
+    ParamLNGH: TListBoxGroupHeader;
+    ReestrLBI: TListBoxItem;
+    ReestrFilterSettingBtn: TButton;
+    ReestrFilterSettingEdit: TEdit;
+    ClearEditButton2: TClearEditButton;
+    BrieforgLBI: TListBoxItem;
+    BrieforgFilterSettingBtn: TButton;
+    BrieforgFilterSettingEdit: TEdit;
+    ClearEditButton3: TClearEditButton;
+    VidDocLBI: TListBoxItem;
+    VidDocFilterSettingBtn: TButton;
+    VidDocFilterSettingEdit: TEdit;
+    ClearEditButton4: TClearEditButton;
+    DriverLBI: TListBoxItem;
+    DriverFilterSettingBtn: TButton;
+    DriverFilterSettingEdit: TEdit;
+    ClearEditButton5: TClearEditButton;
+    AgentLBI: TListBoxItem;
+    AgentFilterSettingBtn: TButton;
+    AgentFilterSettingEdit: TEdit;
+    ClearEditButton6: TClearEditButton;
+    BuildLBI: TListBoxItem;
+    TypeBuildCombo: TComboBox;
     procedure RightNaklMenuBtnClick(Sender: TObject);
+    procedure SettingFilterBtnClick(Sender: TObject);
+    procedure NaklLVClick(Sender: TObject);
   private
     { Private declarations }
     procedure PanelNaklRightMenuView();
@@ -49,8 +90,17 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.NmXhdpiPh.fmx ANDROID}
+{$R *.XLgXhdpiTb.fmx ANDROID}
+{$R *.LgXhdpiTb.fmx ANDROID}
+{$R *.LgXhdpiPh.fmx ANDROID}
 
 { TOrdersForm }
+
+procedure TOrdersForm.NaklLVClick(Sender: TObject);
+begin
+   PanelNaklRightMenuHide();
+end;
 
 procedure TOrdersForm.PanelNaklRightMenuHide;
 begin
@@ -72,6 +122,11 @@ end;
 procedure TOrdersForm.RightNaklMenuBtnClick(Sender: TObject);
 begin
   PanelNaklRightMenuView();
+end;
+
+procedure TOrdersForm.SettingFilterBtnClick(Sender: TObject);
+begin
+   PanelNaklRightMenuHide();
 end;
 
 end.

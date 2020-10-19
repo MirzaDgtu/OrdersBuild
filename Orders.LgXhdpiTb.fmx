@@ -1,0 +1,300 @@
+inherited OrdersForm_LgXhdpiTb: TOrdersForm_LgXhdpiTb
+  ClientHeight = 829
+  ClientWidth = 480
+  DesignerMasterStyle = 3
+  inherited MainLayout: TLayout
+    Size.Width = 480.000000000000000000
+    Size.Height = 829.000000000000000000
+    inherited OrdersHeaderTB: TToolBar
+      Size.Width = 480.000000000000000000
+      inherited OrdersHeaderLbl: TLabel
+        Size.Width = 384.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited NextTabBtn: TButton
+        Position.X = 432.000000000000000000
+      end
+    end
+    inherited TabsOrder: TTabControl
+      Size.Width = 480.000000000000000000
+      Size.Height = 781.000000000000000000
+      Sizes = (
+        480s
+        732s
+        480s
+        732s
+        480s
+        732s)
+      inherited OrdersTab: TTabItem
+        Size.Width = 160.000000000000000000
+        ExplicitSize.cx = 133.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
+        inherited NaklLayout: TLayout
+          inherited NaklHeaderTB: TToolBar
+            inherited NaklHeaderLbl: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited NaklLV: TListView
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'UID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'JournalNo'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'OrderUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 143.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
+                Appearance.PlaceOffset.X = 174.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'FolioUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 95.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
+                Appearance.PlaceOffset.X = 80.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderNo'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 39.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
+                Appearance.PlaceOffset.X = 120.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderDate'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 85.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 114.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Status'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'BRIEFORG'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 65.000000000000000000
+                Appearance.PlaceOffset.X = 198.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'ORGANIZNKL'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'L_CP1_PLAT'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'L_CP2_PLAT'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'VID_DOC'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'SUM_ROZN'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'SUM_POR'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 86.000000000000000000
+                Appearance.Height = 49.000000000000000000
+                Appearance.PlaceOffset.X = 262.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'StrikeCode'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 85.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 30.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'NAMEP_USER'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'ProjectName'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Date_Device'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 31.000000000000000000
+                Appearance.Height = 44.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'ScreenStatus'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 31.000000000000000000
+                Appearance.Height = 33.000000000000000000
+                Appearance.PlaceOffset.X = 348.000000000000000000
+                Appearance.PlaceOffset.Y = -1.000000000000000000
+              end>
+            ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+            inherited NaklRigthMenuLayout: TLayout
+              inherited NaklRigthMenuRect: TRoundRect
+                inherited RightMenuVCLayout: TLayout
+                  inherited BuildNaklBtn: TSpeedButton
+                    Size.Width = 72.000000000000000000
+                  end
+                  inherited ViewNaklBtn: TSpeedButton
+                    Size.Width = 72.000000000000000000
+                  end
+                end
+              end
+            end
+          end
+        end
+        inherited FilterSettingLayout: TLayout
+          Size.Width = 480.000000000000000000
+          Size.Height = 732.000000000000000000
+          inherited FilterSettingRect: TRectangle
+            Size.Width = 476.000000000000000000
+            Size.Height = 680.000000000000000000
+          end
+          inherited FilterSettingHeaderTB: TToolBar
+            Size.Width = 480.000000000000000000
+            inherited BackFilterSettingBtn: TButton
+              OnClick = nil
+            end
+            inherited RefreshFilterSettingBtn: TButton
+              Position.X = 432.000000000000000000
+              OnClick = nil
+            end
+            inherited Label7: TLabel
+              Size.Width = 384.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited FilterSettingLB: TListBox
+            Size.Width = 470.000000000000000000
+            Size.Height = 677.000000000000000000
+            Viewport.Width = 470.000000000000000000
+            Viewport.Height = 677.000000000000000000
+            inherited JournalNumLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Size.Width = 470.000000000000000000
+              inherited JournalSpin: TSpinBox
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 240.000000000000000000
+              end
+            end
+            inherited DateBetweenLBGH: TListBoxGroupHeader
+              Size.Width = 470.000000000000000000
+            end
+            inherited BegDateLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited BegDate: TDateEdit
+                Size.Width = 270.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+              end
+            end
+            inherited EndDateLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited EndDate: TDateEdit
+                Size.Width = 270.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+              end
+            end
+            inherited ParamLNGH: TListBoxGroupHeader
+              Size.Width = 470.000000000000000000
+            end
+            inherited ReestrLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited ReestrFilterSettingBtn: TButton
+                Position.X = 422.000000000000000000
+              end
+              inherited ReestrFilterSettingEdit: TEdit
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 272.000000000000000000
+              end
+            end
+            inherited BrieforgLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited BrieforgFilterSettingBtn: TButton
+                Position.X = 422.000000000000000000
+              end
+              inherited BrieforgFilterSettingEdit: TEdit
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 272.000000000000000000
+              end
+            end
+            inherited VidDocLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited VidDocFilterSettingBtn: TButton
+                Position.X = 422.000000000000000000
+              end
+              inherited VidDocFilterSettingEdit: TEdit
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 272.000000000000000000
+              end
+            end
+            inherited DriverLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited DriverFilterSettingBtn: TButton
+                Position.X = 422.000000000000000000
+              end
+              inherited DriverFilterSettingEdit: TEdit
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 272.000000000000000000
+              end
+            end
+            inherited AgentLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited AgentFilterSettingBtn: TButton
+                Position.X = 422.000000000000000000
+              end
+              inherited AgentFilterSettingEdit: TEdit
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 272.000000000000000000
+              end
+            end
+            inherited BuildLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              inherited TypeBuildCombo: TComboBox
+                Size.Width = 270.000000000000000000
+              end
+            end
+          end
+        end
+      end
+      inherited StatistTab: TTabItem
+        Size.Width = 160.000000000000000000
+        ExplicitSize.cx = 133.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
+      end
+      inherited SynchTab: TTabItem
+        Size.Width = 160.000000000000000000
+        ExplicitSize.cx = 134.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
+      end
+    end
+  end
+end

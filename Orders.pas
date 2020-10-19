@@ -27,13 +27,13 @@ type
     NaklHeaderLbl: TLabel;
     NaklLV: TListView;
     NaklRigthMenuLayout: TLayout;
-    NaklRigthMenuRect: TRectangle;
     ViewNaklBtn: TSpeedButton;
     IL: TImageList;
     BuildNaklBtn: TSpeedButton;
     SettingFilterBtn: TSpeedButton;
     RightMenuVCLayout: TLayout;
     NaklRightMenuFA: TFloatAnimation;
+    NaklRigthMenuRect: TRoundRect;
     procedure RightNaklMenuBtnClick(Sender: TObject);
   private
     { Private declarations }

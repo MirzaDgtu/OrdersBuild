@@ -80,6 +80,10 @@ type
     { Private declarations }
     procedure PanelNaklRightMenuView();
     procedure PanelNaklRightMenuHide();
+    procedure PanelSettingFilterView();
+    procedure PanelSettingFilterHide();
+
+
   public
     { Public declarations }
   end;
@@ -119,6 +123,23 @@ begin
   NaklRightMenuFA.Start;
 end;
 
+procedure TOrdersForm.PanelSettingFilterHide;
+begin
+   FilterSettingLayout.Visible := False;
+   FilterSettingFA.Inverse := False;
+   FilterSettingFA.Start;
+end;
+
+procedure TOrdersForm.PanelSettingFilterView;
+begin
+  FilterSettingLayout.Height := Self.Height + 30;
+  FilterSettingLayout.Visible := True;
+
+  FilterSettingFA.Inverse := False;
+  FilterSettingFA.StartValue := Self.Height + 30;
+  FilterSettingFA.Start;
+end;
+
 procedure TOrdersForm.RightNaklMenuBtnClick(Sender: TObject);
 begin
   PanelNaklRightMenuView();
@@ -127,6 +148,7 @@ end;
 procedure TOrdersForm.SettingFilterBtnClick(Sender: TObject);
 begin
    PanelNaklRightMenuHide();
+   PanelSettingFilterView();
 end;
 
 end.

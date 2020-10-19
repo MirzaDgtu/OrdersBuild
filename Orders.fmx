@@ -85,15 +85,14 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object NaklLayout: TLayout
           Align = Client
-          Size.Width = 365.000000000000000000
-          Size.Height = 521.000000000000000000
+          Size.Width = 368.000000000000000000
+          Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
-          Visible = False
           TabOrder = 0
           object NaklHeaderTB: TToolBar
             Align = Bottom
-            Position.Y = 473.000000000000000000
-            Size.Width = 365.000000000000000000
+            Position.Y = 479.000000000000000000
+            Size.Width = 368.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -108,7 +107,7 @@ object OrdersForm: TOrdersForm
             end
             object RightNaklMenuBtn: TButton
               Align = Right
-              Position.X = 317.000000000000000000
+              Position.X = 320.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -121,7 +120,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 269.000000000000000000
+              Size.Width = 272.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -138,8 +137,8 @@ object OrdersForm: TOrdersForm
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
-            Size.Width = 365.000000000000000000
-            Size.Height = 473.000000000000000000
+            Size.Width = 368.000000000000000000
+            Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
             ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
@@ -193,7 +192,6 @@ object OrdersForm: TOrdersForm
                 AppearanceObjectName = 'BRIEFORG'
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Width = 65.000000000000000000
-                Appearance.Height = -44.000000000000000000
                 Appearance.PlaceOffset.X = 198.000000000000000000
               end
               item
@@ -351,6 +349,7 @@ object OrdersForm: TOrdersForm
           Size.Width = 368.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
+          Visible = False
           TabOrder = 2
           object FilterSettingRect: TRectangle
             Align = Client
@@ -426,6 +425,7 @@ object OrdersForm: TOrdersForm
             Size.PlatformDefault = False
             TabOrder = 2
             DisableFocusEffect = True
+            ItemHeight = 35.000000000000000000
             DefaultItemStyles.ItemStyle = ''
             DefaultItemStyles.GroupHeaderStyle = ''
             DefaultItemStyles.GroupFooterStyle = ''
@@ -438,7 +438,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 150.000000000000000000
               Padding.Right = 80.000000000000000000
               Size.Width = 358.000000000000000000
-              Size.Height = 40.000000000000000000
+              Size.Height = 35.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
               Text = #1046#1091#1088#1085#1072#1083
@@ -448,7 +448,7 @@ object OrdersForm: TOrdersForm
                 TabOrder = 0
                 Cursor = crIBeam
                 Position.X = 150.000000000000000000
-                Position.Y = 4.000000000000000000
+                Position.Y = 1.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Size.Width = 128.000000000000000000
                 Size.Height = 32.000000000000000000
@@ -459,9 +459,9 @@ object OrdersForm: TOrdersForm
             object DateBetweenLBGH: TListBoxGroupHeader
               TextSettings.HorzAlign = Center
               StyledSettings = [Family, Size, Style, FontColor]
-              Position.Y = 40.000000000000000000
+              Position.Y = 35.000000000000000000
               Size.Width = 358.000000000000000000
-              Size.Height = 30.000000000000000000
+              Size.Height = 35.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               Text = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1072#1090
@@ -473,13 +473,16 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 100.000000000000000000
               Position.Y = 70.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 2
               Text = #1057
               object BegDate: TDateEdit
                 Date = 44118.000000000000000000
                 Align = VertCenter
                 Position.X = 100.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 158.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -497,14 +500,17 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family, Other]
               Padding.Left = 100.000000000000000000
               Padding.Right = 100.000000000000000000
-              Position.Y = 114.000000000000000000
+              Position.Y = 105.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 3
               Text = #1055#1086
               object EndDate: TDateEdit
                 Date = 44118.000000000000000000
                 Align = VertCenter
                 Position.X = 100.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 158.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -519,9 +525,9 @@ object OrdersForm: TOrdersForm
             object ParamLNGH: TListBoxGroupHeader
               TextSettings.HorzAlign = Center
               StyledSettings = [Family, Size, Style, FontColor]
-              Position.Y = 158.000000000000000000
+              Position.Y = 140.000000000000000000
               Size.Width = 358.000000000000000000
-              Size.Height = 30.000000000000000000
+              Size.Height = 35.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 4
               Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
@@ -531,7 +537,10 @@ object OrdersForm: TOrdersForm
               TextSettings.FontColor = claDarkblue
               StyledSettings = [Family, Other]
               Padding.Left = 150.000000000000000000
-              Position.Y = 188.000000000000000000
+              Position.Y = 175.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 5
               Text = #1056#1077#1077#1089#1090#1088
               object ReestrFilterSettingBtn: TButton
@@ -551,7 +560,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Position.X = 150.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 160.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -571,7 +580,10 @@ object OrdersForm: TOrdersForm
               TextSettings.FontColor = claDarkblue
               StyledSettings = [Family, Other]
               Padding.Left = 150.000000000000000000
-              Position.Y = 232.000000000000000000
+              Position.Y = 210.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 6
               Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
               object BrieforgFilterSettingBtn: TButton
@@ -592,7 +604,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Position.X = 150.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 160.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -612,7 +624,10 @@ object OrdersForm: TOrdersForm
               TextSettings.FontColor = claDarkblue
               StyledSettings = [Family, Other]
               Padding.Left = 150.000000000000000000
-              Position.Y = 276.000000000000000000
+              Position.Y = 245.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 7
               Text = #1058#1080#1087' '#1086#1087#1077#1088#1072#1094#1080#1080
               object VidDocFilterSettingBtn: TButton
@@ -633,7 +648,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Position.X = 150.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 160.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -653,7 +668,10 @@ object OrdersForm: TOrdersForm
               TextSettings.FontColor = claDarkblue
               StyledSettings = [Family, Other]
               Padding.Left = 150.000000000000000000
-              Position.Y = 320.000000000000000000
+              Position.Y = 280.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 8
               Text = #1042#1086#1076#1080#1090#1077#1083#1100
               object DriverFilterSettingBtn: TButton
@@ -674,7 +692,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Position.X = 150.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 160.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -694,7 +712,10 @@ object OrdersForm: TOrdersForm
               TextSettings.FontColor = claDarkblue
               StyledSettings = [Family, Other]
               Padding.Left = 150.000000000000000000
-              Position.Y = 364.000000000000000000
+              Position.Y = 315.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 9
               Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090
               object AgentFilterSettingBtn: TButton
@@ -715,7 +736,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Position.X = 150.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 160.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -736,7 +757,10 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Padding.Left = 150.000000000000000000
               Padding.Right = 50.000000000000000000
-              Position.Y = 408.000000000000000000
+              Position.Y = 350.000000000000000000
+              Size.Width = 358.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
               TabOrder = 10
               Text = #1057#1073#1086#1088#1082#1072
               object TypeBuildCombo: TComboBox
@@ -748,7 +772,7 @@ object OrdersForm: TOrdersForm
                   #1057#1086#1073#1088#1072#1085#1085#1099#1077)
                 ItemIndex = 0
                 Position.X = 150.000000000000000000
-                Position.Y = 6.000000000000000000
+                Position.Y = 1.000000000000000000
                 Size.Width = 158.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
@@ -800,29 +824,29 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              02B749444154384F85535D489361143EFBB6B96F3F9F6E6D3A9DE46C944599A5
-              45A124432A0915BA8A32B28B6EF222C2A2EC26B0A08BE8A60B8D9CDD15681644
-              89FD61F8470A965A733A75A84BA79B6D6B7F5FFA6DDF7EBEF6BE7CF4E3901E38
-              BC87E739E7BCE73D8757009BA0FACE70AE4E97D18A7CA73358FFFA66D90A1636
-              80E0CF1468B4E97555A50535C83459D4599E4E414A8103A651F17993F94AB68A
-              3C2D110B01598E5A565BD76A693036F589F8B0DFC04FA86DF97A444991F5BE10
-              3398AB969D29DB9165E44829E1F6FFC4415A950220CC2486E63DFD2BDEB5676A
-              4A5A1E0C320FDB2F170FE10257DBE77A8F1D3254AC312C484831CCDA57C1A021
-              61A78EC2056C4E1ABEF922B05DAF8548380A72691AF47C9EEBBD5F5B7094402D
-              8763F17030447348B02DB8A06A5F26941854202745D88A937EE55E0D2E8C6202
-              419A6393392857E8EA6E4BE417D53F67D36255EA74A94E2505D067CA616231E0
-              ECFAE478FC65C1374A10C4D63C8D5CC1246F0F2784609E778F2FCFB0951FAEED
-              8FE216116EBDB45B9AFBDDDC8C27CAD90309EE7AC7741B2F4163C7F423C459DD
-              51AE79C0C33575D9277869F335C6F9F36FA08171D8FBB30C5CE054D3641AC326
-              58ED160AAC2B212C18776BAB1B9FCE986E243B29DD95558338A469551444D828
-              8B7210274083382CA55E9517669FC848A704B6C555385EA80199E4DF95AF4762
-              D033E985027D361EE2C7A9D577230C7D9218BB78304A8A84244A466B34E469E1
-              8DD903630B7E8844E31066E3D87F6FF1620DC528332841723924CA15A2EAF915
-              17E697BE072563B3AE073E3FAD28CA55EA13129960D24183DD1B01B95C014A11
-              2406A796FB46ACCEBB0E7728F4C3CFDCB3BC3539523E137AD21E105FCAC9549C
-              33166D2B41DCC0B87DDCE95B7FB2E4F2B60CDCAE88E1C0FF01FD871756964356
-              D76A6EE0E9146CBA466780EEEC1EB661737BD94E9EDE00805F00F7374115159F
-              6D0000000049454E44AE426082}
+              02B649444154384F85535D489361143EFBE6DCB75FB7B6F9E92467432CB22C2D
+              0AC5185249A8D05594915D7493171116653781055D44375D68E4ECAE40B3204A
+              EC0FC39F40C1526B4EA60EDDD2B54DE7DA6FFA6DDFB7ED6BEFCB473F0EE981C3
+              7B789E73CE7BDE737805B005EAEF8C15E8F5399DC8F778C2CDAF6F56B9B1B009
+              047F66404B299BEA2A4B1A9069731567793A0319050E982744E7CD962B796AF2
+              B458240464F91A696353A7B5C5D43694C587FD067E4263C7D76A95826C0E44E8
+              8F051AE999AA629D899348095FF0270EA2D472007A2335EAF00FBBFDEBCF340A
+              C99170987ED87DB97C1417B8DABD3078EC90B1669D66404C8A60DEB902462D09
+              3BF50A5CC0EE89C2B7401C8A0D14C4632CC824D930F07961F07E63C95102B51C
+              4B2463A170844382DDE185BA7D3AA830AA414666612B4FFBB57BB5B8308A0986
+              221C93CE41B9426F7F57AAA8ACF9399B9DA8D328257AB504C0A093C1F452C8D3
+              F7C9F5F88B23304110C4F642AD4C4EA76F8FA5846059F44D7D9F636A3F5CDBCF
+              E216116EBD745ADB877DDCDC1ACB394329EE7ACF6C172F416BCFEC23C4D97C2C
+              D73EB2C6B5F539A77969EB3526F9F36FA08171D8FBB30C5CE054DB4C36CDA418
+              6A9B026CEE08164CBBA9FAD6A773E61BE94E2A77E536200E69945A0171866550
+              0EE204681087258A57D5A5D409558E52605F5A81E37BB42015FFBBF28D780206
+              66FC5062C8C3431CB5ADBE1BA7A32789C98B0759324B48A264B4466321056F2C
+              6B30E908429C4D428C4962FFBDD58F3514A3562905E9E590285788AA17D55C58
+              5C5E0D8B27E7BD0F02C1A8BC4C9F63488965821957149CFE38C864725009B9D4
+              479B7B68DCE6B9EBF245223F82F43DEB5BB32BE333A1279582E852BE4E7ECE54
+              B6A302712353CE294F60E3C9B2D7DF3172BB268103FF07F41F5ED8180E5953A7
+              A585A733B0E51A3DA1686FFF981D9BCFCFF4F2F42600FC02D23238412D2A9638
+              0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_16px.png'
           end>
         Name = 'icons8_settings_16px'
@@ -836,18 +860,18 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              015549444154384FBD90BF4B033114C75F726DBDFE90165C2CBD4570EA245814
-              ECEC26EAACB3B382BB38B8F9079C8BBB8B9B8308EE6E4E2205C1A2D7A2E8606B
-              739726D7C4BB6B08047F7022F88124EFBD6FDE9797C05F41EA4C58F3C412B650
-              4DA59AE091DC9D2F94AE556A6018AC740296417656A59AA7338F41096D5F6D38
-              47AAA4C1EA4CF8AA390665646ED0EAB9CD136F57953486C1776084017109FDDB
-              E7C3E669674795138C27AC77A554A1C1E89D03EF3188456985C1C57CA5305652
-              4E604D66C1768A908F56A15ACEAB72422A839FF83F831C25303BEAC10C7F0397
-              8ABA2AA7FB449BF9B05CB3A308030D01680411138DBD297C936A02C7E2D1AE9A
-              A3D01FD9B63F945BB196CA404473E9660640E2351C6B864128E32B9F79083340
-              A8D0CD7D1AB0FB97C165AC197FB0DA150D10A8A2520DC2B25A0CF95C59CA45C6
-              11E9BEFA6EAB4D37499FED1B06BF61FAB85D97021D7C008B8289ADAD4B19A500
-              00000049454E44AE426082}
+              015649444154384FBD90BF4B033114C75F726DB96B2D2DB8587A8BE0D449B028
+              D8D94DD459676705777170F30F38177717271711DCDD9C440A82C5FEA0A083AD
+              CD5D9A5C13EFAE2110FCC189E00792BCF7BEBC6F5E027F05A93361B32356B185
+              AA2AD5046DF278B53C73A75203C360BDEBB30C72B22AD5F42F3B0C8A68EF76DB
+              3D55250D5667C257CD31282B73A3E6C06B9C770E544963187C0746181097307C
+              E89F342EBAFBAA9C603C61AB27A50A0D26EF1CF880412C4A2B0CAE97CAF9A992
+              7202AB9805DB2D8013AD7CA5E4A872422A839FF83F831C25B03019C03C7F038F
+              8A9A2AA7FB449BF9B056B5A308030D01280D281176FD7016DFA79AC0B578B4AB
+              E628F4278EED8FE56EACA53210D15CBA990190788DA79A6110CA20BEEA13CF61
+              060815BA79487DF6F432BA8935E30F367AA20E029555AA4158560A215F2C49B9
+              C23822BD57DF6BB6E80E19B223C3E037CC9DB56A52A0E30F8ECC89AD68B31300
+              0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_view_16px.png'
           end>
         Name = 'icons8_view_16px'
@@ -862,19 +886,19 @@ object OrdersForm: TOrdersForm
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
               019749444154384F6364201184AE5AC5CCFA5E2D8AE1CFFF27CBB20DF7936400
-              50339BF017AD1B46BAD272BFBEFFFC7CFCEAF34026A81C41603F7F3F87FC6FBD
-              9D393E6A8ABF3E7F67E6E262E561F8CF244F94012067EBB048AEE26667B3E460
-              6666B0561762387EF9F92395977A8B097A01A459F487FE52173DE950467676A6
-              4B37EEFCF8F88DE1D063D6CBBEABC3C27EE17581F1CC33ACA2BF0CD6D8EBCB84
-              71F070317DFBFBE3CFE30FFFD69D957AE10DD20C5283D30520CDE6DC7CABEC75
-              A5FD79B93919DFFFF8FAE7C0A927CB66276A24303032FE872AC36E00B19A4100
-              C3006C9A0F9F7DB26C461CA6661040318054CD2000370014CFDA2C12C7ECF5E4
-              0C409ABF7EFFF277F7D9A7CB66C56BC4E3D20C02F0585065103C61A32B6F08D2
-              FCE9CBB7FFFBCE3DDDF49EEB72223ECD200036206AD679034F3D31C5272FDE30
-              7CFCFC8361DFF9C777DF705E0E0546D55FB02A3C006C001B03E3341D79313E65
+              50339BF017AD1B86BA5272BFBFFFFC7CFCEA8B4026A81C41603F7F3F87FC6FBD
+              9D393E6A8ABF3FFF60E6E262E561F8CF244F94012067EBB048AEE26663B3E460
+              6666B0561762387EF9C52395977A8B097A01A459F487FE52175DA950460E0EA6
+              4B376EFFF8F88DF1D063D6CBBEABC3C27EE17581F1CC33ACA2BF0CD6D8E94987
+              71F072337DFDFBFDCFE30FFFD79D957AE10DD20C5283D30520CDE6DC7CABEC74
+              A4FCF978B818DFFDF8F2E7E0A9A7CB66276A24303032FE872AC36E00B19A4100
+              C3006C9A8F9C7DBA6C461CA6661040318054CD2000370014CFDA2C12C7EC7465
+              0D409ABF7EFFFC77F7D967CB66C56BC4E3D20C02F0585065103C61A32B6F08D2
+              FCF1F3D7FFFBCE3DDBF49EEB72223ECD200036206AD679034F3D51C5272FDE30
+              7CFCFC8361FF852777DF705E0E0546D55FB02A3C006C001B03E3341D79713E65
               41AE2FFBCFDDBDF4E8D37D1D62348300A36FF341C5BFECECB74405388EFEFCF5
-              3F7B458EE155A81C71C0A5E3B8A657D74909289744C0C00000ABDBB90A732F92
-              330000000049454E44AE426082}
+              3F7B458EE155A81C71C0A5E3B8A657D74909289744C0C00000B075B90EAB7BD7
+              440000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_edit_16px.png'
           end>
         Name = 'icons8_edit_16px'

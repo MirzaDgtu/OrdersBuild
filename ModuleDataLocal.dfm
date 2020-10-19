@@ -55,4 +55,19 @@ object AppDataLocal: TAppDataLocal
     Left = 304
     Top = 16
   end
+  object Reestrs: TFDQuery
+    Connection = Connection
+    Left = 72
+    Top = 72
+    object ReestrsUID: TIntegerField
+      FieldName = 'UID'
+    end
+    object ReestrsProjectName: TStringField
+      FieldName = 'ProjectName'
+      Size = 30
+    end
+    object ReestrsScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
 end

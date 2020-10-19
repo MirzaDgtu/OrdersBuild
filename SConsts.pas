@@ -4,7 +4,7 @@ interface
 
 resourcestring
 
-  // –абота с локальной таблицой USERS
+                                    // –абота с локальной таблицой USERS
 
       SSQLClearUsersLocal              = 'DELETE FROM Users';                    // ќчистка списка пользователей
 
@@ -39,7 +39,7 @@ resourcestring
                             ' WHERE LastUser = 1 ' +                         //-----************************-----//
                             'Order BY UserName';                             //-----************************-----//
 
-   // ѕараметры соединени€ с удаленный сервером
+                                      // ѕараметры соединени€ с удаленный сервером
 
       SSQLGetConnectSetting   = 'SELECT  ID, ' +                              //-----************************-----//
                                         'ServerName, ' +                      //-----************************-----//
@@ -61,6 +61,21 @@ resourcestring
 
 
 
+                                                                // —писок реестров
+
+      SSQLGetReestrs             = 'EXEC DELIVERY..S_GetReestrs';               // ѕолучение списка реестров с удаленного сервера
+
+      SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                             // ѕолучение списка реестров с локальной базы
+                                          'R.ProjectName, ' +
+                                          'I.Screen ' +
+                                   'FROM Reestrs R ' +
+                                   ' LEFT JOIN Icons I ON I.UID = 12';
+
+      SSQLAddReestrs             = 'INSERT INTO Reestrs(UID, ' +                // ƒобавление списка реестров в локальную базу
+                                                       'ProjectName) ' +
+                                   'VALUES             (%d, ''%s'')';
+
+      SSQLDeleteReestrs          = 'DELETE FROM Reestrs';                       // ќчистка списка реестров в локальной базы
 
 implementation
 

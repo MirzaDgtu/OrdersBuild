@@ -40,8 +40,8 @@ type
     FilterSettingFA: TFloatAnimation;
     FilterSettingHeaderTB: TToolBar;
     BackFilterSettingBtn: TButton;
-    RefreshFilterSettingBtn: TButton;
-    Label7: TLabel;
+    SaveFilterSettingBtn: TButton;
+    SettingFilterLbl: TLabel;
     FilterSettingLB: TListBox;
     JournalNumLBI: TListBoxItem;
     JournalSpin: TSpinBox;
@@ -73,9 +73,19 @@ type
     ClearEditButton6: TClearEditButton;
     BuildLBI: TListBoxItem;
     TypeBuildCombo: TComboBox;
+    ReestrFilterSettingLayout: TLayout;
+    ReestrFilterSettingRect: TRectangle;
+    ReestrsHeaderTB: TToolBar;
+    ReestrFilterSettingBackBtn: TButton;
+    ReestrFilterSettingRefreshBtn: TButton;
+    ReestrFilterSettingHeaderLbl: TLabel;
+    ReestrFilterSettingFA: TFloatAnimation;
+    ReestrsLV: TListView;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
+    procedure BackFilterSettingBtnClick(Sender: TObject);
+    procedure SaveFilterSettingBtnClick(Sender: TObject);
   private
     { Private declarations }
     procedure PanelNaklRightMenuView();
@@ -94,12 +104,19 @@ var
 implementation
 
 {$R *.fmx}
+
+uses ModuleDataLocal, SConsts;
 {$R *.NmXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.LgXhdpiTb.fmx ANDROID}
 {$R *.LgXhdpiPh.fmx ANDROID}
 
 { TOrdersForm }
+
+procedure TOrdersForm.BackFilterSettingBtnClick(Sender: TObject);
+begin
+  PanelSettingFilterHide();
+end;
 
 procedure TOrdersForm.NaklLVClick(Sender: TObject);
 begin
@@ -143,6 +160,11 @@ end;
 procedure TOrdersForm.RightNaklMenuBtnClick(Sender: TObject);
 begin
   PanelNaklRightMenuView();
+end;
+
+procedure TOrdersForm.SaveFilterSettingBtnClick(Sender: TObject);
+begin
+  PanelSettingFilterHide();
 end;
 
 procedure TOrdersForm.SettingFilterBtnClick(Sender: TObject);

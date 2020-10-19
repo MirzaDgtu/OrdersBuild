@@ -24,6 +24,10 @@ type
     Command: TFDQuery;
     EveryOne: TFDQuery;
     UsersLastUserScreen: TBlobField;
+    Reestrs: TFDQuery;
+    ReestrsUID: TIntegerField;
+    ReestrsProjectName: TStringField;
+    ReestrsScreen: TBlobField;
     procedure ConnectionBeforeConnect(Sender: TObject);
   private
     { Private declarations }

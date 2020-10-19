@@ -369,6 +369,7 @@ object SignForm: TSignForm
         Size.PlatformDefault = False
         StyleLookup = 'donetoolbutton'
         TabOrder = 1
+        OnClick = SaveSettingBtnClick
       end
       object SettingHeaderLbl: TLabel
         Align = VertCenter
@@ -590,12 +591,17 @@ object SignForm: TSignForm
         object PortParamSettingEdit: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = VertCenter
-          TabOrder = 1
+          TabOrder = 0
+          KeyboardType = NumberPad
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
           Position.Y = 2.000000000000000000
           Size.Width = 221.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
+          StyledSettings = [Family, Size]
           object ClearParamSettingBtn: TClearEditButton
             CanFocus = False
             Cursor = crArrow

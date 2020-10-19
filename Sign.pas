@@ -9,7 +9,7 @@ uses
   FMX.Edit, FMX.ListBox, FMX.Objects, FMX.ListView.Types,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView, FMX.Ani, Users,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, ConnectRemove, DataBaseLocal;
 
 type
   TSignForm = class(TForm)
@@ -77,13 +77,18 @@ type
     procedure ViewPasswordBtnClick(Sender: TObject);
     procedure SettingParamSBtnClick(Sender: TObject);
     procedure BackSettingBtnClick(Sender: TObject);
+    procedure SaveSettingBtnClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
+    connectUn: TConnectRemove;
+    
     procedure PanelUserView();
     procedure PanelUserHide();
     procedure PanelSettingView();
     procedure PanelSettingHide();
+
+    procedure getDefaultSetting();
   public
     { Public declarations }
   end;
@@ -108,8 +113,16 @@ begin
 end;
 
 procedure TSignForm.DefaultSBtnClick(Sender: TObject);
+var
+   dbLocal: TLocalDataBase;
 begin
-    ShowMessage((CurrentUser.ID).ToString + ' ' + CurrentUser.Login + ' ' + CurrentUser.Name);
+   dbLocal := TLocalDataBase.Create;
+  {
+   try
+     dbLocal.Delete;
+   finally
+     dbLocal.Free;
+   end;}      
 end;
 
 procedure TSignForm.FormCreate(Sender: TObject);
@@ -117,7 +130,20 @@ begin
    AppDataLocal := TAppDataLocal.Create(Self);
    AppDataLocal.ConnectionToLocalDB();
    usersUn := TUsers.Create();
-   UserEdit.Text := CurrentUser.Name;
+   connectUn := TConnectRemove.Create(ConnectLocal);
+   getDefaultSetting();
+end;
+
+procedure TSignForm.getDefaultSetting;
+begin
+   UserEdit.Text := CurrentUser.Name; // Пользователь
+
+   // Параметры для подключения к удаленному серверу
+   ServerSettingParamEdit.Text := ConnectLocal.Sever;
+   DataBaseSettingParamEdit.Text := ConnectLocal.InitialCatalog;
+   LoginSettingParamEdit.Text := ConnectLocal.login;
+   PasswordSettingParamEdit.Text := ConnectLocal.Password;
+   PortParamSettingEdit.Text := (ConnectLocal.Port).ToString
 end;
 
 procedure TSignForm.PanelSettingHide;
@@ -152,6 +178,35 @@ begin
       UserFA.Inverse := False;
       UserFA.StartValue := Self.Height  + 20;
       UserFA.Start;
+end;
+
+procedure TSignForm.SaveSettingBtnClick(Sender: TObject);
+//var
+//  CheckVal: Boolean;
+begin
+  //CheckVal := True;
+ { SettingLB.EnumControls(function (Control: TControl): TEnumControlsResult
+  begin
+    if  (Control is TEdit)then
+       if TEdit(Control).Text.IsEmpty then
+       Begin
+          Result := TEnumControlsResult.Discard;
+          CheckVal := False;
+       End 
+    else
+        Result := TEnumControlsResult.Continue;
+  end);
+}
+  try
+    if Length(Trim(ServerSettingParamEdit.Text)) > 0 then  
+      connectUn.Add(Trim(ServerSettingParamEdit.Text),
+                    Trim(DataBaseSettingParamEdit.Text),
+                    Trim(LoginSettingParamEdit.Text),
+                    Trim(PasswordSettingParamEdit.Text),
+                    (Trim(PortParamSettingEdit.Text)).toInteger);
+  finally
+    PanelSettingHide();
+  end;
 end;
 
 procedure TSignForm.SettingParamSBtnClick(Sender: TObject);

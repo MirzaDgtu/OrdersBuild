@@ -8,10 +8,10 @@ type
   TLocalDataBase = class
     private
       procedure addTables();
-    public
-      function checkExistsDataBase(Name: string): Boolean;
-      procedure Create();
+      procedure CreateDB();
       procedure Delete();
+    public
+      constructor Create();
   end;
 
 resourcestring
@@ -26,44 +26,45 @@ resourcestring
                                                    '"LastUser" INTEGER)';                                                                       //--*********************************--//
 
     SSQLCreateTableSetting = 'CREATE TABLE IF NOT EXISTS "TableSetting" ("ID"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, ' +                          // Создает таблицу   TableSetting
-                                                           ' "ServerName"	TEXT, ' +
-                                                           ' "UserLogin"	TEXT, ' +
-                                                           ' "UserPassword"	TEXT, ' +
-                                                           ' "InitialCatalog"	TEXT)';
+                                                                        ' "ServerName"	TEXT, ' +
+                                                                        ' "UserLogin"	TEXT, ' +
+                                                                        ' "UserPassword"	TEXT, ' +
+                                                                        ' "InitialCatalog"	TEXT, ' +
+                                                                        ' "Port" INTEGER DEFAULT 1433)';
 
     SSQLCreateOrdersHeader  = 'CREATE TABLE IF NOT EXISTS "OrdersHeader" ( "UID"	INTEGER, ' +                                                                // Создает таблицу OrdersHeader
-                                                            '"JournalNo"	INTEGER, ' +
-                                                            '"OrderUID"	INTEGER, ' +
-                                                            '"FolioUID"	REAL, ' +
-                                                            '"OrderNo"	REAL, ' +
-                                                            '"OrderDate"	TEXT, ' +
-                                                            '"Status" INTEGER DEFAULT ''0''  NOT NULL, ' +
-                                                            '"BRIEFORG"	VARCHAR(20), ' +
-                                                            '"ORGANIZNKL"	VARCHAR(50), ' +
-                                                            '"L_CP1_PLAT"	VARCHAR(30), ' +
-                                                            '"L_CP2_PLAT"	VARCHAR(30), ' +
-                                                            '"VID_DOC"	VARCHAR(50), ' +
-                                                            '"SUM_ROZN"	FLOAT, ' +
-                                                            '"SUM_POR"	FLOAT, ' +
-                                                            '"StrikeCode"	VARCHAR(30), ' +
-                                                            '"NAMEP_USER"	VARCHAR(110), ' +
-                                                            '"ADRES_USER"	VARCHAR(150), ' +
-                                                            '"ProjectName"	VARCHAR(50), ' +
-                                                            '"Date_Device" NUMERIC)';
+                                                                          '"JournalNo"	INTEGER, ' +
+                                                                          '"OrderUID"	INTEGER, ' +
+                                                                          '"FolioUID"	REAL, ' +
+                                                                          '"OrderNo"	REAL, ' +
+                                                                          '"OrderDate"	TEXT, ' +
+                                                                          '"Status" INTEGER DEFAULT ''0''  NOT NULL, ' +
+                                                                          '"BRIEFORG"	VARCHAR(20), ' +
+                                                                          '"ORGANIZNKL"	VARCHAR(50), ' +
+                                                                          '"L_CP1_PLAT"	VARCHAR(30), ' +
+                                                                          '"L_CP2_PLAT"	VARCHAR(30), ' +
+                                                                          '"VID_DOC"	VARCHAR(50), ' +
+                                                                          '"SUM_ROZN"	FLOAT, ' +
+                                                                          '"SUM_POR"	FLOAT, ' +
+                                                                          '"StrikeCode"	VARCHAR(30), ' +
+                                                                          '"NAMEP_USER"	VARCHAR(110), ' +
+                                                                          '"ADRES_USER"	VARCHAR(150), ' +
+                                                                          '"ProjectName"	VARCHAR(50), ' +
+                                                                          '"Date_Device" NUMERIC)';
 
     SSQLCreateOrdersMove = 'CREATE TABLE IF NOT EXISTS "OrdersMove" ("FolioUID" INTEGER  NULL, ' +                                                            // Создает таблицу OrdersMove
-                                                      '"Article" VARCHAR(20)  NULL, ' +
-                                                      '"StrikeCode" VARCHAR(30)  NULL, ' +
-                                                      '"ProductName" VARCHAR(200)  NULL, ' +
-                                                      '"EDIN_IZMER" FLOAT  NULL, ' +
-                                                      '"Packages" FLOAT  NULL, ' +
-                                                      '"EDN_V_UPAK" VARCHAR(20)  NULL, ' +
-                                                      '"Qty" FLOAT  NULL, ' +
-                                                      '"Price" FLOAT  NULL, ' +
-                                                      '"Sum_Predm" FLOAT  NULL, ' +
-                                                      '"KON_KOLCH" Float  NULL, ' +
-                                                      '"Status" INTEGER DEFAULT ''0'' NOT NULL, ' +
-                                                      '"Date_Device" TEXT NULL)';
+                                                                    '"Article" VARCHAR(20)  NULL, ' +
+                                                                    '"StrikeCode" VARCHAR(30)  NULL, ' +
+                                                                    '"ProductName" VARCHAR(200)  NULL, ' +
+                                                                    '"EDIN_IZMER" FLOAT  NULL, ' +
+                                                                    '"Packages" FLOAT  NULL, ' +
+                                                                    '"EDN_V_UPAK" VARCHAR(20)  NULL, ' +
+                                                                    '"Qty" FLOAT  NULL, ' +
+                                                                    '"Price" FLOAT  NULL, ' +
+                                                                    '"Sum_Predm" FLOAT  NULL, ' +
+                                                                    '"KON_KOLCH" Float  NULL, ' +
+                                                                    '"Status" INTEGER DEFAULT ''0'' NOT NULL, ' +
+                                                                    '"Date_Device" TEXT NULL)';
 
     SSQLCreateStatuses  =  'CREATE TABLE IF NOT EXISTS "Statuses" ("UID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, ' +
                                                                   '"Name" varchar(30) Not Null)';
@@ -107,22 +108,64 @@ uses ModuleDataLocal, SConsts;
 
 procedure TLocalDataBase.addTables;
 begin
-  //
+    try
+      AppDataLocal.Connection.StartTransaction;
+      try
+        AppDataLocal.Connection.ExecSQL(SSQLCreateUsers);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateTableSetting);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateStatuses);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersHeader);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersMove);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateStatistics);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateReestrs);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateIcons)
+      finally
+        AppDataLocal.ConnectionToLocalDB();
+      end;
+    except
+       AppDataLocal.Connection.Rollback;
+    end;
 end;
 
-function TLocalDataBase.checkExistsDataBase(Name: string): Boolean;
+constructor TLocalDataBase.Create;
 begin
-   //
+  inherited Create;
+  Delete();
+  CreateDB();
+  addTables();
 end;
 
-procedure TLocalDataBase.Create;
+procedure TLocalDataBase.CreateDB;
 begin
 
+{$IFDEF ANDROID}
+  TFile.Create(TPath.Combine(TPath.GetDocumentsPath, 'SqlLiteBase.db'));
+{$ENDIF}
+
+{$IFDEF MSWINDOWS}
+  if not TFile.Exists(ExtractFilePath(ParamStr(0)) + 'SqlLiteBase.db') then
+    TFile.Create(ExtractFilePath(ParamStr(0)) + 'SqlLiteBase.db');
+{$ENDIF}
 end;
 
 procedure TLocalDataBase.Delete;
+var
+    fileName: string;
 begin
-  //
+  AppDataLocal.Connection.Connected := False;
+
+{$IFDEF ANDROID}
+  fileName := TPath.Combine(TPath.GetDocumentsPath, 'SqlLiteBase.db');
+{$ENDIF}
+
+{$IFDEF MSWINDOWS}
+    fileName := ExtractFilePath(ParamStr(0)) + 'SqlLiteBase123.db';
+{$ENDIF}
+
+ try
+   TFile.Delete(fileName);
+ except
+ end;
 end;
 
 end.

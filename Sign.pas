@@ -78,6 +78,7 @@ type
     procedure SettingParamSBtnClick(Sender: TObject);
     procedure BackSettingBtnClick(Sender: TObject);
     procedure SaveSettingBtnClick(Sender: TObject);
+    procedure SignSBtnClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
@@ -100,7 +101,7 @@ implementation
 
 {$R *.fmx}
 
-uses ModuleDataLocal, SConsts, Globals;
+uses ModuleDataLocal, SConsts, Globals, Orders;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
@@ -212,6 +213,15 @@ end;
 procedure TSignForm.SettingParamSBtnClick(Sender: TObject);
 begin
   PanelSettingView();
+end;
+
+procedure TSignForm.SignSBtnClick(Sender: TObject);
+var
+    OrdersF: TOrdersForm;
+begin
+    OrdersF := TOrdersForm.Create(Self);
+
+    OrdersF.ShowModal();
 end;
 
 procedure TSignForm.UserBtnClick(Sender: TObject);

@@ -9,7 +9,8 @@ uses
   Users in 'Users.pas',
   Globals in 'Globals.pas',
   DataBaseLocal in 'DataBaseLocal.pas',
-  ConnectRemove in 'ConnectRemove.pas';
+  ConnectRemove in 'ConnectRemove.pas',
+  Orders in 'Orders.pas' {OrdersForm};
 
 {$R *.res}
 

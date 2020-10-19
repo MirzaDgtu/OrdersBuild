@@ -8,16 +8,19 @@
     <Transaction>1899.12.30 00:00:00.000.461,D:\Projects\OrdersBuild\Unit1.dfm=D:\Projects\OrdersBuild\ModuleDataLocal.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.917,D:\Projects\OrdersBuild\OrdersBuild.dproj=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.666,D:\Projects\OrdersBuild\Sign.pas=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.021,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.750,=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.666,D:\Projects\OrdersBuild\Sign.fmx=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.775,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\SConsts.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.842,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.666,D:\Projects\OrdersBuild\Sign.fmx=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.750,=C:\Users\pmp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.461,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\ModuleDataLocal.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.842,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.10.16 14:56:41.987,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.10.16 14:57:16.871,D:\Projects\OrdersBuild\DataBaseLocal.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.10.16 16:57:52.360,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.10.16 16:58:33.929,D:\Projects\OrdersBuild\ConnectRemove.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.10.19 12:31:16.977,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.10.19 12:31:34.829,D:\Projects\OrdersBuild\Orders.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.10.19 12:31:34.829,D:\Projects\OrdersBuild\Orders.fmx=D:\Projects\OrdersBuild\Unit1.fmx</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile Android64="VirtualPhone" Android="VirtualPhone"/>

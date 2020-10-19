@@ -4,6 +4,7 @@ object SignForm: TSignForm
   Caption = 'SignForm'
   ClientHeight = 613
   ClientWidth = 356
+  WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -61,6 +62,7 @@ object SignForm: TSignForm
         Size.Width = 33.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
+        OnClick = SignSBtnClick
       end
       object DefaultSBtn: TSpeedButton
         Align = Left

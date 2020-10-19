@@ -1,0 +1,352 @@
+object OrdersForm: TOrdersForm
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 613
+  ClientWidth = 400
+  WindowState = wsMaximized
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 400.000000000000000000
+    Size.Height = 613.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object OrdersHeaderTB: TToolBar
+      Size.Width = 400.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      TintColor = claSpringgreen
+      object OrdersHeaderLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family, Size]
+        Position.X = 48.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 304.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        TextSettings.HorzAlign = Center
+        Text = #1044#1086#1082#1091#1084#1077#1085#1090#1099
+        TabOrder = 0
+      end
+      object PrevTabBtn: TButton
+        Align = Left
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+        TabOrder = 1
+      end
+      object NextTabBtn: TButton
+        Align = Right
+        Position.X = 352.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'nexttoolbutton'
+        TabOrder = 2
+      end
+    end
+    object TabsOrder: TTabControl
+      Align = Client
+      Size.Width = 400.000000000000000000
+      Size.Height = 565.000000000000000000
+      Size.PlatformDefault = False
+      TabHeight = 49.000000000000000000
+      TabIndex = 0
+      TabOrder = 1
+      TabPosition = PlatformDefault
+      Sizes = (
+        400s
+        516s
+        400s
+        516s
+        400s
+        516s)
+      object OrdersTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        StyledSettings = [Family, Size, FontColor]
+        IsSelected = True
+        Size.Width = 133.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1056#1077#1077#1089#1090#1088
+        object NaklLayout: TLayout
+          Align = Client
+          Size.Width = 400.000000000000000000
+          Size.Height = 516.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object NaklHeaderTB: TToolBar
+            Align = Bottom
+            Position.Y = 468.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            TintColor = claPowderblue
+            object RefreshNaklBtn: TButton
+              Align = Left
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 0
+            end
+            object RightNaklMenuBtn: TButton
+              Align = Right
+              Position.X = 352.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'drawertoolbutton'
+              TabOrder = 1
+              OnClick = RightNaklMenuBtnClick
+            end
+            object NaklHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 304.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBrown
+              TextSettings.HorzAlign = Center
+              Text = #1053#1072#1082#1083#1072#1076#1085#1099#1077
+              TabOrder = 2
+            end
+          end
+          object NaklLV: TListView
+            ItemAppearanceClassName = 'TListItemAppearance'
+            ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Size.Width = 400.000000000000000000
+            Size.Height = 468.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            CanSwipeDelete = False
+            SearchVisible = True
+            object NaklRigthMenuLayout: TLayout
+              Align = Right
+              Position.X = 321.000000000000000000
+              Position.Y = 48.000000000000000000
+              Size.Width = 79.000000000000000000
+              Size.Height = 420.000000000000000000
+              Size.PlatformDefault = False
+              Visible = False
+              TabOrder = 0
+              object NaklRigthMenuRect: TRectangle
+                Align = VertCenter
+                Fill.Color = xFF272222
+                Opacity = 0.699999988079071000
+                Position.Y = 68.000000000000000000
+                Size.Width = 79.000000000000000000
+                Size.Height = 284.000000000000000000
+                Size.PlatformDefault = False
+              end
+              object RightMenuVCLayout: TLayout
+                Align = VertCenter
+                Position.Y = 138.000000000000000000
+                Size.Width = 79.000000000000000000
+                Size.Height = 143.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+                object BuildNaklBtn: TSpeedButton
+                  Align = Top
+                  IconTintColor = claAqua
+                  ImageIndex = 2
+                  Position.X = 16.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'composetoolbutton'
+                end
+                object SettingFilterBtn: TSpeedButton
+                  Align = Top
+                  Images = IL
+                  ImageIndex = 0
+                  Margins.Left = 22.000000000000000000
+                  Margins.Right = 18.000000000000000000
+                  Position.X = 22.000000000000000000
+                  Position.Y = 96.000000000000000000
+                  Size.Width = 39.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                end
+                object ViewNaklBtn: TSpeedButton
+                  Align = Top
+                  IconTintColor = claAqua
+                  ImageIndex = 1
+                  Position.X = 16.000000000000000000
+                  Position.Y = 48.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'pagecurltoolbutton'
+                end
+              end
+              object NaklRightMenuFA: TFloatAnimation
+                AnimationType = InOut
+                Duration = 0.500000000000000000
+                PropertyName = 'Position.Y'
+                StartValue = 0.000000000000000000
+                StopValue = 0.000000000000000000
+              end
+            end
+          end
+        end
+      end
+      object StatistTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 133.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+      end
+      object SynchTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 134.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103
+      end
+    end
+  end
+  object IL: TImageList
+    Source = <
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              02B849444154384F85535D485361187EF7E7CE7E4EB9363D3AC9D908937E342D
+              0AA5585249A8D05594915D7493171116653781055D44375D68E4ECAE40B3204A
+              EC0F439DA060F9936E4C5DE6D2B59FE6DADCA63B3BE7B89DF67D1CFA71480FBC
+              7C2FCFF3BEEFF77EEFCB27820D507367384FAFDFDC867C8F27DCF0FA66851B0B
+              EB2016CE34E8A84DF5D5E585B5C874D9E459814E435A817DE651D979F3E4951C
+              0D715A2E9300B25CADB2AEBECDDA686AEE970A61BF819F50D7FAF95026493404
+              23F4609E5679A6A228D7C4CB32C4FED00A0EA2346A008E4D0E397C03EEC0EA33
+              2DA9381C0ED30F3B2E970EE102573BE6FA8E1D3056AED22CC80919CC3A7D60D4
+              11B0434FE2020E4F14BE0519D86EA0808973A0526440EFA7B9BEFB758547C5A8
+              E5F85A22BEB21AE391E098F742754916941935A022A4D84A537ED51E1D2E8C62
+              A22B319E4DE5A05C89B7A73D5950DCF09C91B2D5DA4D0ABD460160C852C1D4C2
+              B2A7FBA3EBF1C47C70542C166FCDD7A9D474EAF6785202135F7CE3DF67D8AA0F
+              D7F672B845845B2F9DD696013F3FB3C4F1CEE5247FBD73BA5D90A0A973FA11E2
+              EC7E8E6FB12CF1CDDDCE2941DA788D09E1FC1B68603CF6FE2C031738D56CCBA0
+              D9244B6D21C1EE8E60C1B493AA697A3A63BE91EAA4BC28BB167148A33424302C
+              C7A21CC489D0200E2AC857474AF24EA8554A9163C107C777EB4029FF77E53166
+              0D7A6D012834E4E0215AA6DCEF46E8E849F1D8C5FD1C2195102819ADD1984FC1
+              9BC925189B0F01C32520CE26B0FFDE1AC01A8A21D54A516A3904CA95A0EA0595
+              17BE2EFE08CBC766BD0F82A1A8BA385F6B48CA14229B2B0ACE00032A951A32E5
+              92E4A0CDD53F62F7DC75F923919F21FA9EF5ADD995F699D0937681EC526E96FA
+              9CA9785B19E22CE3CE714F30F664D11B68B5DCAE5CC381FF03FA0F2FEC2C8FAC
+              BE6DB251A0D3B0E11A3DCBD1AE9E6107367F80ED12E87500F80508A6373D879B
+              F2A90000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_16px.png'
+          end>
+        Name = 'icons8_settings_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              015449444154384FBD90BF4B033114C75F72BD726D95165C2CED223875122C0A
+              76761375D6D959C15D1CDCFC03EAE2EEE2AC08EE6E4E2205C1A26D11EC606B73
+              4D936BE2DDF51108FEE044F00349DE7B5FDE372F81BF42F08CD968A915EA9012
+              A686E1337BB85C9ABAC5D4C232586B0B9122AE8BA9E1E5A2252043766FB6CA27
+              5832503C63BE6A8E2044A7078D5EBD76D6DAC792C132F80E4A2810A9A17FDF3D
+              AE9DB7F7B01C633D61B3A3358616E37709B2272012B5130CAF160BD989927002
+              67DA05AF9C834CB8B2C57C06CB31890C7EE2FF0CD29CC1FCB80773F20DEA5C55
+              B09CEC133DE1C36AC90B230A3C00E05C72A652D583197A976882B223C31D9BC3
+              D01FBB9E3FD23B9196C8408573996601C0A2359A689641A06574D5279E821430
+              AE4C739F0BF1F83AB88E34EB0FD63BAA0A8A14303510AA8BB9402EE4B55E1692
+              B04ED7AF379A7C9BF5C5A165F01B664F9B15ADC8D10781A489AD35BDECFF0000
+              000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_view_16px.png'
+          end>
+        Name = 'icons8_view_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              019549444154384F6364201184AE5AC5CCFA5E2D8AE1CFFF27CBB20DF7936400
+              50339BF017AD1BA6BA7272DFBFFFFC7CFCEA934026A81C41603F7F3F87FC6FBD
+              9D393E6A8ADF3F7F61E6E262E561F8CF244F94012067EBB048AEE2E662B3E460
+              6666B05617623871F9C92395977A8B097A01A459F487FE521743B950461616A6
+              4B37EEFFF8F8EDEFA1C7AC977D578785FDC2EB02E3996758457F19AC7132920F
+              E3E06467FAF9F7F79FC71F7EAF3B2BF5C21BA419A406A70B409ACDB9F9563919
+              C8F97371B0317EFAF1E3CFDE530F97CD4ED448606064FC0F5586DD0062358300
+              8601D8341F38FB70D98C384CCD20806200A99A41006E00289EB559248E39192A
+              1A80347FFDFEFDEFEEB38F96CD8AD788C7A51904E0B1A0CA2078C24657DE10A2
+              F9E7FF7DE71E6D7ACF7539119F6610001B1035EBBC81A79EA4E293176F183E7E
+              FEC1B0FBCC83BB6F382F8702A3EA2F58151E0036808D81719A8EBC309FB230D7
+              97FDE7EE5E7AF4E9BE0E319A4180D1B7F9A0E25F76F65BA2021C477FFEFA9FBD
+              22C7F02A548E38E0D2715CD3ABEBA404944B226060000077B8BA019127186F00
+              00000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_edit_16px.png'
+          end>
+        Name = 'icons8_edit_16px'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'icons8_settings_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_view_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_edit_16px'
+          end>
+      end>
+    Left = 168
+    Top = 296
+  end
+end

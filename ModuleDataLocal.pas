@@ -45,6 +45,7 @@ type
     procedure DriversBeforeOpen(DataSet: TDataSet);
     procedure AgentsBeforeOpen(DataSet: TDataSet);
     procedure VidDocsBeforeOpen(DataSet: TDataSet);
+    procedure ReestrsBeforeOpen(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -109,6 +110,11 @@ end;
 procedure TAppDataLocal.DriversBeforeOpen(DataSet: TDataSet);
 begin
   Drivers.SQL.Text := SSQLGetDriversLocal;
+end;
+
+procedure TAppDataLocal.ReestrsBeforeOpen(DataSet: TDataSet);
+begin
+   Reestrs.SQL.Text := SSQLGetReestrsLocal;
 end;
 
 procedure TAppDataLocal.VidDocsBeforeOpen(DataSet: TDataSet);

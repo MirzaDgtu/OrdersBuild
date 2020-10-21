@@ -4,6 +4,7 @@ object OrdersForm: TOrdersForm
   Caption = 'OrdersForm'
   ClientHeight = 624
   ClientWidth = 375
+  Position = ScreenCenter
   WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -1639,6 +1640,7 @@ object OrdersForm: TOrdersForm
                   Size.PlatformDefault = False
                   StyleLookup = 'detailstoolbutton'
                   TabOrder = 0
+                  OnClick = ReestrSynchBtnClick
                 end
               end
               object ReestrSynchEdit: TEdit
@@ -1925,19 +1927,19 @@ object OrdersForm: TOrdersForm
           end>
       end>
     Left = 24
-    Top = 552
+    Top = 251
   end
   object ReestrBS: TBindSourceDB
     DataSet = AppDataLocal.Reestrs
     ScopeMappings = <>
     Left = 24
-    Top = 504
+    Top = 200
   end
   object OrdersBL: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 28
-    Top = 445
+    Left = 24
+    Top = 144
     object LinkListControlToField1: TLinkListControlToField
       Category = 'Quick Bindings'
       DataSource = ReestrBS
@@ -2027,24 +2029,24 @@ object OrdersForm: TOrdersForm
     DataSet = AppDataLocal.Brieforgs
     ScopeMappings = <>
     Left = 80
-    Top = 504
+    Top = 200
   end
   object DriversBS: TBindSourceDB
     DataSet = AppDataLocal.Drivers
     ScopeMappings = <>
     Left = 136
-    Top = 504
+    Top = 200
   end
   object AgentsBS: TBindSourceDB
     DataSet = AppDataLocal.Agents
     ScopeMappings = <>
     Left = 192
-    Top = 504
+    Top = 200
   end
   object VidDocsBS: TBindSourceDB
     DataSet = AppDataLocal.VidDocs
     ScopeMappings = <>
     Left = 248
-    Top = 504
+    Top = 200
   end
 end

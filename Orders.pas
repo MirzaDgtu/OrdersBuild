@@ -188,6 +188,7 @@ type
     procedure BackAgentsBtnClick(Sender: TObject);
     procedure RightStatistMenuBtnClick(Sender: TObject);
     procedure StatistLVClick(Sender: TObject);
+    procedure ReestrSynchBtnClick(Sender: TObject);
   private
     { Private declarations }
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
@@ -327,6 +328,7 @@ var
 begin
 
   try
+    ReestrLayout.Parent := OrdersTab;
     reestrsI := TReestrs.Create;
     PanelView(ReestrLayout, ReestrsFA);
   finally
@@ -337,7 +339,25 @@ procedure TOrdersForm.ReestrsLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
    PanelHide(ReestrLayout, ReestrsFA);
-   ReestrFilterSettingEdit.Text := AItem.Data['ProjectName'].AsString;
+   FilterLocal.Reestr := AItem.Data['ProjectName'].AsString;
+
+   case TabsOrder.TabIndex of
+    0 : ReestrFilterSettingEdit.Text := AItem.Data['ProjectName'].AsString;
+    2 : ReestrSynchEdit.Text := AItem.Data['ProjectName'].AsString;
+   end;
+end;
+
+procedure TOrdersForm.ReestrSynchBtnClick(Sender: TObject);
+var
+   reestrsI: IInterfaceMove;
+begin
+
+  try
+  ReestrLayout.Parent := SynchTab;
+    reestrsI := TReestrs.Create;
+    PanelView(ReestrLayout, ReestrsFA);
+  finally
+  end;
 end;
 
 procedure TOrdersForm.RefreshAgentsBtnClick(Sender: TObject);

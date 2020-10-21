@@ -48,7 +48,6 @@ procedure TReestrs.Get;
 begin
   try
    AppDataLocal.Reestrs.Active := False;
-   AppDataLocal.Reestrs.SQL.Text := SSQLGetReestrsLocal;
    AppDataLocal.Reestrs.Active := True;
   except
   end;

@@ -56,6 +56,7 @@ object AppDataLocal: TAppDataLocal
     Top = 16
   end
   object Reestrs: TFDQuery
+    BeforeOpen = ReestrsBeforeOpen
     Connection = Connection
     Left = 72
     Top = 72

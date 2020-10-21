@@ -226,8 +226,11 @@ var
     OrdersF: TOrdersForm;
 begin
     OrdersF := TOrdersForm.Create(Self);
+    OrdersF.TabsOrder.ActiveTab := OrdersF.OrdersTab;
 
-    OrdersF.ShowModal();
+    {$IFDEF MSWINDOWS}
+      OrdersF.ShowModal();
+    {$ENDIF}
 end;
 
 procedure TSignForm.UserBtnClick(Sender: TObject);

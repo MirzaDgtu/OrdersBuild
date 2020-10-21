@@ -79,6 +79,7 @@ type
     procedure BackSettingBtnClick(Sender: TObject);
     procedure SaveSettingBtnClick(Sender: TObject);
     procedure SignSBtnClick(Sender: TObject);
+    procedure BackUserBtnClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
@@ -111,6 +112,11 @@ uses ModuleDataLocal, SConsts, Globals, Orders;
 procedure TSignForm.BackSettingBtnClick(Sender: TObject);
 begin
    PanelSettingHide();
+end;
+
+procedure TSignForm.BackUserBtnClick(Sender: TObject);
+begin
+   PanelUserHide();
 end;
 
 procedure TSignForm.DefaultSBtnClick(Sender: TObject);

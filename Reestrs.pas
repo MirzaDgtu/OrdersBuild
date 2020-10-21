@@ -10,14 +10,15 @@ type
   public
     procedure Add;
     procedure Delete;
-    class procedure Get;
+    procedure Get;
 
-   constructor Create(); override;
+   constructor Create();
   end;
 
 implementation
 
 { TReestrs }
+
 
 procedure TReestrs.Add;
 begin
@@ -26,7 +27,7 @@ end;
 
 constructor TReestrs.Create;
 begin
-  inherited;
+  inherited Create;
   Get();
 end;
 
@@ -43,14 +44,15 @@ begin
   end;
 end;
 
-class procedure TReestrs.Get;
+procedure TReestrs.Get;
 begin
   try
    AppDataLocal.Reestrs.Active := False;
-   AppDataLocal.Reestrs.SQL.Text := SSQLGetReestrs;
+   AppDataLocal.Reestrs.SQL.Text := SSQLGetReestrsLocal;
    AppDataLocal.Reestrs.Active := True;
   except
   end;
 end;
+
 
 end.

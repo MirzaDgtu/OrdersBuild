@@ -65,17 +65,49 @@ resourcestring
 
       SSQLGetReestrs             = 'EXEC DELIVERY..S_GetReestrs';               // ѕолучение списка реестров с удаленного сервера
 
-      SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                             // ѕолучение списка реестров с локальной базы
-                                          'R.ProjectName, ' +
-                                          'I.Screen ' +
-                                   'FROM Reestrs R ' +
-                                   ' LEFT JOIN Icons I ON I.UID = 12';
+      SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                                       //-----**********-----//
+                                          'R.ProjectName as "ProjectName::VARCHAR(50)", ' + //-----**********-----//
+                                          'I.Screen ' +                                     // ѕолучение списка реестров с локальной базы
+                                   'FROM Reestrs R ' +                                      //-----**********-----//
+                                   ' LEFT JOIN Icons I ON I.UID = 12';                      //-----**********-----//
 
-      SSQLAddReestrs             = 'INSERT INTO Reestrs(UID, ' +                // ƒобавление списка реестров в локальную базу
-                                                       'ProjectName) ' +
-                                   'VALUES             (%d, ''%s'')';
+      SSQLAddReestrs             = 'INSERT INTO Reestrs(UID, ' +                //-----**********************************-----//
+                                                       'ProjectName) ' +        // ƒобавление списка реестров в локальную базу
+                                   'VALUES             (%d, ''%s'')';           //-----**********************************-----//
 
       SSQLDeleteReestrs          = 'DELETE FROM Reestrs';                       // ќчистка списка реестров в локальной базы
+
+
+
+                 // ѕолучение справочников из локальной базы
+      SSQLGetBrieforgLocal        = 'SELECT DISTINCT BRIEFORG, ' +                                             //-----*********-----//
+                                    '                I.Screen  ' +                                             //-----*********-----//
+                                    'FROM OrdersHeader ' +                                                     //--—писок коротких--//
+                                    ' LEFT JOIN Icons I ON I.UID = 14 ' +                                      //--кодов клиентов---//
+                                    'WHERE BRIEFORG IS NOT NULL AND ' +                                        //-----*********-----//
+                                           'BRIEFORG != ''''';                                                 //-----*********-----//
+
+      SSQLGetDriversLocal        = 'SELECT DISTINCT L_CP2_PLAT, ' +                                            //-----*********-----//
+                                   '                I.Screen   ' +                                             //-----*********-----//
+                                   'FROM OrdersHeader ' +                                                      //-----*********-----//
+                                   ' LEFT JOIN Icons I ON I.UID = 20 ' +                                       //-—писок  водителей-//
+                                   'WHERE L_CP2_PLAT IS NOT NULL AND ' +                                       //-----*********-----//
+                                         'L_CP2_PLAT != ''''';                                                 //-----*********-----//
+
+      SSQLGetAgentsLocal         = 'SELECT DISTINCT L_CP1_PLAT, ' +                                            //-----*********-----//
+                                   '                I.Screen   ' +                                             //-----*********-----//
+                                   'FROM OrdersHeader ' +                                                      //--—писок  агентов--//
+                                   ' LEFT JOIN Icons I ON I.UID = 16 '  +                                      //-----*********-----//
+                                   'WHERE L_CP1_PLAT IS NOT NULL AND ' +                                       //-----*********-----//
+                                         'L_CP1_PLAT != ''''';                                                 //-----*********-----//
+
+      SSQLGetVidDocLocal       = 'SELECT DISTINCT VID_DOC, ' +                                                 //-----*********-----//
+                                   '                I.Screen ' +                                               //-----*********-----//
+                                   'FROM OrdersHeader ' +                                                      //---—писок типов----//
+                                   ' LEFT JOIN Icons I ON I.UID = 18 ' +                                       //-----операции------//
+                                   'WHERE VID_DOC IS NOT NULL AND ' +                                          //-----*********-----//
+                                         'VID_DOC != ''''';                                                    //-----*********-----//
+
 
 implementation
 

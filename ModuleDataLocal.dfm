@@ -1,7 +1,7 @@
 object AppDataLocal: TAppDataLocal
   OldCreateOrder = False
-  Height = 296
-  Width = 365
+  Height = 424
+  Width = 428
   object Connection: TFDConnection
     Params.Strings = (
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
@@ -67,6 +67,58 @@ object AppDataLocal: TAppDataLocal
       Size = 30
     end
     object ReestrsScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object Brieforgs: TFDQuery
+    BeforeOpen = BrieforgsBeforeOpen
+    Connection = Connection
+    Left = 120
+    Top = 72
+    object BrieforgsBrieforg: TStringField
+      FieldName = 'Brieforg'
+      Size = 50
+    end
+    object BrieforgsScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object Drivers: TFDQuery
+    BeforeOpen = DriversBeforeOpen
+    Connection = Connection
+    Left = 168
+    Top = 72
+    object DriversL_CP2_PLAT: TStringField
+      FieldName = 'L_CP2_PLAT'
+      Size = 50
+    end
+    object DriversScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object Agents: TFDQuery
+    BeforeOpen = AgentsBeforeOpen
+    Connection = Connection
+    Left = 216
+    Top = 72
+    object AgentsL_CP1_PLAT: TStringField
+      FieldName = 'L_CP1_PLAT'
+      Size = 50
+    end
+    object AgentsScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object VidDocs: TFDQuery
+    BeforeOpen = VidDocsBeforeOpen
+    Connection = Connection
+    Left = 264
+    Top = 72
+    object VidDocsVID_DOC: TStringField
+      FieldName = 'VID_DOC'
+      Size = 30
+    end
+    object VidDocsScreen: TBlobField
       FieldName = 'Screen'
     end
   end

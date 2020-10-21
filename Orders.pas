@@ -143,7 +143,6 @@ type
     SynchLayout: TLayout;
     SynchLB: TListBox;
     SynchRect: TRectangle;
-    ToolBar1: TToolBar;
     SynchBottomTB: TToolBar;
     SynchBtn: TSpeedButton;
     Label1: TLabel;

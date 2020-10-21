@@ -366,45 +366,46 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
           Size.Width = 800.000000000000000000
           Size.Height = 1158.000000000000000000
           inherited SynchRect: TRectangle
+            Opacity = 0.500000000000000000
             Size.Width = 800.000000000000000000
-            Size.Height = 1062.000000000000000000
+            Size.Height = 1110.000000000000000000
           end
           inherited SynchLB: TListBox
-            Position.Y = 506.000000000000000000
-            Size.Width = 790.000000000000000000
-            Viewport.Width = 790.000000000000000000
-            Viewport.Height = 145.000000000000000000
+            Position.Y = 481.000000000000000000
+            Size.Width = 786.000000000000000000
+            Viewport.Width = 786.000000000000000000
+            Viewport.Height = 147.000000000000000000
             inherited SynchParamLBGH: TListBoxGroupHeader
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Size.Width = 790.000000000000000000
+              Size.Width = 786.000000000000000000
             end
             inherited DBegSynchLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Size.Width = 790.000000000000000000
+              Size.Width = 786.000000000000000000
               inherited DBegSynchEdit: TDateEdit
-                Size.Width = 670.000000000000000000
+                Size.Width = 633.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
             inherited DEndSynchLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Size.Width = 790.000000000000000000
+              Size.Width = 786.000000000000000000
               inherited DEndSynchEdit: TDateEdit
-                Size.Width = 670.000000000000000000
+                Size.Width = 633.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
             inherited ReestrSynchLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Size.Width = 790.000000000000000000
+              Size.Width = 786.000000000000000000
+              inherited RightReestrPanel: TPanel
+                Position.X = 733.000000000000000000
+              end
               inherited ReestrSynchEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 629.000000000000000000
+                Size.Width = 633.000000000000000000
               end
             end
-          end
-          inherited ToolBar1: TToolBar
-            Size.Width = 800.000000000000000000
           end
           inherited SynchBottomTB: TToolBar
             Position.Y = 1110.000000000000000000

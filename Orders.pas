@@ -193,6 +193,7 @@ type
     { Private declarations }
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
+    procedure PanelAllHide();
 
     procedure setFilterSettingRecord();
 
@@ -297,7 +298,15 @@ end;
 
 procedure TOrdersForm.NextTabBtnClick(Sender: TObject);
 begin
+  PanelAllHide();
   TabsOrder.Next();
+end;
+
+procedure TOrdersForm.PanelAllHide;
+begin
+  PanelHide(RightStatistMenuLayout, RightStatistMenuFA);
+  PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+  PanelHide(ReestrLayout, ReestrsFA);
 end;
 
 procedure TOrdersForm.PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
@@ -319,6 +328,7 @@ end;
 
 procedure TOrdersForm.PrevTabBtnClick(Sender: TObject);
 begin
+  PanelAllHide();
   TabsOrder.Previous();
 end;
 
@@ -341,10 +351,13 @@ begin
    PanelHide(ReestrLayout, ReestrsFA);
    FilterLocal.Reestr := AItem.Data['ProjectName'].AsString;
 
-   case TabsOrder.TabIndex of
+   ReestrFilterSettingEdit.Text := AItem.Data['ProjectName'].AsString;
+   ReestrSynchEdit.Text := AItem.Data['ProjectName'].AsString;
+
+  { case TabsOrder.TabIndex of
     0 : ReestrFilterSettingEdit.Text := AItem.Data['ProjectName'].AsString;
     2 : ReestrSynchEdit.Text := AItem.Data['ProjectName'].AsString;
-   end;
+   end; }
 end;
 
 procedure TOrdersForm.ReestrSynchBtnClick(Sender: TObject);

@@ -151,6 +151,11 @@ type
     DBegSynchLBI: TListBoxItem;
     DEndSynchLBI: TListBoxItem;
     ReestrSynchLBI: TListBoxItem;
+    DBegSynchEdit: TDateEdit;
+    DEndSynchEdit: TDateEdit;
+    RightReestrPanel: TPanel;
+    ReestrSynchBtn: TButton;
+    ReestrSynchEdit: TEdit;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);

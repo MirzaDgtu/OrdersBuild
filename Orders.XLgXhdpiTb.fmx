@@ -30,12 +30,22 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
         ExplicitSize.cx = 133.000000000000000000
         ExplicitSize.cy = 49.000000000000000000
         inherited NaklLayout: TLayout
+          Size.Width = 800.000000000000000000
+          Size.Height = 1158.000000000000000000
           inherited NaklHeaderTB: TToolBar
+            Position.Y = 1110.000000000000000000
+            Size.Width = 800.000000000000000000
+            inherited RightNaklMenuBtn: TButton
+              Position.X = 752.000000000000000000
+            end
             inherited NaklHeaderLbl: TLabel
+              Size.Width = 704.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
           end
           inherited NaklLV: TListView
+            Size.Width = 800.000000000000000000
+            Size.Height = 1110.000000000000000000
             ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
               item
                 AppearanceObjectName = 'UID'
@@ -162,10 +172,10 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
               inherited NaklRigthMenuRect: TRoundRect
                 inherited RightMenuVCLayout: TLayout
                   inherited BuildNaklBtn: TSpeedButton
-                    Size.Width = 72.000000000000000000
+                    Size.Width = 55.000000000000000000
                   end
                   inherited ViewNaklBtn: TSpeedButton
-                    Size.Width = 72.000000000000000000
+                    Size.Width = 55.000000000000000000
                   end
                 end
               end
@@ -180,15 +190,15 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
             Size.Height = 1106.000000000000000000
           end
           inherited FilterSettingHeaderTB: TToolBar
+            Position.Y = 1110.000000000000000000
             Size.Width = 800.000000000000000000
             inherited BackFilterSettingBtn: TButton
               OnClick = nil
             end
-            inherited RefreshFilterSettingBtn: TButton
+            inherited SaveFilterSettingBtn: TButton
               Position.X = 752.000000000000000000
-              OnClick = nil
             end
-            inherited Label7: TLabel
+            inherited SettingFilterLbl: TLabel
               Size.Width = 704.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
@@ -212,14 +222,12 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
             inherited BegDateLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited BegDate: TDateEdit
-                Size.Width = 590.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
             inherited EndDateLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited EndDate: TDateEdit
-                Size.Width = 590.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
@@ -229,58 +237,86 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
             inherited ReestrLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited ReestrFilterSettingBtn: TButton
-                Position.X = 742.000000000000000000
+                Size.Height = 35.000000000000000000
               end
               inherited ReestrFilterSettingEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 592.000000000000000000
+                inherited ClearEditButton2: TClearEditButton
+                  Size.Height = 50.000000000000000000
+                end
               end
             end
             inherited BrieforgLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited BrieforgFilterSettingBtn: TButton
-                Position.X = 742.000000000000000000
+                Size.Height = 35.000000000000000000
               end
               inherited BrieforgFilterSettingEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 592.000000000000000000
+                inherited ClearEditButton3: TClearEditButton
+                  Size.Height = 50.000000000000000000
+                end
               end
             end
             inherited VidDocLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited VidDocFilterSettingBtn: TButton
-                Position.X = 742.000000000000000000
+                Size.Height = 35.000000000000000000
               end
               inherited VidDocFilterSettingEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 592.000000000000000000
+                inherited ClearEditButton4: TClearEditButton
+                  Size.Height = 50.000000000000000000
+                end
               end
             end
             inherited DriverLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited DriverFilterSettingBtn: TButton
-                Position.X = 742.000000000000000000
+                Size.Height = 35.000000000000000000
               end
               inherited DriverFilterSettingEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 592.000000000000000000
+                inherited ClearEditButton5: TClearEditButton
+                  Size.Height = 50.000000000000000000
+                end
               end
             end
             inherited AgentLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               inherited AgentFilterSettingBtn: TButton
-                Position.X = 742.000000000000000000
+                Size.Height = 35.000000000000000000
               end
               inherited AgentFilterSettingEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 592.000000000000000000
+                inherited ClearEditButton6: TClearEditButton
+                  Size.Height = 50.000000000000000000
+                end
               end
             end
             inherited BuildLBI: TListBoxItem
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              inherited TypeBuildCombo: TComboBox
-                Size.Width = 590.000000000000000000
-              end
+            end
+          end
+        end
+        inherited ReestrLayout: TLayout
+          inherited ReestrsHeaderTB: TToolBar
+            inherited ReestrFilterSettingHeaderLbl: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+        inherited AgentsLayout: TLayout
+          inherited AgentsHeaderTB: TToolBar
+            inherited AgentsHeaderLbl: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+        inherited VidDocsLayout: TLayout
+          inherited VidDocsHeaderTB: TToolBar
+            inherited VidDocsHeaderLbl: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
           end
         end
@@ -289,11 +325,81 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
         Size.Width = 266.000000000000000000
         ExplicitSize.cx = 133.000000000000000000
         ExplicitSize.cy = 49.000000000000000000
+        inherited StatistLayout: TLayout
+          Size.Width = 800.000000000000000000
+          Size.Height = 1158.000000000000000000
+          inherited StatistBottomTB: TToolBar
+            Position.Y = 1110.000000000000000000
+            Size.Width = 800.000000000000000000
+            inherited RightStatistMenuBtn: TButton
+              Position.X = 752.000000000000000000
+            end
+            inherited StatistBottomLbl: TLabel
+              Size.Width = 704.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited StatistLV: TListView
+            Size.Width = 800.000000000000000000
+            Size.Height = 1110.000000000000000000
+            inherited RightStatistMenuLayout: TLayout
+              inherited RightStatistRectLayout: TLayout
+                inherited LoaderNaklBtn: TButton
+                  Size.Width = 55.000000000000000000
+                end
+                inherited RefreshStatistMenuBtn: TButton
+                  Size.Width = 55.000000000000000000
+                end
+              end
+            end
+          end
+        end
       end
       inherited SynchTab: TTabItem
         Size.Width = 268.000000000000000000
         ExplicitSize.cx = 134.000000000000000000
         ExplicitSize.cy = 49.000000000000000000
+        inherited SynchLayout: TLayout
+          Size.Width = 800.000000000000000000
+          Size.Height = 1158.000000000000000000
+          inherited SynchRect: TRectangle
+            Size.Width = 800.000000000000000000
+            Size.Height = 1062.000000000000000000
+          end
+          inherited SynchLB: TListBox
+            Position.Y = 506.000000000000000000
+            Size.Width = 790.000000000000000000
+            Viewport.Width = 790.000000000000000000
+            Viewport.Height = 145.000000000000000000
+            inherited SynchParamLBGH: TListBoxGroupHeader
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Size.Width = 790.000000000000000000
+            end
+            inherited DBegSynchLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Size.Width = 790.000000000000000000
+            end
+            inherited DEndSynchLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Size.Width = 790.000000000000000000
+            end
+            inherited ReestrSynchLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Size.Width = 790.000000000000000000
+            end
+          end
+          inherited ToolBar1: TToolBar
+            Size.Width = 800.000000000000000000
+          end
+          inherited SynchBottomTB: TToolBar
+            Position.Y = 1110.000000000000000000
+            Size.Width = 800.000000000000000000
+            inherited Label1: TLabel
+              Size.Width = 761.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
       end
     end
   end
@@ -308,29 +414,29 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              02B649444154384F85535D489361143EFBE6DCB75FB7B6F9E92467432CB22C2D
-              0AC5185249A8D05594915D7493171116653781055D44375D68E4ECAE40B3204A
-              EC0FC39F40C1526B4EA60EDDD2B54DE7DA6FFA6DDFB7ED6BEFCB473F0EE981C3
-              7B789E73CE7BDE737805B005EAEF8C15E8F5399DC8F778C2CDAF6F56B9B1B009
-              047F66404B299BEA2A4B1A9069731567793A0319050E982744E7CD962B796AF2
-              B458240464F91A696353A7B5C5D43694C587FD067E4263C7D76A95826C0E44E8
-              8F051AE999AA629D899348095FF0270EA2D472007A2335EAF00FBBFDEBCF340A
-              C99170987ED87DB97C1417B8DABD3078EC90B1669D66404C8A60DEB902462D09
-              3BF50A5CC0EE89C2B7401C8A0D14C4632CC824D930F07961F07E63C95102B51C
-              4B2463A170844382DDE185BA7D3AA830AA414666612B4FFBB57BB5B8308A0986
-              221C93CE41B9426F7F57AAA8ACF9399B9DA8D328257AB504C0A093C1F452C8D3
-              F7C9F5F88B23304110C4F642AD4C4EA76F8FA5846059F44D7D9F636A3F5CDBCF
-              E216116EBD745ADB877DDCDC1ACB394329EE7ACF6C172F416BCFEC23C4D97C2C
-              D73EB2C6B5F539A77969EB3526F9F36FA08171D8FBB30C5CE054DB4C36CDA418
-              6A9B026CEE08164CBBA9FAD6A773E61BE94E2A77E536200E69945A0171866550
-              0EE204681087258A57D5A5D409558E52605F5A81E37BB42015FFBBF28D780206
-              66FC5062C8C3431CB5ADBE1BA7A32789C98B0759324B48A264B4466321056F2C
-              6B30E908429C4D428C4962FFBDD58F3514A3562905E9E590285788AA17D55C58
-              5C5E0D8B27E7BD0F02C1A8BC4C9F63488965821957149CFE38C864725009B9D4
-              479B7B68DCE6B9EBF245223F82F43DEB5BB32BE333A1279582E852BE4E7ECE54
-              B6A302712353CE294F60E3C9B2D7DF3172BB268103FF07F41F5ED8180E5953A7
-              A585A733B0E51A3DA1686FFF981D9BCFCFF4F2F42600FC02D23238412D2A9638
-              0000000049454E44AE426082}
+              02B749444154384F85535F485361143FBB73ED6E7753AF9B4E27395B61616569
+              5168C5904A42859EA28CECA1977C88B0287B092CE8217AE94123676F059A0551
+              62FF30FC070A965A3A993A6C375DDB6C9BFB9B6EBBD7DDDBBE8F4B7F1CD20F0E
+              DFE1F73BE77CE73B874F021BA0E6CE48BE5E9FD1867C972BD4F0FA6685130BEB
+              4088670AB4BAF4FAEAF2A25A64DA1CF559914E414A817DE631D979F3E4955C9A
+              3C2D974901599E465957DF66693435F7A78961BF819F50D7FAE570A69A6CF087
+              A343F91AE5998AAD5A93A0A4084FE0270ED2D12A80D5157E98591E70FA569E69
+              D48A23A150F461C7E5D2615CE06AC77CDFB103C6CA95280B72520673CC1218B5
+              246CD7AB71019B2B02DFFC71D866D0413CC601A5D804BD9FE6FBEED7151D2550
+              CBB1B5442C100C0948B0D9DD50BD271BCA8C3450641AB6D2A45FB55B8B0BA318
+              7F2024B0C91C942B75F7B4F385250DCF3979A25A93AED0D30A00433605530B41
+              57F747C7E3CF76FF1841109B0BB4942A9ABC3DC64B61CAEE9DF83ECB567DB8B6
+              97C32D22DC7AC9585A063CC2AC971398202F5CEF9C69172568EA9C798438AB87
+              135A06BD42733733254A1BAF31219E7F030D4CC0DE9F65E002A79AA73745599E
+              D565A9C1EA0C63C154ACAB697A3A6BBE91ECA47C474E2DE290A6A3D510673916
+              E5204E82067150A17E75A838E7049D9921B12D2CC1F15D5A50CAFF5DF96A7C0D
+              7AA77D5064C8C5431C99F1BC1B8D464E12E317F773649A9444C9688DC6021DBC
+              99F4C2B83D00712E01313681FDF7161FD6504C169D21492E8744B95254BDB0F2
+              C2D7C51F21F9F89CFB813F105195E4A51B7892924C3B22C0F8E240512AC82478
+              7EC8EAEC1FB5BAEE3A3CE1F072207ACFF2D6EC48F94CE8493B4176292F5B75CE
+              54B2A50C718313CC84CBBFFA64D1ED6B1DBC5DB98603FF07F41F5E585901597D
+              DB64A348A760C335BA8291AE9E111B368F8FED12E97500F805D23D3843A04AE3
+              0A0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_16px.png'
           end>
         Name = 'icons8_settings_16px'
@@ -344,17 +450,17 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              015649444154384FBD90BF4B033114C75F726DB96B2D2DB8587A8BE0D449B028
-              D8D94DD459676705777170F30F38177717271711DCDD9C440A82C5FEA0A083AD
-              CD5D9A5C13EFAE2110FCC189E00792BCF7BEBC6F5E027F05A93361B32356B185
-              AA2AD5046DF278B53C73A75203C360BDEBB30C72B22AD5F42F3B0C8A68EF76DB
-              3D55250D5667C257CD31282B73A3E6C06B9C770E544963187C0746181097307C
-              E89F342EBAFBAA9C603C61AB27A50A0D26EF1CF880412C4A2B0CAE97CAF9A992
-              7202AB9805DB2D8013AD7CA5E4A872422A839FF83F831C25B03019C03C7F038F
-              8A9A2AA7FB449BF9B056B5A308030D01280D281176FD7016DFA79AC0B578B4AB
-              E628F4278EED8FE56EACA53210D15CBA990190788DA79A6110CA20BEEA13CF61
-              060815BA79487DF6F432BA8935E30F367AA20E029555AA4158560A215F2C49B9
-              C23822BD57DF6BB6E80E19B223C3E037CC9DB56A52A0E30F8ECC89AD68B31300
+              015649444154384FBD90BF4B033114C75F726DB95EFD5170B1B48BE0D449B028
+              D8D94DD459676705777170F30FA88BBB8B8B9308EE6E4E2205C1A26D1574B0B5
+              B9A6C935F1EEFA08047F7022F88124EFBD2FEF9B97C05F2178C6AC35D5127548
+              115343FF91DD9D2F8C5D636A6119ACB49848112F8DA9E1F9AC2960826C5F6D94
+              8EB064A078C67CD51C41323AD3AB776AD593E62E960C96C177504281480DDDDB
+              A7C3EA696B07CB31D613D6DB5A6368317C97203B0222513B41FF623EEF8D9484
+              1338E369704B39C886CB2B4C66B11C93C8E027FECF20C319CC0E3B3023DFA0C6
+              5519CBC93ED1153E2C17DD30A2C00300CE7DCE54B6B237456F124D507264B863
+              7318FA43CFF5077A2BD21219A8702ED32C0058B40623CD3208B41F5DF5898720
+              058C2BD3DCE54CDCBFF42E23CDFA83D5B6AA8022794C0D84EA422E9073935A2F
+              0A4958FBD5AFD51B7C9375C5BE65F01BA68F1B65ADC8C107921689AD9305431E
               0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_view_16px.png'
           end>
@@ -370,19 +476,19 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
               019749444154384F6364201184AE5AC5CCFA5E2D8AE1CFFF27CBB20DF7936400
-              50339BF017AD1B86BA5272BFBFFFFC7CFCEA8B4026A81C41603F7F3F87FC6FBD
-              9D393E6A8ABF3FFF60E6E262E561F8CF244F94012067EBB048AEE26663B3E460
-              6666B0561762387EF9C52395977A8B097A01A459F487FE52175DA950460E0EA6
-              4B376EFFF8F88DF1D063D6CBBEABC3C27EE17581F1CC33ACA2BF0CD6D8E94987
-              71F072337DFDFBFDCFE30FFFD79D957AE10DD20C5283D30520CDE6DC7CABEC74
-              A4FCF978B818DFFDF8F2E7E0A9A7CB66276A24303032FE872AC36E00B19A4100
-              C3006C9A8F9C7DBA6C461CA6661040318054CD2000370014CFDA2C12C7EC7465
-              0D409ABF7EFFFC77F7D967CB66C56BC4E3D20C02F0585065103C61A32B6F08D2
-              FCF1F3D7FFFBCE3DDBF49EEB72223ECD200036206AD679034F3D51C5272FDE30
-              7CFCFC8361FF852777DF705E0E0546D55FB02A3C006C001B03E3341D79713E65
-              41AE2FFBCFDDBDF4E8D37D1D62348300A36FF341C5BFECECB74405388EFEFCF5
-              3F7B458EE155A81C71C0A5E3B8A657D74909289744C0C00000B075B90EAB7BD7
-              440000000049454E44AE426082}
+              50339BF017AD1B06BA92727FBEFFFA7CFCEA8B4026A81C41603F7F3F87FC6FBD
+              9D393E6A8A7F3EFF64E6E262E161F8CF244F94012067EBB048AEE26665B3E460
+              6666B0561762387EF9E52395977A8B097A01A459F487FE52171DC950464E4EA6
+              4B376EFDF8F88DE9D063D6CBBEABC3C27EE17581F1CC33ACA2BF0CD6D8EA4A85
+              71F0F1307DF9FBEDCFE30F0CEBCE4ABDF0066906A9C1E9029066736EBE55B6DA
+              92FEFCBCDC8C6F7F7CFE73E8D4B365B3133512181819FF439561378058CD2080
+              610036CD47CF3E5B36230E533308A01840AA6610801B008A676D168963B63A32
+              0620CD5FBF7FFABBFBECF365B3E235E271690601782CA832089EB0D195370469
+              FEF0E9CBFF7DE79E6F7ACF7539119F6610001B1035EBBC81A79E88E293176F18
+              3E7EFEC170E0E2D3BB6F382F8702A3EA2F58151E0036808D81719A8EBC049FB2
+              20D797FDE7EE5E7AF4E9BE0E319A4180D1B7F9A0E25F76F65BA2021C477FFEFA
+              9FBD22C7F02A548E38E0D2715CD3ABEBA404944B226060000019A2B811379F9F
+              D30000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_edit_16px.png'
           end>
         Name = 'icons8_edit_16px'

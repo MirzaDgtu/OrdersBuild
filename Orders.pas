@@ -140,6 +140,17 @@ type
     RangeStatistBtn: TButton;
     RefreshStatistMenuBtn: TButton;
     RightStatistMenuFA: TFloatAnimation;
+    SynchLayout: TLayout;
+    SynchLB: TListBox;
+    SynchRect: TRectangle;
+    ToolBar1: TToolBar;
+    SynchBottomTB: TToolBar;
+    SynchBtn: TSpeedButton;
+    Label1: TLabel;
+    SynchParamLBGH: TListBoxGroupHeader;
+    DBegSynchLBI: TListBoxItem;
+    DEndSynchLBI: TListBoxItem;
+    ReestrSynchLBI: TListBoxItem;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -191,6 +202,7 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.XLgXhdpiTb.fmx ANDROID}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces;
 {$R *.NmXhdpiPh.fmx ANDROID}

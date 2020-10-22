@@ -31,11 +31,21 @@ type
     BuildStr: string;
   end;
 
+type
+  TDates = record
+    DBeg: TDate;
+    DEnd: TDate;
+  end;
+
 var
     CurrentUser: TUser;
     ConnectLocal: TConnectLocal;
     FilterLocal: TFilter;
+    DatesLocal: TDates;
+
 
 implementation
+
+
 
 end.

@@ -54,6 +54,7 @@ type
     CollectorOrdersScreen: TBlobField;
     CollectorBuildCollectorUID: TIntegerField;
     CollectorBuildCollector: TStringField;
+    CollectorOrdersOrderBuildDate: TWideMemoField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

@@ -69,8 +69,15 @@ resourcestring
     SSQLCreateStatuses  =  'CREATE TABLE IF NOT EXISTS "Statuses" ("UID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, ' +
                                                                   '"Name" varchar(30) Not Null)';
 
-    SSQLCreateStatistics = 'CREATE TABLE IF NOT EXISTS "Statistics" ("CollectedAll" INTEGER DEFAULT ''0'' NULL, ' +
-                                                                    '"CollectedCurrent" INTEGER DEFAULT ''0'' NULL)';
+    SSQLCreateProcessedDoc = 'CREATE TABLE IF NOT EXISTS "ProcessedDoc" ("UID"	INTEGER NOT NULL UNIQUE, ' +
+                                                         '"FolioUID"	REAL NOT NULL, ' +
+                                                         '"OrderDate"	TEXT, ' +
+                                                         '"Keeper"	VARCHAR(50), ' +
+                                                         '"KeeperUID"	INTEGER, ' +
+                                                         '"Collector"	VARCHAR(50), ' +
+                                                         '"CollectorUID"	INTEGER, ' +
+                                                         '"OrderBuildDate"	TEXT, ' +
+                                                         'PRIMARY KEY("UID" AUTOINCREMENT)';
 
     SSQLCreateReestrs    = 'CREATE TABLE IF NOT EXISTS "Reestrs" ("UID"	INTEGER NOT NULL, ' +
                                                                   '"ProjectName"	TEXT NOT NULL)';
@@ -92,7 +99,7 @@ resourcestring
 
     SSQLDeleteStatuses         = 'DROP TABLE IF EXISTS Statuses';
 
-    SSQLDeleteStatistics       = 'DROP TABLE IF EXISTS Statistics';
+    SSQLDeleteProcessedDoc       = 'DROP TABLE IF EXISTS ProcessedDoc';
 
     SSQLDeleteReestrs          = 'DROP TABLE IF EXISTS Reestrs';
 
@@ -116,7 +123,7 @@ begin
         AppDataLocal.Connection.ExecSQL(SSQLCreateStatuses);
         AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersHeader);
         AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersMove);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateStatistics);
+        AppDataLocal.Connection.ExecSQL(SSQLCreateProcessedDoc);
         AppDataLocal.Connection.ExecSQL(SSQLCreateReestrs);
         AppDataLocal.Connection.ExecSQL(SSQLCreateIcons)
       finally

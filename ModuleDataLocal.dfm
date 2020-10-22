@@ -173,5 +173,9 @@ object AppDataLocal: TAppDataLocal
     object CollectorOrdersScreen: TBlobField
       FieldName = 'Screen'
     end
+    object CollectorOrdersOrderBuildDate: TWideMemoField
+      FieldName = 'OrderBuildDate'
+      BlobType = ftWideMemo
+    end
   end
 end

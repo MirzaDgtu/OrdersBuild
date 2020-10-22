@@ -116,8 +116,9 @@ resourcestring
                                                         'Keeper,    ' +                                         //---Добавление собранной накладной
                                                         'KeeperUID, ' +                                         //-----в таблицу ProcessedDoc-----//
                                                         'Collector, ' +                                         //-----************-----//
-                                                        'CollectorUID) ' +                                      //-----************-----//
-                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d)';                              //-----************-----//
+                                                        'CollectorUID, ' +                                      //-----************-----//
+                                                        'OrderBuildDate) ' +                                    //-----************-----//
+                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'')';                      //-----************-----//
 
 
       SSQLGetCollectorOrders = 'SELECT 	UID, ' +                                                                //-----************-----//
@@ -127,6 +128,7 @@ resourcestring
                                        'KeeperUID, ' +                                                          //---выбранный сборщиком---//
                                        'Collector, ' +                                                          //-----************-----//
                                        'CollectorUID, ' +                                                       //-----************-----//
+                                       'OrderBuildDate, ' +                                                     //-----************-----//
                                        'I.Screen ' +                                                            //-----************-----//
                                     'FROM ProcessedDoc ' +                                                      //-----************-----//
                                     ' LEFT JOIN Icons I ON I.UID = 7 ' +                                        //-----************-----//
@@ -134,8 +136,8 @@ resourcestring
                                     'ORDER BY UID';                                                             //-----************-----//
 
 
-    SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                                 //-----************-----//
-                                               ' Collector, ' +                                                    //-----************-----//
+    SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                              //-----************-----//
+                                               ' Collector, ' +                                                 //-----************-----//
                                                ' COUNT(FolioUID)as "DocKol::INT", ' +                           //-----************-----//
                                                ' I.Screen ' +                                                   //---Получение списка сборщиков
                                 'FROM ProcessedDoc ' +                                                          //---и количества собранных заявок
@@ -144,6 +146,11 @@ resourcestring
                                 'GROUP BY Keeper, ' +                                                           //-----************-----//
                                          'KeeperUID, ' +                                                        //-----************-----//
                                          'I.Screen ';                                                           //-----************-----//
+
+    SSQLClearCollectOrders = 'DELETE FROM ProcessedDoc';                                                        // Очистка всех записей из собранных накладных
+
+    SSQLDeleteCollectOrder = 'DELETE FROM ProcessedDoc ' +
+                             'WHERE UID = %d';                                                                  // Удаление определенного документа из собранных
 
 
 

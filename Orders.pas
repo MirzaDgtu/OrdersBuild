@@ -192,6 +192,7 @@ type
     procedure StatistLVClick(Sender: TObject);
     procedure ReestrSynchBtnClick(Sender: TObject);
     procedure RefreshStatistBtnClick(Sender: TObject);
+    procedure DBegSynchEditChange(Sender: TObject);
   private
     { Private declarations }
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
@@ -199,7 +200,9 @@ type
     procedure PanelAllHide();
 
     procedure setFilterSettingRecord();
+    procedure setGlobalDates(DBegP, DEndP: TDate);
 
+    procedure correctDP();
 
   public
     { Public declarations }
@@ -278,6 +281,21 @@ begin
   FilterLocal.Brieforg := AItem.Data['Brieforg'].AsString;
   BrieforgFilterSettingEdit.Text := AItem.Data['Brieforg'].AsString;
   PanelHide(BrieforgLayout, BrieforgFA);
+end;
+
+procedure TOrdersForm.correctDP;
+begin
+    if (DBegSynchEdit.Date  > DEndSynchEdit.Date) then
+         DEndSynchEdit.Date := DBegSynchEdit.Date;
+    if (BegDate.Date > EndDate.Date) then
+         EndDate.Date := BegDate.Date;
+
+    setGlobalDates(DBegSynchEdit.Date, DEndSynchEdit.Date);
+end;
+
+procedure TOrdersForm.DBegSynchEditChange(Sender: TObject);
+begin
+   correctDP();
 end;
 
 procedure TOrdersForm.DriverFilterSettingBtnClick(Sender: TObject);
@@ -448,6 +466,12 @@ begin
   except
      FillChar(FilterLocal, SizeOf(TFilter), #0);
   end;
+end;
+
+procedure TOrdersForm.setGlobalDates(DBegP, DEndP: TDate);
+begin
+    DatesLocal.DBeg := DBegP;
+    DatesLocal.DEnd := DEndP;
 end;
 
 procedure TOrdersForm.SettingFilterBtnClick(Sender: TObject);

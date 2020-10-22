@@ -12,7 +12,8 @@ uses
   ConnectRemove in 'ConnectRemove.pas',
   Orders in 'Orders.pas' {OrdersForm},
   Interfaces in 'Interfaces.pas',
-  Reestrs in 'Reestrs.pas';
+  Reestrs in 'Reestrs.pas',
+  Statist in 'Statist.pas';
 
 {$R *.res}
 

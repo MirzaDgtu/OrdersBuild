@@ -134,8 +134,8 @@ resourcestring
                                     'ORDER BY UID';                                                             //-----************-----//
 
 
-    SSQLGetCollectCountOrders = 'SELECT DISTINCT KeeperUID, ' +                                                 //-----************-----//
-                                               ' Keeper, ' +                                                    //-----************-----//
+    SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                                 //-----************-----//
+                                               ' Collector, ' +                                                    //-----************-----//
                                                ' COUNT(FolioUID)as "DocKol::INT", ' +                           //-----************-----//
                                                ' I.Screen ' +                                                   //---Получение списка сборщиков
                                 'FROM ProcessedDoc ' +                                                          //---и количества собранных заявок

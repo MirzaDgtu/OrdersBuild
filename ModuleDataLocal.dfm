@@ -128,11 +128,11 @@ object AppDataLocal: TAppDataLocal
     Connection = Connection
     Left = 24
     Top = 120
-    object CollectorBuildKeeperUID: TIntegerField
-      FieldName = 'KeeperUID'
+    object CollectorBuildCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
     end
-    object CollectorBuildKeeper: TStringField
-      FieldName = 'Keeper'
+    object CollectorBuildCollector: TStringField
+      FieldName = 'Collector'
       Size = 50
     end
     object CollectorBuildDocKol: TIntegerField

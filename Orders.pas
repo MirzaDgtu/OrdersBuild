@@ -155,6 +155,8 @@ type
     RightReestrPanel: TPanel;
     ReestrSynchBtn: TButton;
     ReestrSynchEdit: TEdit;
+    LinkListControlToField6: TLinkListControlToField;
+    CollectorBuild: TBindSourceDB;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -189,6 +191,7 @@ type
     procedure RightStatistMenuBtnClick(Sender: TObject);
     procedure StatistLVClick(Sender: TObject);
     procedure ReestrSynchBtnClick(Sender: TObject);
+    procedure RefreshStatistBtnClick(Sender: TObject);
   private
     { Private declarations }
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
@@ -395,6 +398,17 @@ procedure TOrdersForm.RefreshDriversBtnClick(Sender: TObject);
 begin
    DriversBS.DataSet.Active := False;
    DriversBS.DataSet.Active := True;
+end;
+
+procedure TOrdersForm.RefreshStatistBtnClick(Sender: TObject);
+begin
+  try
+    AppDataLocal.CollectorBuild.Active := False;
+    AppDataLocal.CollectorBuild.SQL.Text := Format(SSQLGetCollectCountOrders, [FormatDateTime('yyyy-mm-dd', BegDate.Date),
+                                                                               FormatDateTime('yyyy-mm-dd', EndDate.Date)]);
+    AppDataLocal.CollectorBuild.Active := True;
+  except
+  end;
 end;
 
 procedure TOrdersForm.RefreshVidDocsBtnClick(Sender: TObject);

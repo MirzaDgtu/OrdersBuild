@@ -41,8 +41,6 @@ type
     VidDocsVID_DOC: TStringField;
     VidDocsScreen: TBlobField;
     CollectorBuild: TFDQuery;
-    CollectorBuildKeeperUID: TIntegerField;
-    CollectorBuildKeeper: TStringField;
     CollectorBuildDocKol: TIntegerField;
     CollectorBuildScreen: TBlobField;
     CollectorOrders: TFDQuery;
@@ -54,6 +52,8 @@ type
     CollectorOrdersCollector: TStringField;
     CollectorOrdersCollectorUID: TIntegerField;
     CollectorOrdersScreen: TBlobField;
+    CollectorBuildCollectorUID: TIntegerField;
+    CollectorBuildCollector: TStringField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

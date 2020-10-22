@@ -109,6 +109,46 @@ resourcestring
                                          'VID_DOC != ''''';                                                    //-----*********-----//
 
 
+              //   Отработанные документы
+
+      SSQLAddCollectorOrder = 'INSERT INTO ProcessedDoc (FolioUID, ' +                                          //-----************-----//
+                                                        'OrderDate, ' +                                         //-----************-----//
+                                                        'Keeper,    ' +                                         //---Добавление собранной накладной
+                                                        'KeeperUID, ' +                                         //-----в таблицу ProcessedDoc-----//
+                                                        'Collector, ' +                                         //-----************-----//
+                                                        'CollectorUID) ' +                                      //-----************-----//
+                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d)';                              //-----************-----//
+
+
+      SSQLGetCollectorOrders = 'SELECT 	UID, ' +                                                                //-----************-----//
+                                       'FolioUID, ' +                                                           //-----************-----//
+                                       'OrderDate, ' +                                                          //-----************-----//
+                                       'Keeper, ' +                                                             //---Получение списка собранных накладных---//
+                                       'KeeperUID, ' +                                                          //---выбранный сборщиком---//
+                                       'Collector, ' +                                                          //-----************-----//
+                                       'CollectorUID, ' +                                                       //-----************-----//
+                                       'I.Screen ' +                                                            //-----************-----//
+                                    'FROM ProcessedDoc ' +                                                      //-----************-----//
+                                    ' LEFT JOIN Icons I ON I.UID = 7 ' +                                        //-----************-----//
+                                    'WHERE CollectorUID = %d  ' +                                               //-----************-----//
+                                    'ORDER BY UID';                                                             //-----************-----//
+
+
+    SSQLGetCollectCountOrders = 'SELECT DISTINCT KeeperUID, ' +                                                 //-----************-----//
+                                               ' Keeper, ' +                                                    //-----************-----//
+                                               ' COUNT(FolioUID)as "DocKol::INT", ' +                           //-----************-----//
+                                               ' I.Screen ' +                                                   //---Получение списка сборщиков
+                                'FROM ProcessedDoc ' +                                                          //---и количества собранных заявок
+                                '  LEFT JOIN Icons I ON I.UID = 22 ' +                                          //-----************-----//
+                                'WHERE OrderDate BETWEEN ''%s'' and ''%s'' ' +                                  //-----************-----//
+                                'GROUP BY Keeper, ' +                                                           //-----************-----//
+                                         'KeeperUID, ' +                                                        //-----************-----//
+                                         'I.Screen ';                                                           //-----************-----//
+
+
+
+
+
 implementation
 
 end.

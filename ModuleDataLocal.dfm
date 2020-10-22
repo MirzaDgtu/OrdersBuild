@@ -1,11 +1,12 @@
 object AppDataLocal: TAppDataLocal
   OldCreateOrder = False
-  Height = 424
-  Width = 428
+  Height = 314
+  Width = 435
   object Connection: TFDConnection
     Params.Strings = (
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
       'DriverID=SQLite')
+    Connected = True
     LoginPrompt = False
     BeforeConnect = ConnectionBeforeConnect
     Left = 24
@@ -120,6 +121,56 @@ object AppDataLocal: TAppDataLocal
       Size = 30
     end
     object VidDocsScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object CollectorBuild: TFDQuery
+    Connection = Connection
+    Left = 24
+    Top = 120
+    object CollectorBuildKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object CollectorBuildKeeper: TStringField
+      FieldName = 'Keeper'
+      Size = 50
+    end
+    object CollectorBuildDocKol: TIntegerField
+      FieldName = 'DocKol'
+    end
+    object CollectorBuildScreen: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object CollectorOrders: TFDQuery
+    Connection = Connection
+    Left = 96
+    Top = 120
+    object CollectorOrdersUID: TIntegerField
+      FieldName = 'UID'
+    end
+    object CollectorOrdersFolioUID: TFloatField
+      FieldName = 'FolioUID'
+    end
+    object CollectorOrdersOrderDate: TWideMemoField
+      FieldName = 'OrderDate'
+      BlobType = ftWideMemo
+    end
+    object CollectorOrdersKeeper: TStringField
+      FieldName = 'Keeper'
+      Size = 50
+    end
+    object CollectorOrdersKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object CollectorOrdersCollector: TStringField
+      FieldName = 'Collector'
+      Size = 50
+    end
+    object CollectorOrdersCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
+    end
+    object CollectorOrdersScreen: TBlobField
       FieldName = 'Screen'
     end
   end

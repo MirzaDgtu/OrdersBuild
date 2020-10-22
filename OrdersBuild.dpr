@@ -13,12 +13,14 @@ uses
   Orders in 'Orders.pas' {OrdersForm},
   Interfaces in 'Interfaces.pas',
   Reestrs in 'Reestrs.pas',
-  Statist in 'Statist.pas';
+  Statist in 'Statist.pas',
+  Nakl in 'Nakl.pas' {NaklForm};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TSignForm, SignForm);
+  Application.CreateForm(TNaklForm, NaklForm);
   Application.Run;
 end.

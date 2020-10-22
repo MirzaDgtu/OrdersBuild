@@ -193,6 +193,7 @@ type
     procedure ReestrSynchBtnClick(Sender: TObject);
     procedure RefreshStatistBtnClick(Sender: TObject);
     procedure DBegSynchEditChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
@@ -310,6 +311,11 @@ begin
   FilterLocal.Driver := AItem.Data['L_CP2_PLAT'].AsString;
   DriverFilterSettingEdit.Text := AItem.Data['L_CP2_PLAT'].AsString;
   PanelHide(DriversLayout, DriversFA);
+end;
+
+procedure TOrdersForm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
 end;
 
 procedure TOrdersForm.NaklLVClick(Sender: TObject);

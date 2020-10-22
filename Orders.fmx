@@ -9,6 +9,7 @@ object OrdersForm: TOrdersForm
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client

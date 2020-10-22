@@ -210,6 +210,10 @@
         <DCCReference Include="Interfaces.pas"/>
         <DCCReference Include="Reestrs.pas"/>
         <DCCReference Include="Statist.pas"/>
+        <DCCReference Include="Nakl.pas">
+            <Form>NaklForm</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

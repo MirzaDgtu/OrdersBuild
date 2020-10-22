@@ -33,6 +33,7 @@ type
     CollectorHeaderLbl: TLabel;
     CollectorLV: TListView;
     CollectorFA: TFloatAnimation;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -45,5 +46,10 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+end;
 
 end.

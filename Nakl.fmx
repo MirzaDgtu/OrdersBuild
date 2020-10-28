@@ -4,6 +4,7 @@ object NaklForm: TNaklForm
   Caption = 'NaklForm'
   ClientHeight = 642
   ClientWidth = 375
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -438,7 +439,7 @@ object NaklForm: TNaklForm
     end
     object CollectLayout: TLayout
       Align = Client
-      Size.Width = 349.000000000000000000
+      Size.Width = 375.000000000000000000
       Size.Height = 524.000000000000000000
       Size.PlatformDefault = False
       Visible = False
@@ -447,12 +448,12 @@ object NaklForm: TNaklForm
         Align = Client
         Fill.Color = claBlack
         Opacity = 0.500000000000000000
-        Size.Width = 349.000000000000000000
+        Size.Width = 375.000000000000000000
         Size.Height = 476.000000000000000000
         Size.PlatformDefault = False
       end
       object CollectHeaderTB: TToolBar
-        Size.Width = 349.000000000000000000
+        Size.Width = 375.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -470,7 +471,7 @@ object NaklForm: TNaklForm
         object RefreshBtn: TButton
           Align = Right
           IconTintColor = claBlue
-          Position.X = 301.000000000000000000
+          Position.X = 327.000000000000000000
           Size.Width = 48.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
@@ -482,7 +483,7 @@ object NaklForm: TNaklForm
           StyledSettings = [Family, Size]
           Position.X = 48.000000000000000000
           Position.Y = 12.000000000000000000
-          Size.Width = 253.000000000000000000
+          Size.Width = 279.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'listboxheaderlabel'
@@ -503,7 +504,7 @@ object NaklForm: TNaklForm
         Margins.Top = 7.000000000000000000
         Margins.Right = 7.000000000000000000
         Margins.Bottom = 7.000000000000000000
-        Size.Width = 335.000000000000000000
+        Size.Width = 361.000000000000000000
         Size.Height = 462.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2

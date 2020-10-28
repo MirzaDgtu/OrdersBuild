@@ -144,8 +144,8 @@ end;
 
 procedure TNaklForm.setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
 begin
-     CountProdNaklLbl.Text := KolProd.ToString;
-     CountBuildProdNaklLbl.Text := KolBuildProd.ToString;
+     CountProdNaklLbl.Text := Format('Товаров: %d', [KolProd]);
+     CountBuildProdNaklLbl.Text := Format('Собрано: %d', [KolBuildProd]);
 end;
 
 procedure TNaklForm.SetNumDocP(const Value: integer);

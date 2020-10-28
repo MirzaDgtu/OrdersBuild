@@ -3,7 +3,7 @@ object NaklForm: TNaklForm
   Top = 0
   Caption = 'NaklForm'
   ClientHeight = 642
-  ClientWidth = 349
+  ClientWidth = 375
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -11,12 +11,12 @@ object NaklForm: TNaklForm
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
-    Size.Width = 349.000000000000000000
+    Size.Width = 375.000000000000000000
     Size.Height = 642.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object NaklHeaderTB: TToolBar
-      Size.Width = 349.000000000000000000
+      Size.Width = 375.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -33,7 +33,7 @@ object NaklForm: TNaklForm
       object SaveNaklBtn: TButton
         Align = Right
         IconTintColor = claPurple
-        Position.X = 301.000000000000000000
+        Position.X = 327.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -46,7 +46,7 @@ object NaklForm: TNaklForm
         StyledSettings = []
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 253.000000000000000000
+        Size.Width = 279.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Arial'
@@ -60,7 +60,7 @@ object NaklForm: TNaklForm
     end
     object CollectorTB: TToolBar
       Position.Y = 48.000000000000000000
-      Size.Width = 349.000000000000000000
+      Size.Width = 375.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -68,6 +68,8 @@ object NaklForm: TNaklForm
       object CollectorLeftLbl: TLabel
         Align = Left
         StyledSettings = [Family]
+        Margins.Left = 5.000000000000000000
+        Position.X = 5.000000000000000000
         Size.Width = 65.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -80,39 +82,49 @@ object NaklForm: TNaklForm
       object CollectorBtn: TButton
         Align = Right
         IconTintColor = claBlue
-        Position.X = 301.000000000000000000
+        Position.X = 327.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'detailstoolbutton'
         TabOrder = 1
+        OnClick = CollectorBtnClick
       end
       object CollectorEdit: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = VertCenter
         TabOrder = 2
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claRed
         TextSettings.HorzAlign = Center
-        Position.X = 65.000000000000000000
+        Position.X = 70.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 236.000000000000000000
+        Size.Width = 257.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         StyledSettings = [Family]
+        object ClearEditButton1: TClearEditButton
+          CanFocus = False
+          Cursor = crArrow
+          Size.Width = 32.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+        end
       end
     end
     object NaklBottomSB: TStatusBar
       Position.Y = 620.000000000000000000
       ShowSizeGrip = True
-      Size.Width = 349.000000000000000000
+      Size.Width = 375.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'statusbarstyle'
       TabOrder = 2
       object ProductNaklInfo: TGridPanelLayout
         Align = Client
-        Size.Width = 349.000000000000000000
+        Size.Width = 375.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -137,11 +149,14 @@ object NaklForm: TNaklForm
         RowCollection = <
           item
             Value = 100.000000000000000000
+          end
+          item
+            SizeStyle = Auto
           end>
         object CountProdNaklLbl: TLabel
           Align = VertCenter
           StyledSettings = [Family]
-          Size.Width = 174.500000000000000000
+          Size.Width = 187.500000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
@@ -154,8 +169,8 @@ object NaklForm: TNaklForm
         object CountBuildProdNaklLbl: TLabel
           Align = VertCenter
           StyledSettings = [Family]
-          Position.X = 174.500000000000000000
-          Size.Width = 174.500000000000000000
+          Position.X = 187.500000000000000000
+          Size.Width = 187.500000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
@@ -168,15 +183,255 @@ object NaklForm: TNaklForm
       end
     end
     object ProductLV: TListView
-      ItemAppearanceClassName = 'TListItemAppearance'
-      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+      ItemAppearanceClassName = 'TDynamicAppearance'
+      ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
       Align = Client
-      Size.Width = 349.000000000000000000
+      Size.Width = 375.000000000000000000
       Size.Height = 524.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
+      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'ProductName'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claIndigo
+          Appearance.Width = 302.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.Align = Center
+          Appearance.PlaceOffset.X = 12.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Screen'
+          AppearanceClassName = 'TImageObjectAppearance'
+          Appearance.Width = 26.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'StrikeCode'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claMidnightblue
+          Appearance.Width = 71.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 25.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Packages'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claSeagreen
+          Appearance.Width = 40.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 95.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'EDIN_IZMER'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.Width = 49.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 222.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'EDN_V_UPAK'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claMaroon
+          Appearance.Width = 41.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 134.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Qty'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claRed
+          Appearance.Width = 49.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 174.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'KON_KOLCH'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claOlive
+          Appearance.Width = 39.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.VertAlign = Center
+          Appearance.PlaceOffset.X = 270.000000000000000000
+          Appearance.PlaceOffset.Y = 10.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'StatusGBtn'
+          AppearanceClassName = 'TGlyphButtonObjectAppearance'
+          Appearance.ButtonType = Checkbox
+          Appearance.Width = 19.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 308.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'FolioUID'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'Status'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'Date_Device'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'Article'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'Price'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'Sum_Predm'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end>
+      ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Article'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'StrikeCode'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'ProductName'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claMediumblue
+          Appearance.Width = 292.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.Align = Center
+          Appearance.PlaceOffset.X = -5.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Screen'
+          AppearanceClassName = 'TImageObjectAppearance'
+          Appearance.Width = 23.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = -9.000000000000000000
+          Appearance.PlaceOffset.Y = 8.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'EDIN_IZMER'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claMediumvioletred
+          Appearance.Width = 66.000000000000000000
+          Appearance.Height = 23.000000000000000000
+          Appearance.Visible = False
+          Appearance.PlaceOffset.X = 13.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Packages'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claMediumseagreen
+          Appearance.Width = 49.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 14.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'EDN_V_UPAK'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claSlateblue
+          Appearance.Width = 49.000000000000000000
+          Appearance.Height = 23.000000000000000000
+          Appearance.PlaceOffset.X = 62.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Qty'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claRed
+          Appearance.Width = 65.000000000000000000
+          Appearance.Height = 23.000000000000000000
+          Appearance.PlaceOffset.X = 110.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Price'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Family = '11'
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claDarkviolet
+          Appearance.Width = 57.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 174.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Sum_Predm'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.Width = 57.000000000000000000
+          Appearance.Height = 23.000000000000000000
+          Appearance.PlaceOffset.X = 230.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'KON_KOLCH'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claRed
+          Appearance.Width = 42.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.VertAlign = Center
+          Appearance.PlaceOffset.X = 286.000000000000000000
+          Appearance.PlaceOffset.Y = 11.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'CheckBuild'
+          AppearanceClassName = 'TGlyphButtonObjectAppearance'
+          Appearance.ButtonType = Checkbox
+          Appearance.Width = 23.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 304.000000000000000000
+        end>
+      ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+      ItemAppearanceObjects.HeaderObjects.Text.TextAlign = Center
+      ItemAppearanceObjects.HeaderObjects.Text.Align = Center
+      ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
       StyleLookup = 'listviewstyle'
       CanSwipeDelete = False
       SearchVisible = True
@@ -210,6 +465,7 @@ object NaklForm: TNaklForm
           Size.PlatformDefault = False
           StyleLookup = 'backtoolbutton'
           TabOrder = 0
+          OnClick = BackCollectBtnClick
         end
         object RefreshBtn: TButton
           Align = Right
@@ -255,6 +511,7 @@ object NaklForm: TNaklForm
           item
             AppearanceObjectName = 'UID'
             AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.Size = 10.000000000000000000
             Appearance.Font.StyleExt = {00070000000000000004000000}
             Appearance.TextColor = claMidnightblue
             Appearance.Width = 48.000000000000000000
@@ -264,20 +521,13 @@ object NaklForm: TNaklForm
           item
             AppearanceObjectName = 'Name'
             AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.Size = 10.000000000000000000
             Appearance.Font.StyleExt = {00070000000000000004000000}
             Appearance.TextColor = claRed
-            Appearance.Width = 132.000000000000000000
+            Appearance.Width = 235.000000000000000000
             Appearance.Height = 44.000000000000000000
-            Appearance.PlaceOffset.X = 182.000000000000000000
-          end
-          item
-            AppearanceObjectName = 'ProjectName'
-            AppearanceClassName = 'TTextObjectAppearance'
-            Appearance.Font.StyleExt = {00070000000000000004000000}
-            Appearance.TextColor = claSteelblue
-            Appearance.Width = 105.000000000000000000
-            Appearance.Height = 44.000000000000000000
-            Appearance.PlaceOffset.X = 78.000000000000000000
+            Appearance.Align = Center
+            Appearance.PlaceOffset.X = 39.000000000000000000
           end
           item
             AppearanceObjectName = 'Screen'
@@ -302,5 +552,107 @@ object NaklForm: TNaklForm
         StopValue = 0.000000000000000000
       end
     end
+  end
+  object CollectorsBS: TBindSourceDB
+    DataSet = AppDataLocal.Collectors
+    ScopeMappings = <>
+    Left = 62
+    Top = 312
+  end
+  object NaklBL: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 60
+    Top = 261
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = CollectorsBS
+      Control = CollectorLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'Name'
+          ControlMemberName = 'Name'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = ProductsBS
+      Control = ProductLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'ProductName'
+          ControlMemberName = 'ProductName'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'Sum_Predm'
+          ControlMemberName = 'Sum_Predm'
+        end
+        item
+          SourceMemberName = 'Price'
+          ControlMemberName = 'Price'
+        end
+        item
+          SourceMemberName = 'Article'
+          ControlMemberName = 'Article'
+        end
+        item
+          SourceMemberName = 'Date_Device'
+          ControlMemberName = 'Date_Device'
+        end
+        item
+          SourceMemberName = 'Status'
+          ControlMemberName = 'Status'
+        end
+        item
+          SourceMemberName = 'FolioUID'
+          ControlMemberName = 'FolioUID'
+        end
+        item
+          SourceMemberName = 'KON_KOLCH'
+          ControlMemberName = 'KON_KOLCH'
+        end
+        item
+          SourceMemberName = 'Qty'
+          ControlMemberName = 'Qty'
+        end
+        item
+          SourceMemberName = 'EDN_V_UPAK'
+          ControlMemberName = 'EDN_V_UPAK'
+        end
+        item
+          SourceMemberName = 'EDIN_IZMER'
+          ControlMemberName = 'EDIN_IZMER'
+        end
+        item
+          SourceMemberName = 'Packages'
+          ControlMemberName = 'Packages'
+        end
+        item
+          SourceMemberName = 'StrikeCode'
+          ControlMemberName = 'StrikeCode'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object ProductsBS: TBindSourceDB
+    DataSet = AppDataLocal.OrdersMove
+    ScopeMappings = <>
+    Left = 136
+    Top = 312
   end
 end

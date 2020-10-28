@@ -38,9 +38,6 @@ type
     RefreshUserBtn: TButton;
     UserHeaderLbl: TLabel;
     UserFA: TFloatAnimation;
-    UsersBS: TBindSourceDB;
-    SignLB: TBindingsList;
-    LinkListControlToField1: TLinkListControlToField;
     UserPanel: TPanel;
     UserBtn: TButton;
     SettingLayout: TLayout;
@@ -69,6 +66,9 @@ type
     PortParamSettingLBI: TListBoxItem;
     PortParamSettingEdit: TEdit;
     ClearParamSettingBtn: TClearEditButton;
+    UsersBS: TBindSourceDB;
+    SignBL: TBindingsList;
+    LinkListControlToField1: TLinkListControlToField;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
@@ -80,6 +80,7 @@ type
     procedure SaveSettingBtnClick(Sender: TObject);
     procedure SignSBtnClick(Sender: TObject);
     procedure BackUserBtnClick(Sender: TObject);
+    procedure RefreshUserBtnClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
@@ -102,7 +103,7 @@ implementation
 
 {$R *.fmx}
 
-uses ModuleDataLocal, SConsts, Globals, Orders;
+uses SConsts, Globals, Orders, ModuleDataLocal;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
@@ -129,7 +130,7 @@ begin
      dbLocal.Delete;
    finally
      dbLocal.Free;
-   end;}      
+   end;}
 end;
 
 procedure TSignForm.FormCreate(Sender: TObject);
@@ -185,6 +186,11 @@ begin
       UserFA.Inverse := False;
       UserFA.StartValue := Self.Height  + 20;
       UserFA.Start;
+end;
+
+procedure TSignForm.RefreshUserBtnClick(Sender: TObject);
+begin
+   TUsers.Get();
 end;
 
 procedure TSignForm.SaveSettingBtnClick(Sender: TObject);

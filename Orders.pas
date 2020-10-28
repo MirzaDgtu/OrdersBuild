@@ -10,7 +10,8 @@ uses
   FMX.Objects, System.ImageList, FMX.ImgList, FMX.Ani, FMX.ListBox, FMX.Edit,
   FMX.DateTimeCtrls, FMX.EditBox, FMX.SpinBox, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
+  System.Threading, System.SyncObjs;
 
 type
   TOrdersForm = class(TForm)
@@ -157,6 +158,12 @@ type
     ReestrSynchEdit: TEdit;
     LinkListControlToField6: TLinkListControlToField;
     CollectorBuild: TBindSourceDB;
+    OrdersHeaderBS: TBindSourceDB;
+    LinkListControlToField7: TLinkListControlToField;
+    OrdersBottomSB: TStatusBar;
+    OrdersBottomGPL: TGridPanelLayout;
+    KolDocLbl: TLabel;
+    KolBuildDocLbl: TLabel;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -194,16 +201,29 @@ type
     procedure RefreshStatistBtnClick(Sender: TObject);
     procedure DBegSynchEditChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure RefreshNaklBtnClick(Sender: TObject);
+    procedure DEndSynchEditChange(Sender: TObject);
+    procedure BegDateChange(Sender: TObject);
+    procedure EndDateChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure NaklLVItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure BuildNaklBtnClick(Sender: TObject);
   private
     { Private declarations }
+    strReques: string;
+    statusDocLoc: Byte;
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelAllHide();
 
     procedure setFilterSettingRecord();
     procedure setGlobalDates(DBegP, DEndP: TDate);
+    procedure setOrdersBottomSBInfo();
+    procedure setActualDate();
 
     procedure correctDP();
+
 
   public
     { Public declarations }
@@ -217,7 +237,7 @@ implementation
 {$R *.fmx}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 
-uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces;
+uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct;
 {$R *.NmXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.LgXhdpiTb.fmx ANDROID}
@@ -269,6 +289,12 @@ begin
   PanelHide(VidDocsLayout, VidDocsFA);
 end;
 
+procedure TOrdersForm.BegDateChange(Sender: TObject);
+begin
+  correctDP;
+  DBegSynchEdit.Date := BegDate.Date;
+end;
+
 procedure TOrdersForm.BrieforgFilterSettingBtnClick(Sender: TObject);
 begin
   BrieforgBS.DataSet.Active := False;
@@ -279,9 +305,32 @@ end;
 procedure TOrdersForm.BrieforgLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
-  FilterLocal.Brieforg := AItem.Data['Brieforg'].AsString;
-  BrieforgFilterSettingEdit.Text := AItem.Data['Brieforg'].AsString;
+  FilterLocal.Brieforg := AItem.Data['BRIEFORG'].AsString;
+  BrieforgFilterSettingEdit.Text := AItem.Data['BRIEFORG'].AsString;
   PanelHide(BrieforgLayout, BrieforgFA);
+end;
+
+procedure TOrdersForm.BuildNaklBtnClick(Sender: TObject);
+var
+    NaklF: TNaklForm;
+begin
+   PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+
+   if NaklRec.UnicumNum > 0 then
+     try
+       NaklF := TNaklForm.Create(NaklRec.UnicumNum, NaklRec.NumDoc, NaklRec.KolProd,
+                                 NaklRec.KolBuildProd, NaklRec.Status);
+
+       {$IFDEF ANDROID}
+          NaklF.Show();
+       {$ENDIF}
+
+       {$IFDEF MSWINDOWS}
+          NaklF.ShowModal();
+       {$ENDIF}
+     finally
+      // NaklF.Free();
+     end;
 end;
 
 procedure TOrdersForm.correctDP;
@@ -297,6 +346,13 @@ end;
 procedure TOrdersForm.DBegSynchEditChange(Sender: TObject);
 begin
    correctDP();
+   BegDate.Date := DBegSynchEdit.Date;
+end;
+
+procedure TOrdersForm.DEndSynchEditChange(Sender: TObject);
+begin
+  correctDP();
+  EndDate.Date := DEndSynchEdit.Date;
 end;
 
 procedure TOrdersForm.DriverFilterSettingBtnClick(Sender: TObject);
@@ -313,13 +369,39 @@ begin
   PanelHide(DriversLayout, DriversFA);
 end;
 
+procedure TOrdersForm.EndDateChange(Sender: TObject);
+begin
+  correctDP();
+  DEndSynchEdit.Date := EndDate.Date;
+end;
+
 procedure TOrdersForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
 end;
 
+procedure TOrdersForm.FormCreate(Sender: TObject);
+begin
+  setActualDate();
+end;
+
 procedure TOrdersForm.NaklLVClick(Sender: TObject);
 begin
+   PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+end;
+
+procedure TOrdersForm.NaklLVItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+   try
+     NaklRec.UnicumNum := (AItem.Data['FolioUID'].AsString).toInteger;
+     NaklRec.NumDoc := (AItem.Data['OrderNo'].AsString).toInteger;
+     NaklRec.KolProd := (AItem.Data['ColProd'].AsString).toInteger;
+     NaklRec.KolBuildProd := (AItem.Data['ColBuildProd'].AsString).toInteger;
+     NaklRec.Status := (AItem.Data['Status'].AsString).toInteger;
+   finally
+   end;
+
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
 end;
 
@@ -334,6 +416,7 @@ begin
   PanelHide(RightStatistMenuLayout, RightStatistMenuFA);
   PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
   PanelHide(ReestrLayout, ReestrsFA);
+  PanelHide(FilterSettingLayout, FilterSettingFA);
 end;
 
 procedure TOrdersForm.PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
@@ -380,11 +463,6 @@ begin
 
    ReestrFilterSettingEdit.Text := AItem.Data['ProjectName'].AsString;
    ReestrSynchEdit.Text := AItem.Data['ProjectName'].AsString;
-
-  { case TabsOrder.TabIndex of
-    0 : ReestrFilterSettingEdit.Text := AItem.Data['ProjectName'].AsString;
-    2 : ReestrSynchEdit.Text := AItem.Data['ProjectName'].AsString;
-   end; }
 end;
 
 procedure TOrdersForm.ReestrSynchBtnClick(Sender: TObject);
@@ -414,14 +492,44 @@ begin
   try
     BrieforgBS.DataSet.Active := False;
     BrieforgBS.DataSet.Active := True;
-  finally
+  except
   end;
 end;
 
 procedure TOrdersForm.RefreshDriversBtnClick(Sender: TObject);
 begin
+  try
    DriversBS.DataSet.Active := False;
    DriversBS.DataSet.Active := True;
+  except
+  end;
+end;
+
+procedure TOrdersForm.RefreshNaklBtnClick(Sender: TObject);
+begin
+
+  try
+    if statusDocLoc = 0 then
+       try
+        statusDocLoc := 1;
+        if strReques.IsEmpty then
+             strReques := SSQLGetOrdersHeaderLocal + ' WHERE OrderDate BETWEEN ' +
+                          QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DBeg)) + ' AND ' +
+                          QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DEnd));
+
+        AppDataLocal.OrdersHead.Active := False;
+        AppDataLocal.OrdersHead.SQL.Text := strReques;
+        AppDataLocal.OrdersHead.Active := True;
+        statusDocLoc := 0;
+       finally
+         setOrdersBottomSBInfo();
+       end
+    else
+      ShowMessage('Процесс получения документов еще завершен!' + #13 + 'Пожалуйста подождите');
+  except
+    on Err: Exception do
+      ShowMessage('Ошибка получения документов!' + #13 + 'Сообщение: ' + Err.Message);
+  end;
 end;
 
 procedure TOrdersForm.RefreshStatistBtnClick(Sender: TObject);
@@ -437,8 +545,11 @@ end;
 
 procedure TOrdersForm.RefreshVidDocsBtnClick(Sender: TObject);
 begin
-  VidDocsBS.DataSet.Active := False;
-  VidDocsBS.DataSet.Active := True;
+  try
+    VidDocsBS.DataSet.Active := False;
+    VidDocsBS.DataSet.Active := True;
+  except
+  end;
 end;
 
 procedure TOrdersForm.RightNaklMenuBtnClick(Sender: TObject);
@@ -457,18 +568,45 @@ begin
   setFilterSettingRecord();
 end;
 
-procedure TOrdersForm.setFilterSettingRecord;
+procedure TOrdersForm.setActualDate;
 begin
   try
-    FilterLocal.JournalNo := ((JournalSpin.Value).ToString);
+    BegDate.Date := Now();
+    EndDate.Date := BegDate.Date + 1;
     FilterLocal.DBeg := BegDate.Date;
     FilterLocal.DEnd := EndDate.Date;
-    FilterLocal.Reestr := ReestrFilterSettingEdit.Text;
-    FilterLocal.Brieforg := BrieforgFilterSettingEdit.Text;
-    FilterLocal.VidDoc := VidDocFilterSettingEdit.Text;
-    FilterLocal.Driver := DriverFilterSettingEdit.Text;
-    FilterLocal.Agent := AgentFilterSettingEdit.Text;
-    FilterLocal.BuildStr := TypeBuildCombo.Items.Text;
+  except
+  end;
+end;
+
+procedure TOrdersForm.setFilterSettingRecord;
+begin
+  strReques := EmptyStr;
+
+  try
+    try
+      FilterLocal.JournalNo := IfThen(JournalSpin.Value = 0, EmptyStr, ' AND JournalNo = ' + QuotedStr(((JournalSpin.Value). ToString)));
+      FilterLocal.DBeg := BegDate.Date;
+      FilterLocal.DEnd := EndDate.Date;
+      FilterLocal.Reestr := IfThen(ReestrFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND ProjectName = ' +  QuotedStr(ReestrFilterSettingEdit.Text));
+      FilterLocal.Brieforg := IfThen(BrieforgFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND BRIEFORG = ' +  QuotedStr(BrieforgFilterSettingEdit.Text));
+      FilterLocal.VidDoc := ifThen(VidDocFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND VID_DOC = ' +  QuotedStr(VidDocFilterSettingEdit.Text));
+      FilterLocal.Driver := IfThen(DriverFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND L_CP2_PLAT = ' + QuotedStr(DriverFilterSettingEdit.Text));
+      FilterLocal.Agent := IfThen(AgentFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND L_CP1_PLAT = ' +  QuotedStr(AgentFilterSettingEdit.Text));
+
+      case TypeBuildCombo.ItemIndex of
+        0: FilterLocal.BuildStr := EmptyStr;
+        1: FilterLocal.BuildStr := ' AND Status = 0';
+        2: FilterLocal.BuildStr := ' AND Status = 1';
+        3: FilterLocal.BuildStr := ' AND Status = 2';
+      end;
+
+    finally
+      strReques := SSQLGetOrdersHeaderLocal + ' WHERE OrderDate BETWEEN ' + QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DBeg)) + ' AND ' + QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DEnd)) +
+                   FilterLocal.JournalNo + FilterLocal.Reestr + FilterLocal.Brieforg + FilterLocal.VidDoc + FilterLocal.Driver + FilterLocal.Agent;
+
+      RefreshNaklBtnClick(Self);
+    end;
   except
      FillChar(FilterLocal, SizeOf(TFilter), #0);
   end;
@@ -478,6 +616,23 @@ procedure TOrdersForm.setGlobalDates(DBegP, DEndP: TDate);
 begin
     DatesLocal.DBeg := DBegP;
     DatesLocal.DEnd := DEndP;
+end;
+
+procedure TOrdersForm.setOrdersBottomSBInfo();
+begin
+  try
+     try
+       AppDataLocal.EveryOne.Active := False;
+       AppDataLocal.EveryOne.SQL.Text := SSQLGetCountOrdersHeader;
+       AppDataLocal.EveryOne.Active := True;
+     finally
+       KolDocLbl.Text := Format('Документов: %d', [AppDataLocal.EveryOne.FieldByName('CountNacl').AsInteger]);
+       KolBuildDocLbl.Text := Format('Собрано: %d', [AppDataLocal.EveryOne.FieldByName('CountBuild').AsInteger]);
+     end;
+  except
+     on Err: Exception do
+       ShowMessage('Ошибка получения информации о количестве док-ов!' + #13 + 'Сообщение: ' + Err.Message);
+  end;
 end;
 
 procedure TOrdersForm.SettingFilterBtnClick(Sender: TObject);

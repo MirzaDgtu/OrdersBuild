@@ -14,13 +14,14 @@ uses
   Interfaces in 'Interfaces.pas',
   Reestrs in 'Reestrs.pas',
   Statist in 'Statist.pas',
-  Nakl in 'Nakl.pas' {NaklForm};
+  Nakl in 'Nakl.pas' {NaklForm},
+  NaklAct in 'NaklAct.pas',
+  Collectors in 'Collectors.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TSignForm, SignForm);
-  Application.CreateForm(TNaklForm, NaklForm);
   Application.Run;
 end.

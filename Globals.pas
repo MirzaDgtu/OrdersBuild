@@ -37,11 +37,21 @@ type
     DEnd: TDate;
   end;
 
+type
+  TNaklRec = record
+    UnicumNum: integer;
+    NumDoc: integer;
+    KolProd: integer;
+    KolBuildProd: integer;
+    Status: integer;
+  end;
+
 var
     CurrentUser: TUser;
     ConnectLocal: TConnectLocal;
     FilterLocal: TFilter;
     DatesLocal: TDates;
+    NaklRec: TNaklRec;
 
 
 implementation

@@ -15,15 +15,8 @@ type
     Connection: TFDConnection;
     SQLiteDriver: TFDPhysSQLiteDriverLink;
     GUIxWaitCursor: TFDGUIxWaitCursor;
-    Users: TFDQuery;
-    UsersID: TIntegerField;
-    UsersUserLogin: TStringField;
-    UsersUserName: TStringField;
-    UsersLastUser: TSmallintField;
-    UsersScreen: TBlobField;
     Command: TFDQuery;
     EveryOne: TFDQuery;
-    UsersLastUserScreen: TBlobField;
     Reestrs: TFDQuery;
     ReestrsUID: TIntegerField;
     ReestrsProjectName: TStringField;
@@ -55,12 +48,62 @@ type
     CollectorBuildCollectorUID: TIntegerField;
     CollectorBuildCollector: TStringField;
     CollectorOrdersOrderBuildDate: TWideMemoField;
+    OrdersMove: TFDQuery;
+    OrdersHead: TFDQuery;
+    OrdersMoveFolioUID: TIntegerField;
+    OrdersMoveArticle: TStringField;
+    OrdersMoveStrikeCode: TStringField;
+    OrdersMoveProductName: TStringField;
+    OrdersMovePackages: TFloatField;
+    OrdersMoveEDIN_IZMER: TStringField;
+    OrdersMoveEDN_V_UPAK: TFloatField;
+    OrdersMoveQty: TFloatField;
+    OrdersMovePrice: TFloatField;
+    OrdersMoveSum_Predm: TFloatField;
+    OrdersMoveKON_KOLCH: TFloatField;
+    OrdersMoveStatus: TIntegerField;
+    OrdersMoveDate_Device: TWideMemoField;
+    OrdersHeadUID: TIntegerField;
+    OrdersHeadJournalNo: TIntegerField;
+    OrdersHeadOrderUID: TIntegerField;
+    OrdersHeadFolioUID: TFloatField;
+    OrdersHeadOrderNo: TFloatField;
+    OrdersHeadOrderDate: TWideMemoField;
+    OrdersHeadBRIEFORG: TStringField;
+    OrdersHeadORGANIZNKL: TStringField;
+    OrdersHeadL_CP1_PLAT: TStringField;
+    OrdersHeadL_CP2_PLAT: TStringField;
+    OrdersHeadVID_DOC: TStringField;
+    OrdersHeadSUM_ROZN: TFloatField;
+    OrdersHeadSUM_POR: TFloatField;
+    OrdersHeadStrikeCode: TStringField;
+    OrdersHeadNAMEP_USER: TStringField;
+    OrdersHeadADRES_USER: TStringField;
+    OrdersHeadProjectName: TStringField;
+    OrdersHeadColProd: TSmallintField;
+    OrdersHeadColBuildProd: TSmallintField;
+    OrdersHeadScreen: TBlobField;
+    OrdersHeadDate_Device: TLargeintField;
+    Users: TFDQuery;
+    UsersID: TIntegerField;
+    UsersUserLogin: TStringField;
+    UsersUserName: TStringField;
+    UsersLastUser: TSmallintField;
+    UsersScreen: TBlobField;
+    UsersLastUserScreen: TBlobField;
+    Collectors: TFDQuery;
+    CollectorsUID: TIntegerField;
+    CollectorsName: TStringField;
+    CollectorsScreen: TBlobField;
+    OrdersMoveScreen: TBlobField;
+    OrdersHeadStatus: TIntegerField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);
     procedure AgentsBeforeOpen(DataSet: TDataSet);
     procedure VidDocsBeforeOpen(DataSet: TDataSet);
     procedure ReestrsBeforeOpen(DataSet: TDataSet);
+    procedure CollectorsBeforeOpen(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -91,6 +134,11 @@ end;
 procedure TAppDataLocal.BrieforgsBeforeOpen(DataSet: TDataSet);
 begin
    Brieforgs.SQL.Text := SSQLGetBrieforgLocal;
+end;
+
+procedure TAppDataLocal.CollectorsBeforeOpen(DataSet: TDataSet);
+begin
+  Collectors.SQL.Text := SSQLGetCollectors;
 end;
 
 procedure TAppDataLocal.ConnectionBeforeConnect(Sender: TObject);

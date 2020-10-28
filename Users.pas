@@ -52,15 +52,18 @@ end;
 constructor TUsers.Create;
 begin
   inherited Create();
-  Get();
+  TUsers.Get();
   GetLastUser(CurrentUser);
 end;
 
 class procedure TUsers.Get;
 begin
+  try
     AppDataLocal.Users.Active := False;
     AppDataLocal.Users.SQL.Text := SSQLGetUsersLocal;
     AppDataLocal.Users.Active := True;
+  except
+  end;
 end;
 
 procedure TUsers.GetLastUser(out User: TUser);

@@ -1,13 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:\Projects\OrdersBuild\SqlLiteBase.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2764"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="7" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainUsers"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Icons" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="53"/><column index="3" value="81"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Users" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="71"/><column index="3" value="142"/><column index="4" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT ID, 
-	   UserLogin,
-	   UserName,   
-	   LastUser, 
-	   I.Screen,
-	  (SELECT II.SCREEN
-	   FROM USERS UU
-	   WHERE UU.LastUser = 1
-			 AND UU.ID = U.ID) AS LASTUSETSCREEN
-FROM Users U 
- LEFT JOIN Icons I ON I.UID = 2 
- LEFT JOIN Icons II ON II.UID = 13
-Order BY UserName     </sql><current_tab id="0"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:\Projects\OrdersBuild\SqlLiteBase.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2764"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,12:mainOrdersHeader"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Collectors" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="43"/><column index="3" value="90"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="OrdersHeader" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="40"/><column index="2" value="71"/><column index="3" value="67"/><column index="4" value="58"/><column index="5" value="61"/><column index="6" value="76"/><column index="7" value="51"/><column index="8" value="69"/><column index="9" value="87"/><column index="10" value="125"/><column index="11" value="87"/><column index="12" value="65"/><column index="13" value="76"/><column index="14" value="69"/><column index="15" value="78"/><column index="16" value="92"/><column index="17" value="91"/><column index="18" value="90"/><column index="19" value="90"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE &quot;OrdersMove&quot; (&quot;FolioUID&quot; INTEGER  NULL,
+						  &quot;Article&quot; VARCHAR(20)  NULL, 
+						  &quot;StrikeCode&quot; VARCHAR(30)  NULL,
+						  &quot;ProductName&quot; VARCHAR(200)  NULL, 
+						  &quot;EDIN_IZMER&quot; VARCHAR(20)  NULL, 
+						  &quot;Packages&quot; FLOAT  NULL, 
+						  &quot;EDN_V_UPAK&quot; FLOAT  NULL, 
+						  &quot;Qty&quot; FLOAT  NULL, 
+						  &quot;Price&quot; FLOAT  NULL,
+						  &quot;Sum_Predm&quot; FLOAT  NULL, 
+						  &quot;KON_KOLCH&quot; Float  NULL, 
+						  &quot;Status&quot; INTEGER DEFAULT '0' NOT NULL, 
+						  &quot;Date_Device&quot; TEXT NULL)</sql><sql name="SQL 2">CREATE TABLE &quot;OrdersHeader&quot; ( &quot;UID&quot;	INTEGER, 
+							  &quot;JournalNo&quot;	INTEGER, 
+							  &quot;OrderUID&quot;	INTEGER, 
+							  &quot;FolioUID&quot;	REAL, 
+							  &quot;OrderNo&quot;	REAL, 
+							  &quot;OrderDate&quot;	TEXT, 
+							  &quot;Status&quot; INTEGER DEFAULT '0'  NOT NULL, 
+							  &quot;BRIEFORG&quot;	VARCHAR(20), 
+							  &quot;ORGANIZNKL&quot;	VARCHAR(50), 
+							  &quot;L_CP1_PLAT&quot;	VARCHAR(30), 
+							  &quot;L_CP2_PLAT&quot;	VARCHAR(30), 
+							  &quot;VID_DOC&quot;	VARCHAR(50), 
+							  &quot;SUM_ROZN&quot;	FLOAT, 
+							  &quot;SUM_POR&quot;	FLOAT, 
+							  &quot;StrikeCode&quot;	VARCHAR(30), 
+							  &quot;NAMEP_USER&quot;	VARCHAR(110), 
+							  &quot;ADRES_USER&quot;	VARCHAR(150), 
+							  &quot;ProjectName&quot;	VARCHAR(50), 
+							  &quot;Date_Device&quot; NUMERIC)</sql><current_tab id="1"/></tab_sql></sqlb_project>

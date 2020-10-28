@@ -47,8 +47,8 @@ end;
 procedure TReestrs.Get;
 begin
   try
-   AppDataLocal.Reestrs.Active := False;
-   AppDataLocal.Reestrs.Active := True;
+    AppDataLocal.Reestrs.Active := False;
+    AppDataLocal.Reestrs.Active := True;
   except
   end;
 end;

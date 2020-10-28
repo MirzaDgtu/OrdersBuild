@@ -1,210 +1,211 @@
 ﻿[ReestrsHeaderTB]
-Coordinates=124,1166,100,33
+Coordinates=360,1202,100,33
 
 [VidDocFilterSettingEdit]
-Coordinates=272,894,129,51
+Coordinates=1785,930,129,51
 
 [NaklRigthMenuRect]
-Coordinates=297,1048,111,33
+Coordinates=10,1143,111,33
 
 [RightNaklMenuBtn]
-Coordinates=883,537,106,51
+Coordinates=302,853,106,51
 
 [BrieforgFilterSettingBtn]
-Coordinates=272,740,131,51
+Coordinates=1264,776,131,51
 
 [AgentFilterSettingEdit]
-Coordinates=123,740,123,51
+Coordinates=1284,930,123,51
 
 [PrevTabBtn]
-Coordinates=1522,894,72,51
+Coordinates=1018,853,72,51
 
 [StatistTab]
-Coordinates=565,1107,64,33
+Coordinates=1180,1143,64,33
 
 [VidDocFilterSettingBtn]
-Coordinates=1099,740,127,51
+Coordinates=1329,573,127,51
 
 [OrdersTab]
-Coordinates=1419,1048,66,33
+Coordinates=1189,1007,66,33
 
 [JournalNumLBI]
-Coordinates=1457,971,91,33
+Coordinates=578,1007,91,33
 
 [IL]
 Coordinates=34,1061,40,33
 
 [NaklHeaderTB]
-Coordinates=409,971,84,33
+Coordinates=1704,1084,84,33
 
 [FilterSettingFA]
 Coordinates=730,265,88,33
 
 [AgentFilterSettingBtn]
-Coordinates=549,894,120,51
+Coordinates=1138,930,120,51
 
 [TabsOrder]
-Coordinates=10,1048,66,33
+Coordinates=766,1202,66,33
 
 [AppDataLocal.Users]
-Coordinates=617,537,115,159
+Coordinates=908,573,115,159
 
 [ReestrFilterSettingBtn]
-Coordinates=469,817,123,51
+Coordinates=869,853,123,51
 
 [DriverLBI]
-Coordinates=102,1048,60,33
+Coordinates=1792,1007,60,33
 
 [AppDataLocal.EveryOne]
-Coordinates=1661,537,134,51
+Coordinates=1794,776,134,51
 
 [BegDate]
-Coordinates=546,740,115,51
+Coordinates=1808,853,115,51
 
 [DriverFilterSettingEdit]
-Coordinates=1801,817,123,51
+Coordinates=1233,853,123,51
 
 [FilterSettingHeaderTB]
-Coordinates=1640,1107,123,33
+Coordinates=921,1007,123,33
 
 [FilterSettingLayout]
-Coordinates=250,1166,108,33
+Coordinates=1878,1007,108,33
 
 [JournalSpin]
-Coordinates=1421,537,73,51
+Coordinates=596,853,73,51
 
 [BegDateLBI]
-Coordinates=858,971,72,33
+Coordinates=1245,1084,72,33
 
 [OrdersHeaderLbl]
-Coordinates=345,817,98,51
+Coordinates=514,930,98,51
 
 [AgentLBI]
-Coordinates=643,971,60,33
+Coordinates=821,1143,60,33
 
 [NaklHeaderLbl]
-Coordinates=1252,740,86,51
+Coordinates=637,776,86,51
 
 [BuildNaklBtn]
-Coordinates=942,817,78,51
+Coordinates=10,776,78,51
 
 [ReestrLBI]
-Coordinates=1057,971,62,33
+Coordinates=618,1143,62,33
 
 [BuildLBI]
-Coordinates=1146,1107,56,33
+Coordinates=486,1202,56,33
 
 [AppDataLocal.Reestrs]
 Coordinates=750,200,124,33
 Visible=False
 
 [EndDateLBI]
-Coordinates=1428,1107,72,33
+Coordinates=1680,1143,72,33
 
 [ReestrFilterSettingFA]
 Coordinates=730,870,120,33
 
 [ParamLNGH]
-Coordinates=956,971,75,33
+Coordinates=509,1084,75,33
 
 [NaklRigthMenuLayout]
-Coordinates=384,1166,123,33
+Coordinates=1031,1143,123,33
 
 [SynchTab]
-Coordinates=1820,971,63,33
+Coordinates=677,1202,63,33
 
 [RightMenuVCLayout]
-Coordinates=1679,971,115,33
+Coordinates=1900,1143,115,33
 
 [RefreshNaklBtn]
-Coordinates=145,971,91,51
+Coordinates=1677,776,91,51
 
 [SettingFilterLbl]
-Coordinates=1046,817,89,51
+Coordinates=1835,573,89,51
 
 [FilterSettingLB]
-Coordinates=962,10,116,177
+Coordinates=766,573,116,177
 
 [SaveFilterSettingBtn]
-Coordinates=1520,537,115,51
+Coordinates=1644,930,115,51
 
 [ReestrFilterSettingHeaderLbl]
-Coordinates=1217,894,156,51
+Coordinates=455,776,156,51
 
 [AppDataLocal.Command]
-Coordinates=1840,740,136,51
+Coordinates=434,853,136,51
 
 [ClearEditButton6]
-Coordinates=307,1107,98,33
+Coordinates=1281,1007,98,33
 
 [TypeBuildCombo]
-Coordinates=758,537,99,123
+Coordinates=1204,573,99,123
 
 [NaklRightMenuFA]
 Coordinates=482,1157,103,33
 
 [NextTabBtn]
-Coordinates=1742,740,72,51
+Coordinates=1617,573,72,51
 
 [FilterSettingRect]
-Coordinates=857,1166,96,33
+Coordinates=1558,1143,96,33
 
 [NaklLayout]
-Coordinates=762,1166,69,33
+Coordinates=610,1084,69,33
 
 [ClearEditButton2]
-Coordinates=519,971,98,33
+Coordinates=236,1202,98,33
 
 [ClearEditButton5]
-Coordinates=1756,1048,98,33
+Coordinates=494,1143,98,33
 
 [BrieforgLBI]
-Coordinates=588,1048,70,33
+Coordinates=1364,1143,70,33
 
 [EndDate]
-Coordinates=1161,817,115,51
+Coordinates=161,853,115,51
 
 [SettingFilterBtn]
-Coordinates=228,817,91,51
+Coordinates=1147,776,91,51
 
 [DateBetweenLBGH]
-Coordinates=431,1107,108,33
+Coordinates=1111,1084,108,33
 
 [ReestrsLV]
-Coordinates=468,10,89,195
+Coordinates=1023,10,89,195
 
 [ClearEditButton3]
-Coordinates=918,1048,98,33
+Coordinates=797,1007,98,33
 
 [DriverFilterSettingBtn]
-Coordinates=262,971,121,51
+Coordinates=114,776,121,51
 
 [BackFilterSettingBtn]
-Coordinates=130,894,116,51
+Coordinates=372,930,116,51
 
 [ViewNaklBtn]
-Coordinates=984,894,76,51
+Coordinates=638,930,76,51
 
 [ClearEditButton4]
-Coordinates=1632,1048,98,33
+Coordinates=907,1143,98,33
 
 [OrdersHeaderTB]
-Coordinates=1909,971,96,33
+Coordinates=1778,1143,96,33
 
 [BrieforgFilterSettingEdit]
-Coordinates=695,894,133,51
+Coordinates=147,1007,133,51
 
 [VidDocLBI]
-Coordinates=1365,971,66,33
+Coordinates=819,1084,66,33
 
 [ReestrFilterSettingEdit]
-Coordinates=1620,894,125,51
+Coordinates=10,853,125,51
 
 [NaklLV]
-Coordinates=10,10,100,501
+Coordinates=10,10,100,537
+Visible=True
 
 [MainLayout]
-Coordinates=108,1107,71,33
+Coordinates=911,1084,71,33
 
 []
 Coordinates=155,10,174,256
@@ -213,28 +214,28 @@ Coordinates=155,10,174,256
 Coordinates=148,1,61,33
 
 [ReestrBS]
-Coordinates=637,46,109,123
+Coordinates=1192,46,109,123
 
 [BackReestrFilterSettingBtn]
-Coordinates=1500,817,148,51
+Coordinates=695,853,148,51
 
 [RefreshReestrFilterSettingBtn]
-Coordinates=755,817,161,51
+Coordinates=1382,853,161,51
 
 [ReestrLayout]
-Coordinates=533,1166,80,33
+Coordinates=2041,1143,80,33
 
 [ReestrRect]
-Coordinates=1145,971,68,33
+Coordinates=1270,1143,68,33
 
 [ReestrsFA]
 Coordinates=148,263,65,33
 
 [BrieforgRect]
-Coordinates=205,1107,76,33
+Coordinates=695,1007,76,33
 
 [BrieforgLV]
-Coordinates=1246,10,89,177
+Coordinates=10,573,89,177
 Visible=True
 
 [AppDataLocal.Agents]
@@ -250,186 +251,186 @@ Coordinates=660,390,121,33
 Visible=False
 
 [RefreshBrieforgBtn]
-Coordinates=10,971,109,51
+Coordinates=1482,573,109,51
 
 [BrieforgFA]
 Coordinates=300,1,68,33
 
 [BrieforgHeaderLbl]
-Coordinates=98,817,104,51
+Coordinates=1008,930,104,51
 
 [BackBrieforgBtn]
-Coordinates=1364,740,96,51
+Coordinates=333,776,96,51
 
 [AppDataLocal.VidDocs]
 Coordinates=810,280,127,33
 Visible=False
 
 [BrieforgHeaderTB]
-Coordinates=729,971,103,33
+Coordinates=858,1202,103,33
 
 [BrieforgBS]
-Coordinates=1415,46,115,105
+Coordinates=179,609,115,105
 
 [BrieforgLayout]
-Coordinates=1200,1048,88,33
+Coordinates=141,1084,88,33
 
 [BackDriversBtn]
-Coordinates=429,740,91,51
+Coordinates=1030,776,91,51
 
 [DriversFA]
 Coordinates=129,224,63,33
 
 [DriversLV]
-Coordinates=313,537,92,177
+Coordinates=320,573,92,177
 Visible=True
 
 [RefreshDriversBtn]
-Coordinates=1086,894,105,51
+Coordinates=1421,776,105,51
 
 [DriversLayout]
-Coordinates=188,1048,83,33
+Coordinates=568,1202,83,33
 
 [DriversHeaderLbl]
-Coordinates=1374,817,100,51
+Coordinates=740,930,100,51
 
 [DriversRect]
-Coordinates=10,1107,72,33
+Coordinates=1460,1143,72,33
 
 [DriversHeaderTB]
-Coordinates=1789,1107,98,33
+Coordinates=147,1143,98,33
 
 [DriversBS]
-Coordinates=485,573,106,105
+Coordinates=492,609,106,105
 
 [AgentsRect]
-Coordinates=1228,1107,71,33
+Coordinates=987,1202,71,33
 
 [AgentsLV]
-Coordinates=10,537,92,177
+Coordinates=1327,10,92,177
 Visible=True
 
 [AgentsHeaderLbl]
-Coordinates=1486,740,99,51
+Coordinates=1552,776,99,51
 
 [AgentsHeaderTB]
-Coordinates=639,1166,97,33
+Coordinates=255,1084,97,33
 
 [RefreshAgentsBtn]
-Coordinates=854,894,104,51
+Coordinates=151,930,104,51
 
 [BackAgentsBtn]
-Coordinates=687,740,91,51
+Coordinates=1691,853,91,51
 
 [AgentsLayout]
-Coordinates=1913,1107,83,33
+Coordinates=385,1143,83,33
 
 [AgentsBS]
-Coordinates=182,573,105,105
+Coordinates=1499,46,105,105
 
 [AgentsFA]
 Coordinates=288,328,62,33
 
 [VidDocsLV]
-Coordinates=1556,10,89,177
+Coordinates=1630,10,89,177
 Visible=True
 
 [VidDocsHeaderTB]
-Coordinates=655,1107,104,33
+Coordinates=1968,1084,104,33
 
 [VidDocsLayout]
-Coordinates=803,1048,89,33
+Coordinates=706,1143,89,33
 
 [BackVidDocsBtn]
-Coordinates=1298,537,97,51
+Coordinates=1521,930,97,51
 
 [VidDocsFA]
 Coordinates=460,206,69,33
 
 [VidDocsHeaderLbl]
-Coordinates=1611,740,105,51
+Coordinates=447,1007,105,51
 
 [RefreshVidDocsBtn]
-Coordinates=618,817,111,51
+Coordinates=10,1007,111,51
 
 [VidDocsRect]
-Coordinates=1325,1107,77,33
+Coordinates=1008,1084,77,33
 
 [VidDocsBS]
-Coordinates=1725,46,112,105
+Coordinates=1799,46,112,105
 
 [DBegSynchLBI]
-Coordinates=10,1166,88,33
+Coordinates=705,1084,88,33
 
 [SynchRect]
-Coordinates=1053,1107,67,33
+Coordinates=1343,1084,67,33
 
 [DEndSynchLBI]
-Coordinates=1526,1107,88,33
+Coordinates=271,1143,88,33
 
 [DBegSynchEdit]
-Coordinates=1157,537,115,51
+Coordinates=10,930,115,51
 
 [SynchBottomTB]
-Coordinates=785,1107,95,33
+Coordinates=115,1202,95,33
 
 [RightStatistMenuLayout]
-Coordinates=1042,1048,132,33
+Coordinates=1510,1007,132,33
 
 [RightStatistMenuRect]
-Coordinates=906,1107,121,33
+Coordinates=1436,1084,121,33
 
 [RefreshStatistBtn]
-Coordinates=1674,817,101,51
+Coordinates=749,776,101,51
 
 [LoaderNaklBtn]
-Coordinates=10,740,87,51
+Coordinates=1949,853,87,51
 
 [SynchParamLBGH]
-Coordinates=1880,1048,105,33
+Coordinates=378,1084,105,33
 
 [SynchLayout]
-Coordinates=1574,971,79,33
+Coordinates=10,1202,79,33
 
 [StatistLV]
-Coordinates=136,10,89,213
+Coordinates=501,10,89,213
 Visible=True
 
 [RefreshStatistMenuBtn]
-Coordinates=945,740,128,51
+Coordinates=876,776,128,51
 
 [RightStatistRectLayout]
-Coordinates=434,1048,128,33
+Coordinates=1814,1084,128,33
 
 [RightReestrPanel]
-Coordinates=1239,971,100,33
+Coordinates=2012,1007,100,33
 
 [RightStatistMenuBtn]
-Coordinates=1015,537,116,51
+Coordinates=866,930,116,51
 
 [SynchLB]
-Coordinates=1104,10,116,177
+Coordinates=624,573,116,177
 
 [ReestrSynchEdit]
-Coordinates=427,894,96,51
+Coordinates=1569,853,96,51
 
 [StatistLayout]
-Coordinates=1314,1048,79,33
+Coordinates=1405,1007,79,33
 
 [ReestrSynchLBI]
-Coordinates=684,1048,93,33
+Coordinates=1070,1007,93,33
 
 [AppDataLocal.CollectorOrders]
-Coordinates=772,10,164,195
+Coordinates=833,10,164,213
 
 [SynchBtn]
-Coordinates=10,817,62,51
+Coordinates=1433,930,62,51
 
 [StatistBottomTB]
-Coordinates=1511,1048,95,33
+Coordinates=1583,1084,95,33
 
 [Label1]
-Coordinates=1302,817,46,51
+Coordinates=261,776,46,51
 
 [AppDataLocal.CollectorBuild]
 Coordinates=530,280,156,33
@@ -439,17 +440,50 @@ Visible=False
 Coordinates=1322,299,112,33
 
 [RangeStatistBtn]
-Coordinates=10,894,94,51
+Coordinates=1715,573,94,51
 
 [DEndSynchEdit]
-Coordinates=804,740,115,51
+Coordinates=306,1007,115,51
 
 [ReestrSynchBtn]
-Coordinates=1771,894,94,51
+Coordinates=1954,776,94,51
 
 [StatistBottomLbl]
-Coordinates=1399,894,97,51
+Coordinates=1940,930,97,51
 
 [CollectorBuild]
-Coordinates=305,46,137,141
+Coordinates=670,46,137,141
+
+[AppDataLocal.OrdersMove]
+Coordinates=350,10,146,33
+Visible=False
+
+[AppDataLocal.OrdersHead]
+Coordinates=155,10,145,33
+Visible=False
+
+[OrdersHeaderBS]
+Coordinates=190,37,129,483
+
+[KolDocLbl]
+Coordinates=281,930,65,51
+
+[KolBuildDocLbl]
+Coordinates=1116,853,91,51
+
+[OrdersBottomGPL]
+Coordinates=10,1084,105,33
+
+[OrdersBottomSB]
+Coordinates=1668,1007,98,33
+
+[AppDataLocal.Collectors]
+Visible=False
+Coordinates=343,65,136,33
+
+[NaklForm.ProductsBS]
+Coordinates=345,10,130,321
+
+[NaklForm.CollectorsBS]
+Coordinates=1049,573,129,123
 

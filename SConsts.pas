@@ -242,6 +242,12 @@ resourcestring
                                            'Article = ''%s''';                                            //-----*****************-----//
 
 
+      SSQLDeleteOrdersMove         = 'DELETE FROM OrdersMove ' +                                          //----- Удаление товаров при ----//
+                                     'WHERE FolioUID = %d';                                               //----корректировке наклданой ---//
+
+      SSQLClearOrdersMove          = 'DELETE FROM OrdersMove';                                            //---- Очистка полного списка товаров -- //
+
+
 
 
 implementation

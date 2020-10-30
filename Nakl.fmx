@@ -2,7 +2,7 @@ object NaklForm: TNaklForm
   Left = 0
   Top = 0
   Caption = 'NaklForm'
-  ClientHeight = 642
+  ClientHeight = 624
   ClientWidth = 375
   Position = ScreenCenter
   FormFactor.Width = 320
@@ -13,7 +13,7 @@ object NaklForm: TNaklForm
   object MainLayout: TLayout
     Align = Client
     Size.Width = 375.000000000000000000
-    Size.Height = 642.000000000000000000
+    Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object NaklHeaderTB: TToolBar
@@ -117,7 +117,7 @@ object NaklForm: TNaklForm
       end
     end
     object NaklBottomSB: TStatusBar
-      Position.Y = 620.000000000000000000
+      Position.Y = 602.000000000000000000
       ShowSizeGrip = True
       Size.Width = 375.000000000000000000
       Size.Height = 22.000000000000000000
@@ -192,7 +192,7 @@ object NaklForm: TNaklForm
       SideSpace = 1
       Align = Client
       Size.Width = 375.000000000000000000
-      Size.Height = 524.000000000000000000
+      Size.Height = 506.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
@@ -673,7 +673,7 @@ object NaklForm: TNaklForm
   object ProductsBS: TBindSourceDB
     DataSet = AppDataLocal.OrdersMove
     ScopeMappings = <>
-    Left = 136
+    Left = 133
     Top = 312
   end
 end

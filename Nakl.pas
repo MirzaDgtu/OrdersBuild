@@ -204,8 +204,13 @@ procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);
 var
     iVal: integer;
 begin
-  for iVal in FProdChecked do
-    ShowMessage(iVal.ToString);
+  if FProdChecked.Count > 0 then
+    Begin
+      for iVal in FProdChecked do
+        NaklAct.SaveBuildProd(UnicumNumP, ProdNakl.Article, 1);
+    End;
+
+
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

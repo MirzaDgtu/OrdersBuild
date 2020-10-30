@@ -319,7 +319,7 @@ begin
    if NaklRec.UnicumNum > 0 then
      try
        NaklF := TNaklForm.Create(NaklRec.UnicumNum, NaklRec.NumDoc, NaklRec.KolProd,
-                                 NaklRec.KolBuildProd, NaklRec.Status);
+                                 NaklRec.KolBuildProd, NaklRec.Status, NaklRec.CollectorUID, NaklRec.Collector);
 
        {$IFDEF ANDROID}
           NaklF.Show();
@@ -399,10 +399,12 @@ begin
      NaklRec.KolProd := (AItem.Data['ColProd'].AsString).toInteger;
      NaklRec.KolBuildProd := (AItem.Data['ColBuildProd'].AsString).toInteger;
      NaklRec.Status := (AItem.Data['Status'].AsString).toInteger;
+     NaklRec.CollectorUID := (IFThen(AItem.Data['CollectorUID'].AsString = EmptyStr, '0', (AItem.Data['CollectorUID'].AsString))).ToInteger;
+     NaklRec.Collector := AItem.Data['Collector'].AsString;
    finally
+     PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
    end;
 
-   PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
 end;
 
 procedure TOrdersForm.NextTabBtnClick(Sender: TObject);
@@ -528,7 +530,10 @@ begin
       ShowMessage('Процесс получения документов еще завершен!' + #13 + 'Пожалуйста подождите');
   except
     on Err: Exception do
-      ShowMessage('Ошибка получения документов!' + #13 + 'Сообщение: ' + Err.Message);
+      Begin
+        statusDocLoc := 0;
+        ShowMessage('Ошибка получения документов!' + #13 + 'Сообщение: ' + Err.Message);
+      End;
   end;
 end;
 

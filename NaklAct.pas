@@ -9,9 +9,12 @@ type
 
   public
     procedure Add;
-    procedure Delete;
+    procedure Delete; overload;
+    procedure Delete(Unicum_Num: integer); overload;
+
     procedure Get; overload;
     class procedure Get(Unicum_Num: integer); overload;
+    class procedure SaveBuildProd(Unicum_Num, Article, Status: integer);
 
     constructor Create(Unicum_Num: integer);
   end;
@@ -34,6 +37,11 @@ begin
   TNaklAction.Get(Unicum_Num);
 end;
 
+procedure TNaklAction.Delete(Unicum_Num: integer);
+begin
+//
+end;
+
 procedure TNaklAction.Delete;
 begin
   //
@@ -47,6 +55,11 @@ begin
      AppDataLocal.OrdersMove.Active := True;
   except
   end;
+end;
+
+class procedure TNaklAction.SaveBuildProd(Unicum_Num, Article, Status: integer);
+begin
+  //
 end;
 
 procedure TNaklAction.Get;

@@ -41,6 +41,7 @@ object NaklForm: TNaklForm
         StyleLookup = 'pagecurltoolbutton'
         TabOrder = 1
         Text = 'SaveNaklBtn'
+        OnClick = SaveNaklBtnClick
       end
       object NumDocNaklLbl: TLabel
         Align = VertCenter
@@ -188,6 +189,7 @@ object NaklForm: TNaklForm
       ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
+      SideSpace = 1
       Align = Client
       Size.Width = 375.000000000000000000
       Size.Height = 524.000000000000000000
@@ -200,25 +202,26 @@ object NaklForm: TNaklForm
           Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claIndigo
-          Appearance.Width = 302.000000000000000000
+          Appearance.Width = 334.000000000000000000
           Appearance.Height = 22.000000000000000000
           Appearance.Align = Center
-          Appearance.PlaceOffset.X = 12.000000000000000000
+          Appearance.PlaceOffset.X = 9.000000000000000000
         end
         item
           AppearanceObjectName = 'Screen'
           AppearanceClassName = 'TImageObjectAppearance'
-          Appearance.Width = 26.000000000000000000
+          Appearance.Width = 20.000000000000000000
+          Appearance.Height = 44.000000000000000000
         end
         item
           AppearanceObjectName = 'StrikeCode'
           AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
+          Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claMidnightblue
-          Appearance.Width = 71.000000000000000000
+          Appearance.Width = 85.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 25.000000000000000000
+          Appearance.PlaceOffset.X = 20.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -229,7 +232,7 @@ object NaklForm: TNaklForm
           Appearance.TextColor = claSeagreen
           Appearance.Width = 40.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 95.000000000000000000
+          Appearance.PlaceOffset.X = 104.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -239,7 +242,7 @@ object NaklForm: TNaklForm
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.Width = 49.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 222.000000000000000000
+          Appearance.PlaceOffset.X = 231.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -250,17 +253,18 @@ object NaklForm: TNaklForm
           Appearance.TextColor = claMaroon
           Appearance.Width = 41.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 134.000000000000000000
+          Appearance.PlaceOffset.X = 143.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
           AppearanceObjectName = 'Qty'
           AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claRed
           Appearance.Width = 49.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 174.000000000000000000
+          Appearance.PlaceOffset.X = 183.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -269,20 +273,11 @@ object NaklForm: TNaklForm
           Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claOlive
-          Appearance.Width = 39.000000000000000000
+          Appearance.Width = 40.000000000000000000
           Appearance.Height = 22.000000000000000000
           Appearance.VertAlign = Center
-          Appearance.PlaceOffset.X = 270.000000000000000000
+          Appearance.PlaceOffset.X = 279.000000000000000000
           Appearance.PlaceOffset.Y = 10.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'StatusGBtn'
-          AppearanceClassName = 'TGlyphButtonObjectAppearance'
-          Appearance.ButtonType = Checkbox
-          Appearance.Width = 19.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 308.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
           AppearanceObjectName = 'FolioUID'
@@ -313,6 +308,16 @@ object NaklForm: TNaklForm
           AppearanceObjectName = 'Sum_Predm'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Visible = False
+        end
+        item
+          AppearanceObjectName = 'CheckBtnA'
+          AppearanceClassName = 'TAccessoryObjectAppearance'
+          Appearance.AccessoryType = Checkmark
+          Appearance.Width = 33.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.Visible = False
+          Appearance.PlaceOffset.X = 319.000000000000000000
+          Appearance.PlaceOffset.Y = 9.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item
@@ -323,7 +328,13 @@ object NaklForm: TNaklForm
         item
           AppearanceObjectName = 'StrikeCode'
           AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
+          Appearance.Font.Family = '10'
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claOrangered
+          Appearance.Width = 89.000000000000000000
+          Appearance.Height = 22.000000000000000000
+          Appearance.PlaceOffset.X = 14.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
           AppearanceObjectName = 'ProductName'
@@ -331,10 +342,10 @@ object NaklForm: TNaklForm
           Appearance.Font.Size = 11.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claMediumblue
-          Appearance.Width = 292.000000000000000000
+          Appearance.Width = 338.000000000000000000
           Appearance.Height = 22.000000000000000000
           Appearance.Align = Center
-          Appearance.PlaceOffset.X = -5.000000000000000000
+          Appearance.PlaceOffset.X = 6.000000000000000000
         end
         item
           AppearanceObjectName = 'Screen'
@@ -347,12 +358,12 @@ object NaklForm: TNaklForm
         item
           AppearanceObjectName = 'EDIN_IZMER'
           AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claMediumvioletred
-          Appearance.Width = 66.000000000000000000
+          Appearance.Width = 34.000000000000000000
           Appearance.Height = 23.000000000000000000
-          Appearance.Visible = False
-          Appearance.PlaceOffset.X = 13.000000000000000000
+          Appearance.PlaceOffset.X = 255.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -361,9 +372,9 @@ object NaklForm: TNaklForm
           Appearance.Font.Size = 11.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claMediumseagreen
-          Appearance.Width = 49.000000000000000000
+          Appearance.Width = 41.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 14.000000000000000000
+          Appearance.PlaceOffset.X = 102.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -374,7 +385,7 @@ object NaklForm: TNaklForm
           Appearance.TextColor = claSlateblue
           Appearance.Width = 49.000000000000000000
           Appearance.Height = 23.000000000000000000
-          Appearance.PlaceOffset.X = 62.000000000000000000
+          Appearance.PlaceOffset.X = 143.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -385,7 +396,7 @@ object NaklForm: TNaklForm
           Appearance.TextColor = claRed
           Appearance.Width = 65.000000000000000000
           Appearance.Height = 23.000000000000000000
-          Appearance.PlaceOffset.X = 110.000000000000000000
+          Appearance.PlaceOffset.X = 191.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
         item
@@ -396,6 +407,7 @@ object NaklForm: TNaklForm
           Appearance.TextColor = claDarkviolet
           Appearance.Width = 57.000000000000000000
           Appearance.Height = 22.000000000000000000
+          Appearance.Visible = False
           Appearance.PlaceOffset.X = 174.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
@@ -406,6 +418,7 @@ object NaklForm: TNaklForm
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.Width = 57.000000000000000000
           Appearance.Height = 23.000000000000000000
+          Appearance.Visible = False
           Appearance.PlaceOffset.X = 230.000000000000000000
           Appearance.PlaceOffset.Y = 21.000000000000000000
         end
@@ -415,26 +428,29 @@ object NaklForm: TNaklForm
           Appearance.Font.Size = 11.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claRed
-          Appearance.Width = 42.000000000000000000
+          Appearance.Width = 50.000000000000000000
           Appearance.Height = 22.000000000000000000
           Appearance.VertAlign = Center
-          Appearance.PlaceOffset.X = 286.000000000000000000
+          Appearance.PlaceOffset.X = 288.000000000000000000
           Appearance.PlaceOffset.Y = 11.000000000000000000
         end
         item
           AppearanceObjectName = 'CheckBuild'
-          AppearanceClassName = 'TGlyphButtonObjectAppearance'
-          Appearance.ButtonType = Checkbox
-          Appearance.Width = 23.000000000000000000
+          AppearanceClassName = 'TAccessoryObjectAppearance'
+          Appearance.AccessoryType = Checkmark
+          Appearance.Width = 22.000000000000000000
           Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 304.000000000000000000
+          Appearance.Visible = False
+          Appearance.PlaceOffset.X = 337.000000000000000000
+          Appearance.PlaceOffset.Y = 8.000000000000000000
         end>
       ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
       ItemAppearanceObjects.HeaderObjects.Text.TextAlign = Center
+      ItemAppearanceObjects.HeaderObjects.Text.TextColor = claMaroon
       ItemAppearanceObjects.HeaderObjects.Text.Align = Center
       ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
-      StyleLookup = 'listviewstyle'
       CanSwipeDelete = False
+      OnItemClick = ProductLVItemClick
       SearchVisible = True
     end
     object CollectLayout: TLayout
@@ -477,16 +493,18 @@ object NaklForm: TNaklForm
           Size.PlatformDefault = False
           StyleLookup = 'refreshtoolbutton'
           TabOrder = 1
+          OnClick = RefreshBtnClick
         end
         object CollectorHeaderLbl: TLabel
           Align = VertCenter
-          StyledSettings = [Family, Size]
+          StyledSettings = [Family]
           Position.X = 48.000000000000000000
           Position.Y = 12.000000000000000000
           Size.Width = 279.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'listboxheaderlabel'
+          TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.FontColor = claRed
           TextSettings.HorzAlign = Center
@@ -517,7 +535,7 @@ object NaklForm: TNaklForm
             Appearance.TextColor = claMidnightblue
             Appearance.Width = 48.000000000000000000
             Appearance.Height = 44.000000000000000000
-            Appearance.PlaceOffset.X = 31.000000000000000000
+            Appearance.PlaceOffset.X = 26.000000000000000000
           end
           item
             AppearanceObjectName = 'Name'
@@ -525,15 +543,15 @@ object NaklForm: TNaklForm
             Appearance.Font.Size = 10.000000000000000000
             Appearance.Font.StyleExt = {00070000000000000004000000}
             Appearance.TextColor = claRed
-            Appearance.Width = 235.000000000000000000
+            Appearance.Width = 266.000000000000000000
             Appearance.Height = 44.000000000000000000
             Appearance.Align = Center
-            Appearance.PlaceOffset.X = 39.000000000000000000
+            Appearance.PlaceOffset.X = 36.000000000000000000
           end
           item
             AppearanceObjectName = 'Screen'
             AppearanceClassName = 'TImageObjectAppearance'
-            Appearance.Width = 31.000000000000000000
+            Appearance.Width = 26.000000000000000000
             Appearance.Height = 44.000000000000000000
             Appearance.VertAlign = Center
           end>
@@ -543,6 +561,7 @@ object NaklForm: TNaklForm
             AppearanceClassName = 'TTextObjectAppearance'
           end>
         CanSwipeDelete = False
+        OnItemClick = CollectorLVItemClick
         SearchVisible = True
       end
       object CollectorFA: TFloatAnimation
@@ -647,6 +666,7 @@ object NaklForm: TNaklForm
           ControlMemberName = 'StrikeCode'
         end>
       FillHeaderExpressions = <>
+      FillHeaderFieldName = 'Article'
       FillBreakGroups = <>
     end
   end

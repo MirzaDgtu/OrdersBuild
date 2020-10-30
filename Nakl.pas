@@ -9,7 +9,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   FMX.Objects, FMX.Ani, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  NaklAct;
+  NaklAct, System.Generics.Collections, Globals;
 
 type
   TNaklForm = class(TForm)
@@ -44,6 +44,12 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CollectorBtnClick(Sender: TObject);
     procedure BackCollectBtnClick(Sender: TObject);
+    procedure RefreshBtnClick(Sender: TObject);
+    procedure CollectorLVItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure ProductLVItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure SaveNaklBtnClick(Sender: TObject);
   private
     FUnicumNumP: integer;
     FNumDocP: integer;
@@ -51,6 +57,8 @@ type
     FKolProdP: integer;
     FStatusP: integer;
     NaklAct: TNaklAction;
+    FProdChecked: TList<Integer>;
+    FCheckedBtnA: TList<Integer>;
     { Private declarations }
     procedure setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
     procedure SetNumDocP(const Value: integer);
@@ -63,7 +71,8 @@ type
     procedure PanelCollectorsHide();
   public
     { Public declarations }
-    constructor Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status: integer) overload;
+    constructor Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string) overload;
+    destructor Destroy; override;
 
   published
     property UnicumNumP: integer read FUnicumNumP write SetUnicumNumP;
@@ -91,14 +100,29 @@ procedure TNaklForm.CollectorBtnClick(Sender: TObject);
 var
     Collectors: TCollectors;
 begin
+  try
     Collectors := TCollectors.Create();
     PanelCollectorsView();
+  finally
+    Collectors.Free;
+  end;
 end;
 
-constructor TNaklForm.Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status: integer);
+procedure TNaklForm.CollectorLVItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  CollectorEdit.Text := AItem.Data['Name'].AsString;
+  CollectorNakl.UID := (AItem.Data['UID'].AsString).ToInteger;
+  CollectorNakl.Name := AItem.Data['Name'].AsString;
+  PanelCollectorsHide();
+end;
+
+constructor TNaklForm.Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string);
 begin
     inherited Create(Application);
     NaklAct := TNaklAction.Create(UnicumNum);
+    FProdChecked := TList<Integer>.Create;
+    FCheckedBtnA := TList<Integer>.Create;
 
     NumDocNaklLbl.Text := (NumDoc).ToString;
     UnicumNumP := UnicumNum;
@@ -106,8 +130,17 @@ begin
     KolBuildProdP := KolBuildProd;
     KolProdP := KolProd;
     StatusP := Status;
+    CollectorNakl.UID := CollectorUID;
+    CollectorNakl.Name := Collector;
+    CollectorEdit.Text := Collector;
 
     setNaklBottomSBInfo(KolProd, KolBuildProd);
+end;
+
+destructor TNaklForm.Destroy;
+begin
+  FProdChecked.Free();
+  inherited;
 end;
 
 procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -130,6 +163,49 @@ begin
    CollectorFA.Inverse := False;
    CollectorFA.StartValue := Self.Height + 20;
    CollectorFA.Start;
+end ;
+
+procedure TNaklForm.ProductLVItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+var
+  accessory: TListItemAccessory;
+begin
+  accessory := AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA');
+
+  if accessory.Visible then
+    begin
+      accessory.Visible := False;
+      FCheckedBtnA.Remove(AItem.Index);
+      if FProdChecked.Contains((AItem.Data['Article'].AsString).ToInteger) then
+        FProdChecked.Remove((AItem.Data['Article'].AsString).ToInteger);
+    end
+  else
+    Begin
+      accessory.Visible := True;
+      FProdChecked.Add((AItem.Data['Article'].AsString).ToInteger);
+      FCheckedBtnA.Add(AItem.Index);
+    End;
+
+    setNaklBottomSBInfo(KolProdP, FProdChecked.Count);
+end;
+
+procedure TNaklForm.RefreshBtnClick(Sender: TObject);
+var
+    Collectors: TCollectors;
+begin
+  try
+    Collectors := TCollectors.Create();
+  finally
+    Collectors.Free;
+  end;
+end;
+
+procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);
+var
+    iVal: integer;
+begin
+  for iVal in FProdChecked do
+    ShowMessage(iVal.ToString);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

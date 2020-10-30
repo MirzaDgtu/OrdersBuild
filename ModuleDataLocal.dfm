@@ -282,6 +282,20 @@ object AppDataLocal: TAppDataLocal
     object OrdersHeadStatus: TIntegerField
       FieldName = 'Status'
     end
+    object OrdersHeadCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
+    end
+    object OrdersHeadCollector: TStringField
+      FieldName = 'Collector'
+      Size = 50
+    end
+    object OrdersHeadKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object OrdersHeadKeeper: TStringField
+      FieldName = 'Keeper'
+      Size = 50
+    end
   end
   object Users: TFDQuery
     Connection = Connection

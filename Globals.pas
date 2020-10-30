@@ -44,14 +44,29 @@ type
     KolProd: integer;
     KolBuildProd: integer;
     Status: integer;
+    CollectorUID: integer;
+    Collector: string;
   end;
 
+type
+  TNaklCollector = record
+    UID: integer;
+    Name: string;
+  end;
+
+type
+  TProdNakl = record
+    Article: integer;
+    Name : string;
+  end;
 var
     CurrentUser: TUser;
     ConnectLocal: TConnectLocal;
     FilterLocal: TFilter;
     DatesLocal: TDates;
     NaklRec: TNaklRec;
+    CollectorNakl: TNaklCollector;
+    ProdNakl: TProdNakl;
 
 
 implementation

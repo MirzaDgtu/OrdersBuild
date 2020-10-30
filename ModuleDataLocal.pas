@@ -97,6 +97,10 @@ type
     CollectorsScreen: TBlobField;
     OrdersMoveScreen: TBlobField;
     OrdersHeadStatus: TIntegerField;
+    OrdersHeadCollectorUID: TIntegerField;
+    OrdersHeadCollector: TStringField;
+    OrdersHeadKeeperUID: TIntegerField;
+    OrdersHeadKeeper: TStringField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

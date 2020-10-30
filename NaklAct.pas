@@ -15,7 +15,7 @@ type
     procedure Get; overload;
     class procedure Get(Unicum_Num: integer); overload;
     class procedure SaveBuildProd(Unicum_Num, Article, Status: integer);
-    class procedure SaveHeadNakl(Unicum_Num, KolProdBuild: integer);
+    class procedure SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);
 
     constructor Create(Unicum_Num: integer);
   end;
@@ -84,11 +84,15 @@ begin
   end;
 end;
 
-class procedure TNaklAction.SaveHeadNakl(Unicum_Num, KolProdBuild: integer);
+class procedure TNaklAction.SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);
 begin
   if KolProdBuild > 0 then
   try
     AppDataLocal.Connection.StartTransaction;
+
+
+
+   // AppDataLocal.Command.Command.Execute();
   except
     AppDataLocal.Connection.Rollback;
   end;

@@ -122,14 +122,14 @@ resourcestring
 
               //   Отработанные документы
 
-      SSQLAddCollectorOrder = 'INSERT INTO ProcessedDoc (FolioUID, ' +                                    //-----************-----//
-                                                        'OrderDate, ' +                                   //-----************-----//
-                                                        'Keeper,    ' +                                   //-----************-----//
+      SSQLAddCollectorOrder = 'INSERT INTO ProcessedDoc (FolioUID, ' +                                    //-----**********************-----//
+                                                        'OrderDate, ' +                                   //-----**********************-----//
+                                                        'Keeper,    ' +                                   //-----**********************-----//
                                                         'KeeperUID, ' +                                   //---Добавление собранной накладной
                                                         'Collector, ' +                                   //-----в таблицу ProcessedDoc-----//
-                                                        'CollectorUID, ' +                                //-----************-----//
-                                                        'OrderBuildDate) ' +                              //-----************-----//
-                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'')';                //-----************-----//
+                                                        'CollectorUID, ' +                                //-----**********************-----//
+                                                        'OrderBuildDate) ' +                              //-----**********************-----//
+                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'')';                //-----**********************-----//
 
 
       SSQLGetCollectorOrders = 'SELECT 	UID, ' +                                                          //-----************-----//
@@ -147,21 +147,21 @@ resourcestring
                                     'ORDER BY UID';                                                       //-----************-----//
 
 
-    SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                        //-----************-----//
-                                               ' Collector, ' +                                           //-----************-----//
-                                               ' COUNT(FolioUID)as "DocKol::INT", ' +                     //-----************-----//
-                                               ' I.Screen ' +                                             //---Получение списка сборщиков
-                                'FROM ProcessedDoc ' +                                                    //---и количества собранных заявок
-                                '  LEFT JOIN Icons I ON I.UID = 22 ' +                                    //-----************-----//
-                                'WHERE OrderDate BETWEEN ''%s'' and ''%s'' ' +                            //-----************-----//
-                                'GROUP BY Keeper, ' +                                                     //-----************-----//
-                                         'KeeperUID, ' +                                                  //-----************-----//
-                                         'I.Screen ';                                                     //-----************-----//
+      SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                        //-----************-----//
+                                                 ' Collector, ' +                                           //-----************-----//
+                                                 ' COUNT(FolioUID)as "DocKol::INT", ' +                     //-----************-----//
+                                                 ' I.Screen ' +                                             //---Получение списка сборщиков
+                                  'FROM ProcessedDoc ' +                                                    //---и количества собранных заявок
+                                  '  LEFT JOIN Icons I ON I.UID = 22 ' +                                    //-----************-----//
+                                  'WHERE OrderDate BETWEEN ''%s'' and ''%s'' ' +                            //-----************-----//
+                                  'GROUP BY Keeper, ' +                                                     //-----************-----//
+                                           'KeeperUID, ' +                                                  //-----************-----//
+                                           'I.Screen ';                                                     //-----************-----//
 
-    SSQLClearCollectOrders = 'DELETE FROM ProcessedDoc';                                                  // Очистка всех записей из собранных накладных
+      SSQLClearCollectOrders = 'DELETE FROM ProcessedDoc';                                                  // Очистка всех записей из собранных накладных
 
-    SSQLDeleteCollectOrder = 'DELETE FROM ProcessedDoc ' +
-                             'WHERE UID = %d';                                                            // Удаление определенного документа из собранных
+      SSQLDeleteCollectOrder = 'DELETE FROM ProcessedDoc ' +
+                               'WHERE UID = %d';                                                            // Удаление определенного документа из собранных
 
 
                                          //-----  Документы
@@ -246,19 +246,6 @@ resourcestring
                                      'WHERE FolioUID = %d';                                               //----корректировке наклданой ---//
 
       SSQLClearOrdersMove          = 'DELETE FROM OrdersMove';                                            //---- Очистка полного списка товаров -- //
-
-      SSQLInsProcessedDoc          = 'INSERT INTO ProcessedDoc (FolioUID, ' +                            //-----**************************-----//
-                                                               'OrderDatePD, ' +                         //-----**************************-----//
-                                                               'Keeper, ' +                              //-----**************************-----//
-                                                               'KeeperUID, ' +                           //--- Добавление собранного документа-//
-                                                               'Collector, ' +                           //---    в таблицу ProcessedDoc    ---//
-                                                               'CollectorUID, ' +                        //-----**************************-----//
-                                                               'OrderBuildDate) ' +                      //-----**************************-----//
-                                     'VALUES (''%s'', ''%s'', ''%s'', %d, ''%s'', %d. ''%s'') ';         //-----**************************-----//
-
-
-
-
 implementation
 
 end.

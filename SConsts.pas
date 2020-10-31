@@ -123,7 +123,7 @@ resourcestring
               //   Отработанные документы
 
       SSQLAddCollectorOrder = 'INSERT INTO ProcessedDoc (FolioUID, ' +                                    //-----**********************-----//
-                                                        'OrderDate, ' +                                   //-----**********************-----//
+                                                        'OrderDatePD, ' +                                   //-----**********************-----//
                                                         'Keeper,    ' +                                   //-----**********************-----//
                                                         'KeeperUID, ' +                                   //---Добавление собранной накладной
                                                         'Collector, ' +                                   //-----в таблицу ProcessedDoc-----//

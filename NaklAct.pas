@@ -99,11 +99,11 @@ begin
             (KolProd = KolProdBuild) then
          Begin
            strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
-           TProcessedDoc.Add(Unicum_Num.ToString, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
+           TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
                              CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()));
          End;
 
-   AppDataLocal.Command.Command.Execute(strReq);
+    AppDataLocal.Command.Command.Execute(strReq);
   except
     AppDataLocal.Connection.Rollback;
   end;

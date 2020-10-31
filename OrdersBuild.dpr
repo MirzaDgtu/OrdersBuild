@@ -16,7 +16,8 @@ uses
   Statist in 'Statist.pas',
   Nakl in 'Nakl.pas' {NaklForm},
   NaklAct in 'NaklAct.pas',
-  Collectors in 'Collectors.pas';
+  Collectors in 'Collectors.pas',
+  ProcessedDoc in 'ProcessedDoc.pas';
 
 {$R *.res}
 

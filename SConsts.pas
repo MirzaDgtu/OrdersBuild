@@ -134,7 +134,7 @@ resourcestring
 
       SSQLGetCollectorOrders = 'SELECT 	UID, ' +                                                          //-----************-----//
                                        'FolioUID, ' +                                                     //-----************-----//
-                                       'OrderDate, ' +                                                    //-----************-----//
+                                       'OrderDatePD, ' +                                                  //-----************-----//
                                        'Keeper, ' +                                                       //-----************-----//
                                        'KeeperUID, ' +                                                    //-----************-----//
                                        'Collector, ' +                                                    //-----************-----//
@@ -147,21 +147,33 @@ resourcestring
                                     'ORDER BY UID';                                                       //-----************-----//
 
 
-      SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                        //-----************-----//
-                                                 ' Collector, ' +                                           //-----************-----//
-                                                 ' COUNT(FolioUID)as "DocKol::INT", ' +                     //-----************-----//
-                                                 ' I.Screen ' +                                             //---Получение списка сборщиков
-                                  'FROM ProcessedDoc ' +                                                    //---и количества собранных заявок
-                                  '  LEFT JOIN Icons I ON I.UID = 22 ' +                                    //-----************-----//
-                                  'WHERE OrderDate BETWEEN ''%s'' and ''%s'' ' +                            //-----************-----//
-                                  'GROUP BY Keeper, ' +                                                     //-----************-----//
-                                           'KeeperUID, ' +                                                  //-----************-----//
-                                           'I.Screen ';                                                     //-----************-----//
+      SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                      //-----************-----//
+                                                 ' Collector, ' +                                         //-----************-----//
+                                                 ' COUNT(FolioUID)as "DocKol::INT", ' +                   //-----************-----//
+                                                 ' I.Screen ' +                                           //---Получение списка сборщиков
+                                  'FROM ProcessedDoc ' +                                                  //---и количества собранных заявок
+                                  '  LEFT JOIN Icons I ON I.UID = 22 ' +                                  //-----************-----//
+                                  'WHERE OrderDatePD BETWEEN ''%s'' and ''%s'' ' +                        //-----************-----//
+                                  'GROUP BY Keeper, ' +                                                   //-----************-----//
+                                           'KeeperUID, ' +                                                //-----************-----//
+                                           'I.Screen ';                                                   //-----************-----//
 
-      SSQLClearCollectOrders = 'DELETE FROM ProcessedDoc';                                                  // Очистка всех записей из собранных накладных
+      SSQLGetCollectOrdersAtCollectUID = 'SELECT DISTINCT CollectorUID, ' +                               //-----************-----//
+                                                 ' Collector, ' +                                         //-----************-----//
+                                                 ' COUNT(FolioUID)as "DocKol::INT", ' +                   //-----************-----//
+                                                 ' I.Screen ' +                                           //---Получение списка сборщиков
+                                          'FROM ProcessedDoc ' +                                          //---и количества собранных заявок
+                                          '  LEFT JOIN Icons I ON I.UID = 22 ' +                          //-----************-----//
+                                          'WHERE OrderDatePD BETWEEN ''%s'' and ''%s'' ' +                //-----************-----//
+                                          '      CollectorUID = %d ' +                                    //-----************-----//
+                                          'GROUP BY Keeper, ' +                                           //-----************-----//
+                                                   'KeeperUID, ' +                                        //-----************-----//
+                                                   'I.Screen ';
 
-      SSQLDeleteCollectOrder = 'DELETE FROM ProcessedDoc ' +
-                               'WHERE UID = %d';                                                            // Удаление определенного документа из собранных
+      SSQLClearCollectOrders = 'DELETE FROM ProcessedDoc';                                                // Очистка всех записей из собранных накладных
+
+      SSQLDeleteCollectOrder = 'DELETE FROM ProcessedDoc ' +                                              // Удаление определенного документа из собранных
+                               'WHERE FolioUID = %s';
 
 
                                          //-----  Документы

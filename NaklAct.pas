@@ -13,9 +13,9 @@ type
     procedure Delete(Unicum_Num: integer); overload;
 
     procedure Get; overload;
-    class procedure Get(Unicum_Num: integer); overload;                             // Получение списка товаров накладной
-    class procedure SaveBuildProd(Unicum_Num, Article, Status: integer);            // Изменение стутуса товара накладной
-    class procedure SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);       // Изменение статуса шапки накладной
+    class procedure Get(Unicum_Num: integer); overload;                                 // Получение списка товаров накладной
+    class procedure SaveBuildProd(Unicum_Num, Article, Status: integer);                // Изменение стутуса товара накладной
+    class procedure SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);           // Изменение статуса шапки накладной
 
     constructor Create(Unicum_Num: integer);
   end;

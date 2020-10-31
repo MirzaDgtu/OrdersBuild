@@ -247,6 +247,15 @@ resourcestring
 
       SSQLClearOrdersMove          = 'DELETE FROM OrdersMove';                                            //---- ќчистка полного списка товаров -- //
 
+      SSQLInsProcessedDoc          = 'INSERT INTO ProcessedDoc (FolioUID, ' +                            //-----**************************-----//
+                                                               'OrderDatePD, ' +                         //-----**************************-----//
+                                                               'Keeper, ' +                              //-----**************************-----//
+                                                               'KeeperUID, ' +                           //--- ƒобавление собранного документа-//
+                                                               'Collector, ' +                           //---    в таблицу ProcessedDoc    ---//
+                                                               'CollectorUID, ' +                        //-----**************************-----//
+                                                               'OrderBuildDate) ' +                      //-----**************************-----//
+                                     'VALUES (''%s'', ''%s'', ''%s'', %d, ''%s'', %d. ''%s'') ';         //-----**************************-----//
+
 
 
 

@@ -85,14 +85,19 @@ begin
 end;
 
 class procedure TNaklAction.SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);
+var
+  strReq: string;
 begin
   if KolProdBuild > 0 then
   try
     AppDataLocal.Connection.StartTransaction;
 
+    if KolProd > KolProdBuild then
+       strReq := Format(SSQl);
+    else
 
 
-   // AppDataLocal.Command.Command.Execute();
+   AppDataLocal.Command.Command.Execute(strReq);
   except
     AppDataLocal.Connection.Rollback;
   end;

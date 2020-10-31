@@ -250,7 +250,7 @@ resourcestring
       SSQLUpdateStatusOrdersMove   = 'UPDATE OrdersMove ' +                                               //-----*****************-----//
                                      'SET Status = %d, ' +                                                //-----Обновление статуса----//
                                      '    DATE_Device = datetime(''now'',''localtime'') ' +               //--товара и даты отметки ---//
-                                     'WHERE FolioUID = %d AND ' +                                         //-----в локальной базе -----//
+                                     'WHERE FolioUID = %s AND ' +                                         //-----в локальной базе -----//
                                            'Article = ''%s''';                                            //-----*****************-----//
 
 

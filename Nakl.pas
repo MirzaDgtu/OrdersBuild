@@ -207,10 +207,9 @@ begin
   if FProdChecked.Count > 0 then
     Begin
       for iVal in FProdChecked do
-        NaklAct.SaveBuildProd(UnicumNumP, ProdNakl.Article, 1);
+        NaklAct.SaveBuildProd(UnicumNumP, iVal.ToString, 1);
     End;
-
-
+  TNaklAction.SaveHeadNakl(UnicumNumP, KolProdP, FProdChecked.Count);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

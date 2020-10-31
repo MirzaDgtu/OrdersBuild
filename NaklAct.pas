@@ -77,7 +77,7 @@ begin
   try
     AppDataLocal.Command.Active := False;
     AppDataLocal.Command.Command.Execute(Format(SSQLUpdateStatusOrdersMove, [Status,
-                                                                             Unicum_Num,
+                                                                             Unicum_Num.ToString,
                                                                              Article.ToString]));
   except
     AppDataLocal.Connection.Rollback;

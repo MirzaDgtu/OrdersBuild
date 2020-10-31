@@ -13,9 +13,9 @@ type
     procedure Delete(Unicum_Num: integer); overload;
 
     procedure Get; overload;
-    class procedure Get(Unicum_Num: integer); overload;
-    class procedure SaveBuildProd(Unicum_Num, Article, Status: integer);
-    class procedure SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);
+    class procedure Get(Unicum_Num: integer); overload;                             // Получение списка товаров накладной
+    class procedure SaveBuildProd(Unicum_Num, Article, Status: integer);            // Изменение стутуса товара накладной
+    class procedure SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);       // Изменение статуса шапки накладной
 
     constructor Create(Unicum_Num: integer);
   end;
@@ -92,16 +92,17 @@ begin
   try
     AppDataLocal.Connection.StartTransaction;
 
-    if KolProd > KolProdBuild then
-       strReq := Format(SSQl);
-    else
-
+    if (KolProd > KolProdBuild) and
+       (KolProdBuild > 0) then
+         strReq := Format(SSQLUpdateStatusOrdersHeader, [2,  Unicum_Num.ToString])
+    else if (KolProdBuild > 0) and
+            (KolProd = KolProdBuild) then
+         strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
 
    AppDataLocal.Command.Command.Execute(strReq);
   except
     AppDataLocal.Connection.Rollback;
   end;
-
 end;
 
 procedure TNaklAction.Get;

@@ -25,7 +25,7 @@ implementation
 
 { TNaklAction }
 
-uses ModuleDataLocal, SConsts;
+uses ModuleDataLocal, SConsts, ProcessedDoc, Globals;
 
 procedure TNaklAction.Add;
 begin
@@ -97,7 +97,11 @@ begin
          strReq := Format(SSQLUpdateStatusOrdersHeader, [2,  Unicum_Num.ToString])
     else if (KolProdBuild > 0) and
             (KolProd = KolProdBuild) then
-         strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
+         Begin
+           strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
+           TProcessedDoc.Add(Unicum_Num.ToString, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
+                             CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()));
+         End;
 
    AppDataLocal.Command.Command.Execute(strReq);
   except

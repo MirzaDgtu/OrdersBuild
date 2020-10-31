@@ -60,6 +60,7 @@ end;
 
 constructor TProcessedDoc.Create(CollectorUID: integer; BegOD, EndOD: string);
 begin
+  inherited Create();
   TProcessedDoc.Get(CollectorUID, BegOD, EndOD);
 end;
 

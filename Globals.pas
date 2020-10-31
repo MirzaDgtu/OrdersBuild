@@ -46,6 +46,7 @@ type
     Status: integer;
     CollectorUID: integer;
     Collector: string;
+    OrderDate: string;
   end;
 
 type

@@ -401,6 +401,7 @@ begin
      NaklRec.Status := (AItem.Data['Status'].AsString).toInteger;
      NaklRec.CollectorUID := (IFThen(AItem.Data['CollectorUID'].AsString = EmptyStr, '0', (AItem.Data['CollectorUID'].AsString))).ToInteger;
      NaklRec.Collector := AItem.Data['Collector'].AsString;
+     NaklRec.OrderDate := AItem.Data['OrderDate'].AsString;
    finally
      PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
    end;

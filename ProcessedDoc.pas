@@ -52,8 +52,8 @@ begin
                                                                         KeeperUID,
                                                                         Collector,
                                                                         CollectorUID,
-                                                                        FormatDateTime('yyyy-mm-dd', Now)]),
-                                                                        3);
+                                                                        FormatDateTime('yyyy-mm-dd', Now),
+                                                                        3]));
   except
     AppDataLocal.Connection.Rollback;
   end;

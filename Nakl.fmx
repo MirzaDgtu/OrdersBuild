@@ -35,6 +35,7 @@ object NaklForm: TNaklForm
       object SaveNaklBtn: TButton
         Align = Right
         IconTintColor = claPurple
+        ModalResult = 1
         Position.X = 327.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000

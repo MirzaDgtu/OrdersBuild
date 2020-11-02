@@ -313,23 +313,35 @@ end;
 procedure TOrdersForm.BuildNaklBtnClick(Sender: TObject);
 var
     NaklF: TNaklForm;
+    iVal: integer;
 begin
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
-
    if NaklRec.UnicumNum > 0 then
      try
        NaklF := TNaklForm.Create(NaklRec.UnicumNum, NaklRec.NumDoc, NaklRec.KolProd,
                                  NaklRec.KolBuildProd, NaklRec.Status, NaklRec.CollectorUID, NaklRec.Collector);
 
        {$IFDEF ANDROID}
-          NaklF.Show();
+          NaklF.ShowModal(procedure (ModalResult: TModalResult
+                                     Begin
+                                      if ModalResult = mrOk then
+                                       Begin
+                                        if NaklF.FProdChecked.Count > 0 then
+                                          Begin
+                                            for iVal in NaklF.FProdChecked do
+                                               NaklAct.SaveBuildProd(UnicumNumP, iVal, 1);
+                                          End;
+                                          TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
+                                       end;
+                                     end);
        {$ENDIF}
 
        {$IFDEF MSWINDOWS}
           NaklF.ShowModal();
        {$ENDIF}
      finally
-      // NaklF.Free();
+      OrdersHeaderBS.DataSet.Active := False;
+      OrdersHeaderBS.DataSet.Active := True;
      end;
 end;
 

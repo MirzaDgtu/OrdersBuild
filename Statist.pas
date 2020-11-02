@@ -8,11 +8,11 @@ type
   TStatist = class(TInterfacedObject, IInterfaceMove)
 
   public
-    procedure Add; overload;    // дл€ случа€ получени€ информации из удаленного репозитори€
+    procedure Add; overload;                    // дл€ случа€ получени€ информации из удаленного репозитори€
     procedure Add(FolioUID: real; OrderDate: string;  Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer; OrderBuildDate: TDateTime); overload;  // в случае полной сборки накладной
-    procedure Delete; overload;
-    procedure Delete(UID: integer); overload;
-    procedure Get;
+    procedure Delete; overload;                 // ќчистка списка статистики
+    procedure Delete(UID: integer); overload;   // ”даление статистики по определенному сборщику
+    procedure Get;                              // ѕолучение статистики с локальной таблицу по собранным документам сборщиков
 
     constructor Create();
   end;
@@ -24,7 +24,7 @@ implementation
 
 procedure TStatist.Add;
 begin
-   // ƒописать после добавлени€ св€зи с удаленным сервером
+   //todo -opmp: ѕолучение статистики по собранным документам с удаленного сервера
 end;
 
 procedure TStatist.Add(FolioUID: real; OrderDate: string; Keeper: string;

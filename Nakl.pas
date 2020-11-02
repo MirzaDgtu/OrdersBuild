@@ -57,8 +57,8 @@ type
     FKolProdP: integer;
     FStatusP: integer;
     NaklAct: TNaklAction;
-    FProdChecked: TList<Integer>;
-    FCheckedBtnA: TList<Integer>;
+   //FProdChecked: TList<Integer>;
+   //FCheckedBtnA: TList<Integer>;
     { Private declarations }
     procedure setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
     procedure SetNumDocP(const Value: integer);
@@ -71,6 +71,10 @@ type
     procedure PanelCollectorsHide();
   public
     { Public declarations }
+    FProdChecked: TList<Integer>;
+    FCheckedBtnA: TList<Integer>;
+
+
     constructor Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string) overload;
     destructor Destroy; override;
 
@@ -163,7 +167,7 @@ begin
    CollectorFA.Inverse := False;
    CollectorFA.StartValue := Self.Height + 20;
    CollectorFA.Start;
-end ;
+end;
 
 procedure TNaklForm.ProductLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
@@ -201,15 +205,15 @@ begin
 end;
 
 procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);
-var
-    iVal: integer;
+//var
+//    iVal: integer;
 begin
-  if FProdChecked.Count > 0 then
-    Begin
-      for iVal in FProdChecked do
-        NaklAct.SaveBuildProd(UnicumNumP, iVal, 1);
-    End;
-  TNaklAction.SaveHeadNakl(UnicumNumP, KolProdP, FProdChecked.Count);
+ // if FProdChecked.Count > 0 then
+ //  Begin
+ //     for iVal in FProdChecked do
+ //       NaklAct.SaveBuildProd(UnicumNumP, iVal, 1);
+ //  End;
+ // TNaklAction.SaveHeadNakl(UnicumNumP, KolProdP, FProdChecked.Count);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

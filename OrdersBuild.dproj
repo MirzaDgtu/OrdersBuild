@@ -217,6 +217,7 @@
         <DCCReference Include="NaklAct.pas"/>
         <DCCReference Include="Collectors.pas"/>
         <DCCReference Include="ProcessedDoc.pas"/>
+        <None Include="OrdersBuild.todo"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -321,6 +322,12 @@
                 </DeployFile>
                 <DeployFile LocalName="Android\Debug\styles.xml" Configuration="Debug" Class="AndroidSplashStyles">
                     <Platform Name="Android">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="OrdersBuild.todo" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

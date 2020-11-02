@@ -123,13 +123,14 @@ resourcestring
               //   Отработанные документы
 
       SSQLAddCollectorOrder = 'INSERT INTO ProcessedDoc (FolioUID, ' +                                    //-----**********************-----//
-                                                        'OrderDatePD, ' +                                   //-----**********************-----//
+                                                        'OrderDatePD, ' +                                 //-----**********************-----//
                                                         'Keeper,    ' +                                   //-----**********************-----//
                                                         'KeeperUID, ' +                                   //---Добавление собранной накладной
                                                         'Collector, ' +                                   //-----в таблицу ProcessedDoc-----//
                                                         'CollectorUID, ' +                                //-----**********************-----//
-                                                        'OrderBuildDate) ' +                              //-----**********************-----//
-                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'')';                //-----**********************-----//
+                                                        'OrderBuildDate,  ' +                             //-----**********************-----//
+                                                        'Status) ' +                                      //-----**********************-----//
+                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d)';            //-----**********************-----//
 
 
       SSQLGetCollectorOrders = 'SELECT 	UID, ' +                                                          //-----************-----//
@@ -205,13 +206,17 @@ resourcestring
                                               'M.Status = 1) AS "ColBuildProd::SMALLINT", ' +             //-----*******************-----//
                                               'Date_Device, ' +                                           //-----*******************-----//
                                               'I.Screen, ' +                                              //-----*******************-----//
-                                              'ifnull(PD.CollectorUID, 0) as "CollectorUID::SMALLINT", ' +           //-----*******************-----//
-                                              'PD.Collector, ' +                                          //-----*******************-----//
-                                              'ifNull(PD.KeeperUID, 0) as "KeeperUID::SMALLINT", ' +                  //-----*******************-----//
-                                              'PD.Keeper ' +                                             //-----*******************-----//
-                                     'FROM OrdersHeader H ' +                                             //-----*******************-----//
-                                     'LEFT JOIN ProcessedDoc PD ON PD.FolioUID = H.FolioUID ' +           //-----*******************-----//
-                                     'LEFT JOIN Icons I on I.UID = 7';                                    //-----*******************-----//
+                                              'ifnull(PD.CollectorUID, 0) as "CollectorUID::SMALLINT", ' +               //-----*******************-----//
+                                              'PD.Collector, ' +                                                         //-----*******************-----//
+                                              'ifNull(PD.KeeperUID, 0) as "KeeperUID::SMALLINT", ' +                     //-----*******************-----//
+                                              'PD.Keeper ' +                                                             //-----*******************-----//
+                                     'FROM OrdersHeader H ' +                                                            //-----*******************-----//
+                                     'LEFT JOIN ProcessedDoc PD ON PD.FolioUID = H.FolioUID ' +                          //-----*******************-----//
+                                     'left join Icons I ON I.UID = (SELECT CASE WHEN IfNull(H.Status,0) = 0 THEN 7 ' +   //-----*******************-----//
+                                                                               'WHEN IfNull(H.Status,0) = 1 THEN 7 ' +   //-----*******************-----//
+                                                                               'WHEN IfNull(H.Status, 0) = 2 THEN 26 ' + //-----*******************-----//
+                                                                               'WHEN IfNull(H.Status, 0) = 3 THEN 24 ' + //-----*******************-----//
+                                                                               'END)';                                   //-----*******************-----//
 
 
       SSQLGetOrdersMove            = 'SELECT FolioUID,  ' +

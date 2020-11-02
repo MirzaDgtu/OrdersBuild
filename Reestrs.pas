@@ -22,7 +22,7 @@ implementation
 
 procedure TReestrs.Add;
 begin
-   //
+   //TODO -opmp: Дабавить список реестров из удаленного репозитория
 end;
 
 constructor TReestrs.Create;

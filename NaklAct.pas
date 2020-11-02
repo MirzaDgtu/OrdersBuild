@@ -29,7 +29,7 @@ uses ModuleDataLocal, SConsts, ProcessedDoc, Globals;
 
 procedure TNaklAction.Add;
 begin
-   //
+   //todo -opmp: ƒобавить документы из удаленного репозитори€
 end;
 
 constructor TNaklAction.Create(Unicum_Num: integer);

@@ -35,7 +35,7 @@ uses ModuleDataLocal, Globals, SConsts;
 
 procedure TProcessedDoc.Add;
 begin
-  //
+  //TODO -opmp:  ѕолучить информацию об обработанных накладных с удаленного сервера
 end;
 
 class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;

@@ -313,9 +313,11 @@ end;
 procedure TOrdersForm.BuildNaklBtnClick(Sender: TObject);
 var
     NaklF: TNaklForm;
+    NaklAct: TNaklAction;
     iVal: integer;
 begin
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+
    if NaklRec.UnicumNum > 0 then
      try
        NaklF := TNaklForm.Create(NaklRec.UnicumNum, NaklRec.NumDoc, NaklRec.KolProd,
@@ -325,19 +327,32 @@ begin
           NaklF.ShowModal(procedure (ModalResult: TModalResult
                                      Begin
                                       if ModalResult = mrOk then
-                                       Begin
+                                       try
                                         if NaklF.FProdChecked.Count > 0 then
                                           Begin
                                             for iVal in NaklF.FProdChecked do
-                                               NaklAct.SaveBuildProd(UnicumNumP, iVal, 1);
+                                               NaklAct.SaveBuildProd(NaklF.UnicumNumP, iVal, 1);
                                           End;
                                           TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
+                                       finally
+                                          RefreshNaklBtnClick(Self);
                                        end;
                                      end);
        {$ENDIF}
 
        {$IFDEF MSWINDOWS}
-          NaklF.ShowModal();
+          if NaklF.ShowModal = mrOk then
+            try
+               if NaklF.FProdChecked.Count > 0 then
+                  Begin
+                    for iVal in NaklF.FProdChecked do
+                       NaklAct.SaveBuildProd(NaklF.UnicumNumP, iVal, 1);
+                  End;
+                  TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
+            finally
+               RefreshNaklBtnClick(Self);
+            End;
+
        {$ENDIF}
      finally
       OrdersHeaderBS.DataSet.Active := False;

@@ -103,7 +103,7 @@ implementation
 
 {$R *.fmx}
 
-uses SConsts, Globals, Orders, ModuleDataLocal;
+uses SConsts, Globals, Orders, ModuleDataLocal, ModuleDataRemote;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
@@ -136,6 +136,8 @@ end;
 procedure TSignForm.FormCreate(Sender: TObject);
 begin
    AppDataLocal := TAppDataLocal.Create(Self);
+   AppDataRemote := TAppDataRemote.Create(Self);
+
    AppDataLocal.ConnectionToLocalDB();
    usersUn := TUsers.Create();
    connectUn := TConnectRemove.Create(ConnectLocal);
@@ -190,7 +192,11 @@ end;
 
 procedure TSignForm.RefreshUserBtnClick(Sender: TObject);
 begin
-   TUsers.Get();
+   try
+    usersUn.Update();
+   finally
+    TUsers.Get();
+   end;
 end;
 
 procedure TSignForm.SaveSettingBtnClick(Sender: TObject);

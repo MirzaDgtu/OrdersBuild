@@ -95,6 +95,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    function ConnectToExternalDB: Boolean;
   end;
 
 var
@@ -104,6 +105,34 @@ implementation
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
+uses Globals, SConsts;
+
 {$R *.dfm}
+
+{ TAppDataRemote }
+
+function TAppDataRemote.ConnectToExternalDB: Boolean;
+begin
+   try
+    with Connection do
+      Begin
+        Connected := False;
+
+        ProviderName := 'SQL Server';
+        Server := ConnectLocal.Sever;
+        Database := ConnectLocal.InitialCatalog;
+        Username := ConnectLocal.login;
+        Password := ConnectLocal.Password;
+        Port :=ConnectLocal.Port ;
+        LoginPrompt := False;
+
+        Connected := True;
+      End;
+   except
+     Result := False;
+   end;
+
+   Result := Connection.Connected;
+end;
 
 end.

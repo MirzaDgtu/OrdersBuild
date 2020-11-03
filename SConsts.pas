@@ -273,6 +273,12 @@ resourcestring
                                        'WHERE FolioUID = %s';                                             //-----**********************************-----//
 
 
+
+
+
+                                             /// ----- Работа с удаленным сервером ---- ///
+
+    SSQLGetUsers   = 'EXEC DELIVERY..S_GetAuditEmployees %d';                                             // Получение списка пользователей
 implementation
 
 end.

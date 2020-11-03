@@ -25,6 +25,5 @@ uses
 begin
   Application.Initialize;
   Application.CreateForm(TSignForm, SignForm);
-  Application.CreateForm(TAppDataRemote, AppDataRemote);
   Application.Run;
 end.

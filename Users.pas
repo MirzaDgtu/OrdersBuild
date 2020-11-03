@@ -12,6 +12,7 @@ type
       procedure GetLastUser(out User: TUser);
       procedure Add(ID: integer; Login, Name: String);
       procedure UpdatelastUser(ID: integer; Status: smallint);
+      procedure Update();
       procedure SetCurrentuser(ID: integer; Login, Name: String);
 
     constructor Create();
@@ -21,7 +22,7 @@ type
 
 implementation
 
-uses SConsts, ModuleDataLocal;
+uses SConsts, ModuleDataLocal, ModuleDataRemote;
 
 
 
@@ -29,14 +30,14 @@ uses SConsts, ModuleDataLocal;
 
 procedure TUsers.Add(ID: integer; Login, Name: String);
 begin
-  try
-   AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.ExecSQL(Format(SSQLAddUsersLocal, [ID,
-                                                            Login,
-                                                            Name]));
-  except
-    AppDataLocal.Connection.Rollback;
-  end;
+    try
+      AppDataLocal.Connection.StartTransaction;
+      AppDataLocal.Command.ExecSQL(Format(SSQLAddUsersLocal, [ID,
+                                                              Login,
+                                                              Name]));
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
 end;
 
 procedure TUsers.Clear;
@@ -90,6 +91,38 @@ begin
     CurrentUser.Name := Name;
   except
     FillChar(CurrentUser, SizeOf(TUsers), #0);
+  end;
+end;
+
+procedure TUsers.Update;
+begin
+  try
+   if not AppDataRemote.Connection.Connected then
+      AppDataRemote.ConnectToExternalDB();
+
+   AppDataRemote.Users.Active := False;
+   AppDataRemote.Users.SQL.Text := Format(SSQLGetUsers, [0]);
+   AppDataRemote.Users.Active := True;
+
+   if not AppDataRemote.Users.IsEmpty then
+     try
+        Clear();
+
+        AppDataRemote.Users.First;
+
+        while not AppDataRemote.Users.Eof do
+          try
+            Add(AppDataRemote.UsersUID.AsInteger, AppDataRemote.UserssName.AsString, AppDataRemote.UsersEmployeeName.AsString);
+            AppDataRemote.Users.Next;
+          except
+            AppDataLocal.Connection.Rollback;
+          end;
+
+     except
+            AppDataLocal.Connection.Rollback;
+     end;
+  finally
+     AppDataRemote.Connection.Connected := False;
   end;
 end;
 

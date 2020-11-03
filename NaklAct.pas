@@ -7,10 +7,14 @@ uses Interfaces, System.SysUtils;
 type
   TNaklAction = class(TInterfacedObject, IInterfaceMove)
 
+  private
+    class procedure setHeadNaklDefault(Unicum_Num: integer);
+
   public
     procedure Add;
     procedure Delete; overload;
     procedure Delete(Unicum_Num: integer); overload;
+    class procedure setMoveNaklDefault(Unicum_Num: integer);
 
     procedure Get; overload;
     class procedure Get(Unicum_Num: integer); overload;                                 // ѕолучение списка товаров накладной
@@ -88,9 +92,12 @@ class procedure TNaklAction.SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: inte
 var
   strReq: string;
 begin
+  setHeadNaklDefault(Unicum_Num);
+
   if KolProdBuild > 0 then
   try
     AppDataLocal.Connection.StartTransaction;
+    TProcessedDoc.Delete(Unicum_Num);
 
     if (KolProd > KolProdBuild) and
        (KolProdBuild > 0) then
@@ -101,11 +108,33 @@ begin
            strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
            TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
                              CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()));
-         End;
+         End
+    else
+         strReq := Format(SSQLUpdateStatusOrdersHeader, [1, Unicum_Num.ToString]);
 
     AppDataLocal.Command.Command.Execute(strReq);
   except
     AppDataLocal.Connection.Rollback;
+  end;
+end;
+
+class procedure TNaklAction.setHeadNaklDefault(Unicum_Num: integer);
+begin
+  AppDataLocal.Connection.StartTransaction();
+  try
+    AppDataLocal.Command.Command.Execute(Format(SSQLSetDefaultStatusHeadOrders, [Unicum_Num.ToString]));
+  except
+    AppDataLocal.Connection.Rollback;
+  end;
+end;
+
+class procedure TNaklAction.setMoveNaklDefault(Unicum_Num: integer);
+begin
+  AppDataLocal.Connection.StartTransaction();
+  try
+    AppDataLocal.Command.Command.Execute(Format(SSQLSetDefaultStatusOrdersMove, [Unicum_Num.ToString]));
+  except
+    AppDataLocal.Connection.Rollback();
   end;
 end;
 

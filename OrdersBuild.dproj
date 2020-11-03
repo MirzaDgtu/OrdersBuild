@@ -217,6 +217,11 @@
         <DCCReference Include="NaklAct.pas"/>
         <DCCReference Include="Collectors.pas"/>
         <DCCReference Include="ProcessedDoc.pas"/>
+        <DCCReference Include="ModuleDataRemote.pas">
+            <Form>AppDataRemote</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <None Include="OrdersBuild.todo"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

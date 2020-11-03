@@ -322,21 +322,26 @@ begin
      try
        NaklF := TNaklForm.Create(NaklRec.UnicumNum, NaklRec.NumDoc, NaklRec.KolProd,
                                  NaklRec.KolBuildProd, NaklRec.Status, NaklRec.CollectorUID, NaklRec.Collector);
+       NaklAct := TNaklAction.Create(NaklRec.UnicumNum);
+
+
 
        {$IFDEF ANDROID}
           NaklF.ShowModal(procedure (ModalResult: TModalResult
                                      Begin
                                       if ModalResult = mrOk then
-                                       try
+                                       Begin
+                                        NaklAct.Delete(NaklRec.UnicumNum);
                                         if NaklF.FProdChecked.Count > 0 then
                                           Begin
                                             for iVal in NaklF.FProdChecked do
                                                NaklAct.SaveBuildProd(NaklF.UnicumNumP, iVal, 1);
-                                          End;
+                                          End
+                                        else
+                                            TNaklAction.setMoveNaklDefault(NaklF.UnicumNumP);
+
                                           TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
-                                       finally
-                                          RefreshNaklBtnClick(Self);
-                                       end;
+                                        end;
                                      end);
        {$ENDIF}
 
@@ -345,18 +350,23 @@ begin
             try
                if NaklF.FProdChecked.Count > 0 then
                   Begin
+                   TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
                     for iVal in NaklF.FProdChecked do
                        NaklAct.SaveBuildProd(NaklF.UnicumNumP, iVal, 1);
-                  End;
-                  TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
-            finally
-               RefreshNaklBtnClick(Self);
-            End;
+                  End
+                else
+                   TNaklAction.setMoveNaklDefault(NaklF.UnicumNumP);
 
+                TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
+            finally
+            end;
        {$ENDIF}
      finally
-      OrdersHeaderBS.DataSet.Active := False;
-      OrdersHeaderBS.DataSet.Active := True;
+      {$IFDEF MSWINDOWS}
+        FreeAndNil(NaklF);
+      {$ENDIF}
+       FreeAndNil(NaklAct);
+       RefreshNaklBtnClick(Self);
      end;
 end;
 
@@ -404,7 +414,9 @@ end;
 
 procedure TOrdersForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := TCloseAction.caFree;
+  {$IFDEF ANDROID}
+    Action := TCloseAction.caFree;
+  {$ENDIF}
 end;
 
 procedure TOrdersForm.FormCreate(Sender: TObject);

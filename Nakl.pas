@@ -49,7 +49,6 @@ type
       const AItem: TListViewItem);
     procedure ProductLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
-    procedure SaveNaklBtnClick(Sender: TObject);
   private
     FUnicumNumP: integer;
     FNumDocP: integer;
@@ -148,8 +147,10 @@ begin
 end;
 
 procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := TCloseAction.caFree;
+Begin
+  {$IFDEF ANDROID}
+    Action := TCloseAction.caFree;
+  {$ENDIF}
 end;
 
 procedure TNaklForm.PanelCollectorsHide;
@@ -202,18 +203,6 @@ begin
   finally
     Collectors.Free;
   end;
-end;
-
-procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);
-//var
-//    iVal: integer;
-begin
- // if FProdChecked.Count > 0 then
- //  Begin
- //     for iVal in FProdChecked do
- //       NaklAct.SaveBuildProd(UnicumNumP, iVal, 1);
- //  End;
- // TNaklAction.SaveHeadNakl(UnicumNumP, KolProdP, FProdChecked.Count);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

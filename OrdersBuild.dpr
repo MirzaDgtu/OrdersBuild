@@ -17,12 +17,14 @@ uses
   Nakl in 'Nakl.pas' {NaklForm},
   NaklAct in 'NaklAct.pas',
   Collectors in 'Collectors.pas',
-  ProcessedDoc in 'ProcessedDoc.pas';
+  ProcessedDoc in 'ProcessedDoc.pas',
+  ModuleDataRemote in 'ModuleDataRemote.pas' {AppDataRemote: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TSignForm, SignForm);
+  Application.CreateForm(TAppDataRemote, AppDataRemote);
   Application.Run;
 end.

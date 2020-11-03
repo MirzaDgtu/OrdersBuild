@@ -14,7 +14,7 @@ type
       Collector: string; CollectorUID: integer; OrderBuildDate: string); overload;
 
     procedure Delete; overload;
-    procedure Delete(Unicum_Num: integer); overload;
+    class procedure Delete(Unicum_Num: integer); overload;
 
     procedure Get(); overload;
     class procedure Get(BegOD, EndOD: string); overload;
@@ -71,7 +71,7 @@ begin
    TProcessedDoc.Get(BegOD, EndOD);
 end;
 
-procedure TProcessedDoc.Delete(Unicum_Num: integer);
+class procedure TProcessedDoc.Delete(Unicum_Num: integer);
 begin
    try
      AppDataLocal.Connection.StartTransaction;

@@ -263,6 +263,16 @@ resourcestring
                                      'WHERE FolioUID = %d';                                               //----корректировке наклданой ---//
 
       SSQLClearOrdersMove          = 'DELETE FROM OrdersMove';                                            //---- Очистка полного списка товаров -- //
+
+      SSQLSetDefaultStatusHeadOrders = 'UPDATE OrdersHeader ' +                                           //--- Установка дефолтного статуса для ---//
+                                       '  SET Status = 0 ' +                                              //---      определенного значения      ---//
+                                       'WHERE FolioUID = %s';                                             //-----******************************-----//
+
+      SSQLSetDefaultStatusOrdersMove = 'UPDATE OrdersMove ' +                                             //--- Установка дефолного значения статуса ---//
+                                       '  SET Status = 0  ' +                                             //---   для товаров определенной накладной ---//
+                                       'WHERE FolioUID = %s';                                             //-----**********************************-----//
+
+
 implementation
 
 end.

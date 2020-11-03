@@ -43,7 +43,6 @@ object NaklForm: TNaklForm
         StyleLookup = 'pagecurltoolbutton'
         TabOrder = 1
         Text = 'SaveNaklBtn'
-        OnClick = SaveNaklBtnClick
       end
       object NumDocNaklLbl: TLabel
         Align = VertCenter

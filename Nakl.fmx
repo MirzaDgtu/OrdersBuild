@@ -457,16 +457,15 @@ object NaklForm: TNaklForm
     object CollectLayout: TLayout
       Align = Client
       Size.Width = 375.000000000000000000
-      Size.Height = 524.000000000000000000
+      Size.Height = 506.000000000000000000
       Size.PlatformDefault = False
-      Visible = False
       TabOrder = 4
       object CollectRect: TRectangle
         Align = Client
         Fill.Color = claBlack
         Opacity = 0.500000000000000000
         Size.Width = 375.000000000000000000
-        Size.Height = 476.000000000000000000
+        Size.Height = 458.000000000000000000
         Size.PlatformDefault = False
       end
       object CollectHeaderTB: TToolBar
@@ -524,7 +523,7 @@ object NaklForm: TNaklForm
         Margins.Right = 7.000000000000000000
         Margins.Bottom = 7.000000000000000000
         Size.Width = 361.000000000000000000
-        Size.Height = 462.000000000000000000
+        Size.Height = 444.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
         ItemAppearanceObjects.ItemObjects.ObjectsCollection = <

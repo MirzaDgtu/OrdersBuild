@@ -198,9 +198,11 @@ procedure TNaklForm.RefreshBtnClick(Sender: TObject);
 var
     Collectors: TCollectors;
 begin
+  Collectors := TCollectors.Create();
   try
-    Collectors := TCollectors.Create();
+    Collectors.Add();
   finally
+    Collectors.Get();
     Collectors.Free;
   end;
 end;

@@ -336,8 +336,8 @@ object AppDataRemote: TAppDataRemote
     object CollectorsUID: TIntegerField
       FieldName = 'UID'
     end
-    object CollectorsName: TStringField
-      FieldName = 'Name'
+    object CollectorsEmployeeName: TStringField
+      FieldName = 'EmployeeName'
       Size = 50
     end
   end

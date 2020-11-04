@@ -96,31 +96,35 @@ end;
 
 procedure TUsers.Update;
 begin
+  //DONE -opmp: Обновить список пользователей с удаленного репозитория
   try
    if not AppDataRemote.Connection.Connected then
       AppDataRemote.ConnectToExternalDB();
 
-   AppDataRemote.Users.Active := False;
-   AppDataRemote.Users.SQL.Text := Format(SSQLGetUsers, [0]);
-   AppDataRemote.Users.Active := True;
+   if AppDataRemote.Connection.Connected then
+    Begin
+     AppDataRemote.Users.Active := False;
+     AppDataRemote.Users.SQL.Text := Format(SSQLGetUsers, [0]);
+     AppDataRemote.Users.Active := True;
 
-   if not AppDataRemote.Users.IsEmpty then
-     try
-        Clear();
+     if not AppDataRemote.Users.IsEmpty then
+       try
+          Clear();
 
-        AppDataRemote.Users.First;
+          AppDataRemote.Users.First;
 
-        while not AppDataRemote.Users.Eof do
-          try
-            Add(AppDataRemote.UsersUID.AsInteger, AppDataRemote.UserssName.AsString, AppDataRemote.UsersEmployeeName.AsString);
-            AppDataRemote.Users.Next;
-          except
-            AppDataLocal.Connection.Rollback;
-          end;
+          while not AppDataRemote.Users.Eof do
+            try
+              Add(AppDataRemote.UsersUID.AsInteger, AppDataRemote.UserssName.AsString, AppDataRemote.UsersEmployeeName.AsString);
+              AppDataRemote.Users.Next;
+            except
+              AppDataLocal.Connection.Rollback;
+            end;
 
-     except
-            AppDataLocal.Connection.Rollback;
-     end;
+       except
+              AppDataLocal.Connection.Rollback;
+       end;
+    End;
   finally
      AppDataRemote.Connection.Connected := False;
   end;

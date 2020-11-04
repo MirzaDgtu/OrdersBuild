@@ -4,6 +4,8 @@ interface
 
 resourcestring
 
+                            /// --- Работа с локальной БАЗОЙ ДАННЫХ --- ///
+
                                     // Работа с локальной таблицой USERS
 
       SSQLClearUsersLocal              = 'DELETE FROM Users';               // Очистка списка пользователей
@@ -74,9 +76,7 @@ resourcestring
 
                                                                 // Список реестров
 
-      SSQLGetReestrs             = 'EXEC DELIVERY..S_GetReestrs';                                         // Получение списка реестров с удаленного сервера
-
-      SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                                                     //-----**********-----//
+           SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                                                     //-----**********-----//
                                           'R.ProjectName as "ProjectName::VARCHAR(50)", ' +               //-----**********-----//
                                           'I.Screen ' +                                                   // Получение списка реестров с локальной базы
                                    'FROM Reestrs R ' +                                                    //-----**********-----//
@@ -279,6 +279,9 @@ resourcestring
                                              /// ----- Работа с удаленным сервером ---- ///
 
     SSQLGetUsers   = 'EXEC DELIVERY..S_GetAuditEmployees %d';                                             // Получение списка пользователей
+    SSQLGetReestrs = 'EXEC DELIVERY..S_GetReestrs';                                                       // Получение списка реестров
+    SSQLGetCollectorsOrdersBuild = 'EXEC STOREHOUSE..O_GetCollectorsOrdersBuild';                         // Получение списка сборщиков
+
 implementation
 
 end.

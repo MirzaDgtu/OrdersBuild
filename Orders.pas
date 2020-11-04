@@ -209,6 +209,8 @@ type
     procedure NaklLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure BuildNaklBtnClick(Sender: TObject);
+    procedure RefreshReestrFilterSettingBtnClick(Sender: TObject);
+    procedure TabsOrderChange(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
@@ -577,6 +579,19 @@ begin
   end;
 end;
 
+procedure TOrdersForm.RefreshReestrFilterSettingBtnClick(Sender: TObject);
+var
+    reestr: TReestrs;
+begin
+  reestr := TReestrs.Create();
+
+  try
+    reestr.Add();
+  finally
+    reestr.Get();
+  end;
+end;
+
 procedure TOrdersForm.RefreshStatistBtnClick(Sender: TObject);
 begin
   try
@@ -689,6 +704,11 @@ end;
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
 begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
+end;
+
+procedure TOrdersForm.TabsOrderChange(Sender: TObject);
+begin
+  PanelAllHide();
 end;
 
 procedure TOrdersForm.VidDocFilterSettingBtnClick(Sender: TObject);

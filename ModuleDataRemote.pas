@@ -90,7 +90,7 @@ type
     ReestrsProjectName: TStringField;
     Collectors: TUniQuery;
     CollectorsUID: TIntegerField;
-    CollectorsName: TStringField;
+    CollectorsEmployeeName: TStringField;
   private
     { Private declarations }
   public

@@ -1,0 +1,48 @@
+inherited RangeForm_XLgXhdpiTb: TRangeForm_XLgXhdpiTb
+  ClientHeight = 1255
+  ClientWidth = 800
+  DesignerMasterStyle = 3
+  inherited MainLayout: TLayout
+    Size.Width = 800.000000000000000000
+    Size.Height = 1255.000000000000000000
+    inherited RangeHeaderTB: TToolBar
+      Size.Width = 800.000000000000000000
+      inherited SaveRangeBtn: TButton
+        Position.X = 752.000000000000000000
+      end
+      inherited RangeHeadLbl: TLabel
+        Size.Width = 704.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+    end
+    inherited CenterRangeLayout: TLayout
+      Position.Y = 596.000000000000000000
+      Size.Width = 786.000000000000000000
+      inherited RangeLB: TListBox
+        Size.Width = 786.000000000000000000
+        Viewport.Width = 786.000000000000000000
+        Viewport.Height = 111.000000000000000000
+        inherited RangeLBGH: TListBoxGroupHeader
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Size.Width = 786.000000000000000000
+        end
+        inherited BegDLBI: TListBoxItem
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Size.Width = 786.000000000000000000
+          inherited BegDE: TDateEdit
+            Size.Width = 736.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+        end
+        inherited EndDLBI: TListBoxItem
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Size.Width = 786.000000000000000000
+          inherited EndDE: TDateEdit
+            Size.Width = 736.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+        end
+      end
+    end
+  end
+end

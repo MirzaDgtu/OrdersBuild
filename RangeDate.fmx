@@ -1,0 +1,162 @@
+object RangeForm: TRangeForm
+  Left = 0
+  Top = 0
+  Caption = 'RangeForm'
+  ClientHeight = 624
+  ClientWidth = 375
+  Fill.Color = xFF338989
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  WindowState = wsMaximized
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 375.000000000000000000
+    Size.Height = 624.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object RangeHeaderTB: TToolBar
+      Size.Width = 375.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      TintColor = claSpringgreen
+      object BackRangeBtn: TButton
+        Align = Left
+        IconTintColor = claRed
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+        TabOrder = 0
+      end
+      object SaveRangeBtn: TButton
+        Align = Right
+        IconTintColor = claRed
+        Position.X = 327.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'donetoolbutton'
+        TabOrder = 1
+        OnClick = SaveRangeBtnClick
+      end
+      object RangeHeadLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family, Size]
+        Position.X = 48.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        TextSettings.HorzAlign = Center
+        Text = #1055#1077#1088#1080#1086#1076
+        TabOrder = 2
+      end
+    end
+    object CenterRangeLayout: TLayout
+      Align = VertCenter
+      Margins.Left = 7.000000000000000000
+      Margins.Right = 7.000000000000000000
+      Position.X = 7.000000000000000000
+      Position.Y = 280.000000000000000000
+      Size.Width = 361.000000000000000000
+      Size.Height = 111.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object RangeLB: TListBox
+        Align = Client
+        Size.Width = 361.000000000000000000
+        Size.Height = 111.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        DisableFocusEffect = True
+        ItemHeight = 36.000000000000000000
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 361.000000000000000000
+        Viewport.Height = 111.000000000000000000
+        object RangeLBGH: TListBoxGroupHeader
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.HorzAlign = Center
+          TextSettings.WordWrap = True
+          StyledSettings = [Family, Size, Style, FontColor]
+          Size.Width = 361.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = #1042#1099#1073#1077#1088#1080#1090#1077' '#1087#1077#1088#1080#1086#1076
+        end
+        object BegDLBI: TListBoxItem
+          TextSettings.Font.Size = 13.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claCrimson
+          StyledSettings = [Family, Other]
+          Padding.Left = 30.000000000000000000
+          Padding.Right = 20.000000000000000000
+          Position.Y = 36.000000000000000000
+          Size.Width = 361.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = #1057
+          object BegDE: TDateEdit
+            Date = 44139.000000000000000000
+            TodayDefault = True
+            OnChange = BegDEChange
+            Align = VertCenter
+            Position.X = 30.000000000000000000
+            Position.Y = 2.000000000000000000
+            Size.Width = 311.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family]
+            TabOrder = 0
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claRed
+            TextSettings.HorzAlign = Center
+          end
+        end
+        object EndDLBI: TListBoxItem
+          TextSettings.Font.Size = 13.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claCrimson
+          StyledSettings = [Family, Other]
+          Padding.Left = 30.000000000000000000
+          Padding.Right = 20.000000000000000000
+          Position.Y = 72.000000000000000000
+          Size.Width = 361.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = #1055#1086
+          object EndDE: TDateEdit
+            Date = 44139.000000000000000000
+            TodayDefault = True
+            OnChange = BegDEChange
+            Align = VertCenter
+            Position.X = 30.000000000000000000
+            Position.Y = 2.000000000000000000
+            Size.Width = 311.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family]
+            TabOrder = 0
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claRed
+            TextSettings.HorzAlign = Center
+          end
+        end
+      end
+    end
+  end
+end

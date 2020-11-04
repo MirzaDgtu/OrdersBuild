@@ -180,6 +180,13 @@
         <EL_AdMob>true</EL_AdMob>
         <EL_IncomingNetwork>true</EL_IncomingNetwork>
         <EL_USBDevices>true</EL_USBDevices>
+        <AUP_ACCESS_WIFI_STATE>true</AUP_ACCESS_WIFI_STATE>
+        <AUP_ACCESS_NOTIFICATION_POLICY>true</AUP_ACCESS_NOTIFICATION_POLICY>
+        <AUP_CHANGE_NETWORK_STATE>true</AUP_CHANGE_NETWORK_STATE>
+        <AUP_CHANGE_WIFI_MULTICAST_STATE>true</AUP_CHANGE_WIFI_MULTICAST_STATE>
+        <AUP_CHANGE_WIFI_STATE>true</AUP_CHANGE_WIFI_STATE>
+        <AUP_GET_PACKAGE_SIZE>true</AUP_GET_PACKAGE_SIZE>
+        <AUP_READ_CALENDAR>true</AUP_READ_CALENDAR>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -225,6 +232,10 @@
             <Form>AppDataRemote</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="RangeDate.pas">
+            <Form>RangeForm</Form>
+            <FormType>fmx</FormType>
         </DCCReference>
         <None Include="OrdersBuild.todo"/>
         <BuildConfiguration Include="Release">

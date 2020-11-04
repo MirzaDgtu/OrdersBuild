@@ -18,7 +18,8 @@ uses
   NaklAct in 'NaklAct.pas',
   Collectors in 'Collectors.pas',
   ProcessedDoc in 'ProcessedDoc.pas',
-  ModuleDataRemote in 'ModuleDataRemote.pas' {AppDataRemote: TDataModule};
+  ModuleDataRemote in 'ModuleDataRemote.pas' {AppDataRemote: TDataModule},
+  RangeDate in 'RangeDate.pas' {RangeForm};
 
 {$R *.res}
 

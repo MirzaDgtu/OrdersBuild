@@ -145,7 +145,7 @@ resourcestring
                                        'PD.OrderBuildDate, ' +                                               //---выбранный сборщиком---//
                                        'I.Screen ' +                                                      //-----************-----//
                                     'FROM ProcessedDoc PD' +                                                //-----************-----//
-                                    ' LEFT JOIN Icons I ON I.UID = 7 ' +                                  //-----************-----//
+                                    ' LEFT JOIN Icons I ON I.UID = 24 ' +                                  //-----************-----//
                                     'WHERE CollectorUID = %d  ' +                                         //-----************-----//
                                     'ORDER BY PD.FolioUID';                                                       //-----************-----//
 

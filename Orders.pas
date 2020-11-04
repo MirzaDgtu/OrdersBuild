@@ -174,7 +174,7 @@ type
     RectStatistNakl: TRectangle;
     DocKolSBInfoLbl: TLabel;
     StatistNalkLV: TListView;
-    BindSourceDB1: TBindSourceDB;
+    StatistNaklBS: TBindSourceDB;
     LinkListControlToField8: TLinkListControlToField;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
@@ -228,6 +228,7 @@ type
       const AItem: TListViewItem);
     procedure LoaderNaklBtnClick(Sender: TObject);
     procedure RefreshStatistNaklBtnClick(Sender: TObject);
+    procedure RangeStatistBtnClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
@@ -257,7 +258,7 @@ implementation
 {$R *.XLgXhdpiTb.fmx ANDROID}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
-  Statist;
+  Statist, RangeDate;
 {$R *.NmXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.LgXhdpiTb.fmx ANDROID}
@@ -515,6 +516,42 @@ procedure TOrdersForm.PrevTabBtnClick(Sender: TObject);
 begin
   PanelAllHide();
   TabsOrder.Previous();
+end;
+
+procedure TOrdersForm.RangeStatistBtnClick(Sender: TObject);
+var
+  rangeFD: TRangeForm;
+begin
+  rangeFD := TRangeForm.Create(DatesLocal.DBeg, DatesLocal.DEnd);
+  PanelHide(RightStatistMenuLayout, RightStatistMenuFA);
+
+  try
+     {$IFDEF ANDROID}
+           rangeFD.ShowModal(procedure(ModalResult: TModalResult)
+                                       Begin
+                                         if ModalResult = mrOk then
+                                           Begin
+                                              BegDate.Date := DatesLocal.DBeg;
+                                              EndDate.Date := DatesLocal.DEnd;
+                                           end;
+                                       end);
+     {$ENDIF}
+
+
+     {$IFDEF MSWINDOWS}
+        if rangeFD.ShowModal = mrOk then
+          Begin
+            BegDate.Date := DatesLocal.DBeg;
+            EndDate.Date := DatesLocal.DEnd;
+          End;
+     {$ENDIF}
+  finally
+    {$IFDEF MSWINDOWS}
+       FreeAndNil(rangeFD);
+    {$ENDIF}
+    //TODO -opmp: Доделать обновление списка статистики при изменении промежутка дат
+    RefreshStatistBtnClick(Self);
+  end;
 end;
 
 procedure TOrdersForm.ReestrFilterSettingBtnClick(Sender: TObject);

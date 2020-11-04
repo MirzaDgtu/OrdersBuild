@@ -383,6 +383,25 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
             end
           end
         end
+        inherited StatistNaklLayout: TLayout
+          inherited StatistNaklHeaderTB: TToolBar
+            inherited NameStatistNaklHeadLbl: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited BottomStatistNaklSB: TStatusBar
+            inherited DocKolSBInfoLbl: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited StatistNalkLV: TListView
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+          end
+        end
       end
       inherited SynchTab: TTabItem
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -427,9 +446,6 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
               Size.Width = 786.000000000000000000
               inherited RightReestrPanel: TPanel
                 Position.X = 733.000000000000000000
-                inherited ReestrSynchBtn: TButton
-                  Size.Width = 53.000000000000000000
-                end
               end
               inherited ReestrSynchEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}

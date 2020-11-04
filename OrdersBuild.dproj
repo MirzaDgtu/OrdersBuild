@@ -176,6 +176,10 @@
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>0</DCC_DebugInformation>
+        <EL_ReadWriteDownloads>true</EL_ReadWriteDownloads>
+        <EL_AdMob>true</EL_AdMob>
+        <EL_IncomingNetwork>true</EL_IncomingNetwork>
+        <EL_USBDevices>true</EL_USBDevices>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>

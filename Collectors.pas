@@ -44,7 +44,7 @@ begin
              AppDataLocal.Connection.StartTransaction;
              while not AppDataRemote.Collectors.Eof do
               Begin
-                Add(AppDataRemote.CollectorsUID.AsString, AppDataRemote.CollectorsEmployeeName.AsString);
+                Add(AppDataRemote.CollectorsUID.AsInteger, AppDataRemote.CollectorsEmployeeName.AsString);
                 AppDataRemote.Collectors.Next();
               End;
           except
@@ -60,7 +60,7 @@ procedure TCollectors.Add(UID: integer; Name: string);
 begin
   AppDataLocal.Connection.StartTransaction;
   try
-    AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorOrder, [UID,
+    AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorLocal, [UID,
                                                                         Name]));
   except
     AppDataLocal.Connection.Rollback;

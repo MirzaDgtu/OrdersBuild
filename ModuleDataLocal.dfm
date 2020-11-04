@@ -127,10 +127,6 @@ object AppDataLocal: TAppDataLocal
     object CollectorOrdersFolioUID: TFloatField
       FieldName = 'FolioUID'
     end
-    object CollectorOrdersOrderDate: TWideMemoField
-      FieldName = 'OrderDate'
-      BlobType = ftWideMemo
-    end
     object CollectorOrdersKeeper: TStringField
       FieldName = 'Keeper'
       Size = 50
@@ -150,6 +146,10 @@ object AppDataLocal: TAppDataLocal
     end
     object CollectorOrdersOrderBuildDate: TWideMemoField
       FieldName = 'OrderBuildDate'
+      BlobType = ftWideMemo
+    end
+    object CollectorOrdersOrderDatePD: TWideMemoField
+      FieldName = 'OrderDatePD'
       BlobType = ftWideMemo
     end
   end

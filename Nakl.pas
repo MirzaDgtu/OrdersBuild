@@ -49,6 +49,7 @@ type
       const AItem: TListViewItem);
     procedure ProductLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
+    procedure SaveNaklBtnClick(Sender: TObject);
   private
     FUnicumNumP: integer;
     FNumDocP: integer;
@@ -205,6 +206,14 @@ begin
     Collectors.Get();
     Collectors.Free;
   end;
+end;
+
+procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);
+begin
+  if Length(CollectorEdit.Text) > 0 then
+    SaveNaklBtn.ModalResult := mrOk
+  else
+    ShowMessage('Данные не введены полностью!' + #13 + 'Возможно вы не выбрали сборщика!');
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

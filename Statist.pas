@@ -8,11 +8,10 @@ type
   TStatist = class(TInterfacedObject, IInterfaceMove)
 
   public
-    procedure Add; overload;                    // для случая получения информации из удаленного репозитория
-    procedure Add(FolioUID: real; OrderDate: string;  Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer; OrderBuildDate: TDateTime); overload;  // в случае полной сборки накладной
-    procedure Delete; overload;                 // Очистка списка статистики
-    procedure Delete(UID: integer); overload;   // Удаление статистики по определенному сборщику
-    procedure Get;                              // Получение статистики с локальной таблицу по собранным документам сборщиков
+    procedure Add;                     // для случая получения информации из удаленного репозитория
+    procedure Delete;                  // Очистка списка статистики
+    procedure Get;overload;            // Получение статистики с локальной таблицу по собранным документам сборщиков
+    class procedure Get(CollectorUID: integer);overload;
 
     constructor Create();
   end;
@@ -27,53 +26,26 @@ begin
    //todo -opmp: Получение статистики по собранным документам с удаленного сервера
 end;
 
-procedure TStatist.Add(FolioUID: real; OrderDate: string; Keeper: string;
-  KeeperUID: integer; Collector: string; CollectorUID: integer; OrderBuildDate: TDateTime);
-begin
-  try
-    AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.Active := False;
-    AppDataLocal.Command.SQL.Text := Format(SSQLAddCollectorOrder, [FloatToStr(FolioUID),
-                                                                    OrderDate,
-                                                                    Keeper,
-                                                                    KeeperUID,
-                                                                    Collector,
-                                                                    CollectorUID,
-                                                                    FormatDateTime('yyyy-mm-dd hh:mm:ss', Now())]);
-    AppDataLocal.Command.ExecSQL;
-  except
-    AppDataLocal.Connection.Rollback;
-  end;
-end;
-
 constructor TStatist.Create;
 begin
   Inherited Create();
    Get();
 end;
 
-procedure TStatist.Delete(UID: integer);
-begin
-  try
-    AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.Active := False;
-    AppDataLocal.Command.SQL.Text := Format(SSQLDeleteCollectOrder, [UID]);
-    AppDataLocal.Command.ExecSQL;
-  except
-    AppDataLocal.Connection.Rollback;
-  end;
-end;
-
 procedure TStatist.Delete;
 begin
-   try
-     AppDataLocal.Connection.StartTransaction;
-     AppDataLocal.Command.Active :=False;
-     AppDataLocal.Command.SQL.Text := SSQLClearCollectOrders;
-     AppDataLocal.Command.ExecSQL;
-   finally
-     AppDataLocal.Connection.Rollback;
-   end;
+  //
+end;
+
+class procedure TStatist.Get(CollectorUID: integer);
+begin
+  //TODO -opmp: Получить список собранных накладных сборщиком
+  try
+    AppDataLocal.CollectorOrders.SQL.Text := (Format(SSQLGetCollectorOrders, [CollectorUID]));
+    AppDataLocal.CollectorOrders.Active := True;
+  except
+    AppDataLocal.CollectorOrders.Active := False;
+  end;
 end;
 
 procedure TStatist.Get;

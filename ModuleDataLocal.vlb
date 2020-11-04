@@ -204,9 +204,6 @@ Coordinates=772,625,137,33
 [CollectorOrdersKeeperUID]
 Coordinates=772,677,145,33
 
-[CollectorOrdersOrderDate]
-Coordinates=772,729,143,33
-
 [CollectorOrdersFolioUID]
 Coordinates=772,781,135,33
 
@@ -220,7 +217,7 @@ Coordinates=262,800,141,33
 Coordinates=123,800,134,33
 
 []
-Coordinates=283,10,80,159
+Coordinates=772,729,143,33
 Visible=True
 
 [UsersUserName]

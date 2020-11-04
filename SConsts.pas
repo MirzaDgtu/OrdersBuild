@@ -52,6 +52,9 @@ resourcestring
 
       SSQLDeleteCollectors  = 'DELETE FROM Collectors';                     //--- Удаление списка сборщиков
 
+      SSQLAddCollectorLocal = 'INSERT INTO Collectors(UID, ' +              // Добавление сборщика в
+                                                     'NAME) ' +             // локальную базу данных
+                              'VALUES (%d, ''%s'')';                        // -- *******************--//
                                     // Параметры соединения с удаленный сервером
 
       SSQLGetConnectSetting   = 'SELECT  ID, ' +                             //-----************************-----//
@@ -89,8 +92,7 @@ resourcestring
       SSQLDeleteReestrs          = 'DELETE FROM Reestrs';                                                 // Очистка списка реестров в локальной базы
 
 
-
-                 // Получение справочников из локальной базы
+                                                              // Получение справочников из локальной базы
       SSQLGetBrieforgLocal        = 'SELECT DISTINCT BRIEFORG, ' +                                        //-----*********-----//
                                     '                I.Screen  ' +                                        //-----*********-----//
                                     'FROM OrdersHeader ' +                                                //--Список коротких--//
@@ -133,19 +135,19 @@ resourcestring
                               'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d)';            //-----**********************-----//
 
 
-      SSQLGetCollectorOrders = 'SELECT 	UID, ' +                                                          //-----************-----//
-                                       'FolioUID, ' +                                                     //-----************-----//
-                                       'OrderDatePD, ' +                                                  //-----************-----//
-                                       'Keeper, ' +                                                       //-----************-----//
-                                       'KeeperUID, ' +                                                    //-----************-----//
-                                       'Collector, ' +                                                    //-----************-----//
-                                       'CollectorUID, ' +                                                 //---Получение списка собранных накладных---//
-                                       'OrderBuildDate, ' +                                               //---выбранный сборщиком---//
+      SSQLGetCollectorOrders = 'SELECT 	PD.UID, ' +                                                          //-----************-----//
+                                       'PD.FolioUID, ' +                                                     //-----************-----//
+                                       'PD.OrderDatePD, ' +                                                  //-----************-----//
+                                       'PD.Keeper, ' +                                                       //-----************-----//
+                                       'PD.KeeperUID, ' +                                                    //-----************-----//
+                                       'PD.Collector, ' +                                                    //-----************-----//
+                                       'PD.CollectorUID, ' +                                                 //---Получение списка собранных накладных---//
+                                       'PD.OrderBuildDate, ' +                                               //---выбранный сборщиком---//
                                        'I.Screen ' +                                                      //-----************-----//
-                                    'FROM ProcessedDoc ' +                                                //-----************-----//
+                                    'FROM ProcessedDoc PD' +                                                //-----************-----//
                                     ' LEFT JOIN Icons I ON I.UID = 7 ' +                                  //-----************-----//
                                     'WHERE CollectorUID = %d  ' +                                         //-----************-----//
-                                    'ORDER BY UID';                                                       //-----************-----//
+                                    'ORDER BY PD.FolioUID';                                                       //-----************-----//
 
 
       SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                      //-----************-----//
@@ -171,9 +173,9 @@ resourcestring
                                                    'KeeperUID, ' +                                        //-----************-----//
                                                    'I.Screen ';
 
-      SSQLClearCollectOrders = 'DELETE FROM ProcessedDoc';                                                // Очистка всех записей из собранных накладных
+      SSQLClearProcessedOrders = 'DELETE FROM ProcessedDoc';                                                // Очистка всех записей из собранных накладных
 
-      SSQLDeleteCollectOrder = 'DELETE FROM ProcessedDoc ' +                                              // Удаление определенного документа из собранных
+      SSQLDeleteProcessedOrder = 'DELETE FROM ProcessedDoc ' +                                              // Удаление определенного документа из собранных
                                'WHERE FolioUID = %s';
 
 
@@ -241,7 +243,7 @@ resourcestring
       SSQLGetCountOrdersHeader          = 'SELECT count(UID) as ''CountNacl::SMALLINT'', ' +              //----******************************--//
                                                  '(SELECT COUNT(Status) ' +                               //----Получение количества накладных--//
                                                  'FROM OrdersHeader ' +                                   //-------и собранных  накладных-------//
-                                                 'WHERE Status = 2) as ''CountBuild::SMALLINT'' ' +       //----******************************--//
+                                                 'WHERE Status = 3) as ''CountBuild::SMALLINT'' ' +       //----******************************--//
                                           'FROM OrdersHeader';                                            //----******************************--//
 
 

@@ -461,7 +461,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.HorzAlign = Center
-                Text = 'KolDocLbl'
+                Text = #1044#1086#1082#1091#1084#1077#1085#1090#1086#1074': 0'
                 TabOrder = 0
               end
               object KolBuildDocLbl: TLabel
@@ -475,7 +475,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.FontColor = claRed
                 TextSettings.HorzAlign = Center
-                Text = 'KolBuildDocLbl'
+                Text = #1057#1086#1073#1088#1072#1085#1086': 0'
                 TabOrder = 1
               end
             end
@@ -1564,22 +1564,22 @@ object OrdersForm: TOrdersForm
                 Appearance.Font.StyleExt = {00070000000000000004000000}
                 Appearance.Width = 49.000000000000000000
                 Appearance.Height = 44.000000000000000000
-                Appearance.PlaceOffset.X = 30.000000000000000000
+                Appearance.PlaceOffset.X = 21.000000000000000000
               end
               item
                 AppearanceObjectName = 'Collector'
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.StyleExt = {00070000000000000004000000}
                 Appearance.TextColor = claMediumblue
-                Appearance.Width = 189.000000000000000000
+                Appearance.Width = 195.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.Align = Center
-                Appearance.PlaceOffset.X = 82.000000000000000000
+                Appearance.PlaceOffset.X = 78.000000000000000000
               end
               item
                 AppearanceObjectName = 'Screen'
                 AppearanceClassName = 'TImageObjectAppearance'
-                Appearance.Width = 31.000000000000000000
+                Appearance.Width = 21.000000000000000000
                 Appearance.Height = 49.000000000000000000
                 Appearance.VertAlign = Center
               end
@@ -1590,7 +1590,7 @@ object OrdersForm: TOrdersForm
                 Appearance.TextColor = claRed
                 Appearance.Width = 88.000000000000000000
                 Appearance.Height = 44.000000000000000000
-                Appearance.PlaceOffset.X = 78.000000000000000000
+                Appearance.PlaceOffset.X = 70.000000000000000000
               end>
             ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
               item
@@ -1599,6 +1599,7 @@ object OrdersForm: TOrdersForm
               end>
             OnClick = StatistLVClick
             CanSwipeDelete = False
+            OnItemClick = StatistLVItemClick
             SearchVisible = True
             object RightStatistMenuLayout: TLayout
               Align = Right
@@ -1635,6 +1636,7 @@ object OrdersForm: TOrdersForm
                   Size.PlatformDefault = False
                   StyleLookup = 'pagecurltoolbutton'
                   TabOrder = 0
+                  OnClick = LoaderNaklBtnClick
                 end
                 object RangeStatistBtn: TButton
                   Align = Top
@@ -1670,6 +1672,178 @@ object OrdersForm: TOrdersForm
                 StopValue = 0.000000000000000000
               end
             end
+          end
+        end
+        object StatistNaklLayout: TLayout
+          Align = Client
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 365.000000000000000000
+          Size.Height = 517.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 1
+          object StatistNaklFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+          object StatistNaklHeaderTB: TToolBar
+            Size.Width = 365.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object BackStatistNaklBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackStatistNaklBtnClick
+            end
+            object RefreshStatistNaklBtn: TButton
+              Align = Right
+              IconTintColor = claRed
+              Position.X = 317.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 1
+              OnClick = RefreshStatistNaklBtnClick
+            end
+            object NameStatistNaklHeadLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 269.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBrown
+              TextSettings.HorzAlign = Center
+              Text = 'NameStatistNaklHeadLbl'
+              TabOrder = 2
+            end
+          end
+          object BottomStatistNaklSB: TStatusBar
+            Position.Y = 495.000000000000000000
+            ShowSizeGrip = True
+            Size.Width = 365.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object DocKolSBInfoLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Size.Width = 365.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claRed
+              TextSettings.HorzAlign = Center
+              Text = 'DocKolSBInfoLbl'
+              TabOrder = 0
+            end
+          end
+          object RectStatistNakl: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.699999988079071000
+            Size.Width = 365.000000000000000000
+            Size.Height = 447.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object StatistNalkLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 8.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 349.000000000000000000
+            Size.Height = 437.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'UID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'FolioUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claDarkblue
+                Appearance.Width = 74.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderDatePD'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Keeper'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.WordWrap = True
+                Appearance.TextColor = claForestgreen
+                Appearance.Width = 147.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 90.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderBuildDate'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claMaroon
+                Appearance.Width = 87.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 94.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'KeeperUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Collector'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'CollectorUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            SearchVisible = True
           end
         end
       end
@@ -2315,9 +2489,69 @@ object OrdersForm: TOrdersForm
         item
           SourceMemberName = 'Status'
           ControlMemberName = 'Status'
+        end
+        item
+          SourceMemberName = 'Collector'
+          ControlMemberName = 'Collector'
+        end
+        item
+          SourceMemberName = 'CollectorUID'
+          ControlMemberName = 'CollectorUID'
+        end
+        item
+          SourceMemberName = 'KeeperUID'
+          ControlMemberName = 'KeeperUID'
+        end
+        item
+          SourceMemberName = 'Keeper'
+          ControlMemberName = 'Keeper'
         end>
       FillHeaderExpressions = <>
       FillHeaderFieldName = 'OrderNo'
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField8: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      Control = StatistNalkLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'FolioUID'
+          ControlMemberName = 'FolioUID'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'Keeper'
+          ControlMemberName = 'Keeper'
+        end
+        item
+          SourceMemberName = 'OrderDatePD'
+          ControlMemberName = 'OrderDatePD'
+        end
+        item
+          SourceMemberName = 'OrderBuildDate'
+          ControlMemberName = 'OrderBuildDate'
+        end
+        item
+          SourceMemberName = 'Collector'
+          ControlMemberName = 'Collector'
+        end
+        item
+          SourceMemberName = 'CollectorUID'
+          ControlMemberName = 'CollectorUID'
+        end
+        item
+          SourceMemberName = 'KeeperUID'
+          ControlMemberName = 'KeeperUID'
+        end>
+      FillHeaderExpressions = <>
       FillBreakGroups = <>
     end
   end
@@ -2356,5 +2590,11 @@ object OrdersForm: TOrdersForm
     ScopeMappings = <>
     Left = 168
     Top = 336
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = AppDataLocal.CollectorOrders
+    ScopeMappings = <>
+    Left = 176
+    Top = 296
   end
 end

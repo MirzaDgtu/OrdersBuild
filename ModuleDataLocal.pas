@@ -39,7 +39,6 @@ type
     CollectorOrders: TFDQuery;
     CollectorOrdersUID: TIntegerField;
     CollectorOrdersFolioUID: TFloatField;
-    CollectorOrdersOrderDate: TWideMemoField;
     CollectorOrdersKeeper: TStringField;
     CollectorOrdersKeeperUID: TIntegerField;
     CollectorOrdersCollector: TStringField;
@@ -101,6 +100,7 @@ type
     OrdersHeadCollector: TStringField;
     OrdersHeadKeeperUID: TIntegerField;
     OrdersHeadKeeper: TStringField;
+    CollectorOrdersOrderDatePD: TWideMemoField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

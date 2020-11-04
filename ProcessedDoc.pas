@@ -75,7 +75,7 @@ class procedure TProcessedDoc.Delete(Unicum_Num: integer);
 begin
    try
      AppDataLocal.Connection.StartTransaction;
-     AppDataLocal.Command.Command.Execute(Format(SSQLDeleteCollectOrder, [Unicum_Num.ToString]));
+     AppDataLocal.Command.Command.Execute(Format(SSQLDeleteProcessedOrder, [Unicum_Num.ToString]));
    except
      AppDataLocal.Connection.Rollback;
    end;
@@ -90,7 +90,7 @@ procedure TProcessedDoc.Delete;
 begin
   try
     AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.Command.Execute(SSQLClearCollectOrders);
+    AppDataLocal.Command.Command.Execute(SSQLClearProcessedOrders);
   except
     AppDataLocal.Connection.Rollback;
   end;

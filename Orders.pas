@@ -164,6 +164,18 @@ type
     OrdersBottomGPL: TGridPanelLayout;
     KolDocLbl: TLabel;
     KolBuildDocLbl: TLabel;
+    StatistNaklLayout: TLayout;
+    StatistNaklFA: TFloatAnimation;
+    StatistNaklHeaderTB: TToolBar;
+    BackStatistNaklBtn: TButton;
+    RefreshStatistNaklBtn: TButton;
+    NameStatistNaklHeadLbl: TLabel;
+    BottomStatistNaklSB: TStatusBar;
+    RectStatistNakl: TRectangle;
+    DocKolSBInfoLbl: TLabel;
+    StatistNalkLV: TListView;
+    BindSourceDB1: TBindSourceDB;
+    LinkListControlToField8: TLinkListControlToField;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -211,6 +223,11 @@ type
     procedure BuildNaklBtnClick(Sender: TObject);
     procedure RefreshReestrFilterSettingBtnClick(Sender: TObject);
     procedure TabsOrderChange(Sender: TObject);
+    procedure BackStatistNaklBtnClick(Sender: TObject);
+    procedure StatistLVItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure LoaderNaklBtnClick(Sender: TObject);
+    procedure RefreshStatistNaklBtnClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
@@ -239,7 +256,8 @@ implementation
 {$R *.fmx}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 
-uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct;
+uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
+  Statist;
 {$R *.NmXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.LgXhdpiTb.fmx ANDROID}
@@ -284,6 +302,11 @@ end;
 procedure TOrdersForm.BackReestrFilterSettingBtnClick(Sender: TObject);
 begin
   PanelHide(ReestrLayout, ReestrsFA);
+end;
+
+procedure TOrdersForm.BackStatistNaklBtnClick(Sender: TObject);
+begin
+  PanelHide(StatistNaklLayout, StatistNaklFA);
 end;
 
 procedure TOrdersForm.BackVidDocsBtnClick(Sender: TObject);
@@ -424,6 +447,14 @@ end;
 procedure TOrdersForm.FormCreate(Sender: TObject);
 begin
   setActualDate();
+end;
+
+procedure TOrdersForm.LoaderNaklBtnClick(Sender: TObject);
+begin
+  TStatist.Get(StatistNakl.CollectorUID);
+  NameStatistNaklHeadLbl.Text := StatistNakl.CollectorName;
+  DocKolSBInfoLbl.Text := Format('Документов: %d', [StatistNakl.CollectNaklCount]);
+  PanelView(StatistNaklLayout, StatistNaklFA);
 end;
 
 procedure TOrdersForm.NaklLVClick(Sender: TObject);
@@ -603,6 +634,11 @@ begin
   end;
 end;
 
+procedure TOrdersForm.RefreshStatistNaklBtnClick(Sender: TObject);
+begin
+  TStatist.Get(StatistNakl.CollectorUID);
+end;
+
 procedure TOrdersForm.RefreshVidDocsBtnClick(Sender: TObject);
 begin
   try
@@ -704,6 +740,16 @@ end;
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
 begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
+end;
+
+procedure TOrdersForm.StatistLVItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
+
+  StatistNakl.CollectorUID := (AItem.Data['CollectorUID'].AsString).toInteger;
+  StatistNakl.CollectorName := AItem.Data['Collector'].AsString;
+  StatistNakl.CollectNaklCount := (AItem.Data['DocKol'].AsString).toInteger;
 end;
 
 procedure TOrdersForm.TabsOrderChange(Sender: TObject);

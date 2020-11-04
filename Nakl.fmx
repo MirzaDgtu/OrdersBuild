@@ -35,7 +35,6 @@ object NaklForm: TNaklForm
       object SaveNaklBtn: TButton
         Align = Right
         IconTintColor = claPurple
-        ModalResult = 1
         Position.X = 327.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
@@ -43,6 +42,7 @@ object NaklForm: TNaklForm
         StyleLookup = 'pagecurltoolbutton'
         TabOrder = 1
         Text = 'SaveNaklBtn'
+        OnClick = SaveNaklBtnClick
       end
       object NumDocNaklLbl: TLabel
         Align = VertCenter
@@ -459,6 +459,7 @@ object NaklForm: TNaklForm
       Size.Width = 375.000000000000000000
       Size.Height = 506.000000000000000000
       Size.PlatformDefault = False
+      Visible = False
       TabOrder = 4
       object CollectRect: TRectangle
         Align = Client

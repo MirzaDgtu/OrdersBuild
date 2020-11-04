@@ -60,6 +60,13 @@ type
     Article: integer;
     Name : string;
   end;
+
+type
+  TStatistNakl = record
+    CollectorUID: integer;
+    CollectorName: string;
+    CollectNaklCount: integer;
+  end;
 var
     CurrentUser: TUser;
     ConnectLocal: TConnectLocal;
@@ -68,6 +75,7 @@ var
     NaklRec: TNaklRec;
     CollectorNakl: TNaklCollector;
     ProdNakl: TProdNakl;
+    StatistNakl: TStatistNakl;
 
 
 implementation

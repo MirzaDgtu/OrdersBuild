@@ -1,7 +1,7 @@
 object AppDataLocal: TAppDataLocal
   OldCreateOrder = False
-  Height = 391
-  Width = 381
+  Height = 442
+  Width = 445
   object Connection: TFDConnection
     Params.Strings = (
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
@@ -336,6 +336,150 @@ object AppDataLocal: TAppDataLocal
     end
     object CollectorsScreen: TBlobField
       FieldName = 'Screen'
+    end
+  end
+  object OrdersMoveLoad: TFDQuery
+    Connection = Connection
+    Left = 184
+    Top = 176
+    object IntegerField1: TIntegerField
+      FieldName = 'FolioUID'
+    end
+    object StringField1: TStringField
+      FieldName = 'Article'
+    end
+    object StringField2: TStringField
+      FieldName = 'StrikeCode'
+      Size = 30
+    end
+    object StringField3: TStringField
+      FieldName = 'ProductName'
+      Size = 200
+    end
+    object FloatField1: TFloatField
+      FieldName = 'Packages'
+    end
+    object StringField4: TStringField
+      FieldName = 'EDIN_IZMER'
+    end
+    object FloatField2: TFloatField
+      FieldName = 'EDN_V_UPAK'
+    end
+    object FloatField3: TFloatField
+      FieldName = 'Qty'
+    end
+    object FloatField4: TFloatField
+      FieldName = 'Price'
+    end
+    object FloatField5: TFloatField
+      FieldName = 'Sum_Predm'
+    end
+    object FloatField6: TFloatField
+      FieldName = 'KON_KOLCH'
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'Status'
+    end
+    object WideMemoField1: TWideMemoField
+      FieldName = 'Date_Device'
+      BlobType = ftWideMemo
+    end
+    object BlobField1: TBlobField
+      FieldName = 'Screen'
+    end
+  end
+  object OrdersHeadLoad: TFDQuery
+    Connection = Connection
+    Left = 184
+    Top = 120
+    object IntegerField3: TIntegerField
+      FieldName = 'UID'
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'JournalNo'
+    end
+    object IntegerField5: TIntegerField
+      FieldName = 'OrderUID'
+    end
+    object FloatField7: TFloatField
+      FieldName = 'FolioUID'
+    end
+    object FloatField8: TFloatField
+      FieldName = 'OrderNo'
+    end
+    object WideMemoField2: TWideMemoField
+      FieldName = 'OrderDate'
+      BlobType = ftWideMemo
+    end
+    object StringField5: TStringField
+      FieldName = 'BRIEFORG'
+    end
+    object StringField6: TStringField
+      FieldName = 'ORGANIZNKL'
+      Size = 50
+    end
+    object StringField7: TStringField
+      FieldName = 'L_CP1_PLAT'
+      Size = 30
+    end
+    object StringField8: TStringField
+      FieldName = 'L_CP2_PLAT'
+      Size = 30
+    end
+    object StringField9: TStringField
+      FieldName = 'VID_DOC'
+      Size = 50
+    end
+    object FloatField9: TFloatField
+      FieldName = 'SUM_ROZN'
+    end
+    object FloatField10: TFloatField
+      FieldName = 'SUM_POR'
+    end
+    object StringField10: TStringField
+      FieldName = 'StrikeCode'
+      Size = 30
+    end
+    object StringField11: TStringField
+      FieldName = 'NAMEP_USER'
+      Size = 110
+    end
+    object StringField12: TStringField
+      FieldName = 'ADRES_USER'
+      Size = 150
+    end
+    object StringField13: TStringField
+      FieldName = 'ProjectName'
+      Size = 50
+    end
+    object SmallintField1: TSmallintField
+      FieldName = 'ColProd'
+    end
+    object SmallintField2: TSmallintField
+      FieldName = 'ColBuildProd'
+    end
+    object BlobField2: TBlobField
+      FieldName = 'Screen'
+    end
+    object LargeintField1: TLargeintField
+      FieldName = 'Date_Device'
+    end
+    object IntegerField6: TIntegerField
+      FieldName = 'Status'
+    end
+    object IntegerField7: TIntegerField
+      FieldName = 'CollectorUID'
+    end
+    object StringField14: TStringField
+      FieldName = 'Collector'
+      Size = 50
+    end
+    object IntegerField8: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object StringField15: TStringField
+      FieldName = 'Keeper'
+      Size = 50
     end
   end
 end

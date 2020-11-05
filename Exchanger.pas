@@ -32,6 +32,8 @@ type
     procedure pushNaklMoveLocalToRemote(UnicumNum: integer);           // Отправление детализации документа с локальной БД на удаленный сервер
 
     constructor Create(DBeg, DEnd: TDate; Reestr: string); overload;
+    destructor  Destroy(); override;
+
    published
      property BegD: TDate read FBegD write SetBegD;
      property EndD: TDate read FEndD write SetEndD;
@@ -46,22 +48,89 @@ uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote;
 
 procedure TExcangerNakl.addNaklHeadRemoteToLocal;
 begin
+   if not AppDataRemote.OrdersHeader.IsEmpty then
+    try
+      AppDataLocal.Connection.StartTransaction();
+      clearNaklHeadLocal();
 
+      AppDataRemote.OrdersHeader.First;
+      while not AppDataRemote.OrdersHeader.Eof do
+      begin
+        AppDataLocal.Command.Command.Execute(Format(SSQLAddOrdersHeader,[AppDataRemote.OrdersHeader.FieldByName('UID').AsInteger,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('JournalNo').AsInteger,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('OrderUID').AsInteger,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('FolioUID').AsInteger,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('OrderNo').AsInteger,
+                                                                         FormatDateTime('yyyy-mm-dd', AppDataRemote.OrdersHeader.FieldByName('OrderDate').AsDateTime),
+                                                                         AppDataRemote.OrdersHeader.FieldByName('AuditStatus').AsInteger,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('BRIEFORG').AsString,
+                                                                         StringReplace(AppDataRemote.OrdersHeader.FieldByName('ORGANIZNKL').AsString, '''', EmptyStr, [rfReplaceAll]),
+                                                                         AppDataRemote.OrdersHeader.FieldByName('L_CP1_PLAT').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('L_CP2_PLAT').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('VID_DOC').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('SUM_ROZN').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('SUM_POR').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('StrikeCode').AsInteger,
+                                                                         StringReplace(AppDataRemote.OrdersHeader.FieldByName('NAMEP_USER').AsString,  '''', EmptyStr, [rfReplaceAll]),
+                                                                         AppDataRemote.OrdersHeader.FieldByName('ADRES_USER').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('ProjectName').AsString,
+                                                                         AppDataRemote.OrdersHeader.FieldByName('Date_Device').AsString]));
+        AppDataRemote.OrdersHeader.Next;
+      end;
+    except
+      AppDataLocal.Connection.Rollback();
+    end;
 end;
 
 procedure TExcangerNakl.addNaklMoveRemoteToLocal(UnicumNum: integer);
 begin
+    try
+      AppDataLocal.Connection.StartTransaction;
+        AppDataRemote.OrdersMove.Active := False;
+        AppDataRemote.OrdersMove.SQL.Text := Format(SSQLGetPrintOrderDetails, [UnicumNum]);
+        AppDataRemote.OrdersMove.Active := True;
+        AppDataRemote.OrdersMove.First;
 
+        while not AppDataRemote.OrdersMove.Eof do
+        Begin
+          AppDataLocal.OrdersMove.Active := False;
+          AppDataLocal.Command.Command.Execute(Format(SSQLAddOrdersMove ,[UnicumNum,
+                                                                          AppDataRemote.OrdersMove.FieldByName('Article').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('StrikeCode').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('ProductName').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('EDIN_IZMER').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('Packages').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('EDN_V_UPAK').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('Qty').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('Price').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('Sum_Predm').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('KON_KOLCH').AsString,
+                                                                          AppDataRemote.OrdersMove.FieldByName('AuditStatus').AsInteger]));
+          AppDataRemote.OrdersMove.Next;
+        end;
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
 end;
 
 procedure TExcangerNakl.clearNaklHeadLocal;
 begin
-
+  try
+     AppDataLocal.Connection.StartTransaction;
+     AppDataLocal.Command.Command.Execute(SSQLClearOrdersHeadLocal);  // очистит локальную БД от всех записей документов
+  except
+     AppDataLocal.Connection.Rollback;
+  end;
 end;
 
 procedure TExcangerNakl.clearNaklMoveLocal;
 begin
-
+  try
+     AppDataLocal.Connection.StartTransaction;
+     AppDataLocal.Command.Command.Execute(SSQLClearOrdersMoveLocal);  // очистит локальную БД от всех записей детализации документов
+  except
+     AppDataLocal.Connection.Rollback;
+  end;
 end;
 
 constructor TExcangerNakl.Create(DBeg, DEnd: TDate; Reestr: string);
@@ -70,31 +139,73 @@ begin
   Self.BegD := DBeg;
   Self.EndD := DEnd;
   Self.Reestr := Reestr;
+  AppDataRemote.ConnectToExternalDB();
+end;
+
+destructor TExcangerNakl.Destroy;
+begin
+  AppDataRemote.Connection.Connected := False;
+  inherited;
 end;
 
 procedure TExcangerNakl.getNaklDetailLocal(UnicumNum: integer);
 begin
-
+  try
+     AppDataLocal.OrdersMoveLoad.Active := False;
+     AppDataLocal.OrdersMoveLoad.SQL.Text := Format(SSQLGetOrdersMove, [UnicumNum]);
+     AppDataLocal.OrdersMoveLoad.Active := True;
+  except
+  end;
 end;
 
 procedure TExcangerNakl.getNaklDetailRemote(UnicumNum: integer);
 begin
-
+  try
+      AppDataRemote.OrdersMove.Active := False;
+      AppDataRemote.OrdersMove.SQL.Text := Format(SSQLGetPrintOrderDetails, [UnicumNum]);
+      AppDataRemote.OrdersMove.Active := True;
+  finally
+  end;
 end;
 
 procedure TExcangerNakl.getNaklLocal(DBeg, DEnd: TDate; Build: smallint);
 begin
+  try
+    AppDataLocal.OrdersHeadLoad.Active := False;
 
+    AppDataLocal.OrdersHeadLoad.Command := SSQLGetOrdersHeaderLocal + ' WHERE OrderDate BETWEEN ' +
+                                           QuotedStr(FormatDateTime('yyyy-mm-dd', DBeg)) + ' AND ' +
+                                           QuotedStr(FormatDateTime('yyyy-mm-dd', DEnd)) + ' AND ' +
+                                           ' Status =  ' + Build.ToString;
+    AppDataLocal.OrdersHeadLoad.Active := True;
+  finally
+  end;
 end;
 
 procedure TExcangerNakl.getNaklLocal(DBeg, DEnd: TDate);
 begin
+  try
+    AppDataLocal.OrdersHeadLoad.Active := False;
 
+    AppDataLocal.OrdersHeadLoad.Command := SSQLGetOrdersHeaderLocal + ' WHERE OrderDate BETWEEN ' +
+                                           QuotedStr(FormatDateTime('yyyy-mm-dd', DBeg)) + ' AND ' +
+                                           QuotedStr(FormatDateTime('yyyy-mm-dd', DEnd)) + ' AND ' +
+                                           ' Status > 1 ';
+    AppDataLocal.OrdersHeadLoad.Active := True;
+  finally
+  end;
 end;
 
 procedure TExcangerNakl.getNaklRemote(DBeg, DEnd: TDate; Reestr: string);
 begin
-
+    try
+      AppDataRemote.OrdersHeader.Active := False;
+      AppDataRemote.OrdersHeader.SQL.Text := Format(SSQLGetJournalOrders, [FormatDateTime('yyyy-mm-dd', DBeg),
+                                                                           FormatDateTime('yyyy-mm-dd', DEnd),
+                                                                           Reestr]);
+      AppDataRemote.OrdersHeader.Active := True;
+    finally
+    end;
 end;
 
 procedure TExcangerNakl.pushNaklHeadLocalToRemote(UnicumNum: integer);

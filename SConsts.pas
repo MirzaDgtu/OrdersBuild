@@ -261,10 +261,12 @@ resourcestring
                                            'Article = ''%s''';                                            //-----*****************-----//
 
 
-      SSQLDeleteOrdersMove         = 'DELETE FROM OrdersMove ' +                                          //----- Удаление товаров при ----//
+      SSQLDeleteOrdersMoveLocal         = 'DELETE FROM OrdersMove ' +                                          //----- Удаление товаров при ----//     -- лучше не пользоваться
                                      'WHERE FolioUID = %d';                                               //----корректировке наклданой ---//
 
-      SSQLClearOrdersMove          = 'DELETE FROM OrdersMove';                                            //---- Очистка полного списка товаров -- //
+      SSQLClearOrdersMoveLocal          = 'DELETE FROM OrdersMove';                                       //---- Очистка полного списка товаров -- //
+
+      SSQLClearOrdersHeadLocal          = 'DELETE FROM OrdersHeader';                                     //---- Очистка списка документов с локальной БД
 
       SSQLSetDefaultStatusHeadOrders = 'UPDATE OrdersHeader ' +                                           //--- Установка дефолтного статуса для ---//
                                        '  SET Status = 0 ' +                                              //---      определенного значения      ---//
@@ -273,6 +275,43 @@ resourcestring
       SSQLSetDefaultStatusOrdersMove = 'UPDATE OrdersMove ' +                                             //--- Установка дефолного значения статуса ---//
                                        '  SET Status = 0  ' +                                             //---   для товаров определенной накладной ---//
                                        'WHERE FolioUID = %s';                                             //-----**********************************-----//
+
+      SSQLAddOrdersHeader = 'INSERT INTO OrdersHeader(UID, ' +                                                //-----*********-----//
+                                                'JournalNo, ' +                                               //-----*********-----//
+                                                'OrderUID, ' +                                                //-----*********-----//
+                                                'FolioUID, ' +                                                //-----*********-----//
+                                                'OrderNo, ' +                                                 //-----*********-----//
+                                                'OrderDate, ' +                                               //-----*********-----//
+                                                'Status, ' +                                                  //-Добавление документа-//
+                                                'BRIEFORG, ' +                                                //--в локальную базу-//
+                                                'ORGANIZNKL, ' +                                              //-----*********-----//
+                                                'L_CP1_PLAT, ' +                                              //-----*********-----//
+                                                'L_CP2_PLAT, ' +                                              //-----*********-----//
+                                                'VID_DOC, ' +                                                 //-----*********-----//
+                                                'SUM_ROZN, ' +                                                //-----*********-----//
+                                                'SUM_POR, ' +                                                 //-----*********-----//
+                                                'StrikeCode, ' +                                              //-----*********-----//
+                                                'NAMEP_USER, ' +                                              //-----*********-----//
+                                                'ADRES_USER, ' +                                              //-----*********-----//
+                                                'ProjectName, ' +
+                                                'Date_Device) ' +                                             //-----*********-----//
+                            'VALUES (%d, %d, %d, %d, %d, ''%s'', %d, ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', %d, ''%s'', ''%s'', ''%s'', ''%s'')';
+
+      SSQLAddOrdersMove    = 'INSERT INTO OrdersMove(FolioUID, ' +                                                  //-----*********-----//
+                                                   'Article, ' +                                                    //-----*********-----//
+                                                   'StrikeCode, ' +                                                 //-----*********-----//
+                                                   'ProductName, ' +                                                //-----*********-----//
+                                                   'EDIN_IZMER, ' +                                                 //-----*********-----//
+                                                   'Packages, ' +                                                   //Добавление детализации//
+                                                   'EDN_V_UPAK, ' +                                                 //-----накладной-----//
+                                                   'Qty, ' +                                                        //-----*********-----//
+                                                   'Price, ' +                                                      //-----*********-----//
+                                                   'Sum_Predm, ' +                                                  //-----*********-----//
+                                                   'KON_KOLCH, ' +
+                                                   'STATUS) ' +
+                            'VALUES (%d, ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', %d)';  //-----*********-----//
+
+
 
 
 

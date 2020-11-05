@@ -12,8 +12,9 @@ type
 
   public
     procedure Add;
-    procedure Delete; overload;
-    procedure Delete(Unicum_Num: integer); overload;
+    procedure Delete;
+   // procedure Delete; overload;
+   // procedure Delete(Unicum_Num: integer); overload;
     class procedure setMoveNaklDefault(Unicum_Num: integer);
 
     procedure Get; overload;
@@ -42,6 +43,12 @@ begin
   TNaklAction.Get(Unicum_Num);
 end;
 
+procedure TNaklAction.Delete;
+begin
+  //
+end;
+
+{
 procedure TNaklAction.Delete(Unicum_Num: integer);
 begin
   AppDataLocal.Connection.StartTransaction;
@@ -53,16 +60,17 @@ begin
   end;
 end;
 
+
 procedure TNaklAction.Delete;
 begin
   AppDataLocal.Connection.StartTransaction;
   try
     AppDataLocal.Command.Active := False;
-    AppDataLocal.Command.Command.Execute(SSQLClearOrdersMove);
+    AppDataLocal.Command.Command.Execute(SSQLClearOrdersMoveLocal);
   except
     AppDataLocal.Connection.Rollback;
   end;
-end;
+end;}
 
 class procedure TNaklAction.Get(Unicum_Num: integer);
 begin

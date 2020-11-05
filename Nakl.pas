@@ -50,6 +50,8 @@ type
     procedure ProductLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure SaveNaklBtnClick(Sender: TObject);
+    procedure ProductLVUpdateObjects(const Sender: TObject;
+      const AItem: TListViewItem);
   private
     FUnicumNumP: integer;
     FNumDocP: integer;
@@ -69,6 +71,8 @@ type
 
     procedure PanelCollectorsView();
     procedure PanelCollectorsHide();
+
+    procedure updateProdCheckedList();
   public
     { Public declarations }
     FProdChecked: TList<Integer>;
@@ -127,6 +131,7 @@ begin
     NaklAct := TNaklAction.Create(UnicumNum);
     FProdChecked := TList<Integer>.Create;
     FCheckedBtnA := TList<Integer>.Create;
+    updateProdCheckedList();
 
     NumDocNaklLbl.Text := (NumDoc).ToString;
     UnicumNumP := UnicumNum;
@@ -195,6 +200,13 @@ begin
     setNaklBottomSBInfo(KolProdP, FProdChecked.Count);
 end;
 
+procedure TNaklForm.ProductLVUpdateObjects(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  //if (Assigned(AItem) and Assigned(FCheckedBtnA)) then
+  //  AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA').Visible := FCheckedBtnA.Contains(AItem.Index);
+end;
+
 procedure TNaklForm.RefreshBtnClick(Sender: TObject);
 var
     Collectors: TCollectors;
@@ -245,6 +257,33 @@ end;
 procedure TNaklForm.SetUnicumNumP(const Value: integer);
 begin
   FUnicumNumP := Value;
+end;
+
+procedure TNaklForm.updateProdCheckedList;
+var
+   i: integer;
+begin
+  i := 0;
+  if Assigned(FProdChecked) then
+    try
+      if not AppDataLocal.OrdersMove.IsEmpty then
+        Begin
+          FProdChecked.Clear();
+          AppDataLocal.OrdersMove.First;
+
+          while not AppDataLocal.OrdersMove.Eof do
+            Begin
+              i := i + 1;
+              if AppDataLocal.OrdersMove.FieldByName('Status').AsInteger = 1 then
+                Begin
+                  FProdChecked.Add(AppDataLocal.OrdersMove.FieldByName('Article').AsInteger);
+                  FCheckedBtnA.Add(i);
+                End;
+              AppDataLocal.OrdersMove.Next();
+            End;
+        End;
+    finally
+    end;
 end;
 
 end.

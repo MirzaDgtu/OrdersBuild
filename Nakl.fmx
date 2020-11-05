@@ -190,6 +190,7 @@ object NaklForm: TNaklForm
       ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
+      OnUpdateObjects = ProductLVUpdateObjects
       SideSpace = 1
       Align = Client
       Size.Width = 375.000000000000000000

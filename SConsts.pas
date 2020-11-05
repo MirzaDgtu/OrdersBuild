@@ -283,7 +283,8 @@ resourcestring
     SSQLGetUsers   = 'EXEC DELIVERY..S_GetAuditEmployees %d';                                             // Получение списка пользователей
     SSQLGetReestrs = 'EXEC DELIVERY..S_GetReestrs';                                                       // Получение списка реестров
     SSQLGetCollectorsOrdersBuild = 'EXEC STOREHOUSE..O_GetCollectorsOrdersBuild';                         // Получение списка сборщиков
-
+    SSQLGetJournalOrders         = 'EXEC DELIVERY..A_GetJournalOrders ''%s'', ''%s'', ''%s''';            // Список накладных
+    SSQLGetPrintOrderDetails     = 'EXEC DELIVERY..A_GetPrintOrderDetails %d';                            // Детализация документа
 implementation
 
 end.

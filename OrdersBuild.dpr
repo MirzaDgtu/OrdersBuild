@@ -19,7 +19,8 @@ uses
   Collectors in 'Collectors.pas',
   ProcessedDoc in 'ProcessedDoc.pas',
   ModuleDataRemote in 'ModuleDataRemote.pas' {AppDataRemote: TDataModule},
-  RangeDate in 'RangeDate.pas' {RangeForm};
+  RangeDate in 'RangeDate.pas' {RangeForm},
+  Exchanger in 'Exchanger.pas';
 
 {$R *.res}
 

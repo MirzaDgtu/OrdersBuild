@@ -466,9 +466,6 @@ inherited OrdersForm_XLgXhdpiTb: TOrdersForm_XLgXhdpiTb
               Size.Width = 786.000000000000000000
               inherited RightReestrPanel: TPanel
                 Position.X = 733.000000000000000000
-                inherited ReestrSynchBtn: TButton
-                  Size.Width = 53.000000000000000000
-                end
               end
               inherited ReestrSynchEdit: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}

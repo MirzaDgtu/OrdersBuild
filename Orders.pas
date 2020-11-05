@@ -357,7 +357,7 @@ begin
                                      Begin
                                       if ModalResult = mrOk then
                                        Begin
-                                        NaklAct.Delete(NaklRec.UnicumNum);
+                                        TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
                                         if NaklF.FProdChecked.Count > 0 then
                                           Begin
                                             for iVal in NaklF.FProdChecked do
@@ -452,6 +452,7 @@ end;
 
 procedure TOrdersForm.LoaderNaklBtnClick(Sender: TObject);
 begin
+  PanelHide(RightStatistMenuLayout, RightStatistMenuFA);
   TStatist.Get(StatistNakl.CollectorUID);
   NameStatistNaklHeadLbl.Text := StatistNakl.CollectorName;
   DocKolSBInfoLbl.Text := Format('Документов: %d', [StatistNakl.CollectNaklCount]);

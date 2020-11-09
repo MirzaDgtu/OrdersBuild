@@ -43,20 +43,24 @@ class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;
   OrderBuildDate: string);
 begin
 
-  try
     AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.Active := False;
-    AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorOrder, [Unicum_Num.toString,
-                                                                        OrderDatePD,
-                                                                        Keeper,
-                                                                        KeeperUID,
-                                                                        Collector,
-                                                                        CollectorUID,
-                                                                        FormatDateTime('yyyy-mm-dd', Now),
-                                                                        3]));
-  except
-    AppDataLocal.Connection.Rollback;
-  end;
+    try
+      try
+        AppDataLocal.Command.Active := False;
+        AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorOrder, [Unicum_Num.toString,
+                                                                            OrderDatePD,
+                                                                            Keeper,
+                                                                            KeeperUID,
+                                                                            Collector,
+                                                                            CollectorUID,
+                                                                            FormatDateTime('yyyy-mm-dd', Now),
+                                                                            3]));
+      except
+        AppDataLocal.Connection.Rollback;
+      end;
+    finally
+      AppDataLocal.Connection.Commit;
+    end;
 end;
 
 constructor TProcessedDoc.Create(CollectorUID: integer; BegOD, EndOD: string);
@@ -73,12 +77,16 @@ end;
 
 class procedure TProcessedDoc.Delete(Unicum_Num: integer);
 begin
-   try
-     AppDataLocal.Connection.StartTransaction;
-     AppDataLocal.Command.Command.Execute(Format(SSQLDeleteProcessedOrder, [Unicum_Num.ToString]));
-   except
-     AppDataLocal.Connection.Rollback;
-   end;
+  try
+   AppDataLocal.Connection.StartTransaction;
+     try
+       AppDataLocal.Command.Command.Execute(Format(SSQLDeleteProcessedOrder, [Unicum_Num.ToString]));
+     except
+       AppDataLocal.Connection.Rollback;
+     end;
+  finally
+    AppDataLocal.Connection.Commit;
+  end;
 end;
 
 constructor TProcessedDoc.Create;
@@ -90,9 +98,13 @@ procedure TProcessedDoc.Delete;
 begin
   try
     AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.Command.Execute(SSQLClearProcessedOrders);
-  except
-    AppDataLocal.Connection.Rollback;
+    try
+      AppDataLocal.Command.Command.Execute(SSQLClearProcessedOrders);
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 

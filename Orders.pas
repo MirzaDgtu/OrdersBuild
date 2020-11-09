@@ -178,6 +178,7 @@ type
     LinkListControlToField8: TLinkListControlToField;
     StyleB: TStyleBook;
     GM: TGestureManager;
+    IL32: TImageList;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);

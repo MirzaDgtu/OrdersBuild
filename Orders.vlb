@@ -48,6 +48,7 @@ Coordinates=10,1156,66,33
 
 [AppDataLocal.Users]
 Coordinates=907,645,115,159
+Visible=False
 
 [ReestrFilterSettingBtn]
 Coordinates=1873,925,123,51
@@ -457,8 +458,7 @@ Coordinates=1608,925,97,51
 Coordinates=1022,46,137,141
 
 [AppDataLocal.OrdersMove]
-Coordinates=350,10,146,33
-Visible=False
+Coordinates=506,20,146,33
 
 [AppDataLocal.OrdersHead]
 Coordinates=155,10,145,33
@@ -480,14 +480,7 @@ Coordinates=10,1215,105,33
 Coordinates=102,1156,98,33
 
 [AppDataLocal.Collectors]
-Visible=False
-Coordinates=343,65,136,33
-
-[NaklForm.ProductsBS]
-Coordinates=345,10,130,321
-
-[NaklForm.CollectorsBS]
-Coordinates=1048,645,129,123
+Coordinates=489,75,136,33
 
 [StatistNaklFA]
 Coordinates=534,242,81,33

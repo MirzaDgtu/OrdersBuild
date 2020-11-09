@@ -11,7 +11,7 @@ uses
   FMX.DateTimeCtrls, FMX.EditBox, FMX.SpinBox, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
-  System.Threading, System.SyncObjs;
+  System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures;
 
 type
   TOrdersForm = class(TForm)
@@ -176,6 +176,8 @@ type
     StatistNalkLV: TListView;
     StatistNaklBS: TBindSourceDB;
     LinkListControlToField8: TLinkListControlToField;
+    StyleB: TStyleBook;
+    GM: TGestureManager;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -229,6 +231,16 @@ type
     procedure LoaderNaklBtnClick(Sender: TObject);
     procedure RefreshStatistNaklBtnClick(Sender: TObject);
     procedure RangeStatistBtnClick(Sender: TObject);
+    procedure SynchBtnClick(Sender: TObject);
+    procedure NaklLVGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
+      var Handled: Boolean);
+    procedure StatistLVGesture(Sender: TObject;
+      const EventInfo: TGestureEventInfo; var Handled: Boolean);
+    procedure SynchRectGesture(Sender: TObject;
+      const EventInfo: TGestureEventInfo; var Handled: Boolean);
+    procedure TabsOrderGesture(Sender: TObject;
+      const EventInfo: TGestureEventInfo; var Handled: Boolean);
+    procedure ReestrSynchEditClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
@@ -255,14 +267,11 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.XLgXhdpiTb.fmx ANDROID}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
-  Statist, RangeDate;
-{$R *.NmXhdpiPh.fmx ANDROID}
-{$R *.XLgXhdpiTb.fmx ANDROID}
-{$R *.LgXhdpiTb.fmx ANDROID}
-{$R *.LgXhdpiPh.fmx ANDROID}
+  Statist, RangeDate, Exchanger, Sign;
+
+
 
 { TOrdersForm }
 
@@ -340,7 +349,7 @@ procedure TOrdersForm.BuildNaklBtnClick(Sender: TObject);
 var
     NaklF: TNaklForm;
     NaklAct: TNaklAction;
-    iVal: integer;
+    iValMS: integer;
 begin
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
 
@@ -353,22 +362,29 @@ begin
 
 
        {$IFDEF ANDROID}
-          NaklF.ShowModal(procedure (ModalResult: TModalResult
-                                     Begin
-                                      if ModalResult = mrOk then
-                                       Begin
-                                        TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
-                                        if NaklF.FProdChecked.Count > 0 then
-                                          Begin
-                                            for iVal in NaklF.FProdChecked do
-                                               NaklAct.SaveBuildProd(NaklF.UnicumNumP, iVal, 1);
-                                          End
-                                        else
-                                            TNaklAction.setMoveNaklDefault(NaklF.UnicumNumP);
+          NaklF.ShowModal(
+                          procedure (ModalResult: TModalResult)
+                          var iVal: integer;
+                              NaklAct: TNaklAction;
+                          Begin
+                            if ModalResult = mrOk then
+                             try
+                               TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
+                               NaklAct := TNaklAction.Create(NaklRec.UnicumNum);
 
-                                          TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
-                                        end;
-                                     end);
+                               if NaklF.FProdChecked.Count > 0 then
+                                Begin
+                                  for iVal in NaklF.FProdChecked do
+                                     NaklAct.SaveBuildProd(NaklRec.UnicumNum, iVal, 1);
+                                End
+                               else
+                                  TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
+
+                                TNaklAction.SaveHeadNakl(NaklRec.UnicumNum, NaklF.KolProdP, NaklF.FProdChecked.Count);
+                             finally
+                             end;
+                          end
+                          );
        {$ENDIF}
 
        {$IFDEF MSWINDOWS}
@@ -377,8 +393,8 @@ begin
                if NaklF.FProdChecked.Count > 0 then
                   Begin
                    TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
-                    for iVal in NaklF.FProdChecked do
-                       NaklAct.SaveBuildProd(NaklF.UnicumNumP, iVal, 1);
+                    for iValMS in NaklF.FProdChecked do
+                       NaklAct.SaveBuildProd(NaklF.UnicumNumP, iValMS, 1);
                   End
                 else
                    TNaklAction.setMoveNaklDefault(NaklF.UnicumNumP);
@@ -387,6 +403,7 @@ begin
             finally
             end;
        {$ENDIF}
+
      finally
       {$IFDEF MSWINDOWS}
         FreeAndNil(NaklF);
@@ -464,6 +481,12 @@ begin
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
 end;
 
+procedure TOrdersForm.NaklLVGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  TabsOrder.OnGesture(Sender, EventInfo, Handled);
+end;
+
 procedure TOrdersForm.NaklLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
@@ -528,14 +551,15 @@ begin
 
   try
      {$IFDEF ANDROID}
-           rangeFD.ShowModal(procedure(ModalResult: TModalResult)
-                                       Begin
-                                         if ModalResult = mrOk then
-                                           Begin
-                                              BegDate.Date := DatesLocal.DBeg;
-                                              EndDate.Date := DatesLocal.DEnd;
-                                           end;
-                                       end);
+           rangeFD.ShowModal(
+                             procedure(ModalResult: TModalResult)
+                             Begin
+                               if ModalResult = mrOk then
+                                 Begin
+                                    BegDate.Date := DatesLocal.DBeg;
+                                    EndDate.Date := DatesLocal.DEnd;
+                                 end;
+                             end);
      {$ENDIF}
 
 
@@ -550,7 +574,8 @@ begin
     {$IFDEF MSWINDOWS}
        FreeAndNil(rangeFD);
     {$ENDIF}
-    //TODO -opmp: ƒоделать обновление списка статистики при изменении промежутка дат
+
+    //DONE -opmp: ƒоделать обновление списка статистики при изменении промежутка дат
     RefreshStatistBtnClick(Self);
   end;
 end;
@@ -579,6 +604,19 @@ begin
 end;
 
 procedure TOrdersForm.ReestrSynchBtnClick(Sender: TObject);
+var
+   reestrsI: IInterfaceMove;
+begin
+
+  try
+  ReestrLayout.Parent := SynchTab;
+    reestrsI := TReestrs.Create;
+    PanelView(ReestrLayout, ReestrsFA);
+  finally
+  end;
+end;
+
+procedure TOrdersForm.ReestrSynchEditClick(Sender: TObject);
 var
    reestrsI: IInterfaceMove;
 begin
@@ -780,6 +818,12 @@ begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
 end;
 
+procedure TOrdersForm.StatistLVGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  TabsOrder.OnGesture(Sender, EventInfo, Handled);
+end;
+
 procedure TOrdersForm.StatistLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
@@ -790,9 +834,48 @@ begin
   StatistNakl.CollectNaklCount := (AItem.Data['DocKol'].AsString).toInteger;
 end;
 
+procedure TOrdersForm.SynchBtnClick(Sender: TObject);
+var
+    exchanger: TExcangerNakl;
+begin
+  exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
+  try
+    try
+      exchanger.start();
+    except
+      on Ex: Exception do
+        ShowMessage('ќшибка получени€ накладных' + #13 + '—ообщение: ' + Ex.Message);
+    end;
+  except
+      exchanger.Destroy;
+  end;
+end;
+
+procedure TOrdersForm.SynchRectGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  TabsOrder.OnGesture(Sender, EventInfo, Handled);
+end;
+
 procedure TOrdersForm.TabsOrderChange(Sender: TObject);
 begin
   PanelAllHide();
+end;
+
+procedure TOrdersForm.TabsOrderGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+    case EventInfo.GestureID of
+      sgiLeft: Begin
+                 TabsOrder.Next();
+                 Handled := True;
+               End;
+
+      sgiRight: Begin
+                  TabsOrder.Previous();
+                  Handled := True;
+                End;
+    end;
 end;
 
 procedure TOrdersForm.VidDocFilterSettingBtnClick(Sender: TObject);
@@ -810,3 +893,4 @@ begin
 end;
 
 end.
+

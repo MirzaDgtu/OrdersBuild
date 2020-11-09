@@ -189,7 +189,6 @@ end;
 
 procedure TAppDataLocal.ConnectionBeforeConnect(Sender: TObject);
 begin
-
     {$IFDEF ANDROID}
         Connection.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'SqlLiteBase.db');
     {$ENDIF}
@@ -212,7 +211,7 @@ end;
 
 constructor TAppDataLocal.Create(AOwner: TComponent);
 begin
-  inherited;
+  inherited Create(AOwner);
   ConnectionToLocalDB();
 end;
 

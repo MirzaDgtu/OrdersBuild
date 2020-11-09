@@ -7,6 +7,7 @@ object RangeForm: TRangeForm
   Fill.Color = xFF338989
   Fill.Kind = Solid
   Position = ScreenCenter
+  StyleBook = SignForm.StyleB
   WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -108,7 +109,7 @@ object RangeForm: TRangeForm
           TabOrder = 1
           Text = #1057
           object BegDE: TDateEdit
-            Date = 44139.000000000000000000
+            Date = 44141.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -139,7 +140,7 @@ object RangeForm: TRangeForm
           TabOrder = 2
           Text = #1055#1086
           object EndDE: TDateEdit
-            Date = 44139.000000000000000000
+            Date = 44141.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter

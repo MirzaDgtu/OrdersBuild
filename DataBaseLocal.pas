@@ -99,7 +99,7 @@ resourcestring
 
     SSQLDeleteStatuses         = 'DROP TABLE IF EXISTS Statuses';
 
-    SSQLDeleteProcessedDoc       = 'DROP TABLE IF EXISTS ProcessedDoc';
+    SSQLDeleteProcessedDoc     = 'DROP TABLE IF EXISTS ProcessedDoc';
 
     SSQLDeleteReestrs          = 'DROP TABLE IF EXISTS Reestrs';
 

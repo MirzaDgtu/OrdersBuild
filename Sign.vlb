@@ -8,9 +8,6 @@ Coordinates=526,475,53,33
 Coordinates=10,670,70,33
 Visible=True
 
-[UserFA]
-Coordinates=442,441,50,33
-
 [DefaultSBtn]
 Coordinates=702,398,73,51
 
@@ -41,12 +38,6 @@ Coordinates=807,321,60,51
 
 [BackUserBtn]
 Coordinates=344,398,79,51
-
-[ClearServerEditBtn]
-Coordinates=853,475,108,33
-
-[ClearUserEditBtn]
-Coordinates=255,670,99,33
 
 [AOuthRect]
 Coordinates=700,670,68,33
@@ -80,7 +71,7 @@ Coordinates=235,611,71,33
 Coordinates=366,475,134,51
 
 []
-Coordinates=175,260,82,33
+Coordinates=853,475,108,33
 Visible=True
 
 [UserPanel]
@@ -209,6 +200,7 @@ Coordinates=1031,10,123,123
 
 [AppDataLocal.CollectorOrders]
 Coordinates=491,10,164,213
+Visible=False
 
 [OrdersForm.BrieforgBS]
 Coordinates=10,467,131,105

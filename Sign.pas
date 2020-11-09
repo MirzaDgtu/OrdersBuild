@@ -27,9 +27,7 @@ type
     ServerLBI: TListBoxItem;
     UserLBI: TListBoxItem;
     ServerEdit: TEdit;
-    ClearServerEditBtn: TClearEditButton;
     UserEdit: TEdit;
-    ClearUserEditBtn: TClearEditButton;
     UserLayout: TLayout;
     UserRect: TRectangle;
     UserHeaderTB: TToolBar;
@@ -37,7 +35,6 @@ type
     BackUserBtn: TButton;
     RefreshUserBtn: TButton;
     UserHeaderLbl: TLabel;
-    UserFA: TFloatAnimation;
     UserPanel: TPanel;
     UserBtn: TButton;
     SettingLayout: TLayout;
@@ -69,6 +66,8 @@ type
     UsersBS: TBindSourceDB;
     SignBL: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
+    UserFA: TFloatAnimation;
+    StyleB: TStyleBook;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
@@ -81,6 +80,7 @@ type
     procedure SignSBtnClick(Sender: TObject);
     procedure BackUserBtnClick(Sender: TObject);
     procedure RefreshUserBtnClick(Sender: TObject);
+    procedure UserEditClick(Sender: TObject);
   private
     { Private declarations }
     usersUn: TUsers;
@@ -121,10 +121,10 @@ begin
 end;
 
 procedure TSignForm.DefaultSBtnClick(Sender: TObject);
-var
-   dbLocal: TLocalDataBase;
+//var
+//   dbLocal: TLocalDataBase;
 begin
-   dbLocal := TLocalDataBase.Create;
+//   dbLocal := TLocalDataBase.Create;
   {
    try
      dbLocal.Delete;
@@ -182,11 +182,11 @@ end;
 
 procedure TSignForm.PanelUserView;
 begin
-      UserLayout.Position.Y := Self.Height + 20;
+      UserLayout.Position.Y := MainLayout.Height + 20;
       UserLayout.Visible := True;
 
       UserFA.Inverse := False;
-      UserFA.StartValue := Self.Height  + 20;
+      UserFA.StartValue := MainLayout.Height + 20;
       UserFA.Start;
 end;
 
@@ -200,29 +200,15 @@ begin
 end;
 
 procedure TSignForm.SaveSettingBtnClick(Sender: TObject);
-//var
-//  CheckVal: Boolean;
 begin
-  //CheckVal := True;
- { SettingLB.EnumControls(function (Control: TControl): TEnumControlsResult
-  begin
-    if  (Control is TEdit)then
-       if TEdit(Control).Text.IsEmpty then
-       Begin
-          Result := TEnumControlsResult.Discard;
-          CheckVal := False;
-       End 
-    else
-        Result := TEnumControlsResult.Continue;
-  end);
-}
   try
-    if Length(Trim(ServerSettingParamEdit.Text)) > 0 then  
+    if Length(Trim(ServerSettingParamEdit.Text)) > 0 then
       connectUn.Add(Trim(ServerSettingParamEdit.Text),
                     Trim(DataBaseSettingParamEdit.Text),
                     Trim(LoginSettingParamEdit.Text),
                     Trim(PasswordSettingParamEdit.Text),
                     (Trim(PortParamSettingEdit.Text)).toInteger);
+   connectUn.Get(ConnectLocal);
   finally
     PanelSettingHide();
   end;
@@ -239,6 +225,11 @@ var
 begin
     OrdersF := TOrdersForm.Create(Self);
     OrdersF.TabsOrder.ActiveTab := OrdersF.OrdersTab;
+    {$IFDEF ANDROID}
+       OrdersF.ShowModal(procedure(ModalResult: TModalResult)
+                         Begin
+                         End);
+    {$ENDIF}
 
     {$IFDEF MSWINDOWS}
       OrdersF.ShowModal();
@@ -246,6 +237,11 @@ begin
 end;
 
 procedure TSignForm.UserBtnClick(Sender: TObject);
+begin
+//  PanelUserView();
+end;
+
+procedure TSignForm.UserEditClick(Sender: TObject);
 begin
   PanelUserView();
 end;

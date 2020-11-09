@@ -1,12 +1,11 @@
 object AppDataLocal: TAppDataLocal
   OldCreateOrder = False
-  Height = 442
-  Width = 445
+  Height = 427
+  Width = 388
   object Connection: TFDConnection
     Params.Strings = (
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     BeforeConnect = ConnectionBeforeConnect
     Left = 24

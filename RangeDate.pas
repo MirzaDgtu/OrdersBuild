@@ -38,7 +38,7 @@ implementation
 
 {$R *.fmx}
 
-uses Globals;
+uses Globals, Sign;
 {$R *.XLgXhdpiTb.fmx ANDROID}
 
 { TRangeForm }

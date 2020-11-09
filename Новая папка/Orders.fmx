@@ -1,0 +1,2597 @@
+object OrdersForm: TOrdersForm
+  Left = 0
+  Top = 0
+  Caption = 'OrdersForm'
+  ClientHeight = 624
+  ClientWidth = 375
+  Position = ScreenCenter
+  WindowState = wsMaximized
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 375.000000000000000000
+    Size.Height = 624.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object OrdersHeaderTB: TToolBar
+      Size.Width = 375.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      TintColor = claSpringgreen
+      object OrdersHeaderLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family, Size]
+        Position.X = 48.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        TextSettings.HorzAlign = Center
+        Text = #1044#1086#1082#1091#1084#1077#1085#1090#1099
+        TabOrder = 0
+      end
+      object PrevTabBtn: TButton
+        Align = Left
+        IconTintColor = claRed
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+        TabOrder = 1
+        OnClick = PrevTabBtnClick
+      end
+      object NextTabBtn: TButton
+        Align = Right
+        IconTintColor = claRed
+        Position.X = 327.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'nexttoolbutton'
+        TabOrder = 2
+        OnClick = NextTabBtnClick
+      end
+    end
+    object TabsOrder: TTabControl
+      Align = Client
+      Size.Width = 375.000000000000000000
+      Size.Height = 576.000000000000000000
+      Size.PlatformDefault = False
+      TabHeight = 49.000000000000000000
+      TabIndex = 0
+      TabOrder = 1
+      TabPosition = PlatformDefault
+      OnChange = TabsOrderChange
+      Sizes = (
+        375s
+        527s
+        375s
+        527s
+        375s
+        527s)
+      object OrdersTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        StyledSettings = [Family, Size, FontColor]
+        IsSelected = True
+        Size.Width = 125.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1056#1077#1077#1089#1090#1088
+        ExplicitSize.cx = 133.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
+        object NaklLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object NaklHeaderTB: TToolBar
+            Align = Bottom
+            Position.Y = 479.000000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            TintColor = claPowderblue
+            object RefreshNaklBtn: TButton
+              Align = Left
+              IconTintColor = claMidnightblue
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 0
+              OnClick = RefreshNaklBtnClick
+            end
+            object RightNaklMenuBtn: TButton
+              Align = Right
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'drawertoolbutton'
+              TabOrder = 1
+              OnClick = RightNaklMenuBtnClick
+            end
+            object NaklHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBrown
+              TextSettings.HorzAlign = Center
+              Text = #1053#1072#1082#1083#1072#1076#1085#1099#1077
+              TabOrder = 2
+            end
+          end
+          object NaklLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Size.Width = 375.000000000000000000
+            Size.Height = 457.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'UID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'JournalNo'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'OrderUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 143.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
+                Appearance.PlaceOffset.X = 174.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'FolioUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 95.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
+                Appearance.PlaceOffset.X = 80.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderNo'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 39.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
+                Appearance.PlaceOffset.X = 120.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderDate'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claTeal
+                Appearance.Width = 85.000000000000000000
+                Appearance.Height = 22.000000000000000000
+                Appearance.PlaceOffset.X = 23.000000000000000000
+                Appearance.PlaceOffset.Y = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Status'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'BRIEFORG'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 10.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claSlateblue
+                Appearance.Width = 64.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 106.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'ORGANIZNKL'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 9.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claGreen
+                Appearance.Width = 105.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 124.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'L_CP1_PLAT'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'L_CP2_PLAT'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'VID_DOC'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'SUM_ROZN'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'SUM_POR'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 10.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claTomato
+                Appearance.Width = 45.000000000000000000
+                Appearance.Height = 49.000000000000000000
+                Appearance.PlaceOffset.X = 170.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'StrikeCode'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claMediumblue
+                Appearance.Width = 85.000000000000000000
+                Appearance.Height = 22.000000000000000000
+                Appearance.PlaceOffset.X = 23.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'NAMEP_USER'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'ProjectName'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Date_Device'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 24.000000000000000000
+                Appearance.Height = 44.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'ADRES_USER'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'ColProd'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 10.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claSlategray
+                Appearance.Width = 35.000000000000000000
+                Appearance.Height = 22.000000000000000000
+                Appearance.PlaceOffset.X = 214.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'ColBuildProd'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 10.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claRed
+                Appearance.Width = 35.000000000000000000
+                Appearance.Height = 22.000000000000000000
+                Appearance.PlaceOffset.X = 214.000000000000000000
+                Appearance.PlaceOffset.Y = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'CollectorUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Collector'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'KeeperUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Keeper'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+            ItemAppearanceObjects.HeaderObjects.Text.TextAlign = Center
+            ItemAppearanceObjects.HeaderObjects.Text.Align = Center
+            ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
+            OnClick = NaklLVClick
+            CanSwipeDelete = False
+            OnItemClick = NaklLVItemClick
+            SearchVisible = True
+            object NaklRigthMenuLayout: TLayout
+              Align = Right
+              Position.X = 320.000000000000000000
+              Position.Y = 48.000000000000000000
+              Size.Width = 55.000000000000000000
+              Size.Height = 409.000000000000000000
+              Size.PlatformDefault = False
+              Visible = False
+              TabOrder = 0
+              object NaklRightMenuFA: TFloatAnimation
+                AnimationType = InOut
+                Duration = 0.500000000000000000
+                PropertyName = 'Position.Y'
+                StartValue = 0.000000000000000000
+                StopValue = 0.000000000000000000
+              end
+              object NaklRigthMenuRect: TRoundRect
+                Align = VertCenter
+                Fill.Color = xFF0C0C0C
+                Opacity = 0.699999988079071000
+                Position.Y = 88.000000000000000000
+                Size.Width = 55.000000000000000000
+                Size.Height = 232.000000000000000000
+                Size.PlatformDefault = False
+                object RightMenuVCLayout: TLayout
+                  Align = VertCenter
+                  Position.Y = 44.000000000000000000
+                  Size.Width = 55.000000000000000000
+                  Size.Height = 143.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                  object BuildNaklBtn: TSpeedButton
+                    Align = Top
+                    IconTintColor = claAqua
+                    ImageIndex = 2
+                    Size.Width = 55.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'composetoolbutton'
+                    OnClick = BuildNaklBtnClick
+                  end
+                  object SettingFilterBtn: TSpeedButton
+                    Align = Top
+                    Images = IL
+                    ImageIndex = 0
+                    Margins.Left = 10.000000000000000000
+                    Margins.Right = 10.000000000000000000
+                    Position.X = 10.000000000000000000
+                    Position.Y = 96.000000000000000000
+                    Size.Width = 35.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    OnClick = SettingFilterBtnClick
+                  end
+                  object ViewNaklBtn: TSpeedButton
+                    Align = Top
+                    IconTintColor = claAqua
+                    ImageIndex = 1
+                    Position.Y = 48.000000000000000000
+                    Size.Width = 55.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'pagecurltoolbutton'
+                  end
+                end
+              end
+            end
+          end
+          object OrdersBottomSB: TStatusBar
+            Position.Y = 457.000000000000000000
+            ShowSizeGrip = True
+            Size.Width = 375.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object OrdersBottomGPL: TGridPanelLayout
+              Align = Client
+              Size.Width = 375.000000000000000000
+              Size.Height = 22.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              ColumnCollection = <
+                item
+                  Value = 50.000000000000000000
+                end
+                item
+                  Value = 50.000000000000000000
+                end>
+              ControlCollection = <
+                item
+                  Column = 0
+                  Control = KolDocLbl
+                  Row = 0
+                end
+                item
+                  Column = 1
+                  Control = KolBuildDocLbl
+                  Row = 0
+                end>
+              RowCollection = <
+                item
+                  Value = 100.000000000000000000
+                end
+                item
+                  SizeStyle = Auto
+                end>
+              object KolDocLbl: TLabel
+                Align = VertCenter
+                StyledSettings = [Family, FontColor]
+                Size.Width = 187.500000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Text = #1044#1086#1082#1091#1084#1077#1085#1090#1086#1074': 0'
+                TabOrder = 0
+              end
+              object KolBuildDocLbl: TLabel
+                Align = VertCenter
+                StyledSettings = [Family]
+                Position.X = 187.500000000000000000
+                Size.Width = 187.500000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claRed
+                TextSettings.HorzAlign = Center
+                Text = #1057#1086#1073#1088#1072#1085#1086': 0'
+                TabOrder = 1
+              end
+            end
+          end
+        end
+        object FilterSettingLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 2
+          object FilterSettingRect: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.600000023841857900
+            Margins.Left = 2.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 371.000000000000000000
+            Size.Height = 475.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object FilterSettingFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+          object FilterSettingHeaderTB: TToolBar
+            Align = Bottom
+            Position.Y = 479.000000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            TintColor = claLightskyblue
+            object BackFilterSettingBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackFilterSettingBtnClick
+            end
+            object SaveFilterSettingBtn: TButton
+              Align = Right
+              StyledSettings = [Family, Size, FontColor]
+              IconTintColor = claTeal
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'donetoolbutton'
+              TabOrder = 1
+              OnClick = SaveFilterSettingBtnClick
+            end
+            object SettingFilterLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claChocolate
+              TextSettings.HorzAlign = Center
+              Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1092#1080#1083#1100#1090#1088#1072#1094#1080#1080
+              TabOrder = 2
+            end
+          end
+          object FilterSettingLB: TListBox
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 365.000000000000000000
+            Size.Height = 472.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            DisableFocusEffect = True
+            ItemHeight = 35.000000000000000000
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+            Viewport.Width = 365.000000000000000000
+            Viewport.Height = 472.000000000000000000
+            object JournalNumLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Padding.Right = 80.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = #1046#1091#1088#1085#1072#1083
+              object JournalSpin: TSpinBox
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 0
+                Cursor = crIBeam
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 135.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, Size, FontColor]
+              end
+            end
+            object DateBetweenLBGH: TListBoxGroupHeader
+              TextSettings.HorzAlign = Center
+              StyledSettings = [Family, Size, Style, FontColor]
+              Position.Y = 35.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Text = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1072#1090
+            end
+            object BegDateLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 100.000000000000000000
+              Position.Y = 70.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Text = #1057
+              object BegDate: TDateEdit
+                Date = 44118.000000000000000000
+                OnChange = BegDateChange
+                Align = VertCenter
+                Position.X = 100.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family]
+                TabOrder = 0
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claChocolate
+                TextSettings.HorzAlign = Center
+              end
+            end
+            object EndDateLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 100.000000000000000000
+              Position.Y = 105.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              Text = #1055#1086
+              object EndDate: TDateEdit
+                Date = 44118.000000000000000000
+                OnChange = EndDateChange
+                Align = VertCenter
+                Position.X = 100.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family]
+                TabOrder = 0
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claChocolate
+                TextSettings.HorzAlign = Center
+              end
+            end
+            object ParamLNGH: TListBoxGroupHeader
+              TextSettings.HorzAlign = Center
+              StyledSettings = [Family, Size, Style, FontColor]
+              Position.Y = 140.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+            end
+            object ReestrLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Position.Y = 175.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 5
+              Text = #1056#1077#1077#1089#1090#1088
+              object ReestrFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                OnClick = ReestrFilterSettingBtnClick
+              end
+              object ReestrFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 167.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, FontColor]
+                object ClearEditButton2: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                end
+              end
+            end
+            object BrieforgLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Position.Y = 210.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 6
+              Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
+              object BrieforgFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'BrieforgFilterSettingBtn'
+                OnClick = BrieforgFilterSettingBtnClick
+              end
+              object BrieforgFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 167.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, FontColor]
+                object ClearEditButton3: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                end
+              end
+            end
+            object VidDocLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Position.Y = 245.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 7
+              Text = #1058#1080#1087' '#1086#1087#1077#1088#1072#1094#1080#1080
+              object VidDocFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'VidDocFilterSettingBtn'
+                OnClick = VidDocFilterSettingBtnClick
+              end
+              object VidDocFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 167.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, FontColor]
+                object ClearEditButton4: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                end
+              end
+            end
+            object DriverLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Position.Y = 280.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 8
+              Text = #1042#1086#1076#1080#1090#1077#1083#1100
+              object DriverFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'DriverFilterSettingBtn'
+                OnClick = DriverFilterSettingBtnClick
+              end
+              object DriverFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 167.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, FontColor]
+                object ClearEditButton5: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                end
+              end
+            end
+            object AgentLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Position.Y = 315.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 9
+              Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090
+              object AgentFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'AgentFilterSettingBtn'
+                OnClick = AgentFilterSettingBtnClick
+              end
+              object AgentFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 167.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, FontColor]
+                object ClearEditButton6: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                end
+              end
+            end
+            object BuildLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkblue
+              StyledSettings = [Family]
+              Padding.Left = 150.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 350.000000000000000000
+              Size.Width = 365.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 10
+              Text = #1057#1073#1086#1088#1082#1072
+              object TypeBuildCombo: TComboBox
+                Align = VertCenter
+                Items.Strings = (
+                  '['#1042#1089#1077']'
+                  #1053#1077#1089#1086#1073#1088#1072#1085#1085#1099#1077
+                  #1053#1077#1079#1072#1074#1077#1088#1096#1077#1085#1085#1099#1077
+                  #1057#1086#1073#1088#1072#1085#1085#1099#1077)
+                ItemIndex = 0
+                Position.X = 150.000000000000000000
+                Position.Y = 1.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'comboboxstyle'
+                TabOrder = 0
+              end
+            end
+          end
+          object ReestrFilterSettingFA: TFloatAnimation
+            Duration = 0.200000002980232200
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+        end
+        object ReestrLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 3
+          object ReestrRect: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.699999988079071000
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object ReestrsHeaderTB: TToolBar
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            TintColor = claSpringgreen
+            object BackReestrFilterSettingBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'priortoolbutton'
+              TabOrder = 0
+              OnClick = BackReestrFilterSettingBtnClick
+            end
+            object ReestrFilterSettingHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family, Size]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBlue
+              TextSettings.HorzAlign = Center
+              Text = #1056#1077#1077#1089#1090#1088#1099
+              TabOrder = 1
+            end
+            object RefreshReestrFilterSettingBtn: TButton
+              Align = Right
+              IconTintColor = claFirebrick
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 2
+              OnClick = RefreshReestrFilterSettingBtnClick
+            end
+          end
+          object ReestrsLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 365.000000000000000000
+            Size.Height = 469.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'UID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claNavy
+                Appearance.Width = 89.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 25.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 26.000000000000000000
+                Appearance.Height = 49.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'ProjectName'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claTeal
+                Appearance.Width = 230.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 56.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            OnItemClick = ReestrsLVItemClick
+            SearchVisible = True
+          end
+          object ReestrsFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+        end
+        object BrieforgLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 4
+          object BrieforgRect: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.500000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object BrieforgFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+          object BrieforgHeaderTB: TToolBar
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            TintColor = claSpringgreen
+            object BackBrieforgBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackBrieforgBtnClick
+            end
+            object RefreshBrieforgBtn: TButton
+              Align = Right
+              IconTintColor = claRed
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 1
+              OnClick = RefreshBrieforgBtnClick
+            end
+            object BrieforgHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family, Size, Style]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.FontColor = claBlue
+              TextSettings.HorzAlign = Center
+              Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
+              TabOrder = 2
+            end
+          end
+          object BrieforgLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 365.000000000000000000
+            Size.Height = 469.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'BRIEFORG'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claSlateblue
+                Appearance.Width = 319.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 12.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 26.000000000000000000
+                Appearance.Height = 42.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            OnItemClick = BrieforgLVItemClick
+            SearchVisible = True
+          end
+        end
+        object DriversLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 5
+          object DriversRect: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.500000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object DriversHeaderTB: TToolBar
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            TintColor = claSpringgreen
+            object BackDriversBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackDriversBtnClick
+            end
+            object RefreshDriversBtn: TButton
+              Align = Right
+              IconTintColor = claRed
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 1
+              OnClick = RefreshDriversBtnClick
+            end
+            object DriversHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family, Size, Style]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.FontColor = claBlue
+              TextSettings.HorzAlign = Center
+              Text = #1042#1086#1076#1080#1090#1077#1083#1080
+              TabOrder = 2
+            end
+          end
+          object DriversFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+          object DriversLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 365.000000000000000000
+            Size.Height = 469.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'L_CP2_PLAT'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claTeal
+                Appearance.Width = 318.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 12.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 26.000000000000000000
+                Appearance.Height = 44.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            OnItemClick = DriversLVItemClick
+            SearchVisible = True
+          end
+        end
+        object AgentsLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 6
+          object AgentsRect: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.500000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object AgentsHeaderTB: TToolBar
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            TintColor = claSpringgreen
+            object BackAgentsBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackAgentsBtnClick
+            end
+            object RefreshAgentsBtn: TButton
+              Align = Right
+              IconTintColor = claRed
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 1
+              OnClick = RefreshAgentsBtnClick
+            end
+            object AgentsHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family, Size]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBlue
+              TextSettings.HorzAlign = Center
+              Text = #1040#1075#1077#1085#1090#1099
+              TabOrder = 2
+            end
+          end
+          object AgentsLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 365.000000000000000000
+            Size.Height = 469.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'L_CP1_PLAT'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claTeal
+                Appearance.Width = 318.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.VertAlign = Center
+                Appearance.PlaceOffset.X = 12.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 26.000000000000000000
+                Appearance.Height = 43.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            OnItemClick = AgentsLVItemClick
+            SearchVisible = True
+          end
+          object AgentsFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+        end
+        object VidDocsLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 7
+          object VidDocsHeaderTB: TToolBar
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            TintColor = claSpringgreen
+            object BackVidDocsBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackVidDocsBtnClick
+            end
+            object RefreshVidDocsBtn: TButton
+              Align = Right
+              IconTintColor = claRed
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 1
+              OnClick = RefreshVidDocsBtnClick
+            end
+            object VidDocsHeaderLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family, Size]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBlue
+              TextSettings.HorzAlign = Center
+              Text = #1042#1080#1076#1099' '#1076#1086#1082#1091#1084#1077#1085#1090#1086#1074
+              TabOrder = 2
+            end
+          end
+          object VidDocsFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+          object VidDocsRect: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.500000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object VidDocsLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 365.000000000000000000
+            Size.Height = 469.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'VID_DOC'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claTeal
+                Appearance.Width = 316.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 13.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 26.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.VertAlign = Center
+                Appearance.PlaceOffset.X = 1.000000000000000000
+                Appearance.PlaceOffset.Y = 1.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            OnItemClick = VidDocsLVItemClick
+            SearchVisible = True
+          end
+        end
+      end
+      object StatistTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        StyledSettings = [Family, Size, Style]
+        IsSelected = False
+        Size.Width = 125.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+        ExplicitSize.cx = 133.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
+        object StatistLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object StatistBottomTB: TToolBar
+            Align = Bottom
+            Position.Y = 479.000000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            TintColor = claPowderblue
+            object RefreshStatistBtn: TButton
+              Align = Left
+              IconTintColor = claMediumblue
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 0
+              OnClick = RefreshStatistBtnClick
+            end
+            object RightStatistMenuBtn: TButton
+              Align = Right
+              Position.X = 327.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'drawertoolbutton'
+              TabOrder = 1
+              OnClick = RightStatistMenuBtnClick
+            end
+            object StatistBottomLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 279.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBrown
+              TextSettings.HorzAlign = Center
+              Text = #1057#1086#1073#1088#1072#1085#1085#1086' '#1085#1072#1082#1083#1072#1076#1085#1099#1093
+              TabOrder = 2
+            end
+          end
+          object StatistLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'CollectorUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.Width = 49.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Collector'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claMediumblue
+                Appearance.Width = 195.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 78.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 21.000000000000000000
+                Appearance.Height = 49.000000000000000000
+                Appearance.VertAlign = Center
+              end
+              item
+                AppearanceObjectName = 'DocKol'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claRed
+                Appearance.Width = 88.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 70.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            OnClick = StatistLVClick
+            CanSwipeDelete = False
+            OnItemClick = StatistLVItemClick
+            SearchVisible = True
+            object RightStatistMenuLayout: TLayout
+              Align = Right
+              Position.X = 320.000000000000000000
+              Position.Y = 48.000000000000000000
+              Size.Width = 55.000000000000000000
+              Size.Height = 431.000000000000000000
+              Size.PlatformDefault = False
+              Visible = False
+              TabOrder = 0
+              object RightStatistMenuRect: TRoundRect
+                Align = VertCenter
+                Fill.Color = xFF0A0A0A
+                Padding.Top = 12.000000000000000000
+                Opacity = 0.500000000000000000
+                Position.Y = 117.000000000000000000
+                Size.Width = 55.000000000000000000
+                Size.Height = 196.000000000000000000
+                Size.PlatformDefault = False
+              end
+              object RightStatistRectLayout: TLayout
+                Align = VertCenter
+                Position.Y = 149.000000000000000000
+                Size.Width = 55.000000000000000000
+                Size.Height = 133.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+                object LoaderNaklBtn: TButton
+                  Align = Top
+                  IconTintColor = claAqua
+                  Size.Width = 55.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'pagecurltoolbutton'
+                  TabOrder = 0
+                  OnClick = LoaderNaklBtnClick
+                end
+                object RangeStatistBtn: TButton
+                  Align = Top
+                  Images = IL
+                  ImageIndex = 3
+                  Margins.Left = 10.000000000000000000
+                  Margins.Right = 10.000000000000000000
+                  Position.X = 10.000000000000000000
+                  Position.Y = 96.000000000000000000
+                  Size.Width = 35.000000000000000000
+                  Size.Height = 33.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 1
+                  OnClick = RangeStatistBtnClick
+                end
+                object RefreshStatistMenuBtn: TButton
+                  Align = Top
+                  IconTintColor = claAqua
+                  Position.Y = 48.000000000000000000
+                  Size.Width = 55.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'refreshtoolbutton'
+                  TabOrder = 2
+                  Text = 'RefreshStatistMenuBtn'
+                end
+              end
+              object RightStatistMenuFA: TFloatAnimation
+                AnimationType = InOut
+                Duration = 0.500000000000000000
+                PropertyName = 'Position.Y'
+                StartValue = 0.000000000000000000
+                StopValue = 0.000000000000000000
+              end
+            end
+          end
+        end
+        object StatistNaklLayout: TLayout
+          Align = Client
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 365.000000000000000000
+          Size.Height = 517.000000000000000000
+          Size.PlatformDefault = False
+          Visible = False
+          TabOrder = 1
+          object StatistNaklFA: TFloatAnimation
+            AnimationType = InOut
+            Duration = 0.500000000000000000
+            PropertyName = 'Position.Y'
+            StartValue = 0.000000000000000000
+            StopValue = 0.000000000000000000
+          end
+          object StatistNaklHeaderTB: TToolBar
+            Size.Width = 365.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object BackStatistNaklBtn: TButton
+              Align = Left
+              IconTintColor = claRed
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'backtoolbutton'
+              TabOrder = 0
+              OnClick = BackStatistNaklBtnClick
+            end
+            object RefreshStatistNaklBtn: TButton
+              Align = Right
+              IconTintColor = claRed
+              Position.X = 317.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TabOrder = 1
+              OnClick = RefreshStatistNaklBtnClick
+            end
+            object NameStatistNaklHeadLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 48.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 269.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBrown
+              TextSettings.HorzAlign = Center
+              Text = 'NameStatistNaklHeadLbl'
+              TabOrder = 2
+            end
+          end
+          object BottomStatistNaklSB: TStatusBar
+            Position.Y = 495.000000000000000000
+            ShowSizeGrip = True
+            Size.Width = 365.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object DocKolSBInfoLbl: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Size.Width = 365.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claRed
+              TextSettings.HorzAlign = Center
+              Text = 'DocKolSBInfoLbl'
+              TabOrder = 0
+            end
+          end
+          object RectStatistNakl: TRectangle
+            Align = Client
+            Fill.Color = claBlack
+            Opacity = 0.699999988079071000
+            Size.Width = 365.000000000000000000
+            Size.Height = 447.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object StatistNalkLV: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 8.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 349.000000000000000000
+            Size.Height = 437.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'UID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'FolioUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claDarkblue
+                Appearance.Width = 74.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 21.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderDatePD'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Keeper'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.WordWrap = True
+                Appearance.TextColor = claForestgreen
+                Appearance.Width = 147.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 90.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'OrderBuildDate'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextColor = claMaroon
+                Appearance.Width = 87.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 94.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'KeeperUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Collector'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'CollectorUID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Visible = False
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
+            CanSwipeDelete = False
+            SearchVisible = True
+          end
+        end
+      end
+      object SynchTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claDarkgreen
+        StyledSettings = [Family, Size]
+        IsSelected = False
+        Size.Width = 125.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103
+        ExplicitSize.cx = 134.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
+        object SynchLayout: TLayout
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 527.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object SynchRect: TRectangle
+            Align = Client
+            Fill.Color = claCadetblue
+            Size.Width = 375.000000000000000000
+            Size.Height = 479.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object SynchLB: TListBox
+            Align = VertCenter
+            Margins.Left = 7.000000000000000000
+            Margins.Right = 7.000000000000000000
+            Position.X = 7.000000000000000000
+            Position.Y = 166.000000000000000000
+            Size.Width = 361.000000000000000000
+            Size.Height = 147.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            DisableFocusEffect = True
+            ItemHeight = 36.000000000000000000
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+            Viewport.Width = 361.000000000000000000
+            Viewport.Height = 147.000000000000000000
+            object SynchParamLBGH: TListBoxGroupHeader
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.HorzAlign = Center
+              StyledSettings = [Family, Size, Style, FontColor]
+              Size.Width = 361.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1089#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1080
+            end
+            object DBegSynchLBI: TListBoxItem
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBlue
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 53.000000000000000000
+              Position.Y = 36.000000000000000000
+              Size.Width = 361.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Text = #1057
+              object DBegSynchEdit: TDateEdit
+                Date = 44125.000000000000000000
+                OnChange = DBegSynchEditChange
+                Align = VertCenter
+                Position.X = 100.000000000000000000
+                Position.Y = 2.000000000000000000
+                Size.Width = 208.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, Size]
+                TabOrder = 0
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claChocolate
+                TextSettings.HorzAlign = Center
+              end
+            end
+            object DEndSynchLBI: TListBoxItem
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBlue
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 53.000000000000000000
+              Position.Y = 72.000000000000000000
+              Size.Width = 361.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Text = #1055#1086
+              object DEndSynchEdit: TDateEdit
+                Date = 44125.000000000000000000
+                OnChange = DEndSynchEditChange
+                Align = VertCenter
+                Position.X = 100.000000000000000000
+                Position.Y = 2.000000000000000000
+                Size.Width = 208.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family, Size]
+                TabOrder = 0
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claChocolate
+                TextSettings.HorzAlign = Center
+              end
+            end
+            object ReestrSynchLBI: TListBoxItem
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBlue
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Position.Y = 108.000000000000000000
+              Size.Width = 361.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              Text = #1056#1077#1077#1089#1090#1088
+              object RightReestrPanel: TPanel
+                Align = Right
+                Position.X = 308.000000000000000000
+                Size.Width = 53.000000000000000000
+                Size.Height = 36.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 0
+                object ReestrSynchBtn: TButton
+                  Align = VertCenter
+                  IconTintColor = claMidnightblue
+                  Position.Y = -6.000000000000000000
+                  Size.Width = 53.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'detailstoolbutton'
+                  TabOrder = 0
+                  OnClick = ReestrSynchBtnClick
+                end
+              end
+              object ReestrSynchEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 13.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claCrimson
+                TextSettings.HorzAlign = Center
+                Position.X = 100.000000000000000000
+                Position.Y = 2.000000000000000000
+                Size.Width = 208.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family]
+              end
+            end
+          end
+          object SynchBottomTB: TToolBar
+            Align = Bottom
+            Padding.Left = 5.000000000000000000
+            Position.Y = 479.000000000000000000
+            Size.Width = 375.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            TintColor = claPowderblue
+            object SynchBtn: TSpeedButton
+              Align = Left
+              StyledSettings = [Family, Size, Style]
+              IconTintColor = claMidnightblue
+              ImageIndex = 5
+              Position.X = 5.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              TextSettings.FontColor = claMidnightblue
+              OnClick = SynchBtnClick
+            end
+            object Label1: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Position.X = 53.000000000000000000
+              Position.Y = 12.000000000000000000
+              Size.Width = 322.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 13.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claBrown
+              TextSettings.HorzAlign = Center
+              Text = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103' '#1076#1086#1082#1091#1084#1077#1085#1090#1086#1074
+              TabOrder = 2
+            end
+          end
+        end
+      end
+    end
+  end
+  object IL: TImageList
+    Source = <
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              02BA49444154384F85535F485361143FBB73EECEEDAA6B774E27391B61D11F4B
+              8B44C98654122AF41465640FBDE4438445D94B60410FD14B0F1A397B2BD02C88
+              12FB87A14E5159A9A993A9CB9C3ABDD36D6D6E4BB7DDFDB9EDFBB8F4C721FDE0
+              F01D7EBF73CE77BE73F804B0052AEF0D66ABD569CDC867186FEDDBDB25CB58D8
+              04823F1340AB526B2A8AF3AA90D119D4799E4E40428143FA61D145FDF8B54C39
+              79562C1202B22C454A754DB3A94ED7D093C487FD067E4275D3D8D1748AAC75FB
+              027DD98A947325598C8EA38B0987E7270E52C96500AEA1D8C06A76EFB26BFD85
+              8292947ABD81C7AD570B067081EBADB3DD278E68CBD6032C884911CC5857404B
+              93B04B4DE10216C60FF3EE10ECD4A820140C8354920C5D5F66BB1F56E71D2750
+              CBC1483468ECEBE7906099B343C50125146AE5202593B015C4FDF2FD342E8C62
+              8C867E8E8DE7A05CA1BDB325969B5FFB323587AE50A44AD47209804629858985
+              35A6E3B3EDE9D739F7304110DB7368A92C10BF3D1813C2D23A31BA34CD967FBA
+              71308C5B44B8F3DA6A6AEC7570D3CE30675D8B7137DBA65A7809EADBA69E20CE
+              EC08738D0627D7D0619DE0A5ADD718E5CFBF8106C661EFCF327081330D93C901
+              36C6AAB651605EF66141B7475559FF7C5A7F2BDE49F1EE8C2AC4214D25A720C4
+              8659948338011A4491847AA38CAC9C2A3A562AB02CACC0C97D34A488FF5DF946
+              28025D932EC8D364E2213A45991F8C01FF6962E4F2E13099242451325AA33647
+              05EFC69D3032E78150380A41368AFD8F2617D6504C91AE54105F0E897285A87A
+              6ED9A5EF8BAB5EF1C88CFD91DBE397E5A7CD6B6294563069F383D51502A95406
+              E9C1B158DFB7488FD1CCDCB7397CBE1F9EC003D37BBD2DE133A127ED05D1952C
+              A5EC822E7F4721E20CA3D651C6BDF16CD1EE6A32DC2D8BE0C0FF01FD87576696
+              4356D33C5EC7D309D8728DCC9ABFBD73D082CDE162DB797A13007E013279378C
+              7B372D5A0000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_16px.png'
+          end>
+        Name = 'icons8_settings_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              015749444154384FBD90BF4B033114C75F726DB95E95165DACED223875122C0A
+              76761375D6D959C15D1CDCFC03EAE2EEA2B30AEE6E4E2205C1A2ED21EAD0D6E6
+              9A26778977D71008FEE044F00349DE7B5FDE372F81BF82D419B3D6124BD84225
+              956A064FE4FE7C61EC46A50686C14ABBCD52683AAD52CDF3598BC104DABEDE28
+              1FA99206AB33E6ABE608E4C84CBFD1ADD74E5ABBAAA4310CBE03230C884BE8DD
+              5D1CD64EDB3BAA1C633C61DD95528506C13B07DE651089D2F20797F30567A424
+              9CC01A4F835DCE41365C4E319F55E59844063FF17F06194A6036E8C20CEF409D
+              8A8A2A27FB449B79B05CB2C30803F50128ED5022F2D5BD497C9B6882B2C5C35D
+              3587A117146C6F28B7222D918108E7D2CD0C80446B38D20C035FBAD1559F78F4
+              5340A8D0CD3DFAC21E5EFB579166FCC1AA2BAA205041A51A846531E7F3B9BC94
+              8B8C23E2BE79F546936E921EDB370C7EC3D471B322053AF8004384897E454FCD
+              CB0000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_view_16px.png'
+          end>
+        Name = 'icons8_view_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              019749444154384F6364201184AE5AC5CCFA5E2D8AE1CFFF27CBB20DF7936400
+              50339BF017AD1BE2BA0C72A2DF853F1FBFFA2290092A4710D8CFDFCF21FF5B6F
+              678E8F9AA2E86721662EAE1F3C0CFF99E4893200E46C1D16C955DCFFD82C3998
+              9919ACD585188E5FFEFA48E5A5DE62825E006916FDA1BFD445F67528A38439D3
+              A51B577E7CFCC671E831EB65DFD56161BFF0BAC078E61956D15F066B44FFBF09
+              E390B562FAF0F7C99FC71FD8D69D957AE10DD20C5283D30520CDE6DC7CAB44FF
+              BEF637B7B6647CF9E3E19F63A77E2C9B9DA891C0C0C8F81FAA0CBB01C46A0601
+              0C03B0693E79F6C7B21971989A4100C50052358300DC00503C6BB3481C13FDF7
+              CE00A4F9EBF76B7F779F655E362B5E231E97661080C7822A83E0091B5D794390
+              E693478EFDDF778E79D37BAECB89F8348300D880A859E70D3CF584159FBC78C3
+              F0F1F30F86E7FF85EFBEE1BC1C0A8CAABF60557800D8003606C6693AF2927CCA
+              825C5FF69FBB7BE9D1A7FB3AC468060146DFE6838A7FD9D96F890A701CFDF9EB
+              7FF68A1CC3AB5039E2804BC7714DAFAE9312502E8980810100DC84C0859BCBFC
+              860000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_edit_16px.png'
+          end>
+        Name = 'icons8_edit_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              023549444154384FAD52CF6B135110FEF6574CBA4D6C76B3050F1A6320A2E821
+              D51E5444A897162FDE3C08F660F5A6070F1E04C17FC1D88B0711446F7A50C1B3
+              A76A55AA151AA4D254CCA65431499336D964B3FB9E6FDF6EC206413CF8C13033
+              6FDE37EF9BD9C57FC5C9778D83A7DEEF5C0AD23FC06AB3DE9D20E510020FDCFC
+              50320C3193DA3B86D505130221CC1C082E33CF3B0EB25339D457CBD82A6D96DA
+              4F66B31E4DE4640681CA9956DD46AD5CF332FF90FA8E7B81A2B1BE01ABDA64A1
+              74C02F841AC4F52824350ECB5230A28D22965411D5E3D8A52510D11350B4241A
+              75C0911310353D608546C83DFD41894B410833CFBB24140716CAB76E643977A0
+              801743F6704A473EA560C288E0F1B401CACEAEE513B83EB19BC77D0C1A788761
+              DBB6095C974966AF35BBBE9A4E8FC272FCB88FA1064793323385C72F4B6D98DB
+              0ECCA683E75F5BA08CB358B1F0D6B478BD8FD008C0DCA1515C39ACF217EE9F4D
+              E118937F7C3C820733E39089853BD902E67397713B7D0B740DFB3CDE6089E947
+              15CAE7E74B6232434B935C1BAF26CFE188BC06D26524898D26A0A56A3831B4C4
+              C2E924E6CF685C8D79358DE9FD31CC6446B072FE1927BB6D40D6C7002902A907
+              95DA280CEDE0DEA726EE7E6CF0F8C28B4D367397CDDCC1E2FA024827B8D8FFC7
+              D823ED1D4C0E1A747B6EB958B551FC657335AFBF5BF8D972B82D570D2E1BA200
+              EAB810159973A22A36063BF81B48117BAC1EBE083524BCAFE1A950626C9C082E
+              FA37FE01640579E733DE549660DB4BF84696310700BF01D60B383D95E5591B00
+              00000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_pay_date_16px.png'
+          end>
+        Name = 'icons8_pay_date_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              01BF49444154384FC5924D4F134118C7FFB3333BDBB2F61569A4B626C5043060
+              A3C6030714C4100FC60FE4CDA3DFC59B092121D1046CE2CD482844436289D512
+              5ED205372D4B7776C65D3A52EA7E007E9799E737F3FC93C93CB876885EFF61CC
+              3F985F4A513AADEB21DC20F856FB5AFB186E65DF5C0D585860AF478A2BD31393
+              CB5384FD1F8C34E7F84DBBEA437D77EDEDAAFF127817449E5E9C863C4F979716
+              AB8FDFBCCA15C8B89D422169C3E4262CCB42C54E23C31328992962E4F8DD436F
+              6BE3C7FECF46D4675C7487E4925671C6308945195C4362232FD12CDAE856F258
+              4F0BEC181E1CD9C3237E9364182FE9B641C05536B304D52381EA818F4AB3835B
+              AE007FF11027E1D30FBA1D7DAB4F2CE0D8F770C397C852AE0D50141489F75F70
+              9B7028A5B4ED130B48318EB18E82AB8436A1A3269CB1245CD18327063E2216D0
+              92E7709FDDC33E7C6D80D3F0ED274462D44C6833201690270C64BD8E56C644A3
+              6CE37BC9C6E628C37DE7F2EB87B80C70CECE5BDBD257094530252C2CFE611869
+              B451D86BE3A963200B062F08500FEF9C8ADE2FDD161FA43BE589E54962C40629
+              625749B5D76C0C0D527C9467E79E504A72BA1E424AB43F6D7DAE45DBBEB97E80
+              BF212696663BC47FA50000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_synchronize_16px.png'
+          end>
+        Name = 'icons8_synchronize_16px'
+      end
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              02AE49444154384FC5935D48536118C7CFE7BECFBEF46C2AD3691344A1864DA2
+              2EFA90B2520283D4097A51374657451749068D19629F762B465DA5A46991444A
+              2469495A4C082F0207929BA64EE7DCCED971BAF3D5DEE369A8D4753F38F0FE9F
+              FFF3FC399CF3BC30F417EA5A879D2A15D18022884510048817C4F06672EB49FF
+              ED9333724B9A5D0135ADA3FBF584B6C3AAD7BB4CD916130C6FDBA22042EBE1F5
+              D86A646D828E46AFF67A2BFCA05EDD3C949F0E6868FB549399453EB4E564DB81
+              E679010ACE31493C5314AC5AB50AC770A96F6961792EB41ABE8C2BE1529E155D
+              52407DFB682969B6BCC9CBCBC9E5781E0A06E67D144D0F6E5289211E49323AC2
+              785647106EABC01DD2391CF0E2F2E2824EA9352CAF8406A5804B8FBE7E2C2929
+              3A119F9D150309F6D5CF78A27ECC5BCE01EF0F4D4D3E7CAB30D993AF515E0021
+              A0E69FF17723F59E0F0748D2ECE2380E5A819129E65BD0BD7718D0D555C6A63E
+              E7346DD226E49204ECBE3FE2C039A412080E85265F3497FB24670FB59EF7756A
+              42EB2174443A808A5193F2F13F0237DE1D7F6A341A8FC81A8A51947283893F18
+              F09EEE944BBBA86B1F39A680B133E09C48723D885AA550DAEDB662F028082CB5
+              03C2B37F0D1FF77CC4320CE60EA7D3D9924B665DC1308145644F8288C4D52884
+              96D57AFA1472290DF88D0E42D597DAED834087A8E8446F4B851F03825A8FD1F1
+              2D26965358682B62D9F3C180EA4B63FB78779C890EA38242AB31AA2B7102ADDE
+              975BE0425114FAB5303FB7B116BF0166E1C67B9F5F6218E2E359EE3B9991D599
+              6DB3E60303ACF212C36C1A6011D56874388A6EBF2C185E0D47AF77DF3CFA1A68
+              B8EAD65BFBBBB6730120DCADA3C55ABDE6B1C59479D84C9A0C3B2F53642D1C09
+              852353748CBED6EF3DF5433252A42FD34E6AEE8C15E8D48A8B8228DA50184659
+              8E5B4924E8E703DEAA69B94506827E03CEB017F5EB4262B80000000049454E44
+              AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_available_updates_16px.png'
+          end>
+        Name = 'icons8_available_updates_16px'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'icons8_settings_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_view_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_edit_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_pay_date_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_synchronize_16px'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_available_updates_16px'
+          end>
+      end>
+    Left = 24
+    Top = 331
+  end
+  object ReestrBS: TBindSourceDB
+    DataSet = AppDataLocal.Reestrs
+    ScopeMappings = <>
+    Left = 24
+    Top = 280
+  end
+  object OrdersBL: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 24
+    Top = 224
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = ReestrBS
+      Control = ReestrsLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'ProjectName'
+          ControlMemberName = 'ProjectName'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BrieforgBS
+      Control = BrieforgLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'Brieforg'
+          ControlMemberName = 'BRIEFORG'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField3: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = DriversBS
+      Control = DriversLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'L_CP2_PLAT'
+          ControlMemberName = 'L_CP2_PLAT'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField4: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = AgentsBS
+      Control = AgentsLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'L_CP1_PLAT'
+          ControlMemberName = 'L_CP1_PLAT'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField5: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = VidDocsBS
+      Control = VidDocsLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'VID_DOC'
+          ControlMemberName = 'VID_DOC'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField6: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = CollectorBuild
+      Control = StatistLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'CollectorUID'
+          ControlMemberName = 'CollectorUID'
+        end
+        item
+          SourceMemberName = 'Collector'
+          ControlMemberName = 'Collector'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'DocKol'
+          ControlMemberName = 'DocKol'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField7: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = OrdersHeaderBS
+      Control = NaklLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'JournalNo'
+          ControlMemberName = 'JournalNo'
+        end
+        item
+          SourceMemberName = 'OrderUID'
+          ControlMemberName = 'OrderUID'
+        end
+        item
+          SourceMemberName = 'FolioUID'
+          ControlMemberName = 'FolioUID'
+        end
+        item
+          SourceMemberName = 'OrderNo'
+          ControlMemberName = 'OrderNo'
+        end
+        item
+          SourceMemberName = 'OrderDate'
+          ControlMemberName = 'OrderDate'
+        end
+        item
+          SourceMemberName = 'BRIEFORG'
+          ControlMemberName = 'BRIEFORG'
+        end
+        item
+          SourceMemberName = 'ORGANIZNKL'
+          ControlMemberName = 'ORGANIZNKL'
+        end
+        item
+          SourceMemberName = 'L_CP1_PLAT'
+          ControlMemberName = 'L_CP1_PLAT'
+        end
+        item
+          SourceMemberName = 'L_CP2_PLAT'
+          ControlMemberName = 'L_CP2_PLAT'
+        end
+        item
+          SourceMemberName = 'VID_DOC'
+          ControlMemberName = 'VID_DOC'
+        end
+        item
+          SourceMemberName = 'SUM_ROZN'
+          ControlMemberName = 'SUM_ROZN'
+        end
+        item
+          SourceMemberName = 'SUM_POR'
+          ControlMemberName = 'SUM_POR'
+        end
+        item
+          SourceMemberName = 'StrikeCode'
+          ControlMemberName = 'StrikeCode'
+        end
+        item
+          SourceMemberName = 'NAMEP_USER'
+          ControlMemberName = 'NAMEP_USER'
+        end
+        item
+          SourceMemberName = 'ProjectName'
+          ControlMemberName = 'ProjectName'
+        end
+        item
+          SourceMemberName = 'Date_Device'
+          ControlMemberName = 'Date_Device'
+        end
+        item
+          SourceMemberName = 'ADRES_USER'
+          ControlMemberName = 'ADRES_USER'
+        end
+        item
+          SourceMemberName = 'ColProd'
+          ControlMemberName = 'ColProd'
+        end
+        item
+          SourceMemberName = 'ColBuildProd'
+          ControlMemberName = 'ColBuildProd'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'Status'
+          ControlMemberName = 'Status'
+        end
+        item
+          SourceMemberName = 'Collector'
+          ControlMemberName = 'Collector'
+        end
+        item
+          SourceMemberName = 'CollectorUID'
+          ControlMemberName = 'CollectorUID'
+        end
+        item
+          SourceMemberName = 'KeeperUID'
+          ControlMemberName = 'KeeperUID'
+        end
+        item
+          SourceMemberName = 'Keeper'
+          ControlMemberName = 'Keeper'
+        end>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'OrderNo'
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField8: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = StatistNaklBS
+      Control = StatistNalkLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'FolioUID'
+          ControlMemberName = 'FolioUID'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'Keeper'
+          ControlMemberName = 'Keeper'
+        end
+        item
+          SourceMemberName = 'OrderDatePD'
+          ControlMemberName = 'OrderDatePD'
+        end
+        item
+          SourceMemberName = 'OrderBuildDate'
+          ControlMemberName = 'OrderBuildDate'
+        end
+        item
+          SourceMemberName = 'Collector'
+          ControlMemberName = 'Collector'
+        end
+        item
+          SourceMemberName = 'CollectorUID'
+          ControlMemberName = 'CollectorUID'
+        end
+        item
+          SourceMemberName = 'KeeperUID'
+          ControlMemberName = 'KeeperUID'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object BrieforgBS: TBindSourceDB
+    DataSet = AppDataLocal.Brieforgs
+    ScopeMappings = <>
+    Left = 80
+    Top = 280
+  end
+  object DriversBS: TBindSourceDB
+    DataSet = AppDataLocal.Drivers
+    ScopeMappings = <>
+    Left = 136
+    Top = 280
+  end
+  object AgentsBS: TBindSourceDB
+    DataSet = AppDataLocal.Agents
+    ScopeMappings = <>
+    Left = 192
+    Top = 280
+  end
+  object VidDocsBS: TBindSourceDB
+    DataSet = AppDataLocal.VidDocs
+    ScopeMappings = <>
+    Left = 248
+    Top = 280
+  end
+  object CollectorBuild: TBindSourceDB
+    DataSet = AppDataLocal.CollectorBuild
+    ScopeMappings = <>
+    Left = 80
+    Top = 336
+  end
+  object OrdersHeaderBS: TBindSourceDB
+    DataSet = AppDataLocal.OrdersHead
+    ScopeMappings = <>
+    Left = 168
+    Top = 336
+  end
+  object StatistNaklBS: TBindSourceDB
+    DataSet = AppDataLocal.CollectorOrders
+    ScopeMappings = <>
+    Left = 256
+    Top = 336
+  end
+end

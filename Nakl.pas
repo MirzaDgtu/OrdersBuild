@@ -41,6 +41,7 @@ type
     ProductsBS: TBindSourceDB;
     LinkListControlToField2: TLinkListControlToField;
     ClearEditButton1: TClearEditButton;
+    StyleB: TStyleBook;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CollectorBtnClick(Sender: TObject);
     procedure BackCollectBtnClick(Sender: TObject);
@@ -97,7 +98,7 @@ implementation
 
 {$R *.fmx}
 
-uses ModuleDataLocal, Collectors;
+uses ModuleDataLocal, Collectors, Sign;
 
 procedure TNaklForm.BackCollectBtnClick(Sender: TObject);
 begin

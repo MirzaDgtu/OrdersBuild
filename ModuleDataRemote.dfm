@@ -1,7 +1,7 @@
 object AppDataRemote: TAppDataRemote
   OldCreateOrder = False
-  Height = 374
-  Width = 443
+  Height = 361
+  Width = 310
   object SQLServerProvider: TSQLServerUniProvider
     Left = 96
     Top = 16

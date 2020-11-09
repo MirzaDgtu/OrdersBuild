@@ -71,24 +71,29 @@ Coordinates=118,188,82,33
 
 [AppDataLocal.Agents]
 Coordinates=708,578,139,102
+Visible=False
 
 [AppDataLocal.EveryOne]
 Coordinates=754,794,156,58
 
 [AppDataLocal.VidDocs]
 Coordinates=10,794,147,102
+Visible=False
 
 [AppDataLocal.Command]
 Coordinates=425,794,158,58
 
 [AppDataLocal.Reestrs]
 Coordinates=373,578,143,124
+Visible=False
 
 [AppDataLocal.OrdersHead]
 Coordinates=10,10,169,542
+Visible=False
 
 [AppDataLocal.Brieforgs]
 Coordinates=873,578,151,102
+Visible=False
 
 [AppDataLocal.Collectors]
 Coordinates=1460,190,156,36
@@ -96,9 +101,11 @@ Visible=False
 
 [AppDataLocal.Drivers]
 Coordinates=542,578,140,102
+Visible=False
 
 [AppDataLocal.CollectorBuild]
 Coordinates=168,578,179,146
+Visible=False
 
 [AppDataLocal.OrdersMove]
 Coordinates=1040,10,169,36
@@ -106,9 +113,11 @@ Visible=False
 
 [AppDataLocal.Users]
 Coordinates=10,578,132,190
+Visible=False
 
 [AppDataLocal.CollectorOrders]
 Coordinates=583,10,189,256
+Visible=False
 
 [NaklBL]
 Coordinates=174,314,56,36

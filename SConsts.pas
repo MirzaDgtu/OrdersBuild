@@ -135,19 +135,19 @@ resourcestring
                               'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d)';            //-----**********************-----//
 
 
-      SSQLGetCollectorOrders = 'SELECT 	PD.UID, ' +                                                          //-----************-----//
-                                       'PD.FolioUID, ' +                                                     //-----************-----//
-                                       'PD.OrderDatePD, ' +                                                  //-----************-----//
-                                       'PD.Keeper, ' +                                                       //-----************-----//
-                                       'PD.KeeperUID, ' +                                                    //-----************-----//
-                                       'PD.Collector, ' +                                                    //-----************-----//
-                                       'PD.CollectorUID, ' +                                                 //---Получение списка собранных накладных---//
-                                       'PD.OrderBuildDate, ' +                                               //---выбранный сборщиком---//
+      SSQLGetCollectorOrders = 'SELECT 	PD.UID, ' +                                                       //-----************-----//
+                                       'PD.FolioUID, ' +                                                  //-----************-----//
+                                       'PD.OrderDatePD, ' +                                               //-----************-----//
+                                       'PD.Keeper, ' +                                                    //-----************-----//
+                                       'PD.KeeperUID, ' +                                                 //-----************-----//
+                                       'PD.Collector, ' +                                                 //-----************-----//
+                                       'PD.CollectorUID, ' +                                              //---Получение списка собранных накладных---//
+                                       'PD.OrderBuildDate, ' +                                            //---выбранный сборщиком---//
                                        'I.Screen ' +                                                      //-----************-----//
-                                    'FROM ProcessedDoc PD' +                                                //-----************-----//
-                                    ' LEFT JOIN Icons I ON I.UID = 24 ' +                                  //-----************-----//
+                                    'FROM ProcessedDoc PD' +                                              //-----************-----//
+                                    ' LEFT JOIN Icons I ON I.UID = 24 ' +                                 //-----************-----//
                                     'WHERE CollectorUID = %d  ' +                                         //-----************-----//
-                                    'ORDER BY PD.FolioUID';                                                       //-----************-----//
+                                    'ORDER BY PD.FolioUID';                                               //-----************-----//
 
 
       SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                      //-----************-----//
@@ -157,8 +157,18 @@ resourcestring
                                   'FROM ProcessedDoc ' +                                                  //---и количества собранных заявок
                                   '  LEFT JOIN Icons I ON I.UID = 22 ' +                                  //-----************-----//
                                   'WHERE OrderDatePD BETWEEN ''%s'' and ''%s'' ' +                        //-----************-----//
-                                  'GROUP BY Keeper, ' +                                                   //-----************-----//
-                                           'KeeperUID, ' +                                                //-----************-----//
+                                  'GROUP BY CollectorUID, ' +                                                   //-----************-----//
+                                           'Collector, ' +                                                //-----************-----//
+                                           'I.Screen ';                                                   //-----************-----//
+
+      SSQLGetCollectCountOrdersOverride = 'SELECT DISTINCT CollectorUID, ' +                                      //-----************-----//
+                                                 ' Collector, ' +                                         //-----************-----//
+                                                 ' COUNT(FolioUID)as "DocKol::INT", ' +                   //-----************-----//
+                                                 ' I.Screen ' +                                           //---Получение списка сборщиков
+                                  'FROM ProcessedDoc ' +                                                  //---и количества собранных заявок
+                                  '  LEFT JOIN Icons I ON I.UID = 22 ' +                                  //-----************-----//
+                                  'GROUP BY CollectorUID, ' +                                                   //-----************-----//
+                                           'Collector, ' +                                                //-----************-----//
                                            'I.Screen ';                                                   //-----************-----//
 
       SSQLGetCollectOrdersAtCollectUID = 'SELECT DISTINCT CollectorUID, ' +                               //-----************-----//
@@ -169,8 +179,8 @@ resourcestring
                                           '  LEFT JOIN Icons I ON I.UID = 22 ' +                          //-----************-----//
                                           'WHERE OrderDatePD BETWEEN ''%s'' and ''%s'' ' +                //-----************-----//
                                           '      CollectorUID = %d ' +                                    //-----************-----//
-                                          'GROUP BY Keeper, ' +                                           //-----************-----//
-                                                   'KeeperUID, ' +                                        //-----************-----//
+                                          'GROUP BY CollectorUID, ' +                                           //-----************-----//
+                                                   'Collector, ' +                                        //-----************-----//
                                                    'I.Screen ';
 
       SSQLClearProcessedOrders = 'DELETE FROM ProcessedDoc';                                                // Очистка всех записей из собранных накладных

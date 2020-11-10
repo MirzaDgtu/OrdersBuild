@@ -296,31 +296,6 @@ object AppDataLocal: TAppDataLocal
       Size = 50
     end
   end
-  object Users: TFDQuery
-    Connection = Connection
-    Left = 24
-    Top = 72
-    object UsersID: TIntegerField
-      FieldName = 'ID'
-    end
-    object UsersUserLogin: TStringField
-      FieldName = 'UserLogin'
-      Size = 10
-    end
-    object UsersUserName: TStringField
-      FieldName = 'UserName'
-      Size = 50
-    end
-    object UsersLastUser: TSmallintField
-      FieldName = 'LastUser'
-    end
-    object UsersScreen: TBlobField
-      FieldName = 'Screen'
-    end
-    object UsersLastUserScreen: TBlobField
-      FieldName = 'LastUserScreen'
-    end
-  end
   object Collectors: TFDQuery
     BeforeOpen = CollectorsBeforeOpen
     Connection = Connection
@@ -479,6 +454,31 @@ object AppDataLocal: TAppDataLocal
     object StringField15: TStringField
       FieldName = 'Keeper'
       Size = 50
+    end
+  end
+  object Users: TFDQuery
+    Connection = Connection
+    Left = 24
+    Top = 72
+    object UsersID: TIntegerField
+      FieldName = 'ID'
+    end
+    object UsersUserLogin: TStringField
+      FieldName = 'UserLogin'
+      Size = 10
+    end
+    object UsersUserName: TStringField
+      FieldName = 'UserName'
+      Size = 50
+    end
+    object UsersLastUser: TSmallintField
+      FieldName = 'LastUser'
+    end
+    object UsersScreen: TBlobField
+      FieldName = 'Screen'
+    end
+    object UsersLastUserScreen: TBlobField
+      FieldName = 'LastUserScreen'
     end
   end
 end

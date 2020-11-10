@@ -456,229 +456,7 @@ object NaklForm: TNaklForm
       CanSwipeDelete = False
       OnItemClick = ProductLVItemClick
       SearchVisible = True
-      object CollectLayout: TLayout
-        Align = Client
-        Size.Width = 375.000000000000000000
-        Size.Height = 458.000000000000000000
-        Size.PlatformDefault = False
-        Visible = False
-        TabOrder = 0
-        object CollectRect: TRectangle
-          Align = Client
-          Fill.Color = claBlack
-          Opacity = 0.600000023841857900
-          Size.Width = 375.000000000000000000
-          Size.Height = 410.000000000000000000
-          Size.PlatformDefault = False
-          object CollectorLV: TListView
-            ItemAppearanceClassName = 'TDynamicAppearance'
-            ItemEditAppearanceClassName = 'TDynamicAppearance'
-            HeaderAppearanceClassName = 'TListHeaderObjects'
-            FooterAppearanceClassName = 'TListHeaderObjects'
-            Align = Client
-            Margins.Left = 7.000000000000000000
-            Margins.Top = 7.000000000000000000
-            Margins.Right = 7.000000000000000000
-            Margins.Bottom = 7.000000000000000000
-            Size.Width = 361.000000000000000000
-            Size.Height = 396.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 0
-            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-              item
-                AppearanceObjectName = 'UID'
-                AppearanceClassName = 'TTextObjectAppearance'
-                Appearance.Font.Size = 10.000000000000000000
-                Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claMidnightblue
-                Appearance.Width = 48.000000000000000000
-                Appearance.Height = 44.000000000000000000
-                Appearance.PlaceOffset.X = 26.000000000000000000
-              end
-              item
-                AppearanceObjectName = 'Name'
-                AppearanceClassName = 'TTextObjectAppearance'
-                Appearance.Font.Size = 10.000000000000000000
-                Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claRed
-                Appearance.Width = 266.000000000000000000
-                Appearance.Height = 44.000000000000000000
-                Appearance.Align = Center
-                Appearance.PlaceOffset.X = 36.000000000000000000
-              end
-              item
-                AppearanceObjectName = 'Screen'
-                AppearanceClassName = 'TImageObjectAppearance'
-                Appearance.Width = 26.000000000000000000
-                Appearance.Height = 44.000000000000000000
-                Appearance.VertAlign = Center
-              end>
-            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-              item
-                AppearanceObjectName = 'Text1'
-                AppearanceClassName = 'TTextObjectAppearance'
-              end>
-            CanSwipeDelete = False
-            OnItemClick = CollectorLVItemClick
-            SearchVisible = True
-          end
-        end
-        object CollectHeaderTB: TToolBar
-          Size.Width = 375.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          TintColor = claSpringgreen
-          object BackCollectBtn: TButton
-            Align = Left
-            IconTintColor = claBlue
-            Size.Width = 48.000000000000000000
-            Size.Height = 48.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'backtoolbutton'
-            TabOrder = 0
-            OnClick = BackCollectBtnClick
-          end
-          object RefreshBtn: TButton
-            Align = Right
-            IconTintColor = claBlue
-            Position.X = 327.000000000000000000
-            Size.Width = 48.000000000000000000
-            Size.Height = 48.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'refreshtoolbutton'
-            TabOrder = 1
-            OnClick = RefreshBtnClick
-          end
-          object CollectorHeaderLbl: TLabel
-            Align = VertCenter
-            StyledSettings = [Family]
-            Position.X = 48.000000000000000000
-            Position.Y = 12.000000000000000000
-            Size.Width = 279.000000000000000000
-            Size.Height = 23.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'listboxheaderlabel'
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.FontColor = claRed
-            TextSettings.HorzAlign = Center
-            Text = #1057#1073#1086#1088#1097#1080#1082#1080
-            TabOrder = 2
-          end
-        end
-        object CollectorFA: TFloatAnimation
-          AnimationType = InOut
-          Duration = 0.500000000000000000
-          PropertyName = 'Position.Y'
-          StartValue = 0.000000000000000000
-          StopValue = 0.000000000000000000
-        end
-      end
     end
-  end
-  object CollectorsBS: TBindSourceDB
-    DataSet = AppDataLocal.Collectors
-    ScopeMappings = <>
-    Left = 62
-    Top = 312
-  end
-  object NaklBL: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 60
-    Top = 261
-    object LinkListControlToField1: TLinkListControlToField
-      Category = 'Quick Bindings'
-      DataSource = CollectorsBS
-      Control = CollectorLV
-      FillExpressions = <
-        item
-          SourceMemberName = 'UID'
-          ControlMemberName = 'UID'
-        end
-        item
-          SourceMemberName = 'Name'
-          ControlMemberName = 'Name'
-        end
-        item
-          SourceMemberName = 'Screen'
-          ControlMemberName = 'Screen'
-        end>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
-    object LinkListControlToField2: TLinkListControlToField
-      Category = 'Quick Bindings'
-      DataSource = ProductsBS
-      Control = ProductLV
-      FillExpressions = <
-        item
-          SourceMemberName = 'ProductName'
-          ControlMemberName = 'ProductName'
-        end
-        item
-          SourceMemberName = 'Screen'
-          ControlMemberName = 'Screen'
-        end
-        item
-          SourceMemberName = 'Sum_Predm'
-          ControlMemberName = 'Sum_Predm'
-        end
-        item
-          SourceMemberName = 'Price'
-          ControlMemberName = 'Price'
-        end
-        item
-          SourceMemberName = 'Article'
-          ControlMemberName = 'Article'
-        end
-        item
-          SourceMemberName = 'Date_Device'
-          ControlMemberName = 'Date_Device'
-        end
-        item
-          SourceMemberName = 'Status'
-          ControlMemberName = 'Status'
-        end
-        item
-          SourceMemberName = 'FolioUID'
-          ControlMemberName = 'FolioUID'
-        end
-        item
-          SourceMemberName = 'KON_KOLCH'
-          ControlMemberName = 'KON_KOLCH'
-        end
-        item
-          SourceMemberName = 'Qty'
-          ControlMemberName = 'Qty'
-        end
-        item
-          SourceMemberName = 'EDN_V_UPAK'
-          ControlMemberName = 'EDN_V_UPAK'
-        end
-        item
-          SourceMemberName = 'EDIN_IZMER'
-          ControlMemberName = 'EDIN_IZMER'
-        end
-        item
-          SourceMemberName = 'Packages'
-          ControlMemberName = 'Packages'
-        end
-        item
-          SourceMemberName = 'StrikeCode'
-          ControlMemberName = 'StrikeCode'
-        end>
-      FillHeaderExpressions = <>
-      FillHeaderFieldName = 'Article'
-      FillBreakGroups = <>
-    end
-  end
-  object ProductsBS: TBindSourceDB
-    DataSet = AppDataLocal.OrdersMove
-    ScopeMappings = <>
-    Left = 133
-    Top = 312
   end
   object StyleB: TStyleBook
     Styles = <
@@ -36007,6 +35785,228 @@ object NaklForm: TNaklForm
           80AE09400000000000}
       end>
     Left = 192
+    Top = 312
+  end
+  object CollectLayout: TLayout
+    Align = Client
+    Size.Width = 375.000000000000000000
+    Size.Height = 624.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 5
+    object CollectRect: TRectangle
+      Align = Client
+      Fill.Color = claBlack
+      Opacity = 0.600000023841857900
+      Size.Width = 375.000000000000000000
+      Size.Height = 576.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object CollectHeaderTB: TToolBar
+      Size.Width = 375.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      TintColor = claSpringgreen
+      object BackCollectBtn: TButton
+        Align = Left
+        IconTintColor = claBlue
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+        TabOrder = 0
+        OnClick = BackCollectBtnClick
+      end
+      object RefreshBtn: TButton
+        Align = Right
+        IconTintColor = claBlue
+        Position.X = 327.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'refreshtoolbutton'
+        TabOrder = 1
+        OnClick = RefreshBtnClick
+      end
+      object CollectorHeaderLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family]
+        Position.X = 48.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'listboxheaderlabel'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claRed
+        TextSettings.HorzAlign = Center
+        Text = #1057#1073#1086#1088#1097#1080#1082#1080
+        TabOrder = 2
+      end
+    end
+    object CollectorFA: TFloatAnimation
+      AnimationType = InOut
+      Duration = 0.500000000000000000
+      PropertyName = 'Position.Y'
+      StartValue = 0.000000000000000000
+      StopValue = 0.000000000000000000
+    end
+    object CollectorLV: TListView
+      ItemAppearanceClassName = 'TDynamicAppearance'
+      ItemEditAppearanceClassName = 'TDynamicAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Align = Client
+      Margins.Left = 7.000000000000000000
+      Margins.Top = 7.000000000000000000
+      Margins.Right = 7.000000000000000000
+      Margins.Bottom = 7.000000000000000000
+      Size.Width = 361.000000000000000000
+      Size.Height = 562.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'UID'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claMidnightblue
+          Appearance.Width = 48.000000000000000000
+          Appearance.Height = 44.000000000000000000
+          Appearance.PlaceOffset.X = 26.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Name'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextColor = claRed
+          Appearance.Width = 266.000000000000000000
+          Appearance.Height = 44.000000000000000000
+          Appearance.Align = Center
+          Appearance.PlaceOffset.X = 36.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Screen'
+          AppearanceClassName = 'TImageObjectAppearance'
+          Appearance.Width = 26.000000000000000000
+          Appearance.Height = 44.000000000000000000
+          Appearance.VertAlign = Center
+        end>
+      ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Text1'
+          AppearanceClassName = 'TTextObjectAppearance'
+        end>
+      CanSwipeDelete = False
+      OnItemClick = CollectorLVItemClick
+      SearchVisible = True
+    end
+  end
+  object CollectorsBS: TBindSourceDB
+    DataSet = AppDataLocal.Collectors
+    ScopeMappings = <>
+    Left = 62
+    Top = 312
+  end
+  object NaklBL: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 60
+    Top = 261
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = CollectorsBS
+      Control = CollectorLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'Name'
+          ControlMemberName = 'Name'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = ProductsBS
+      Control = ProductLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'ProductName'
+          ControlMemberName = 'ProductName'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'Sum_Predm'
+          ControlMemberName = 'Sum_Predm'
+        end
+        item
+          SourceMemberName = 'Price'
+          ControlMemberName = 'Price'
+        end
+        item
+          SourceMemberName = 'Article'
+          ControlMemberName = 'Article'
+        end
+        item
+          SourceMemberName = 'Date_Device'
+          ControlMemberName = 'Date_Device'
+        end
+        item
+          SourceMemberName = 'Status'
+          ControlMemberName = 'Status'
+        end
+        item
+          SourceMemberName = 'FolioUID'
+          ControlMemberName = 'FolioUID'
+        end
+        item
+          SourceMemberName = 'KON_KOLCH'
+          ControlMemberName = 'KON_KOLCH'
+        end
+        item
+          SourceMemberName = 'Qty'
+          ControlMemberName = 'Qty'
+        end
+        item
+          SourceMemberName = 'EDN_V_UPAK'
+          ControlMemberName = 'EDN_V_UPAK'
+        end
+        item
+          SourceMemberName = 'EDIN_IZMER'
+          ControlMemberName = 'EDIN_IZMER'
+        end
+        item
+          SourceMemberName = 'Packages'
+          ControlMemberName = 'Packages'
+        end
+        item
+          SourceMemberName = 'StrikeCode'
+          ControlMemberName = 'StrikeCode'
+        end>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'Article'
+      FillBreakGroups = <>
+    end
+  end
+  object ProductsBS: TBindSourceDB
+    DataSet = AppDataLocal.OrdersMove
+    ScopeMappings = <>
+    Left = 133
     Top = 312
   end
 end

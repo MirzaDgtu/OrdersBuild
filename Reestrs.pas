@@ -39,6 +39,7 @@ begin
 
         if not AppDataRemote.Reestrs.IsEmpty then
           try
+             AppDataLocal.Connection.StartTransaction;
              Delete();
 
              AppDataRemote.Reestrs.First;
@@ -46,10 +47,11 @@ begin
               try
                   Add(AppDataRemote.ReestrsUID.AsInteger, AppDataRemote.ReestrsProjectName.AsString);
                   AppDataRemote.Reestrs.Next;
-              finally
+              except
+                AppDataLocal.Connection.Rollback;
               end;
-          except
-            AppDataLocal.Connection.Rollback;
+          finally
+            AppDataLocal.Connection.Commit;
           end;
       End;
    finally
@@ -59,12 +61,16 @@ end;
 
 procedure TReestrs.Add(UID: integer; Name: string);
 begin
+  AppDataLocal.Connection.StartTransaction;
   try
-    AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.Command.Execute(Format(SSQLAddReestrs, [UID,
-                                                                 Name]));
-  except
-    AppDataLocal.Connection.Rollback;
+    try
+      AppDataLocal.Command.Command.Execute(Format(SSQLAddReestrs, [UID,
+                                                                   Name]));
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 
@@ -76,11 +82,15 @@ end;
 
 procedure TReestrs.Delete;
 begin
+  AppDataLocal.Connection.StartTransaction;
   try
-     AppDataLocal.Connection.StartTransaction;
-     AppDataLocal.Command.Command.Execute(SSQLDeleteReestrs);
-  except
-     AppDataLocal.Connection.Rollback;
+    try
+       AppDataLocal.Command.Command.Execute(SSQLDeleteReestrs);
+    except
+       AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 

@@ -30,23 +30,31 @@ uses SConsts, ModuleDataLocal, ModuleDataRemote;
 
 procedure TUsers.Add(ID: integer; Login, Name: String);
 begin
+    AppDataLocal.Connection.StartTransaction;
     try
-      AppDataLocal.Connection.StartTransaction;
-      AppDataLocal.Command.ExecSQL(Format(SSQLAddUsersLocal, [ID,
-                                                              Login,
-                                                              Name]));
-    except
-      AppDataLocal.Connection.Rollback;
+      try
+        AppDataLocal.Command.ExecSQL(Format(SSQLAddUsersLocal, [ID,
+                                                                Login,
+                                                                Name]));
+      except
+        AppDataLocal.Connection.Rollback;
+      end;
+    finally
+      AppDataLocal.Connection.Commit;
     end;
 end;
 
 procedure TUsers.Clear;
 begin
+  AppDataLocal.Connection.StartTransaction;
   try
-   AppDataLocal.Connection.StartTransaction;
-   AppDataLocal.Command.ExecSQL(SSQLClearUsersLocal);
-  except
-    AppDataLocal.Connection.Rollback;
+    try
+     AppDataLocal.Command.ExecSQL(SSQLClearUsersLocal);
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 
@@ -64,6 +72,7 @@ begin
     AppDataLocal.Users.SQL.Text := SSQLGetUsersLocal;
     AppDataLocal.Users.Active := True;
   except
+    AppDataLocal.Users.Active := False;
   end;
 end;
 
@@ -109,6 +118,7 @@ begin
 
      if not AppDataRemote.Users.IsEmpty then
        try
+          AppDataLocal.Connection.StartTransaction;
           Clear();
 
           AppDataRemote.Users.First;
@@ -121,8 +131,8 @@ begin
               AppDataLocal.Connection.Rollback;
             end;
 
-       except
-              AppDataLocal.Connection.Rollback;
+       finally
+         AppDataLocal.Connection.Commit;
        end;
     End;
   finally
@@ -132,13 +142,17 @@ end;
 
 procedure TUsers.UpdatelastUser(ID: integer; Status: smallint);
 begin
+  AppDataLocal.Connection.StartTransaction;
   try
-    AppDataLocal.Connection.StartTransaction;
-    AppDataLocal.Command.SQL.Text := Format(SSQLUpdateLastUserLocal, [Status,
-                                                                      id]);
-    AppDataLocal.Command.ExecSQL;
-  except
-    AppDataLocal.Connection.Rollback;
+    try
+      AppDataLocal.Command.SQL.Text := Format(SSQLUpdateLastUserLocal, [Status,
+                                                                        id]);
+      AppDataLocal.Command.ExecSQL;
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 

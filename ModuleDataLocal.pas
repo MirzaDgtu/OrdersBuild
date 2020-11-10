@@ -83,13 +83,6 @@ type
     OrdersHeadColBuildProd: TSmallintField;
     OrdersHeadScreen: TBlobField;
     OrdersHeadDate_Device: TLargeintField;
-    Users: TFDQuery;
-    UsersID: TIntegerField;
-    UsersUserLogin: TStringField;
-    UsersUserName: TStringField;
-    UsersLastUser: TSmallintField;
-    UsersScreen: TBlobField;
-    UsersLastUserScreen: TBlobField;
     Collectors: TFDQuery;
     CollectorsUID: TIntegerField;
     CollectorsName: TStringField;
@@ -143,6 +136,13 @@ type
     StringField14: TStringField;
     IntegerField8: TIntegerField;
     StringField15: TStringField;
+    Users: TFDQuery;
+    UsersID: TIntegerField;
+    UsersUserLogin: TStringField;
+    UsersUserName: TStringField;
+    UsersLastUser: TSmallintField;
+    UsersScreen: TBlobField;
+    UsersLastUserScreen: TBlobField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

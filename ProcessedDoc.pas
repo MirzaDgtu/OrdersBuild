@@ -43,8 +43,8 @@ class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;
   OrderBuildDate: string);
 begin
 
-    AppDataLocal.Connection.StartTransaction;
     try
+      AppDataLocal.Connection.StartTransaction;
       try
         AppDataLocal.Command.Active := False;
         AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorOrder, [Unicum_Num.toString,

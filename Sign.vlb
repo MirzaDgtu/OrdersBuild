@@ -1,165 +1,165 @@
 ﻿[UserEdit]
-Coordinates=168,321,56,51
+Coordinates=206,555,56,51
 
 [UserLBI]
-Coordinates=526,475,53,33
+Coordinates=837,709,53,33
 
 [UserLayout]
-Coordinates=10,670,70,33
+Coordinates=441,709,70,33
 Visible=True
 
 [DefaultSBtn]
-Coordinates=702,398,73,51
+Coordinates=1072,555,73,51
 
 [RefreshUserBtn]
-Coordinates=10,398,92,51
+Coordinates=830,632,92,51
 
 [SignLBGH]
-Coordinates=459,552,65,33
+Coordinates=10,768,65,33
 
 [SignBottomTB]
-Coordinates=936,552,86,33
+Coordinates=329,709,86,33
 
 [UserHeaderTB]
-Coordinates=637,611,85,33
+Coordinates=10,827,85,33
 
 [SettingParamSBtn]
-Coordinates=10,475,104,51
+Coordinates=458,632,104,51
 
 [UserLV]
-Coordinates=182,10,103,231
+Coordinates=575,10,103,231
 Visible=True
 
 [Images]
 Coordinates=0,431,49,33
 
 [SignSBtn]
-Coordinates=807,321,60,51
+Coordinates=986,555,60,51
 
 [BackUserBtn]
-Coordinates=344,398,79,51
+Coordinates=288,555,79,51
 
 [AOuthRect]
-Coordinates=700,670,68,33
+Coordinates=315,827,68,33
 Visible=True
 
 [SignHeadeLbl]
-Coordinates=257,475,83,51
+Coordinates=948,632,83,51
 
 [AOuthLB]
-Coordinates=681,10,116,177
+Coordinates=1042,10,116,177
 
 [UserHeaderLbl]
-Coordinates=366,321,87,51
+Coordinates=183,632,87,51
 
 [ServerEdit]
-Coordinates=253,398,65,51
+Coordinates=1171,555,65,51
 
 [ServerLBI]
-Coordinates=987,475,62,33
+Coordinates=1181,768,62,33
 
 [AppDataLocal.Command]
-Coordinates=930,398,136,51
+Coordinates=296,632,136,51
 
 [SignHeaderTB]
-Coordinates=526,611,85,33
+Coordinates=515,768,85,33
 
 [MainLayout]
-Coordinates=235,611,71,33
+Coordinates=321,768,71,33
 
 [AppDataLocal.EveryOne]
-Coordinates=366,475,134,51
+Coordinates=539,555,134,51
 
 []
-Coordinates=853,475,108,33
+Coordinates=758,55,116,141
 Visible=True
 
 [UserPanel]
-Coordinates=10,611,64,33
+Coordinates=409,827,64,33
 
 [UserBtn]
-Coordinates=622,398,54,51
+Coordinates=10,555,54,51
 
 [UserRect]
-Coordinates=936,611,59,33
+Coordinates=101,768,59,33
 
 [SettingLayout]
-Coordinates=927,670,83,33
+Coordinates=1059,709,83,33
 
 [ServerSettingParamEdit]
-Coordinates=10,321,132,51
+Coordinates=828,555,132,51
 
 [DataBaseSettingParamLBI]
-Coordinates=766,552,144,33
+Coordinates=159,709,144,33
 
 [SettingHeaderLbl]
-Coordinates=128,398,99,51
+Coordinates=588,632,99,51
 
 [SettingHeaderTB]
-Coordinates=336,552,97,33
+Coordinates=714,709,97,33
 
 [SettingParamLBGH]
-Coordinates=100,611,109,33
+Coordinates=186,768,109,33
 
 [LoginSettingParamLBI]
-Coordinates=702,475,125,33
+Coordinates=1030,768,125,33
 
 [SaveSettingBtn]
-Coordinates=250,321,90,51
+Coordinates=90,555,90,51
 
 [SettingFA]
 Coordinates=118,193,62,33
 
 [DataBaseSettingParamEdit]
-Coordinates=449,398,147,51
+Coordinates=10,632,147,51
 
 [ServerSettingParamLBI]
-Coordinates=10,552,129,33
+Coordinates=1168,709,129,33
 
 [PasswordPanelBtn]
-Coordinates=794,670,107,33
+Coordinates=1211,632,107,33
 
 [SettingLB]
-Coordinates=823,10,116,177
+Coordinates=900,10,116,177
 
 [PasswordSettingParamEdit]
-Coordinates=479,321,148,51
+Coordinates=1262,555,148,51
 
 [SettingRect]
-Coordinates=605,475,71,33
+Coordinates=418,768,71,33
 
 [LoginSettingParamEdit]
-Coordinates=653,321,128,51
+Coordinates=1057,632,128,51
 
 [BackSettingBtn]
-Coordinates=140,475,91,51
+Coordinates=713,632,91,51
 
 [PasswordSettingParamLBI]
-Coordinates=165,552,145,33
+Coordinates=1269,768,145,33
 
 [ViewPasswordBtn]
-Coordinates=801,398,103,51
+Coordinates=699,555,103,51
 
 [ClearServerSettingParamEBtn]
-Coordinates=748,611,162,33
+Coordinates=626,768,162,33
 
 [ClearDataBaseSettingParamEditBtn]
-Coordinates=550,552,190,33
+Coordinates=814,768,190,33
 
 [ClearLoginSettingParamBtn]
-Coordinates=523,670,151,33
+Coordinates=537,709,151,33
 
 [CleaPasswordSettingParamBtn]
-Coordinates=332,611,168,33
+Coordinates=121,827,168,33
 
 [ClearParamSettingBtn]
-Coordinates=106,670,123,33
+Coordinates=10,709,123,33
 
 [PortParamSettingLBI]
-Coordinates=380,670,117,33
+Coordinates=916,709,117,33
 
 [PortParamSettingEdit]
-Coordinates=893,321,120,51
+Coordinates=393,555,120,51
 
 [AppDataLocal.Reestrs]
 Visible=False
@@ -190,7 +190,7 @@ Visible=False
 Coordinates=1188,209,145,33
 
 [AppDataLocal.OrdersMove]
-Coordinates=10,10,146,285
+Coordinates=206,10,146,303
 
 [OrdersForm.AgentsBS]
 Coordinates=287,467,125,105
@@ -199,7 +199,7 @@ Coordinates=287,467,125,105
 Coordinates=1031,10,123,123
 
 [AppDataLocal.CollectorOrders]
-Coordinates=491,10,164,213
+Coordinates=491,10,164,33
 Visible=False
 
 [OrdersForm.BrieforgBS]
@@ -223,16 +223,31 @@ ActiveLayerNames=
 EditingLayerName=
 
 [AppDataLocal.]
-Coordinates=780,510,115,33
-Visible=False
-
-[AppDataLocal.Users]
 Coordinates=1000,160,115,33
 Visible=False
 
 [SignBL]
-Coordinates=175,1,82,33
+Coordinates=175,1,50,33
+
+[StyleB]
+Coordinates=0,0,46,33
+
+[UserFA]
+Coordinates=71,1,50,33
+
+[AppDataLocal.Collectors]
+Coordinates=1184,10,136,105
+
+[AppDataLocal.OrdersMoveLoad]
+Coordinates=378,10,171,303
+
+[AppDataLocal.OrdersHeadLoad]
+Coordinates=10,10,170,519
+
+[AppDataLocal.Users]
+Coordinates=690,30,115,33
+Visible=False
 
 [UsersBS]
-Coordinates=365,37,100,177
+Coordinates=690,30,100,177
 

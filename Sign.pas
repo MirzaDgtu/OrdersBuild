@@ -63,11 +63,11 @@ type
     PortParamSettingLBI: TListBoxItem;
     PortParamSettingEdit: TEdit;
     ClearParamSettingBtn: TClearEditButton;
-    UsersBS: TBindSourceDB;
     SignBL: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
     UserFA: TFloatAnimation;
     StyleB: TStyleBook;
+    UsersBS: TBindSourceDB;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
@@ -103,7 +103,7 @@ implementation
 
 {$R *.fmx}
 
-uses SConsts, Globals, Orders, ModuleDataLocal, ModuleDataRemote;
+uses SConsts, Globals, Orders, ModuleDataRemote, ModuleDataLocal;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
@@ -182,11 +182,11 @@ end;
 
 procedure TSignForm.PanelUserView;
 begin
-      UserLayout.Position.Y := MainLayout.Height + 20;
+      UserLayout.Position.Y := Self.Height + 20; //MainLayout.Height + 20;
       UserLayout.Visible := True;
 
       UserFA.Inverse := False;
-      UserFA.StartValue := MainLayout.Height + 20;
+      UserFA.StartValue :=  Self.Height + 20; // MainLayout.Height + 20;
       UserFA.Start;
 end;
 

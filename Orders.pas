@@ -701,12 +701,12 @@ begin
 end;
 
 procedure TOrdersForm.RefreshStatistBtnClick(Sender: TObject);
+var
+    stat: TStatist;
 begin
+  stat := TStatist.Create();
   try
-    AppDataLocal.CollectorBuild.Active := False;
-    AppDataLocal.CollectorBuild.SQL.Text := Format(SSQLGetCollectCountOrders, [FormatDateTime('yyyy-mm-dd', BegDate.Date),
-                                                                               FormatDateTime('yyyy-mm-dd', EndDate.Date)]);
-    AppDataLocal.CollectorBuild.Active := True;
+    stat.Get;
   except
   end;
 end;

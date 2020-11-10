@@ -123,6 +123,7 @@ begin
   CollectorEdit.Text := AItem.Data['Name'].AsString;
   CollectorNakl.UID := (AItem.Data['UID'].AsString).ToInteger;
   CollectorNakl.Name := AItem.Data['Name'].AsString;
+
   PanelCollectorsHide();
 end;
 

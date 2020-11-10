@@ -52,8 +52,7 @@ procedure TStatist.Get;
 begin
   try
     AppDataLocal.CollectorBuild.Active := False;
-    AppDataLocal.CollectorBuild.SQL.Text := Format(SSQLGetCollectCountOrders, [FormatDateTime('yyyy-mm-dd', DatesLocal.DBeg),
-                                                                               FormatDateTime('yyyy-mm-dd',DatesLocal.DEnd)]);
+    AppDataLocal.CollectorBuild.SQL.Text := SSQLGetCollectCountOrdersOverride;
     AppDataLocal.CollectorBuild.Active := True;
   except
   end;

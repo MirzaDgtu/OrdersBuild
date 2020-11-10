@@ -8,10 +8,10 @@ Coordinates=242,1,93,33
 Coordinates=242,111,77,33
 
 [EveryOne]
-Coordinates=377,449,62,51
+Coordinates=451,539,62,51
 
 [Command]
-Coordinates=303,449,64,51
+Coordinates=377,539,64,51
 
 [ReestrsUID]
 Coordinates=153,283,69,33
@@ -20,7 +20,7 @@ Coordinates=153,283,69,33
 Coordinates=388,56,115,33
 
 [Reestrs]
-Coordinates=541,10,65,105
+Coordinates=683,10,65,105
 
 [ReestrsScreen]
 Coordinates=44,283,86,33
@@ -37,7 +37,7 @@ Coordinates=373,108,127,33
 Coordinates=373,160,107,33
 
 [CollectorBuild]
-Coordinates=373,10,84,123
+Coordinates=589,10,84,123
 
 [CollectorOrdersScreen]
 Coordinates=373,212,127,33
@@ -46,13 +46,13 @@ Coordinates=373,212,127,33
 Coordinates=275,524,94,33
 
 [VidDocs]
-Coordinates=10,449,55,87
+Coordinates=233,539,55,87
 
 [CollectorOrdersUID]
 Coordinates=373,264,110,33
 
 [Drivers]
-Coordinates=75,449,69,87
+Coordinates=84,539,69,87
 
 [OrdersMoveEDN_V_UPAK]
 Coordinates=373,316,143,33
@@ -115,7 +115,7 @@ Coordinates=579,365,120,33
 Coordinates=579,417,144,33
 
 [Brieforgs]
-Coordinates=154,449,60,87
+Coordinates=163,539,60,87
 
 [CollectorBuildCollector]
 Coordinates=579,469,129,33
@@ -163,10 +163,11 @@ Coordinates=772,209,114,33
 Coordinates=772,261,119,33
 
 [OrdersMove]
-Coordinates=97,10,74,285
+Coordinates=204,10,74,303
+Visible=True
 
 [OrdersHead]
-Coordinates=10,10,77,429
+Coordinates=10,10,77,519
 
 [OrdersMovePrice]
 Coordinates=772,313,99,33
@@ -175,7 +176,7 @@ Coordinates=772,313,99,33
 Coordinates=772,365,141,33
 
 [Agents]
-Coordinates=224,449,69,87
+Coordinates=298,539,69,87
 
 [BrieforgsBrieforg]
 Coordinates=772,417,100,33
@@ -196,7 +197,7 @@ Coordinates=560,778,89,33
 Coordinates=772,573,127,33
 
 [CollectorOrders]
-Coordinates=181,10,92,213
+Coordinates=397,10,92,213
 
 [OrdersHeadL_CP1_PLAT]
 Coordinates=772,625,137,33
@@ -217,29 +218,8 @@ Coordinates=262,800,141,33
 Coordinates=123,800,134,33
 
 []
-Coordinates=772,729,143,33
+Coordinates=499,10,80,159
 Visible=True
-
-[UsersUserName]
-Coordinates=106,335,93,33
-
-[UsersID]
-Coordinates=106,387,53,33
-
-[UsersLastUser]
-Coordinates=471,745,87,33
-
-[UsersUserLogin]
-Coordinates=372,745,93,33
-
-[UsersScreen]
-Coordinates=293,745,77,33
-
-[Users]
-Coordinates=283,10,80,159
-
-[UsersLastUserScreen]
-Coordinates=190,242,121,33
 
 [CollectorsUID]
 Coordinates=204,745,82,33
@@ -254,5 +234,170 @@ Coordinates=0,712,92,33
 Coordinates=772,833,108,33
 
 [Collectors]
-Coordinates=467,10,64,105
+Coordinates=10,539,64,105
+
+[BlobField2]
+Coordinates=252,294,66,33
+
+[StringField6]
+Coordinates=252,346,73,33
+
+[WideMemoField1]
+Coordinates=190,398,98,33
+
+[StringField9]
+Coordinates=252,852,73,33
+
+[StringField13]
+Coordinates=233,889,79,33
+
+[IntegerField2]
+Coordinates=154,889,78,33
+
+[FloatField10]
+Coordinates=75,889,74,33
+
+[FloatField5]
+Coordinates=0,856,68,33
+
+[OrdersHeadCollectorUID]
+Coordinates=135,548,135,33
+
+[StringField10]
+Coordinates=554,830,79,33
+
+[OrdersHeadLoad]
+Coordinates=97,10,97,519
+
+[IntegerField4]
+Coordinates=554,882,78,33
+
+[OrdersHeadCollector]
+Coordinates=405,852,117,33
+
+[WideMemoField2]
+Coordinates=386,889,98,33
+
+[StringField3]
+Coordinates=441,941,73,33
+
+[FloatField3]
+Coordinates=372,960,68,33
+
+[StringField14]
+Coordinates=554,934,79,33
+
+[StringField8]
+Coordinates=293,960,73,33
+
+[OrdersMoveLoad]
+Coordinates=288,10,99,303
+
+[StringField15]
+Coordinates=204,960,79,33
+
+[OrdersHeadStatus]
+Coordinates=95,960,104,33
+
+[FloatField4]
+Coordinates=26,960,68,33
+
+[IntegerField5]
+Coordinates=772,729,78,33
+
+[IntegerField7]
+Coordinates=772,885,78,33
+
+[OrdersHeadKeeper]
+Coordinates=772,937,108,33
+
+[IntegerField3]
+Coordinates=772,989,78,33
+
+[FloatField9]
+Coordinates=596,986,68,33
+
+[SmallintField2]
+Coordinates=772,1041,84,33
+
+[StringField5]
+Coordinates=577,1031,73,33
+
+[FloatField8]
+Coordinates=508,1031,68,33
+
+[BlobField1]
+Coordinates=439,1031,66,33
+
+[SmallintField1]
+Coordinates=683,1057,84,33
+
+[LargeintField1]
+Coordinates=350,1057,84,33
+
+[StringField7]
+Coordinates=271,1031,73,33
+
+[StringField11]
+Coordinates=182,1057,79,33
+
+[FloatField7]
+Coordinates=113,1031,68,33
+
+[StringField1]
+Coordinates=34,1031,73,33
+
+[FloatField1]
+Coordinates=772,1093,68,33
+
+[StringField4]
+Coordinates=753,1128,73,33
+
+[StringField2]
+Coordinates=674,1128,73,33
+
+[FloatField6]
+Coordinates=605,1128,68,33
+
+[FloatField2]
+Coordinates=536,1128,68,33
+
+[IntegerField1]
+Coordinates=955,1,78,33
+
+[StringField12]
+Coordinates=955,53,79,33
+
+[OrdersHeadKeeperUID]
+Coordinates=955,105,125,33
+
+[IntegerField8]
+Coordinates=955,157,78,33
+
+[CollectorOrdersOrderDatePD]
+Coordinates=955,209,157,33
+
+[IntegerField6]
+Coordinates=955,261,78,33
+
+[UsersUserName]
+Coordinates=261,645,93,33
+
+[UsersID]
+Coordinates=232,682,53,33
+
+[UsersScreen]
+Coordinates=153,682,77,33
+
+[Users]
+Coordinates=261,332,80,159
+
+[UsersUserLogin]
+Coordinates=54,682,93,33
+
+[UsersLastUserScreen]
+Coordinates=425,242,121,33
+
+[UsersLastUser]
+Coordinates=425,294,87,33
 

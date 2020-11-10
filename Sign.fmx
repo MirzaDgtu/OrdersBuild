@@ -42,7 +42,7 @@ object SignForm: TSignForm
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = xFF6F0F0F
+        TextSettings.FontColor = claBlue
         TextSettings.HorzAlign = Center
         Text = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
         TabOrder = 1
@@ -487,143 +487,6 @@ object SignForm: TSignForm
         PropertyName = 'Position.Y'
         StartValue = 0.000000000000000000
         StopValue = 0.000000000000000000
-      end
-    end
-    object UserLayout: TLayout
-      Align = Client
-      Size.Width = 365.000000000000000000
-      Size.Height = 722.000000000000000000
-      Size.PlatformDefault = False
-      Visible = False
-      TabOrder = 5
-      object UserRect: TRectangle
-        Align = Client
-        Fill.Color = claBlack
-        Opacity = 0.600000023841857900
-        Size.Width = 365.000000000000000000
-        Size.Height = 674.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object UserHeaderTB: TToolBar
-        Size.Width = 365.000000000000000000
-        Size.Height = 48.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        TintColor = claWheat
-        object BackUserBtn: TButton
-          Align = Left
-          Size.Width = 48.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'backtoolbutton'
-          TabOrder = 0
-          OnClick = BackUserBtnClick
-        end
-        object RefreshUserBtn: TButton
-          Align = Right
-          Position.X = 317.000000000000000000
-          Size.Width = 48.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'refreshtoolbutton'
-          TabOrder = 1
-          OnClick = RefreshUserBtnClick
-        end
-        object UserHeaderLbl: TLabel
-          Align = VertCenter
-          StyledSettings = [Family, Size]
-          Position.X = 48.000000000000000000
-          Position.Y = 12.000000000000000000
-          Size.Width = 269.000000000000000000
-          Size.Height = 23.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claBrown
-          TextSettings.HorzAlign = Center
-          Text = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1080
-          TabOrder = 2
-        end
-      end
-      object UserLV: TListView
-        ItemAppearanceClassName = 'TDynamicAppearance'
-        ItemEditAppearanceClassName = 'TDynamicAppearance'
-        HeaderAppearanceClassName = 'TListHeaderObjects'
-        FooterAppearanceClassName = 'TListHeaderObjects'
-        Align = Client
-        Margins.Left = 7.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 7.000000000000000000
-        Margins.Bottom = 7.000000000000000000
-        Size.Width = 351.000000000000000000
-        Size.Height = 657.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-          item
-            AppearanceObjectName = 'Name'
-            AppearanceClassName = 'TTextObjectAppearance'
-            Appearance.Font.Size = 11.000000000000000000
-            Appearance.Font.StyleExt = {00070000000000000004000000}
-            Appearance.WordWrap = True
-            Appearance.TextColor = claRoyalblue
-            Appearance.Width = 200.000000000000000000
-            Appearance.Height = 50.000000000000000000
-            Appearance.Align = Center
-            Appearance.VertAlign = Center
-            Appearance.PlaceOffset.X = 64.000000000000000000
-          end
-          item
-            AppearanceObjectName = 'Screen'
-            AppearanceClassName = 'TImageObjectAppearance'
-            Appearance.Width = 21.000000000000000000
-            Appearance.Height = 50.000000000000000000
-            Appearance.VertAlign = Center
-          end
-          item
-            AppearanceObjectName = 'ID'
-            AppearanceClassName = 'TTextObjectAppearance'
-            Appearance.Font.StyleExt = {00070000000000000004000000}
-            Appearance.Width = 43.000000000000000000
-            Appearance.Height = 50.000000000000000000
-            Appearance.VertAlign = Center
-            Appearance.PlaceOffset.X = 20.000000000000000000
-            Appearance.PlaceOffset.Y = 1.000000000000000000
-          end
-          item
-            AppearanceObjectName = 'LogIn'
-            AppearanceClassName = 'TTextObjectAppearance'
-            Appearance.Font.StyleExt = {00070000000000000004000000}
-            Appearance.TextColor = claRed
-            Appearance.Width = 41.000000000000000000
-            Appearance.Height = 50.000000000000000000
-            Appearance.VertAlign = Center
-            Appearance.PlaceOffset.X = 62.000000000000000000
-            Appearance.PlaceOffset.Y = 1.000000000000000000
-          end
-          item
-            AppearanceObjectName = 'LastUserScreen'
-            AppearanceClassName = 'TImageObjectAppearance'
-            Appearance.Width = 26.000000000000000000
-            Appearance.Height = 50.000000000000000000
-            Appearance.VertAlign = Center
-            Appearance.PlaceOffset.X = 104.000000000000000000
-            Appearance.PlaceOffset.Y = -1.000000000000000000
-          end>
-        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-          item
-            AppearanceObjectName = 'Text1'
-            AppearanceClassName = 'TTextObjectAppearance'
-          end>
-        CanSwipeDelete = False
-        OnItemClick = UserLVItemClick
-        SearchVisible = True
-        object UserFA: TFloatAnimation
-          AnimationType = InOut
-          Duration = 0.500000000000000000
-          PropertyName = 'Position.Y'
-          StartValue = 0.000000000000000000
-          StopValue = 0.000000000000000000
-        end
       end
     end
   end
@@ -35955,6 +35818,144 @@ object SignForm: TSignForm
       end>
     Left = 200
     Top = 224
+  end
+  object UserLayout: TLayout
+    Align = Client
+    Size.Width = 365.000000000000000000
+    Size.Height = 722.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 5
+    object UserRect: TRectangle
+      Align = Client
+      Fill.Color = claBlack
+      Size.Width = 365.000000000000000000
+      Size.Height = 674.000000000000000000
+      Size.PlatformDefault = False
+      object UserLV: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = VertCenter
+        Margins.Left = 7.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 7.000000000000000000
+        Margins.Bottom = 7.000000000000000000
+        Position.X = 7.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 351.000000000000000000
+        Size.Height = 657.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Name'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.Size = 11.000000000000000000
+            Appearance.Font.StyleExt = {00070000000000000004000000}
+            Appearance.WordWrap = True
+            Appearance.TextColor = claRoyalblue
+            Appearance.Width = 200.000000000000000000
+            Appearance.Height = 50.000000000000000000
+            Appearance.Align = Center
+            Appearance.VertAlign = Center
+            Appearance.PlaceOffset.X = 64.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'Screen'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 21.000000000000000000
+            Appearance.Height = 50.000000000000000000
+            Appearance.VertAlign = Center
+          end
+          item
+            AppearanceObjectName = 'ID'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.StyleExt = {00070000000000000004000000}
+            Appearance.Width = 43.000000000000000000
+            Appearance.Height = 50.000000000000000000
+            Appearance.VertAlign = Center
+            Appearance.PlaceOffset.X = 20.000000000000000000
+            Appearance.PlaceOffset.Y = 1.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'LogIn'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.StyleExt = {00070000000000000004000000}
+            Appearance.TextColor = claRed
+            Appearance.Width = 41.000000000000000000
+            Appearance.Height = 50.000000000000000000
+            Appearance.VertAlign = Center
+            Appearance.PlaceOffset.X = 62.000000000000000000
+            Appearance.PlaceOffset.Y = 1.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'LastUserScreen'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 26.000000000000000000
+            Appearance.Height = 50.000000000000000000
+            Appearance.VertAlign = Center
+            Appearance.PlaceOffset.X = 104.000000000000000000
+            Appearance.PlaceOffset.Y = -1.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        CanSwipeDelete = False
+        OnItemClick = UserLVItemClick
+        SearchVisible = True
+        object UserFA: TFloatAnimation
+          AnimationType = InOut
+          Duration = 0.500000000000000000
+          PropertyName = 'Position.Y'
+          StartValue = 0.000000000000000000
+          StopValue = 0.000000000000000000
+        end
+      end
+    end
+    object UserHeaderTB: TToolBar
+      Size.Width = 365.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      TintColor = claWheat
+      object BackUserBtn: TButton
+        Align = Left
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+        TabOrder = 0
+        OnClick = BackUserBtnClick
+      end
+      object RefreshUserBtn: TButton
+        Align = Right
+        Position.X = 317.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'refreshtoolbutton'
+        TabOrder = 1
+        OnClick = RefreshUserBtnClick
+      end
+      object UserHeaderLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family, Size]
+        Position.X = 48.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 269.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        TextSettings.HorzAlign = Center
+        Text = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1080
+        TabOrder = 2
+      end
+    end
   end
   object Images: TImageList
     Source = <

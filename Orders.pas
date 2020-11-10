@@ -242,6 +242,11 @@ type
     procedure TabsOrderGesture(Sender: TObject;
       const EventInfo: TGestureEventInfo; var Handled: Boolean);
     procedure ReestrSynchEditClick(Sender: TObject);
+    procedure ReestrFilterSettingEditClick(Sender: TObject);
+    procedure BrieforgFilterSettingEditClick(Sender: TObject);
+    procedure VidDocFilterSettingEditClick(Sender: TObject);
+    procedure DriverFilterSettingEditClick(Sender: TObject);
+    procedure AgentFilterSettingEditClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
@@ -277,6 +282,12 @@ uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
 { TOrdersForm }
 
 procedure TOrdersForm.AgentFilterSettingBtnClick(Sender: TObject);
+begin
+ //  RefreshAgentsBtnClick(Self);
+ //  PanelView(AgentsLayout, AgentsFA);
+end;
+
+procedure TOrdersForm.AgentFilterSettingEditClick(Sender: TObject);
 begin
    RefreshAgentsBtnClick(Self);
    PanelView(AgentsLayout, AgentsFA);
@@ -332,6 +343,13 @@ begin
 end;
 
 procedure TOrdersForm.BrieforgFilterSettingBtnClick(Sender: TObject);
+begin
+  {BrieforgBS.DataSet.Active := False;
+  BrieforgBS.DataSet.Active := True;
+  PanelView(BrieforgLayout, BrieforgFA);}
+end;
+
+procedure TOrdersForm.BrieforgFilterSettingEditClick(Sender: TObject);
 begin
   BrieforgBS.DataSet.Active := False;
   BrieforgBS.DataSet.Active := True;
@@ -437,6 +455,12 @@ begin
 end;
 
 procedure TOrdersForm.DriverFilterSettingBtnClick(Sender: TObject);
+begin
+  // RefreshDriversBtnClick(Self);
+  // PanelView(DriversLayout, DriversFA);
+end;
+
+procedure TOrdersForm.DriverFilterSettingEditClick(Sender: TObject);
 begin
    RefreshDriversBtnClick(Self);
    PanelView(DriversLayout, DriversFA);
@@ -582,6 +606,19 @@ begin
 end;
 
 procedure TOrdersForm.ReestrFilterSettingBtnClick(Sender: TObject);
+//var
+//    reestrsI: IInterfaceMove;
+begin
+{
+  try
+    ReestrLayout.Parent := OrdersTab;
+    reestrsI := TReestrs.Create;
+    PanelView(ReestrLayout, ReestrsFA);
+  finally
+  end;  }
+end;
+
+procedure TOrdersForm.ReestrFilterSettingEditClick(Sender: TObject);
 var
     reestrsI: IInterfaceMove;
 begin
@@ -880,6 +917,12 @@ begin
 end;
 
 procedure TOrdersForm.VidDocFilterSettingBtnClick(Sender: TObject);
+begin
+//  RefreshVidDocsBtnClick(Self);
+//  PanelView(VidDocsLayout, VidDocsFA);
+end;
+
+procedure TOrdersForm.VidDocFilterSettingEditClick(Sender: TObject);
 begin
   RefreshVidDocsBtnClick(Self);
   PanelView(VidDocsLayout, VidDocsFA);

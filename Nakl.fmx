@@ -63,6 +63,7 @@ object NaklForm: TNaklForm
       end
     end
     object CollectorTB: TToolBar
+      Padding.Right = 30.000000000000000000
       Position.Y = 48.000000000000000000
       Size.Width = 375.000000000000000000
       Size.Height = 48.000000000000000000
@@ -92,6 +93,7 @@ object NaklForm: TNaklForm
         Size.PlatformDefault = False
         StyleLookup = 'detailstoolbutton'
         TabOrder = 1
+        Visible = False
         OnClick = CollectorBtnClick
       end
       object CollectorEdit: TEdit
@@ -104,10 +106,11 @@ object NaklForm: TNaklForm
         TextSettings.HorzAlign = Center
         Position.X = 70.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 257.000000000000000000
+        Size.Width = 275.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         StyledSettings = [Family]
+        OnClick = CollectorEditClick
         object ClearEditButton1: TClearEditButton
           CanFocus = False
           Cursor = crArrow

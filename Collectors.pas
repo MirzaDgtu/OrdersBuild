@@ -38,17 +38,22 @@ begin
 
         if not AppDataRemote.Collectors.IsEmpty then
           try
-             Delete(); // Очистка списка сборщиков из локальной базы
+            AppDataLocal.Connection.StartTransaction;
+            try
+               Delete(); // Очистка списка сборщиков из локальной базы
 
-             AppDataRemote.Collectors.First;
-             AppDataLocal.Connection.StartTransaction;
-             while not AppDataRemote.Collectors.Eof do
-              Begin
-                Add(AppDataRemote.CollectorsUID.AsInteger, AppDataRemote.CollectorsEmployeeName.AsString);
-                AppDataRemote.Collectors.Next();
-              End;
-          except
-            AppDataLocal.Connection.Rollback;
+               AppDataRemote.Collectors.First;
+               AppDataLocal.Connection.StartTransaction;
+               while not AppDataRemote.Collectors.Eof do
+                Begin
+                  Add(AppDataRemote.CollectorsUID.AsInteger, AppDataRemote.CollectorsEmployeeName.AsString);
+                  AppDataRemote.Collectors.Next();
+                End;
+            except
+              AppDataLocal.Connection.Rollback;
+            end;
+          finally
+            AppDataLocal.Connection.Commit;
           end;
       End;
   finally
@@ -58,12 +63,16 @@ end;
 
 procedure TCollectors.Add(UID: integer; Name: string);
 begin
-  AppDataLocal.Connection.StartTransaction;
   try
-    AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorLocal, [UID,
-                                                                        Name]));
-  except
-    AppDataLocal.Connection.Rollback;
+  AppDataLocal.Connection.StartTransaction;
+    try
+      AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorLocal, [UID,
+                                                                          Name]));
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 
@@ -75,11 +84,15 @@ end;
 
 procedure TCollectors.Delete;
 begin
-  AppDataLocal.Connection.StartTransaction;
   try
-    AppDataLocal.Command.Command.Execute(SSQlDeleteCollectors);
-  except
-    AppDataLocal.Connection.Rollback;
+  AppDataLocal.Connection.StartTransaction;
+    try
+      AppDataLocal.Command.Command.Execute(SSQlDeleteCollectors);
+    except
+      AppDataLocal.Connection.Rollback;
+    end;
+  finally
+    AppDataLocal.Connection.Commit;
   end;
 end;
 

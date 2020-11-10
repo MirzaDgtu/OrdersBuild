@@ -53,6 +53,7 @@ type
     procedure SaveNaklBtnClick(Sender: TObject);
     procedure ProductLVUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
+    procedure CollectorEditClick(Sender: TObject);
   private
     FUnicumNumP: integer;
     FNumDocP: integer;
@@ -106,6 +107,18 @@ begin
 end;
 
 procedure TNaklForm.CollectorBtnClick(Sender: TObject);
+//var
+//    Collectors: TCollectors;
+begin
+ { try
+    Collectors := TCollectors.Create();
+    PanelCollectorsView();
+  finally
+    Collectors.Free;
+  end;    }
+end;
+
+procedure TNaklForm.CollectorEditClick(Sender: TObject);
 var
     Collectors: TCollectors;
 begin

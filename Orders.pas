@@ -197,6 +197,17 @@ type
     SummaFactNaklDetailLBi: TListBoxItem;
     SummaRoznNaklDetailLBi: TListBoxItem;
     StatusNaklDetailLBi: TListBoxItem;
+    NumDocNaklDetailLBl: TLabel;
+    JournalNaklDetailLBl: TLabel;
+    BrieforgNaklDetailLBl: TLabel;
+    OrganizaklNaklDetailLBl: TLabel;
+    TypeOperNaklDetailLBl: TLabel;
+    DriverNaklDetailLBl: TLabel;
+    AgentNaklDetailLBl: TLabel;
+    SummaFactNaklDetailLBl: TLabel;
+    SummaRoznNaklDetailLBl: TLabel;
+    StatusNaklDetailLBl: TLabel;
+    FloatAnimation1: TFloatAnimation;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);

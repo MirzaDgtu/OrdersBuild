@@ -37460,6 +37460,54 @@ object OrdersForm: TOrdersForm
         StyleLookup = 'refreshtoolbutton'
         TabOrder = 2
       end
+      object NaklDetailHeadLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family]
+        Position.X = 53.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 269.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        TextSettings.HorzAlign = Center
+        Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1076#1086#1082#1091#1084#1077#1085#1090#1072
+        TabOrder = 3
+      end
+    end
+    object NaklDetailRect: TRectangle
+      Align = Client
+      Fill.Color = claBlack
+      Opacity = 0.699999988079071000
+      Size.Width = 375.000000000000000000
+      Size.Height = 576.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object NaklDetailLB: TListBox
+      Align = VertCenter
+      Position.Y = 205.000000000000000000
+      Size.Width = 375.000000000000000000
+      Size.Height = 261.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      DisableFocusEffect = True
+      ItemHeight = 36.000000000000000000
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 375.000000000000000000
+      Viewport.Height = 261.000000000000000000
+      object NaklDetailLBGH: TListBoxGroupHeader
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Size, Style, FontColor]
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      end
     end
   end
   object IL: TImageList

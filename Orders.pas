@@ -182,6 +182,7 @@ type
     NaklDetailLayout: TLayout;
     NaklDetailHaederTB: TToolBar;
     BackNaklDetailBtn: TButton;
+    RefreshNaklDetailBtn: TButton;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);

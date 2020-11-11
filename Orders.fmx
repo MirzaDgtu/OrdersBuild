@@ -37450,6 +37450,16 @@ object OrdersForm: TOrdersForm
         StyleLookup = 'backtoolbutton'
         TabOrder = 1
       end
+      object RefreshNaklDetailBtn: TButton
+        Align = Right
+        Margins.Right = 5.000000000000000000
+        Position.X = 322.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'refreshtoolbutton'
+        TabOrder = 2
+      end
     end
   end
   object IL: TImageList

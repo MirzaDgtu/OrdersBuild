@@ -118,19 +118,23 @@ begin
     try
       AppDataLocal.Connection.StartTransaction;
       try
-        AppDataLocal.Connection.ExecSQL(SSQLCreateUsers);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateTableSetting);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateStatuses);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersHeader);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersMove);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateProcessedDoc);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateReestrs);
-        AppDataLocal.Connection.ExecSQL(SSQLCreateIcons)
+         try
+            AppDataLocal.Connection.ExecSQL(SSQLCreateUsers);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateTableSetting);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateStatuses);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersHeader);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateOrdersMove);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateProcessedDoc);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateReestrs);
+            AppDataLocal.Connection.ExecSQL(SSQLCreateIcons)
+         except
+           AppDataLocal.Connection.Rollback;
+         end;
       finally
-        AppDataLocal.ConnectionToLocalDB();
+        AppDataLocal.Connection.Commit;
       end;
-    except
-       AppDataLocal.Connection.Rollback;
+    finally
+      AppDataLocal.ConnectionToLocalDB();
     end;
 end;
 
@@ -144,7 +148,6 @@ end;
 
 procedure TLocalDataBase.CreateDB;
 begin
-
 {$IFDEF ANDROID}
   TFile.Create(TPath.Combine(TPath.GetDocumentsPath, 'SqlLiteBase.db'));
 {$ENDIF}

@@ -179,6 +179,9 @@ type
     StyleB: TStyleBook;
     GM: TGestureManager;
     IL32: TImageList;
+    NaklDetailLayout: TLayout;
+    NaklDetailHaederTB: TToolBar;
+    BackNaklDetailBtn: TButton;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);

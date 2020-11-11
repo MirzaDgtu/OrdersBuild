@@ -27,6 +27,7 @@ object NaklForm: TNaklForm
       object BackNaklBtn: TButton
         Align = Left
         IconTintColor = claMediumblue
+        ModalResult = 2
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -182,7 +183,7 @@ object NaklForm: TNaklForm
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claGreen
+          TextSettings.FontColor = claSpringgreen
           TextSettings.HorzAlign = Center
           Text = 'CountBuildProdNaklLbl'
           TabOrder = 1

@@ -9,6 +9,7 @@ type
     public
       procedure Get(out ConnectLocal: TConnectLocal);
       procedure Add(Server, InitialCatalog, Login, Password: string; Port: Int16);
+      procedure setDefaultConnectSetting();
 
       constructor Create(out ConnectLocal: TConnectLocal); overload;
   end;
@@ -22,8 +23,9 @@ uses ModuleDataLocal, SConsts;
 procedure TConnectRemove.Add(Server, InitialCatalog, Login, Password: string;
   Port: Int16);
 begin
+  try
+    AppDataLocal.Connection.StartTransaction;
      try
-        AppDataLocal.Connection.StartTransaction;
         AppDataLocal.Command.SQL.Text := Format(SSQLAddConnectionSetting, [Server,
                                                                            InitialCatalog,
                                                                            Login,
@@ -33,6 +35,9 @@ begin
      except
         AppDataLocal.Connection.Rollback;
      end;
+  finally
+    AppDataLocal.Connection.Commit;
+  end;
 end;
 
 constructor TConnectRemove.Create(out ConnectLocal: TConnectLocal);
@@ -60,6 +65,11 @@ begin
       end;
   finally
   end;
+end;
+
+procedure TConnectRemove.setDefaultConnectSetting;
+begin
+  Add('192.168.0.7\F2012SQL', 'DELIVERY', 'pmp', 'M5i4r6z3a210', 1433);
 end;
 
 end.

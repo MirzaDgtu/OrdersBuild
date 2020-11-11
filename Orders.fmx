@@ -37486,9 +37486,9 @@ object OrdersForm: TOrdersForm
     end
     object NaklDetailLB: TListBox
       Align = VertCenter
-      Position.Y = 205.000000000000000000
+      Position.Y = 136.000000000000000000
       Size.Width = 375.000000000000000000
-      Size.Height = 261.000000000000000000
+      Size.Height = 400.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       DisableFocusEffect = True
@@ -37497,7 +37497,7 @@ object OrdersForm: TOrdersForm
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 375.000000000000000000
-      Viewport.Height = 261.000000000000000000
+      Viewport.Height = 400.000000000000000000
       object NaklDetailLBGH: TListBoxGroupHeader
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.HorzAlign = Center
@@ -37507,6 +37507,146 @@ object OrdersForm: TOrdersForm
         Size.PlatformDefault = False
         TabOrder = 0
         Text = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      end
+      object NumDocNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 36.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = #1053#1086#1084#1077#1088':'
+      end
+      object JournalNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 72.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = #1046#1091#1088#1085#1072#1083':'
+      end
+      object BrieforgNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 108.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076':'
+      end
+      object OrganizaklNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 144.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'OrganizaklNaklDetailLBi'
+      end
+      object TypeOperNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 180.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077':'
+      end
+      object DriverNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 216.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Text = #1042#1086#1076#1080#1090#1077#1083#1100':'
+      end
+      object AgentNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 252.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090':'
+      end
+      object SummaFactNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 288.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 8
+        Text = #1057#1091#1084#1084#1072'('#1092#1072#1082#1090'):'
+      end
+      object SummaRoznNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 324.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+        Text = #1057#1091#1084#1084#1072'('#1088#1086#1079#1085'):'
+      end
+      object StatusNaklDetailLBi: TListBoxItem
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBrown
+        StyledSettings = [Family, Other]
+        Padding.Left = 50.000000000000000000
+        Padding.Right = 30.000000000000000000
+        Position.Y = 360.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 10
+        Text = #1057#1090#1072#1090#1091#1089':'
       end
     end
   end

@@ -187,6 +187,16 @@ type
     NaklDetailRect: TRectangle;
     NaklDetailLB: TListBox;
     NaklDetailLBGH: TListBoxGroupHeader;
+    NumDocNaklDetailLBi: TListBoxItem;
+    JournalNaklDetailLBi: TListBoxItem;
+    BrieforgNaklDetailLBi: TListBoxItem;
+    OrganizaklNaklDetailLBi: TListBoxItem;
+    TypeOperNaklDetailLBi: TListBoxItem;
+    DriverNaklDetailLBi: TListBoxItem;
+    AgentNaklDetailLBi: TListBoxItem;
+    SummaFactNaklDetailLBi: TListBoxItem;
+    SummaRoznNaklDetailLBi: TListBoxItem;
+    StatusNaklDetailLBi: TListBoxItem;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);

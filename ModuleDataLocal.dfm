@@ -481,4 +481,8 @@ object AppDataLocal: TAppDataLocal
       FieldName = 'LastUserScreen'
     end
   end
+  object NTFC: TNotificationCenter
+    Left = 24
+    Top = 240
+  end
 end

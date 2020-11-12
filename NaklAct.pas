@@ -2,7 +2,7 @@ unit NaklAct;
 
 interface
 
-uses Interfaces, System.SysUtils;
+uses Interfaces, System.SysUtils, System.Notification;
 
 type
   TNaklAction = class(TInterfacedObject, IInterfaceMove)
@@ -78,6 +78,7 @@ end;
 class procedure TNaklAction.SaveHeadNakl(Unicum_Num, KolProd, KolProdBuild: integer);
 var
   strReq: string;
+  ntf: TNotification;
 begin
   setHeadNaklDefault(Unicum_Num);
 
@@ -96,6 +97,17 @@ begin
                strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
                TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
                                  CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()));
+
+               ntf := AppDataLocal.NTFC.CreateNotification;
+               try
+                 ntf.Name := 'OrdersBuildNTF';
+                 ntf.Title := 'Сборка документа';
+                 ntf.AlertBody := 'Документ - ' + Unicum_Num.ToString + ' собран!';
+
+                 AppDataLocal.NTFC.PresentNotification(ntf);
+               finally
+                 ntf.DisposeOf;
+               end;
              End
         else
              strReq := Format(SSQLUpdateStatusOrdersHeader, [1, Unicum_Num.ToString]);

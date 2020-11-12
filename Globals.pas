@@ -41,6 +41,19 @@ type
   TNaklRec = record
     UnicumNum: integer;
     NumDoc: integer;
+    JournalNo: integer;
+    BRIEFORG: string;
+    ORGANIZNKL: string;
+    L_CP1_PLAT: string;
+    L_CP2_PLAT: string;
+    VID_DOC: string;
+    SUM_ROZN: string;
+    SUM_POR: string;
+    StrikeCode: string;
+    NAMEP_USER: string;
+    ADRES_USER: string;
+    ProjectName: string;
+    Date_Device: string;
     KolProd: integer;
     KolBuildProd: integer;
     Status: integer;

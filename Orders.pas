@@ -11,7 +11,8 @@ uses
   FMX.DateTimeCtrls, FMX.EditBox, FMX.SpinBox, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
-  System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures;
+  System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures,
+  System.Notification;
 
 type
   TOrdersForm = class(TForm)
@@ -31,7 +32,7 @@ type
     NaklHeaderLbl: TLabel;
     NaklLV: TListView;
     NaklRigthMenuLayout: TLayout;
-    ViewNaklBtn: TSpeedButton;
+    NaklDetailBtn: TSpeedButton;
     IL: TImageList;
     BuildNaklBtn: TSpeedButton;
     SettingFilterBtn: TSpeedButton;
@@ -207,7 +208,7 @@ type
     SummaFactNaklDetailLBl: TLabel;
     SummaRoznNaklDetailLBl: TLabel;
     StatusNaklDetailLBl: TLabel;
-    FloatAnimation1: TFloatAnimation;
+    NaklDetailFA: TFloatAnimation;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -276,19 +277,25 @@ type
     procedure VidDocFilterSettingEditClick(Sender: TObject);
     procedure DriverFilterSettingEditClick(Sender: TObject);
     procedure AgentFilterSettingEditClick(Sender: TObject);
+    procedure NaklDetailBtnClick(Sender: TObject);
+    procedure BackNaklDetailBtnClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
     statusDocLoc: Byte;
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
+
+    procedure PanelViewH(LayoutName: TLayout; FA: TFloatAnimation);
+    procedure PanelHideH(LayoutName: TLayout; FA: TFloatAnimation);
+
     procedure PanelAllHide();
 
     procedure setFilterSettingRecord();
     procedure setGlobalDates(DBegP, DEndP: TDate);
     procedure setOrdersBottomSBInfo();
     procedure setActualDate();
-
+    procedure setNaklDetail();
     procedure correctDP();
 
 
@@ -348,6 +355,11 @@ end;
 procedure TOrdersForm.BackFilterSettingBtnClick(Sender: TObject);
 begin
   PanelHide(FilterSettingLayout, FilterSettingFA);
+end;
+
+procedure TOrdersForm.BackNaklDetailBtnClick(Sender: TObject);
+begin
+  PanelHideH(NaklDetailLayout, NaklDetailFA);
 end;
 
 procedure TOrdersForm.BackReestrFilterSettingBtnClick(Sender: TObject);
@@ -530,6 +542,13 @@ begin
   PanelView(StatistNaklLayout, StatistNaklFA);
 end;
 
+procedure TOrdersForm.NaklDetailBtnClick(Sender: TObject);
+begin
+  setNaklDetail();
+  PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+  PanelViewH(NaklDetailLayout, NaklDetailFA);
+end;
+
 procedure TOrdersForm.NaklLVClick(Sender: TObject);
 begin
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
@@ -553,6 +572,19 @@ begin
      NaklRec.CollectorUID := (IFThen(AItem.Data['CollectorUID'].AsString = EmptyStr, '0', (AItem.Data['CollectorUID'].AsString))).ToInteger;
      NaklRec.Collector := AItem.Data['Collector'].AsString;
      NaklRec.OrderDate := AItem.Data['OrderDate'].AsString;
+     NaklRec.JournalNo := (AItem.Data['JournalNo'].AsString).ToInteger;
+     NaklRec.BRIEFORG  := AItem.Data['BRIEFORG'].AsString;
+     NaklRec.ORGANIZNKL := AItem.Data['ORGANIZNKL'].AsString;
+     NaklRec.L_CP1_PLAT := AItem.Data['L_CP1_PLAT'].AsString;
+     NaklRec.L_CP2_PLAT := AItem.Data['L_CP2_PLAT'].AsString;
+     NaklRec.VID_DOC    := AItem.Data['VID_DOC'].AsString;
+     NaklRec.SUM_ROZN   := AItem.Data['SUM_ROZN'].AsString;
+     NaklRec.SUM_POR    := AItem.Data['SUM_POR'].AsString;
+     NaklRec.StrikeCode := AItem.Data['StrikeCode'].AsString;
+     NaklRec.NAMEP_USER := AItem.Data['NAMEP_USER'].AsString;
+     NaklRec.ADRES_USER := AItem.Data['ADRES_USER'].AsString;
+     NaklRec.ProjectName := AItem.Data['ProjectName'].AsString;
+
    finally
      PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
    end;
@@ -580,6 +612,17 @@ begin
    FA.Start;
 end;
 
+procedure TOrdersForm.PanelHideH(LayoutName: TLayout; FA: TFloatAnimation);
+begin
+  try
+    FA.Inverse := True;
+    FA.StartValue := Self.Width;
+    FA.Start;
+  finally
+    LayoutName.Visible := False;
+  end;
+end;
+
 procedure TOrdersForm.PanelView(LayoutName: TLayout; FA: TFloatAnimation);
 begin
   LayoutName.Height := Self.Height + 30;
@@ -588,6 +631,19 @@ begin
   FA.Inverse := False;
   FA.StartValue := Self.Height + 30;
   FA.Start;
+end;
+
+procedure TOrdersForm.PanelViewH(LayoutName: TLayout; FA: TFloatAnimation);
+begin
+  try
+    LayoutName.Width := Self.Width;
+    LayoutName.Visible := True;
+
+    FA.Inverse := False;
+    FA.StartValue := Self.Width;
+  finally
+    FA.Start;
+  end;
 end;
 
 procedure TOrdersForm.PrevTabBtnClick(Sender: TObject);
@@ -834,10 +890,9 @@ begin
       FilterLocal.Agent := IfThen(AgentFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND L_CP1_PLAT = ' +  QuotedStr(AgentFilterSettingEdit.Text));
 
       case TypeBuildCombo.ItemIndex of
-        0: FilterLocal.BuildStr := EmptyStr;
-        1: FilterLocal.BuildStr := ' AND Status = 0';
-        2: FilterLocal.BuildStr := ' AND Status = 1';
-        3: FilterLocal.BuildStr := ' AND Status = 2';
+        0,1: FilterLocal.BuildStr := EmptyStr;
+        2: FilterLocal.BuildStr := ' AND Status = 2';
+        3: FilterLocal.BuildStr := ' AND Status = 3';
       end;
 
     finally
@@ -855,6 +910,25 @@ procedure TOrdersForm.setGlobalDates(DBegP, DEndP: TDate);
 begin
     DatesLocal.DBeg := DBegP;
     DatesLocal.DEnd := DEndP;
+end;
+
+procedure TOrdersForm.setNaklDetail;
+begin
+    NumDocNaklDetailLBl.Text := NaklRec.NumDoc.ToString;
+    JournalNaklDetailLBl.Text := NaklRec.JournalNo.ToString;
+    BrieforgNaklDetailLBl.Text := NaklRec.BRIEFORG;
+    OrganizaklNaklDetailLBl.Text := NaklRec.ORGANIZNKL;
+    TypeOperNaklDetailLBl.Text := NaklRec.VID_DOC;
+    DriverNaklDetailLBl.Text :=  NaklRec.L_CP2_PLAT;
+    AgentNaklDetailLBl.Text := NaklRec.L_CP1_PLAT;
+    SummaFactNaklDetailLBl.Text := NaklRec.SUM_ROZN;
+    SummaRoznNaklDetailLBl.Text := NaklRec.SUM_POR;
+
+    case NaklRec.Status of
+      0, 1: StatusNaklDetailLBl.Text := 'Не собран';
+      2:    StatusNaklDetailLBl.Text := 'Не завершен';
+      3:    StatusNaklDetailLBl.Text := 'Собран';
+    end;
 end;
 
 procedure TOrdersForm.setOrdersBottomSBInfo();

@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait,
   Data.DB, FireDAC.Comp.Client, FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef,
   FireDAC.Stan.ExprFuncs, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.UI, System.IOUtils;
+  FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.UI, System.IOUtils,
+  System.Notification;
 
 type
   TAppDataLocal = class(TDataModule)
@@ -143,6 +144,7 @@ type
     UsersLastUser: TSmallintField;
     UsersScreen: TBlobField;
     UsersLastUserScreen: TBlobField;
+    NTFC: TNotificationCenter;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

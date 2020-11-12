@@ -102,7 +102,7 @@ begin
                try
                  ntf.Name := 'OrdersBuildNTF';
                  ntf.Title := 'Сборка документа';
-                 ntf.AlertBody := 'Документ - ' + Unicum_Num.ToString + ' собран!';
+                 ntf.AlertBody := 'Документ - ' + NaklRec.NumDoc.ToString + ' собран!';
 
                  AppDataLocal.NTFC.PresentNotification(ntf);
                finally

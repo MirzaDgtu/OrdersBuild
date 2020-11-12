@@ -978,18 +978,33 @@ end;
 procedure TOrdersForm.SynchBtnClick(Sender: TObject);
 var
     exchanger: TExcangerNakl;
+    task: ITask;
 begin
-  exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
-  try
     try
-      exchanger.start();
-    except
-      on Ex: Exception do
-        ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
+      task := TTask.Create(procedure()
+                           Begin
+                              exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
+                              try
+                                try
+                                  exchanger.start();
+                                  Sleep(3000);
+                                except
+                                  on Ex: Exception do
+                                    Begin
+                                      exchanger.Destroy;
+                                      if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
+                                        task.Cancel;
+                                      ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
+                                    End;
+                                end;
+                              finally
+                                 exchanger.Destroy;
+                              end;
+                           End);
+      task.Start;
+    finally
     end;
-  except
-      exchanger.Destroy;
-  end;
+
 end;
 
 procedure TOrdersForm.SynchRectGesture(Sender: TObject;

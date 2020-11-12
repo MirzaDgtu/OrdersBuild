@@ -273,7 +273,7 @@ procedure TExcangerNakl.pushNaklMoveLocalToRemote(UnicumNum: integer);
     if UnicumNum > 0 then
       try
         AppDataLocal.OrdersMoveLoad.Active := False;
-        AppDataLocal.OrdersMoveLoad.Active := Format(SSQLGetOrdersMove + ' AND Status = 1', [UnicumNum]);
+        AppDataLocal.OrdersMoveLoad.SQL.Text := Format(SSQLGetOrdersMove, [UnicumNum]) + ' AND Status = 1 ';
         AppDataLocal.OrdersMoveLoad.Active := True;    
       finally
         AppDataLocal.OrdersMoveLoad.First;  
@@ -325,7 +325,7 @@ begin
     // Сначала отправить обработанные наклданые на уделнный сервер
     // После очистить таблицы с шапками и деталями накладных
     // Потом получить с удаленного сервера документы с детализацией
-
+    pushNaklHeadLocalToRemote();
     clearNaklHeadLocal();
     clearNaklMoveLocal();
     addNaklHeadRemoteToLocal();

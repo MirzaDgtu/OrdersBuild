@@ -230,18 +230,79 @@ begin
 end;
 
 procedure TExcangerNakl.pushNaklHeadLocalToRemote(UnicumNum: integer);
-begin
-    //
-end;
-
-procedure TExcangerNakl.pushNaklHeadLocalToRemote;
-begin
+Begin
   //
 end;
 
-procedure TExcangerNakl.pushNaklMoveLocalToRemote(UnicumNum: integer);
+procedure TExcangerNakl.pushNaklHeadLocalToRemote;
+  procedure getOrdersBuildNakl();
+  Begin
+    AppDataLocal.OrdersHeadLoad.Active := False;
+    AppDataLocal.OrdersHeadLoad.SQL.Text := SSQLGetOrdersHeaderLocal + ' WHERE Status > 1';
+    AppDataLocal.OrdersHeadLoad.Active := True;
+    AppDataLocal.OrdersHeadLoad.First;
+  end;
 begin
-    //
+  getOrdersBuildNakl();
+
+  if not AppDataLocal.OrdersHeadLoad.IsEmpty then
+    try
+      AppDataRemote.Connection.Transactions[0].StartTransaction;
+      while not AppDataLocal.OrdersHeadLoad.Eof do
+        try
+           AppDataRemote.Command.SQL.Text := Format(SSQLLoadNaclAudit, [AppDataLocal.OrdersHeadLoad.FieldByName('FolioUID').AsInteger,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('OrderUID').AsInteger,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('OrderDate').AsString,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Status').AsInteger,
+                                                                        CurrentUser.ID,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Date_Device').AsString]);
+           AppDataRemote.Command.ExecSQL;
+           pushNaklMoveLocalToRemote(AppDataLocal.OrdersHeadLoad.FieldByName('FolioUID').AsInteger);
+           AppDataLocal.OrdersHeadLoad.Next;
+        except
+           AppDataRemote.Connection.Transactions[0].Rollback;
+        end;
+    finally
+      AppDataRemote.Connection.Transactions[0].Commit;
+    end;
+end;
+
+procedure TExcangerNakl.pushNaklMoveLocalToRemote(UnicumNum: integer);
+  procedure getNaklDetail(UnicumNum: integer);
+  Begin
+    if UnicumNum > 0 then
+      try
+        AppDataLocal.OrdersMoveLoad.Active := False;
+        AppDataLocal.OrdersMoveLoad.Active := Format(SSQLGetOrdersMove + ' AND Status = 1', [UnicumNum]);
+        AppDataLocal.OrdersMoveLoad.Active := True;    
+      finally
+        AppDataLocal.OrdersMoveLoad.First;  
+      End;
+  End;
+begin
+    getNaklDetail(UnicumNum);
+    
+    if not AppDataLocal.OrdersMoveLoad.IsEmpty then    
+    try
+      AppDataRemote.Connection.Transactions[0].StartTransaction;
+      while not AppDataLocal.OrdersMoveLoad.Eof do      
+        try
+          AppDataRemote.Command.SQL.Text := Format(SSQLLoadMoveAudit, [UnicumNum,
+                                                                       AppDataLocal.OrdersHeadLoad.FieldByName('OrderUID').AsInteger,
+                                                                       AppDataLocal.OrdersMoveLoad.FieldByName('Article').AsString,
+                                                                       AppDataLocal.OrdersMoveLoad.FieldByName('StrikeCode').AsString,
+                                                                       AppDataLocal.OrdersMoveLoad.FieldByName('Qty').AsString,
+                                                                       AppDataLocal.OrdersMoveLoad.FieldByName('Status').AsInteger,
+                                                                       CurrentUser.ID,
+                                                                       AppDataLocal.OrdersMoveLoad.FieldByName('Date_Device').AsString]);
+          AppDataRemote.Command.ExecSql; 
+          AppDataLocal.OrdersMoveLoad.Next;        
+        except
+          AppDataRemote.Connection.Transactions[0].Rollback;
+        end;
+    finally
+      AppDataRemote.Connection.Transactions[0].Commit;
+    end;
 end;
 
 procedure TExcangerNakl.SetBegD(const Value: TDate);

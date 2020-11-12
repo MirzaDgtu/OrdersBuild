@@ -250,6 +250,8 @@ resourcestring
                                      'WHERE FolioUID = %d ';                                              //-----*********-----//
 
 
+
+
       SSQLGetCountOrdersHeader          = 'SELECT count(UID) as ''CountNacl::SMALLINT'', ' +              //----******************************--//
                                                  '(SELECT COUNT(Status) ' +                               //----Получение количества накладных--//
                                                  'FROM OrdersHeader ' +                                   //-------и собранных  накладных-------//
@@ -334,6 +336,10 @@ resourcestring
     SSQLGetCollectorsOrdersBuild = 'EXEC STOREHOUSE..O_GetCollectorsOrdersBuild';                         // Получение списка сборщиков
     SSQLGetJournalOrders         = 'EXEC DELIVERY..A_GetJournalOrders ''%s'', ''%s'', ''%s''';            // Список накладных
     SSQLGetPrintOrderDetails     = 'EXEC DELIVERY..A_GetPrintOrderDetails %d';                            // Детализация документа
+
+    SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, %d, ''%s''';                   // --Headers-- //
+    SSQLLoadMoveAudit                 = 'EXEC DELIVERY..S_LoadMoveAudit %d, %d, ''%s'', ''%s'', ''%s'', %d, %d, ''%s''';   // ---Moves---//
+
 implementation
 
 end.

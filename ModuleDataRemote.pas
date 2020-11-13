@@ -91,6 +91,15 @@ type
     Collectors: TUniQuery;
     CollectorsUID: TIntegerField;
     CollectorsEmployeeName: TStringField;
+    ProcessedDoc: TUniQuery;
+    ProcessedDocFolioUID: TFloatField;
+    ProcessedDocDATE_P_POR: TDateTimeField;
+    ProcessedDocKeeper: TStringField;
+    ProcessedDocKeeperUID: TIntegerField;
+    ProcessedDocCollector: TStringField;
+    ProcessedDocCollectorUID: TIntegerField;
+    ProcessedDocOrderBuidDate: TDateField;
+    ProcessedDocStatus: TIntegerField;
   private
     { Private declarations }
   public

@@ -336,7 +336,11 @@ resourcestring
     SSQLGetCollectorsOrdersBuild = 'EXEC STOREHOUSE..O_GetCollectorsOrdersBuild';                         // Получение списка сборщиков
     SSQLGetJournalOrders         = 'EXEC DELIVERY..A_GetJournalOrders ''%s'', ''%s'', ''%s''';            // Список накладных
     SSQLGetPrintOrderDetails     = 'EXEC DELIVERY..A_GetPrintOrderDetails %d';                            // Детализация документа
+    SSQLGetProcessedDocs         = 'EXEC DELIVeRY..S_GetProcessedDocs ''%s'', ''%s''';                    // Получить список отработанных документов
 
+
+
+    SSQLInsProcessedDoc = 'EXEC DELIVERY..S_InsProcessedDoc ''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d';
     SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, %d, ''%s''';                   // --Headers-- //
     SSQLLoadMoveAudit                 = 'EXEC DELIVERY..S_LoadMoveAudit %d, %d, ''%s'', ''%s'', ''%s'', %d, %d, ''%s''';   // ---Moves---//
 

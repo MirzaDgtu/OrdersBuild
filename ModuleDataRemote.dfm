@@ -331,7 +331,7 @@ object AppDataRemote: TAppDataRemote
   end
   object Collectors: TUniQuery
     Connection = Connection
-    Left = 64
+    Left = 80
     Top = 72
     object CollectorsUID: TIntegerField
       FieldName = 'UID'
@@ -339,6 +339,37 @@ object AppDataRemote: TAppDataRemote
     object CollectorsEmployeeName: TStringField
       FieldName = 'EmployeeName'
       Size = 50
+    end
+  end
+  object ProcessedDoc: TUniQuery
+    Connection = Connection
+    Left = 80
+    Top = 120
+    object ProcessedDocFolioUID: TFloatField
+      FieldName = 'FolioUID'
+    end
+    object ProcessedDocDATE_P_POR: TDateTimeField
+      FieldName = 'DATE_P_POR'
+    end
+    object ProcessedDocKeeper: TStringField
+      FieldName = 'Keeper'
+      Size = 50
+    end
+    object ProcessedDocKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object ProcessedDocCollector: TStringField
+      FieldName = 'Collector'
+      Size = 50
+    end
+    object ProcessedDocCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
+    end
+    object ProcessedDocOrderBuidDate: TDateField
+      FieldName = 'OrderBuidDate'
+    end
+    object ProcessedDocStatus: TIntegerField
+      FieldName = 'Status'
     end
   end
 end

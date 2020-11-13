@@ -986,7 +986,7 @@ begin
                               exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
                               try
                                 try
-                                  exchanger.start();
+                                  exchanger.pushNaklHeadLocalToRemote;
                                   Sleep(3000);
                                 except
                                   on Ex: Exception do

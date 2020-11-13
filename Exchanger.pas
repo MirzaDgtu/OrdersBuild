@@ -23,6 +23,7 @@ type
 
     procedure clearNaklHeadLocal();                             // Очистка шапок накладной локальной базы данных
     procedure clearNaklMoveLocal();                             // Очистка детализации накладных локальной базы данных
+    procedure clearProcessedDocLocal();                         // Очистка отработанных документов
 
     procedure addNaklHeadRemoteToLocal();                       // Добавление документов в локальную БД полученных с удаленного сервера
     procedure addNaklMoveRemoteToLocal(UnicumNum: integer);     // Добавление деталихцаии документа в локальную БД полученных с уделенного сервера
@@ -30,6 +31,8 @@ type
     procedure pushNaklHeadLocalToRemote(); overload;                   // Отправление собранных документов с локальной БД на удаленный сервер
     procedure pushNaklHeadLocalToRemote(UnicumNum: integer); overload; // Отправление собранного документа с локальной БД на удаленный сервер
     procedure pushNaklMoveLocalToRemote(UnicumNum: integer);           // Отправление детализации документа с локальной БД на удаленный сервер
+    procedure pushProcessedDocLocalToRemote(); overload;                  // Отправка отработанных документов с локального сервера на удаленный сервер
+    procedure pushProcessedDocLocalToRemote(BegD, EndD: TDate); overload; // Отправка отработанных документов с локального сервера на удаленный сервер
 
     procedure start();
 
@@ -44,7 +47,7 @@ type
 
 implementation
 
-uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote;
+uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote, ProcessedDoc;
 
 { TExcangerNakl }
 
@@ -129,7 +132,6 @@ procedure TExcangerNakl.clearNaklHeadLocal;
 begin
   try
     AppDataLocal.Connection.StartTransaction;
-
     try
       AppDataLocal.Command.Command.Execute(SSQLClearOrdersHeadLocal);  // очистит локальную БД от всех записей документов
     except
@@ -238,7 +240,7 @@ procedure TExcangerNakl.pushNaklHeadLocalToRemote;
   procedure getOrdersBuildNakl();
   Begin
     AppDataLocal.OrdersHeadLoad.Active := False;
-    AppDataLocal.OrdersHeadLoad.SQL.Text := SSQLGetOrdersHeaderLocal + ' WHERE Status > 1';
+    AppDataLocal.OrdersHeadLoad.SQL.Text := SSQLGetOrdersHeaderLocal + ' WHERE IfNull(H.Status, 0) > 1';
     AppDataLocal.OrdersHeadLoad.Active := True;
     AppDataLocal.OrdersHeadLoad.First;
   end;
@@ -284,7 +286,7 @@ begin
     
     if not AppDataLocal.OrdersMoveLoad.IsEmpty then    
     try
-      AppDataRemote.Connection.Transactions[0].StartTransaction;
+      //AppDataRemote.Connection.Transactions[0].StartTransaction;
       while not AppDataLocal.OrdersMoveLoad.Eof do      
         try
           AppDataRemote.Command.SQL.Text := Format(SSQLLoadMoveAudit, [UnicumNum,
@@ -298,10 +300,8 @@ begin
           AppDataRemote.Command.ExecSql; 
           AppDataLocal.OrdersMoveLoad.Next;        
         except
-          AppDataRemote.Connection.Transactions[0].Rollback;
         end;
     finally
-      AppDataRemote.Connection.Transactions[0].Commit;
     end;
 end;
 

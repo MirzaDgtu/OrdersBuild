@@ -145,6 +145,17 @@ type
     UsersScreen: TBlobField;
     UsersLastUserScreen: TBlobField;
     NTFC: TNotificationCenter;
+    ProcessedDocLoad: TFDQuery;
+    IntegerField9: TIntegerField;
+    FloatField11: TFloatField;
+    StringField16: TStringField;
+    IntegerField10: TIntegerField;
+    StringField17: TStringField;
+    IntegerField11: TIntegerField;
+    BlobField3: TBlobField;
+    WideMemoField3: TWideMemoField;
+    WideMemoField4: TWideMemoField;
+    ProcessedDocLoadStatus: TIntegerField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

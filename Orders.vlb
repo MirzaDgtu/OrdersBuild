@@ -47,8 +47,7 @@ Coordinates=1599,1182,137,58
 Coordinates=2823,1474,76,36
 
 [AppDataLocal.Users]
-Coordinates=907,645,132,36
-Visible=False
+Coordinates=1049,655,132,36
 
 [ReestrFilterSettingBtn]
 Coordinates=2143,1014,141,58
@@ -528,9 +527,6 @@ Coordinates=118,769,52,36
 
 [AppDataLocal.OrdersMoveLoad]
 Coordinates=613,10,198,366
-
-[SignForm.UsersBS]
-Coordinates=1049,776,124,212
 
 [AppDataLocal.OrdersHeadLoad]
 Coordinates=390,10,197,630

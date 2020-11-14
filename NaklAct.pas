@@ -90,13 +90,17 @@ begin
 
         if (KolProd > KolProdBuild) and
            (KolProdBuild > 0) then
-             strReq := Format(SSQLUpdateStatusOrdersHeader, [2,  Unicum_Num.ToString])
+            Begin
+             strReq := Format(SSQLUpdateStatusOrdersHeader, [2,  Unicum_Num.ToString]);
+               TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
+                                 CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()), 2);
+            End
         else if (KolProdBuild > 0) and
                 (KolProd = KolProdBuild) then
              Begin
                strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
                TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
-                                 CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()));
+                                 CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()), 3);
 
                ntf := AppDataLocal.NTFC.CreateNotification;
                try

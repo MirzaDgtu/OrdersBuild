@@ -485,4 +485,43 @@ object AppDataLocal: TAppDataLocal
     Left = 24
     Top = 240
   end
+  object ProcessedDocLoad: TFDQuery
+    Connection = Connection
+    Left = 280
+    Top = 120
+    object IntegerField9: TIntegerField
+      FieldName = 'UID'
+    end
+    object FloatField11: TFloatField
+      FieldName = 'FolioUID'
+    end
+    object StringField16: TStringField
+      FieldName = 'Keeper'
+      Size = 50
+    end
+    object IntegerField10: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object StringField17: TStringField
+      FieldName = 'Collector'
+      Size = 50
+    end
+    object IntegerField11: TIntegerField
+      FieldName = 'CollectorUID'
+    end
+    object BlobField3: TBlobField
+      FieldName = 'Screen'
+    end
+    object WideMemoField3: TWideMemoField
+      FieldName = 'OrderBuildDate'
+      BlobType = ftWideMemo
+    end
+    object WideMemoField4: TWideMemoField
+      FieldName = 'OrderDatePD'
+      BlobType = ftWideMemo
+    end
+    object ProcessedDocLoadStatus: TIntegerField
+      FieldName = 'Status'
+    end
+  end
 end

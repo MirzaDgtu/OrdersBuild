@@ -144,8 +144,12 @@ resourcestring
                                        'PD.CollectorUID, ' +                                              //---Получение списка собранных накладных---//
                                        'PD.OrderBuildDate, ' +                                            //---выбранный сборщиком---//
                                        'I.Screen ' +                                                      //-----************-----//
-                                    'FROM ProcessedDoc PD' +                                              //-----************-----//
-                                    ' LEFT JOIN Icons I ON I.UID = 24 ' +                                 //-----************-----//
+                                    'FROM ProcessedDoc PD ' +                                             //-----************-----//
+                                    'left join Icons I ON I.UID = (SELECT CASE WHEN IfNull(PD.Status,0) = 0 THEN 7 ' +   //-----*******************-----//
+                                                                           'WHEN IfNull(PD.Status,0) = 1 THEN 7 ' +       //-----*******************-----//
+                                                                           'WHEN IfNull(PD.Status, 0) = 2 THEN 26 ' +     //-----*******************-----//
+                                                                           'WHEN IfNull(PD.Status, 0) = 3 THEN 24 ' +     //-----*******************-----//
+                                                                           'END) ' +                                      //-----*******************-----//
                                     'WHERE CollectorUID = %d  ' +                                         //-----************-----//
                                     'ORDER BY PD.FolioUID';                                               //-----************-----//
 
@@ -164,12 +168,13 @@ resourcestring
       SSQLGetCollectCountOrdersOverride = 'SELECT DISTINCT CollectorUID, ' +                                      //-----************-----//
                                                  ' Collector, ' +                                         //-----************-----//
                                                  ' COUNT(FolioUID)as "DocKol::INT", ' +                   //-----************-----//
-                                                 ' I.Screen ' +                                           //---Получение списка сборщиков
+                                                 ' I.Screen, ' +                                          //---Получение списка сборщиков
+                                                 ' Status ' +                                             //-----************-----//
                                   'FROM ProcessedDoc ' +                                                  //---и количества собранных заявок
-                                  '  LEFT JOIN Icons I ON I.UID = 22 ' +                                  //-----************-----//
-                                  'GROUP BY CollectorUID, ' +                                                   //-----************-----//
-                                           'Collector, ' +                                                //-----************-----//
-                                           'I.Screen ';                                                   //-----************-----//
+                                  '  LEFT JOIN Icons I ON I.UID = 22 ';                                   //-----************-----//
+                                 // 'GROUP BY CollectorUID, ' +                                             //-----************-----//
+                                 //          'Collector, ' +                                                //-----************-----//
+                                 //          'I.Screen ';                                                   //-----************-----//
 
       SSQLGetCollectOrdersAtCollectUID = 'SELECT DISTINCT CollectorUID, ' +                               //-----************-----//
                                                  ' Collector, ' +                                         //-----************-----//
@@ -252,11 +257,12 @@ resourcestring
 
 
 
-      SSQLGetCountOrdersHeader          = 'SELECT count(UID) as ''CountNacl::SMALLINT'', ' +              //----******************************--//
-                                                 '(SELECT COUNT(Status) ' +                               //----Получение количества накладных--//
-                                                 'FROM OrdersHeader ' +                                   //-------и собранных  накладных-------//
-                                                 'WHERE Status = 3) as ''CountBuild::SMALLINT'' ' +       //----******************************--//
-                                          'FROM OrdersHeader';                                            //----******************************--//
+      SSQLGetCountOrdersHeader          = 'SELECT count(H.UID) as ''CountNacl::SMALLINT'', ' +
+                                          '      (SELECT COUNT (H1.UID) ' +
+                                          '       FROM OrdersHeader H1 ' +
+                                          '       WHERE H1.Status = 3 AND ' +
+                                          '             H1.UID = H.UID) as ''CountBuild::SMALLINT'' ' +
+                                          'FROM OrdersHeader H ';
 
 
       SSQLUpdateStatusOrdersHeader      = 'UPDATE OrdersHeader ' +                                        //------*******************-----//

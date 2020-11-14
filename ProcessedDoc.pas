@@ -11,7 +11,7 @@ type
     procedure Add; overload;
     class procedure Add(Unicum_Num: integer; OrderDatePD: string;
       Keeper: string; KeeperUID: integer;
-      Collector: string; CollectorUID: integer; OrderBuildDate: string); overload;
+      Collector: string; CollectorUID: integer; OrderBuildDate: string; Status: integer); overload;
 
     procedure Delete; overload;
     class procedure Delete(Unicum_Num: integer); overload;
@@ -40,7 +40,7 @@ end;
 
 class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;
   Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer;
-  OrderBuildDate: string);
+  OrderBuildDate: string; Status: integer);
 begin
 
     try
@@ -54,7 +54,7 @@ begin
                                                                             Collector,
                                                                             CollectorUID,
                                                                             FormatDateTime('yyyy-mm-dd', Now),
-                                                                            3]));
+                                                                            Status]));
       except
         AppDataLocal.Connection.Rollback;
       end;

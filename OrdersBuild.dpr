@@ -20,7 +20,10 @@ uses
   ProcessedDoc in 'ProcessedDoc.pas',
   ModuleDataRemote in 'ModuleDataRemote.pas' {AppDataRemote: TDataModule},
   RangeDate in 'RangeDate.pas' {RangeForm},
-  Exchanger in 'Exchanger.pas';
+  Exchanger in 'Exchanger.pas',
+  JsonableObject in 'JsonableObject.pas',
+  XSuperObject in 'SQLRequests\KrapotkinLV\x-superobject\XSuperObject.pas',
+  XSuperJSON in 'SQLRequests\KrapotkinLV\x-superobject\XSuperJSON.pas';
 
 {$R *.res}
 

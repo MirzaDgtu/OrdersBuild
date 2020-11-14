@@ -39,7 +39,7 @@ end;
 
 class procedure TStatist.Get(CollectorUID: integer);
 begin
-  //TODO -opmp: Получить список собранных накладных сборщиком
+  //DONE -opmp: Получить список собранных накладных сборщиком
   try
     AppDataLocal.CollectorOrders.SQL.Text := (Format(SSQLGetCollectorOrders, [CollectorUID]));
     AppDataLocal.CollectorOrders.Active := True;
@@ -55,8 +55,8 @@ begin
     AppDataLocal.CollectorBuild.SQL.Text := SSQLGetCollectCountOrdersOverride;
     AppDataLocal.CollectorBuild.Active := True;
   except
+    AppDataLocal.CollectorBuild.Active := False;
   end;
-
 end;
 
 end.

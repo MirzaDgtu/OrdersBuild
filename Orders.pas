@@ -235,7 +235,6 @@ type
     procedure RefreshVidDocsBtnClick(Sender: TObject);
     procedure VidDocsLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
-    procedure VidDocFilterSettingBtnClick(Sender: TObject);
     procedure DriverFilterSettingBtnClick(Sender: TObject);
     procedure RefreshDriversBtnClick(Sender: TObject);
     procedure AgentFilterSettingBtnClick(Sender: TObject);
@@ -279,9 +278,11 @@ type
     procedure AgentFilterSettingEditClick(Sender: TObject);
     procedure NaklDetailBtnClick(Sender: TObject);
     procedure BackNaklDetailBtnClick(Sender: TObject);
+    procedure TypeBuildComboChange(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
+    strRequesCountDoc: string;
     statusDocLoc: Byte;
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
@@ -877,10 +878,11 @@ end;
 procedure TOrdersForm.setFilterSettingRecord;
 begin
   strReques := EmptyStr;
+  strRequesCountDoc := EmptyStr;
 
   try
     try
-      FilterLocal.JournalNo := IfThen(JournalSpin.Value = 0, EmptyStr, ' AND JournalNo = ' + QuotedStr(((JournalSpin.Value). ToString)));
+      FilterLocal.JournalNo := IfThen(JournalSpin.Value = 0, EmptyStr, ' AND JournalNo = ' + QuotedStr(((JournalSpin.Value).ToString)));
       FilterLocal.DBeg := BegDate.Date;
       FilterLocal.DEnd := EndDate.Date;
       FilterLocal.Reestr := IfThen(ReestrFilterSettingEdit.Text = EmptyStr, EmptyStr, ' AND ProjectName = ' +  QuotedStr(ReestrFilterSettingEdit.Text));
@@ -891,13 +893,15 @@ begin
 
       case TypeBuildCombo.ItemIndex of
         0,1: FilterLocal.BuildStr := EmptyStr;
-        2: FilterLocal.BuildStr := ' AND Status = 2';
-        3: FilterLocal.BuildStr := ' AND Status = 3';
+        2: FilterLocal.BuildStr := ' AND H.Status = 2 ';
+        3: FilterLocal.BuildStr := ' AND H.Status = 3 ';
       end;
 
     finally
       strReques := SSQLGetOrdersHeaderLocal + ' WHERE OrderDate BETWEEN ' + QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DBeg)) + ' AND ' + QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DEnd)) +
-                   FilterLocal.JournalNo + FilterLocal.Reestr + FilterLocal.Brieforg + FilterLocal.VidDoc + FilterLocal.Driver + FilterLocal.Agent;
+                   FilterLocal.JournalNo + FilterLocal.Reestr + FilterLocal.Brieforg + FilterLocal.VidDoc + FilterLocal.Driver + FilterLocal.Agent + FilterLocal.BuildStr;
+      strRequesCountDoc :=  SSQLGetCountOrdersHeader + ' WHERE OrderDate BETWEEN ' + QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DBeg)) + ' AND ' + QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DEnd)) +
+                   FilterLocal.JournalNo + FilterLocal.Reestr + FilterLocal.Brieforg + FilterLocal.VidDoc + FilterLocal.Driver + FilterLocal.Agent + FilterLocal.BuildStr;
 
       RefreshNaklBtnClick(Self);
     end;
@@ -935,8 +939,13 @@ procedure TOrdersForm.setOrdersBottomSBInfo();
 begin
   try
      try
+      if strRequesCountDoc.IsEmpty then
+         strRequesCountDoc := SSQLGetCountOrdersHeader + ' WHERE OrderDate BETWEEN ' +
+                                                  QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DBeg)) + ' AND ' +
+                                                  QuotedStr(FormatDateTime('yyyy-mm-dd', FilterLocal.DEnd));
+
        AppDataLocal.EveryOne.Active := False;
-       AppDataLocal.EveryOne.SQL.Text := SSQLGetCountOrdersHeader;
+       AppDataLocal.EveryOne.SQL.Text := strRequesCountDoc;
        AppDataLocal.EveryOne.Active := True;
      finally
        KolDocLbl.Text := Format('Документов: %d', [AppDataLocal.EveryOne.FieldByName('CountNacl').AsInteger]);
@@ -957,6 +966,7 @@ end;
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
 begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
+
 end;
 
 procedure TOrdersForm.StatistLVGesture(Sender: TObject;
@@ -1034,10 +1044,9 @@ begin
     end;
 end;
 
-procedure TOrdersForm.VidDocFilterSettingBtnClick(Sender: TObject);
+procedure TOrdersForm.TypeBuildComboChange(Sender: TObject);
 begin
-//  RefreshVidDocsBtnClick(Self);
-//  PanelView(VidDocsLayout, VidDocsFA);
+  NaklRec.Status := TypeBuildCombo.ItemIndex;
 end;
 
 procedure TOrdersForm.VidDocFilterSettingEditClick(Sender: TObject);

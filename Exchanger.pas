@@ -156,6 +156,19 @@ begin
   end;
 end;
 
+procedure TExcangerNakl.clearProcessedDocLocal;
+var
+    pd: TProcessedDoc;
+begin
+  pd := TProcessedDoc.Create;
+
+  try
+     pd.Delete;     // Очистит локальную базу от всех записей отработанных документов
+  finally
+    pd.DisposeOf;
+  end;
+end;
+
 constructor TExcangerNakl.Create(DBeg, DEnd: TDate; Reestr: string);
 begin
   inherited Create;
@@ -302,6 +315,51 @@ begin
         except
         end;
     finally
+    end;
+end;
+
+procedure TExcangerNakl.pushProcessedDocLocalToRemote;
+begin
+
+end;
+
+procedure TExcangerNakl.pushProcessedDocLocalToRemote(BegD, EndD: TDate);
+  procedure getProcessedDoc(BegD, EndD: TDate);
+  Begin
+    try
+      AppDataLocal.ProcessedDocLoad.Active := False;
+      AppDataLocal.ProcessedDocLoad.SQL.Text := SSQLGetCollectCountOrdersOverride + ' WHERE ' + FormatDateTime('yyyy-mm-dd', BegD) +
+                                                                                  ' AND ' + FormatDateTime('yyyy-mm-dd', EndD);
+      AppDataLocal.ProcessedDocLoad.Active := True;
+    except
+      AppDataLocal.ProcessedDocLoad.Active := False;
+    end;
+  End;
+begin
+   getProcessedDoc(BegD, EndD);
+
+   if (AppDataLocal.ProcessedDocLoad.Active) and
+      (not AppDataLocal.ProcessedDocLoad.IsEmpty) then
+    try
+      AppDataRemote.Connection.Transactions[0].StartTransaction;
+
+      try
+        while not AppDataLocal.ProcessedDocLoad.Eof do
+          Begin
+            AppDataRemote.Command.SQL.Text := Format(SSQLInsProcessedDoc, [AppDataLocal.ProcessedDocLoad.FieldByName('FolioUID').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('OrderDatePD').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('Keeper').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('KeeperUID').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('Collector').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('CollectorUID').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('OrderBuildDate').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('Status').AsInteger]);
+          end;
+      except
+        AppDataRemote.Connection.Transactions[0].Rollback;
+      end;
+    finally
+      AppDataRemote.Connection.Transactions[0].Commit;
     end;
 end;
 

@@ -48,6 +48,7 @@ Coordinates=2823,1474,76,36
 
 [AppDataLocal.Users]
 Coordinates=1049,655,132,36
+Visible=False
 
 [ReestrFilterSettingBtn]
 Coordinates=2143,1014,141,58

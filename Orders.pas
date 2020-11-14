@@ -209,6 +209,13 @@ type
     SummaRoznNaklDetailLBl: TLabel;
     StatusNaklDetailLBl: TLabel;
     NaklDetailFA: TFloatAnimation;
+    IndicateSynchLayout: TLayout;
+    IndicateSynchRect: TRectangle;
+    IndicateSynchPie: TPie;
+    IndicateSynchVCLayout: TLayout;
+    IndicateSynchCircle: TCircle;
+    IndicateSynchText: TText;
+    IndicateSynchLbl: TLabel;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -988,34 +995,69 @@ end;
 procedure TOrdersForm.SynchBtnClick(Sender: TObject);
 var
     exchanger: TExcangerNakl;
- //   task: ITask;
+    task: ITask;
 begin
-//    try
-//      task := TTask.Create(procedure()
-//                           Begin
+    try
+      task := TTask.Create(procedure()
+                           Begin
                               exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
-//                              try
-//                                try
-                                  //exchanger.pushNaklHeadLocalToRemote;
-                                  //exchanger.start;
+                              try
+                                try
+                                  IndicateSynchLayout.Visible := True;
+                                  IndicateSynchPie.EndAngle := 0;
+
+                                  IndicateSynchLbl.Text := 'Передача собранных документов...';
+                                  exchanger.pushNaklHeadLocalToRemote;
+                                  IndicateSynchPie.EndAngle := 59.76;
+                                  IndicateSynchText.Text := '17';
+                                  Sleep(2000);
+
+                                  IndicateSynchLbl.Text := 'Передача документов сборщиков...';
                                   exchanger.pushProcessedDocLocalToRemote;
-//                                  Sleep(3000);
-//                                except
-//                                  on Ex: Exception do
-//                                    Begin
-//                                      exchanger.Destroy;
- //                                     if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
-//                                        task.Cancel;
-//                                      ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
-//                                    End;
-//                                end;
-//                              finally
-//                                 exchanger.Destroy;
-//                              end;
- //                          End);
- //     task.Start;
- //   finally
- //   end;
+                                  IndicateSynchPie.EndAngle := 119.52;
+                                  IndicateSynchText.Text := '33';
+                                  Sleep(2000);
+
+                                  IndicateSynchLbl.Text := 'Очистка реестра документов...';
+                                  exchanger.clearNaklHeadLocal();
+                                  IndicateSynchPie.EndAngle := 179.28;
+                                  IndicateSynchText.Text := '50';
+                                  Sleep(2000);
+
+                                  IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
+                                  exchanger.clearNaklMoveLocal();
+                                  IndicateSynchPie.EndAngle := 240;
+                                  IndicateSynchText.Text := '66';
+                                  Sleep(2000);
+
+                                  IndicateSynchLbl.Text := 'Очистка реестра документов сборщиков...';
+                                  exchanger.clearProcessedDocLocal();
+                                  IndicateSynchPie.EndAngle := 299;
+                                  IndicateSynchText.Text := '83';
+                                  Sleep(2000);
+
+                                  IndicateSynchLbl.Text := 'Получение документов с сервера...';
+                                  exchanger.addNaklHeadRemoteToLocal();
+                                  IndicateSynchPie.EndAngle := 360;
+                                  IndicateSynchText.Text := '100';
+                                  Sleep(2000);
+                                except
+                                  on Ex: Exception do
+                                    Begin
+                                      exchanger.Destroy;
+                                     if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
+                                       task.Cancel;
+                                      ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
+                                    End;
+                                end;
+                              finally
+                                 exchanger.Destroy;
+                                 IndicateSynchLayout.Visible := False;
+                              end;
+                           End);
+      task.Start;
+    finally
+    end;
 
 end;
 

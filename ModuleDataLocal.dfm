@@ -509,9 +509,6 @@ object AppDataLocal: TAppDataLocal
     object IntegerField11: TIntegerField
       FieldName = 'CollectorUID'
     end
-    object BlobField3: TBlobField
-      FieldName = 'Screen'
-    end
     object WideMemoField3: TWideMemoField
       FieldName = 'OrderBuildDate'
       BlobType = ftWideMemo

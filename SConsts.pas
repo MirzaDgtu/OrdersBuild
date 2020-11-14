@@ -154,6 +154,17 @@ resourcestring
                                     'ORDER BY PD.FolioUID';                                               //-----************-----//
 
 
+      SSQLGetCollectorOrdersOverride = 'SELECT 	PD.UID, ' +                                                       //-----************-----//
+                                               'PD.FolioUID, ' +                                                  //-----************-----//
+                                               'PD.OrderDatePD, ' +                                               //-----************-----//
+                                               'PD.Keeper, ' +                                                    //-----************-----//
+                                               'PD.KeeperUID, ' +                                                 //-----************-----//
+                                               'PD.Collector, ' +                                                 //-----************-----//
+                                               'PD.CollectorUID, ' +                                              //---Получение списка собранных накладных---//
+                                               'PD.OrderBuildDate, ' +                                            //---выбранный сборщиком---//
+                                               'PD.Status ' +
+                                      'FROM ProcessedDoc PD ';                                                    //-----************-----//
+
       SSQLGetCollectCountOrders = 'SELECT DISTINCT CollectorUID, ' +                                      //-----************-----//
                                                  ' Collector, ' +                                         //-----************-----//
                                                  ' COUNT(FolioUID)as "DocKol::INT", ' +                   //-----************-----//
@@ -171,10 +182,10 @@ resourcestring
                                                  ' I.Screen, ' +                                          //---Получение списка сборщиков
                                                  ' Status ' +                                             //-----************-----//
                                   'FROM ProcessedDoc ' +                                                  //---и количества собранных заявок
-                                  '  LEFT JOIN Icons I ON I.UID = 22 ';                                   //-----************-----//
-                                 // 'GROUP BY CollectorUID, ' +                                             //-----************-----//
-                                 //          'Collector, ' +                                                //-----************-----//
-                                 //          'I.Screen ';                                                   //-----************-----//
+                                  '  LEFT JOIN Icons I ON I.UID = 22 ' +                                  //-----************-----//
+                                  'GROUP BY CollectorUID, ' +                                             //-----************-----//
+                                           'Collector, ' +                                                //-----************-----//
+                                           'I.Screen ';                                                   //-----************-----//
 
       SSQLGetCollectOrdersAtCollectUID = 'SELECT DISTINCT CollectorUID, ' +                               //-----************-----//
                                                  ' Collector, ' +                                         //-----************-----//
@@ -346,7 +357,7 @@ resourcestring
 
 
 
-    SSQLInsProcessedDoc = 'EXEC DELIVERY..S_InsProcessedDoc ''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d';
+    SSQLInsProcessedDoc               = 'EXEC DELIVERY..S_InsProcessedDoc ''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d';
     SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, %d, ''%s''';                   // --Headers-- //
     SSQLLoadMoveAudit                 = 'EXEC DELIVERY..S_LoadMoveAudit %d, %d, ''%s'', ''%s'', ''%s'', %d, %d, ''%s''';   // ---Moves---//
 

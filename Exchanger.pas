@@ -319,8 +319,44 @@ begin
 end;
 
 procedure TExcangerNakl.pushProcessedDocLocalToRemote;
+  procedure getProcessedDoc();
+  Begin
+    try
+      AppDataLocal.ProcessedDocLoad.Active := False;
+      AppDataLocal.ProcessedDocLoad.SQL.Text := SSQLGetCollectorOrdersOverride + ' WHERE Status = 3';
+      AppDataLocal.ProcessedDocLoad.Active := True;
+    except
+      AppDataLocal.ProcessedDocLoad.Active := False;
+    end;
+  End;
 begin
+   getProcessedDoc();
 
+   if (AppDataLocal.ProcessedDocLoad.Active) and
+      (not AppDataLocal.ProcessedDocLoad.IsEmpty) then
+    try
+      AppDataRemote.Connection.Transactions[0].StartTransaction;
+
+      try
+        while not AppDataLocal.ProcessedDocLoad.Eof do
+          Begin
+            AppDataRemote.Command.SQL.Text := Format(SSQLInsProcessedDoc, [AppDataLocal.ProcessedDocLoad.FieldByName('FolioUID').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('OrderDatePD').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('Keeper').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('KeeperUID').AsInteger,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('Collector').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('CollectorUID').AsInteger,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('OrderBuildDate').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('Status').AsInteger]);
+           AppDataRemote.Command.ExecSQL;
+           AppDataLocal.ProcessedDocLoad.Next;
+          end;
+      except
+        AppDataRemote.Connection.Transactions[0].Rollback;
+      end;
+    finally
+      AppDataRemote.Connection.Transactions[0].Commit;
+    end;
 end;
 
 procedure TExcangerNakl.pushProcessedDocLocalToRemote(BegD, EndD: TDate);
@@ -328,8 +364,9 @@ procedure TExcangerNakl.pushProcessedDocLocalToRemote(BegD, EndD: TDate);
   Begin
     try
       AppDataLocal.ProcessedDocLoad.Active := False;
-      AppDataLocal.ProcessedDocLoad.SQL.Text := SSQLGetCollectCountOrdersOverride + ' WHERE ' + FormatDateTime('yyyy-mm-dd', BegD) +
-                                                                                  ' AND ' + FormatDateTime('yyyy-mm-dd', EndD);
+      AppDataLocal.ProcessedDocLoad.SQL.Text := SSQLGetCollectorOrdersOverride + ' WHERE ' + FormatDateTime('yyyy-mm-dd', BegD) +
+                                                                                  ' AND ' + FormatDateTime('yyyy-mm-dd', EndD) + ' AND ' +
+                                                                                  ' Status = 3 ';
       AppDataLocal.ProcessedDocLoad.Active := True;
     except
       AppDataLocal.ProcessedDocLoad.Active := False;
@@ -349,11 +386,13 @@ begin
             AppDataRemote.Command.SQL.Text := Format(SSQLInsProcessedDoc, [AppDataLocal.ProcessedDocLoad.FieldByName('FolioUID').AsString,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('OrderDatePD').AsString,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('Keeper').AsString,
-                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('KeeperUID').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('KeeperUID').AsInteger,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('Collector').AsString,
-                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('CollectorUID').AsString,
+                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('CollectorUID').AsInteger,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('OrderBuildDate').AsString,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('Status').AsInteger]);
+           AppDataRemote.Command.ExecSQL;
+           AppDataLocal.ProcessedDocLoad.Next;
           end;
       except
         AppDataRemote.Connection.Transactions[0].Rollback;
@@ -384,8 +423,10 @@ begin
     // ѕосле очистить таблицы с шапками и детал€ми накладных
     // ѕотом получить с удаленного сервера документы с детализацией
     pushNaklHeadLocalToRemote();
+    pushProcessedDocLocalToRemote();
     clearNaklHeadLocal();
     clearNaklMoveLocal();
+    clearProcessedDocLocal();
     addNaklHeadRemoteToLocal();
 end;
 

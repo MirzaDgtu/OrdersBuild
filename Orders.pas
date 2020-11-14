@@ -988,32 +988,34 @@ end;
 procedure TOrdersForm.SynchBtnClick(Sender: TObject);
 var
     exchanger: TExcangerNakl;
-    task: ITask;
+ //   task: ITask;
 begin
-    try
-      task := TTask.Create(procedure()
-                           Begin
+//    try
+//      task := TTask.Create(procedure()
+//                           Begin
                               exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
-                              try
-                                try
-                                  exchanger.pushNaklHeadLocalToRemote;
-                                  Sleep(3000);
-                                except
-                                  on Ex: Exception do
-                                    Begin
-                                      exchanger.Destroy;
-                                      if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
-                                        task.Cancel;
-                                      ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
-                                    End;
-                                end;
-                              finally
-                                 exchanger.Destroy;
-                              end;
-                           End);
-      task.Start;
-    finally
-    end;
+//                              try
+//                                try
+                                  //exchanger.pushNaklHeadLocalToRemote;
+                                  //exchanger.start;
+                                  exchanger.pushProcessedDocLocalToRemote;
+//                                  Sleep(3000);
+//                                except
+//                                  on Ex: Exception do
+//                                    Begin
+//                                      exchanger.Destroy;
+ //                                     if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
+//                                        task.Cancel;
+//                                      ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
+//                                    End;
+//                                end;
+//                              finally
+//                                 exchanger.Destroy;
+//                              end;
+ //                          End);
+ //     task.Start;
+ //   finally
+ //   end;
 
 end;
 

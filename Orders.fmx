@@ -71,7 +71,7 @@ object OrdersForm: TOrdersForm
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
-      TabIndex = 0
+      TabIndex = 2
       TabOrder = 1
       TabPosition = PlatformDefault
       OnChange = TabsOrderChange
@@ -89,7 +89,7 @@ object OrdersForm: TOrdersForm
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claBeige
         StyledSettings = [Family, Size]
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 0
         Size.Width = 125.000000000000000000
         Size.Height = 49.000000000000000000
@@ -1895,7 +1895,7 @@ object OrdersForm: TOrdersForm
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
         StyledSettings = [Family, Size]
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 2
         Size.Width = 125.000000000000000000
         Size.Height = 49.000000000000000000

@@ -152,7 +152,6 @@ type
     IntegerField10: TIntegerField;
     StringField17: TStringField;
     IntegerField11: TIntegerField;
-    BlobField3: TBlobField;
     WideMemoField3: TWideMemoField;
     WideMemoField4: TWideMemoField;
     ProcessedDocLoadStatus: TIntegerField;

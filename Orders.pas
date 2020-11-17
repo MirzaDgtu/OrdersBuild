@@ -12,7 +12,7 @@ uses
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
   System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures,
-  System.Notification;
+  System.Notification, FMX.DialogService;
 
 type
   TOrdersForm = class(TForm)
@@ -216,6 +216,11 @@ type
     IndicateSynchCircle: TCircle;
     IndicateSynchText: TText;
     IndicateSynchLbl: TLabel;
+    ToastRect: TRectangle;
+    ToastImage: TImage;
+    ToastLbl: TLabel;
+    ToastFaFirst: TFloatAnimation;
+    ToastFaSecond: TFloatAnimation;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -306,6 +311,10 @@ type
     procedure setNaklDetail();
     procedure correctDP();
 
+    procedure ShowToast(msg: string);
+
+    procedure synchronizeToRemote();
+
 
   public
     { Public declarations }
@@ -319,7 +328,7 @@ implementation
 {$R *.fmx}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
-  Statist, RangeDate, Exchanger, Sign;
+  Statist, RangeDate, Exchanger, Sign, WifiConnect;
 
 
 
@@ -805,6 +814,7 @@ begin
         statusDocLoc := 0;
        finally
          setOrdersBottomSBInfo();
+         ShowToast(Format('Получено документов: %d', [AppDataLocal.OrdersHead.RecordCount]));
        end
     else
       ShowMessage('Процесс получения документов еще завершен!' + #13 + 'Пожалуйста подождите');
@@ -970,6 +980,26 @@ begin
    PanelView(FilterSettingLayout, FilterSettingFA);
 end;
 
+procedure TOrdersForm.ShowToast(msg: string);
+begin
+  ToastLbl.Text := msg;
+
+  ToastFaFirst.Enabled := False;
+  ToastFaSecond.Enabled := False;
+  ToastRect.Visible := True;
+
+  ToastFaFirst.PropertyName     := 'Position.Y';
+  ToastFaFirst.StartFromCurrent := True;
+  ToastFaFirst.StopValue        := ToastRect.Position.Y + 500;
+  ToastFaFirst.Duration         := 1;
+
+  ToastFaSecond.PropertyName := 'Opasity';
+  ToastFaSecond.StartValue := 0.1;
+  ToastFaSecond.StopValue  := 0.7;
+  ToastFaSecond.Duration   := 3;
+  ToastFaSecond.Inverse    :=  True;
+end;
+
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
 begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
@@ -993,71 +1023,33 @@ begin
 end;
 
 procedure TOrdersForm.SynchBtnClick(Sender: TObject);
-var
-    exchanger: TExcangerNakl;
-    task: ITask;
 begin
-    try
-      task := TTask.Create(procedure()
-                           Begin
-                              exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
-                              try
-                                try
-                                  IndicateSynchLayout.Visible := True;
-                                  IndicateSynchPie.EndAngle := 0;
+    {$IFDEF ANDROID}
+    if wifiConnect1.getCheckConnectWifi = False then
+        Begin
+          TDialogService.MessageDialog('Для синхронизации необходимо активное WIFI соединение!' + #13 + 'Открыть настройки WiFi?', System.UITypes.TMsgDlgType.mtInformation ,
+                                        [System.UITypes.TMsgDlgBtn.mbYes, System.UITypes.TMsgDlgBtn.mbNo],
+                                        System.UITypes.TMsgDlgBtn.mbYes, 0,
 
-                                  IndicateSynchLbl.Text := 'Передача собранных документов...';
-                                  exchanger.pushNaklHeadLocalToRemote;
-                                  IndicateSynchPie.EndAngle := 59.76;
-                                  IndicateSynchText.Text := '17';
-                                  Sleep(2000);
+                                        procedure(const AResult: TModalResult)
+                                        Begin
+                                          case AResult of
+                                            mrYes: Begin
+                                                    wifiConnect1.OpenSettingWifi();
+                                                    if wifiConnect1.getCheckConnectWifi = True then
+                                                      synchronizeToRemote();
+                                                   End;
+                                            mrNo: Exit();
+                                          end;
+                                        End);
+        End
+        else
+           synchronizeToRemote();
+    {$ENDIF}
 
-                                  IndicateSynchLbl.Text := 'Передача документов сборщиков...';
-                                  exchanger.pushProcessedDocLocalToRemote;
-                                  IndicateSynchPie.EndAngle := 119.52;
-                                  IndicateSynchText.Text := '33';
-                                  Sleep(2000);
-
-                                  IndicateSynchLbl.Text := 'Очистка реестра документов...';
-                                  exchanger.clearNaklHeadLocal();
-                                  IndicateSynchPie.EndAngle := 179.28;
-                                  IndicateSynchText.Text := '50';
-                                  Sleep(2000);
-
-                                  IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
-                                  exchanger.clearNaklMoveLocal();
-                                  IndicateSynchPie.EndAngle := 240;
-                                  IndicateSynchText.Text := '66';
-                                  Sleep(2000);
-
-                                  IndicateSynchLbl.Text := 'Очистка реестра документов сборщиков...';
-                                  exchanger.clearProcessedDocLocal();
-                                  IndicateSynchPie.EndAngle := 299;
-                                  IndicateSynchText.Text := '83';
-                                  Sleep(2000);
-
-                                  IndicateSynchLbl.Text := 'Получение документов с сервера...';
-                                  exchanger.addNaklHeadRemoteToLocal();
-                                  IndicateSynchPie.EndAngle := 360;
-                                  IndicateSynchText.Text := '100';
-                                  Sleep(2000);
-                                except
-                                  on Ex: Exception do
-                                    Begin
-                                      exchanger.Destroy;
-                                     if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
-                                       task.Cancel;
-                                      ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
-                                    End;
-                                end;
-                              finally
-                                 exchanger.Destroy;
-                                 IndicateSynchLayout.Visible := False;
-                              end;
-                           End);
-      task.Start;
-    finally
-    end;
+    {$IFDEF MSWINDOWS}
+           synchronizeToRemote();
+    {$ENDIF}
 
 end;
 
@@ -1065,6 +1057,76 @@ procedure TOrdersForm.SynchRectGesture(Sender: TObject;
   const EventInfo: TGestureEventInfo; var Handled: Boolean);
 begin
   TabsOrder.OnGesture(Sender, EventInfo, Handled);
+end;
+
+procedure TOrdersForm.synchronizeToRemote;
+var
+    exchanger: TExcangerNakl;
+    task: ITask;
+begin
+      try
+        task := TTask.Create(procedure()
+                             Begin
+                                exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
+                                  try
+                                    try
+                                      IndicateSynchLayout.Visible := True;
+                                      IndicateSynchPie.EndAngle := 0;
+
+                                      IndicateSynchLbl.Text := 'Передача собранных документов...';
+                                      exchanger.pushNaklHeadLocalToRemote;
+                                      IndicateSynchPie.EndAngle := 59.76;
+                                      IndicateSynchText.Text := '17';
+                                      Sleep(2000);
+
+                                      IndicateSynchLbl.Text := 'Передача документов сборщиков...';
+                                      exchanger.pushProcessedDocLocalToRemote;
+                                      IndicateSynchPie.EndAngle := 119.52;
+                                      IndicateSynchText.Text := '33';
+                                      Sleep(2000);
+
+                                      IndicateSynchLbl.Text := 'Очистка реестра документов...';
+                                      exchanger.clearNaklHeadLocal();
+                                      IndicateSynchPie.EndAngle := 179.28;
+                                      IndicateSynchText.Text := '50';
+                                      Sleep(2000);
+
+                                      IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
+                                      exchanger.clearNaklMoveLocal();
+                                      IndicateSynchPie.EndAngle := 240;
+                                      IndicateSynchText.Text := '66';
+                                      Sleep(2000);
+
+                                      IndicateSynchLbl.Text := 'Очистка реестра документов сборщиков...';
+                                      exchanger.clearProcessedDocLocal();
+                                      IndicateSynchPie.EndAngle := 299;
+                                      IndicateSynchText.Text := '83';
+                                      Sleep(2000);
+
+                                      IndicateSynchLbl.Text := 'Получение документов с сервера...';
+                                      exchanger.addNaklHeadRemoteToLocal();
+                                      IndicateSynchPie.EndAngle := 360;
+                                      IndicateSynchText.Text := '100';
+                                      Sleep(2000);
+                                    except
+                                      on Ex: Exception do
+                                        Begin
+                                         exchanger.Destroy;
+                                         IndicateSynchLayout.Visible := False;
+
+                                         if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
+                                           task.Cancel;
+                                          ShowMessage('Ошибка получения накладных' + #13 + 'Сообщение: ' + Ex.Message);
+                                        End;
+                                    end;
+                                  finally
+                                     exchanger.Destroy;
+                                     IndicateSynchLayout.Visible := False;
+                                  end;
+                             End);
+        task.Start;
+      finally
+      end;
 end;
 
 procedure TOrdersForm.TabsOrderChange(Sender: TObject);

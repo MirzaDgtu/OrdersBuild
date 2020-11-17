@@ -42,6 +42,8 @@ type
     LinkListControlToField2: TLinkListControlToField;
     ClearEditButton1: TClearEditButton;
     StyleB: TStyleBook;
+    CollectorSB: TStatusBar;
+    CollectorCountLbl: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CollectorBtnClick(Sender: TObject);
     procedure BackCollectBtnClick(Sender: TObject);
@@ -73,6 +75,7 @@ type
 
     procedure PanelCollectorsView();
     procedure PanelCollectorsHide();
+    procedure setCollectSB();
 
     procedure updateProdCheckedList();
   public
@@ -124,6 +127,7 @@ var
 begin
   try
     Collectors := TCollectors.Create();
+    setCollectSB();
     PanelCollectorsView();
   finally
     Collectors.Free;
@@ -232,6 +236,7 @@ begin
   finally
     Collectors.Get();
     Collectors.Free;
+    setCollectSB();
   end;
 end;
 
@@ -241,6 +246,12 @@ begin
     SaveNaklBtn.ModalResult := mrOk
   else
     ShowMessage('Данные не введены полностью!' + #13 + 'Возможно вы не выбрали сборщика!');
+end;
+
+procedure TNaklForm.setCollectSB;
+begin
+  if AppDataLocal.Collectors.Active then
+    CollectorCountLbl.Text := Format('Количество сборщиков: %d', [AppDataLocal.Collectors.RecordCount]);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);

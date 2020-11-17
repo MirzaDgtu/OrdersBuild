@@ -35803,7 +35803,7 @@ object NaklForm: TNaklForm
       Fill.Color = claBlack
       Opacity = 0.600000023841857900
       Size.Width = 375.000000000000000000
-      Size.Height = 576.000000000000000000
+      Size.Height = 554.000000000000000000
       Size.PlatformDefault = False
     end
     object CollectHeaderTB: TToolBar
@@ -35868,7 +35868,7 @@ object NaklForm: TNaklForm
       Margins.Right = 7.000000000000000000
       Margins.Bottom = 7.000000000000000000
       Size.Width = 361.000000000000000000
-      Size.Height = 562.000000000000000000
+      Size.Height = 540.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
@@ -35908,6 +35908,27 @@ object NaklForm: TNaklForm
       CanSwipeDelete = False
       OnItemClick = CollectorLVItemClick
       SearchVisible = True
+    end
+    object CollectorSB: TStatusBar
+      Position.Y = 602.000000000000000000
+      ShowSizeGrip = True
+      Size.Width = 375.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object CollectorCountLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family]
+        Size.Width = 375.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 11.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        TextSettings.HorzAlign = Center
+        Text = 'CollectorCountLbl'
+        TabOrder = 0
+      end
     end
   end
   object CollectorsBS: TBindSourceDB

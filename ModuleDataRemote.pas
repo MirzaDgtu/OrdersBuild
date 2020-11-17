@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, MemDS, DBAccess, Uni, UniProvider,
-  SQLServerUniProvider;
+  SQLServerUniProvider, System.Threading;
 
 type
   TAppDataRemote = class(TDataModule)
@@ -114,7 +114,7 @@ implementation
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
-uses Globals, SConsts;
+uses Globals, SConsts, WifiConnect;
 
 {$R *.dfm}
 
@@ -122,25 +122,30 @@ uses Globals, SConsts;
 
 function TAppDataRemote.ConnectToExternalDB: Boolean;
 begin
-   try
-    with Connection do
-      Begin
-        Connected := False;
+  //{$IFDEF ANDROID}
 
-        ProviderName := 'SQL Server';
-        Server := ConnectLocal.Sever;
-        Database := ConnectLocal.InitialCatalog;
-        Username := ConnectLocal.login;
-        Password := ConnectLocal.Password;
-        Port :=ConnectLocal.Port ;
-        LoginPrompt := False;
+      if wifiConnect1.getCheckConnectWifi = False then
+         wifiConnect1.OpenSettingWifi()
+      else
+ // {$ENDIF}
+       try
+          with Connection do
+            Begin
+              Connected := False;
 
-        Connected := True;
-      End;
-   except
-     Result := False;
-   end;
+              ProviderName := 'SQL Server';
+              Server := ConnectLocal.Sever;
+              Database := ConnectLocal.InitialCatalog;
+              Username := ConnectLocal.login;
+              Password := ConnectLocal.Password;
+              Port :=ConnectLocal.Port ;
+              LoginPrompt := False;
 
+              Connected := True;
+            End;
+         except
+           Result := False;
+         end;
    Result := Connection.Connected;
 end;
 

@@ -33,7 +33,8 @@ begin
     if AppDataRemote.Connection.Connected then
       Begin
         AppDataRemote.Collectors.Active := False;
-        AppDataRemote.Collectors.SQL.Text := SSQLGetCollectorsOrdersBuild;
+        AppDataRemote.Collectors.SQL.Text := Format(SSQLGetCollectorsOrdersBuild, [FormatDateTime('yyyy-mm-dd', DatesLocal.DBeg-1),
+                                                                                   FormatDateTime('yyyy-mm-dd', DatesLocal.DEnd-1)]);
         AppDataRemote.Collectors.Active := True;
 
         if not AppDataRemote.Collectors.IsEmpty then

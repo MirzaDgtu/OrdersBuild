@@ -1,6 +1,7 @@
 unit Globals;
 
 interface
+uses WifiConnect;
 
 type
   TUser = record
@@ -89,9 +90,13 @@ var
     CollectorNakl: TNaklCollector;
     ProdNakl: TProdNakl;
     StatistNakl: TStatistNakl;
+  //{$IFDEF ANDOID}
+    wifiConnect1: TWifiConnect;
+ // {$ENDIF}
 
 
 implementation
+
 
 
 

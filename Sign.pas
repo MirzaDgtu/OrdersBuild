@@ -68,6 +68,8 @@ type
     UserFA: TFloatAnimation;
     StyleB: TStyleBook;
     UsersBS: TBindSourceDB;
+    UserBottomSB: TStatusBar;
+    UserCountLbl: TLabel;
     procedure UserLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure UserBtnClick(Sender: TObject);
@@ -92,6 +94,7 @@ type
     procedure PanelSettingHide();
 
     procedure getDefaultSetting();
+    procedure setUserBottomSBInfo();
   public
     { Public declarations }
   end;
@@ -103,7 +106,7 @@ implementation
 
 {$R *.fmx}
 
-uses SConsts, Globals, Orders, ModuleDataRemote, ModuleDataLocal;
+uses SConsts, Globals, Orders, ModuleDataRemote, ModuleDataLocal, WifiConnect;
 {$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.XLgXhdpiTb.fmx ANDROID}
 {$R *.SmXhdpiPh.fmx ANDROID}
@@ -137,6 +140,7 @@ procedure TSignForm.FormCreate(Sender: TObject);
 begin
    AppDataLocal := TAppDataLocal.Create(Self);
    AppDataRemote := TAppDataRemote.Create(Self);
+   wifiConnect1 := TWifiConnect.Create();
 
    AppDataLocal.ConnectionToLocalDB();
    usersUn := TUsers.Create();
@@ -192,11 +196,12 @@ end;
 
 procedure TSignForm.RefreshUserBtnClick(Sender: TObject);
 begin
-   try
-    usersUn.Update();
-   finally
-    TUsers.Get();
-   end;
+     try
+       usersUn.Update();
+     finally
+       TUsers.Get();
+       setUserBottomSBInfo();
+     end;
 end;
 
 procedure TSignForm.SaveSettingBtnClick(Sender: TObject);
@@ -217,6 +222,12 @@ end;
 procedure TSignForm.SettingParamSBtnClick(Sender: TObject);
 begin
   PanelSettingView();
+end;
+
+procedure TSignForm.setUserBottomSBInfo;
+begin
+  if AppDataLocal.Users.Active then
+    UserCountLbl.Text := Format('Пользователей: %d', [AppDataLocal.Users.RecordCount]);
 end;
 
 procedure TSignForm.SignSBtnClick(Sender: TObject);
@@ -243,6 +254,7 @@ end;
 
 procedure TSignForm.UserEditClick(Sender: TObject);
 begin
+  setUserBottomSBInfo();
   PanelUserView();
 end;
 

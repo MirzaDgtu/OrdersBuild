@@ -38,6 +38,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Cfg_1)'=='true') or '$(Cfg_1_Android)'!=''">
+        <Cfg_1_Android>true</Cfg_1_Android>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
         <Cfg_1_Win32>true</Cfg_1_Win32>
         <CfgParent>Cfg_1</CfgParent>
@@ -160,6 +166,15 @@
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Android)'!=''">
+        <AUP_ACCESS_NETWORK_STATE>true</AUP_ACCESS_NETWORK_STATE>
+        <AUP_ACCESS_WIFI_STATE>true</AUP_ACCESS_WIFI_STATE>
+        <AUP_CHANGE_WIFI_MULTICAST_STATE>true</AUP_CHANGE_WIFI_MULTICAST_STATE>
+        <AUP_CHANGE_NETWORK_STATE>true</AUP_CHANGE_NETWORK_STATE>
+        <AUP_CHANGE_WIFI_STATE>true</AUP_CHANGE_WIFI_STATE>
+        <VerInfo_Build>1</VerInfo_Build>
+        <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -240,6 +255,8 @@
         <DCCReference Include="JsonableObject.pas"/>
         <DCCReference Include="SQLRequests\KrapotkinLV\x-superobject\XSuperObject.pas"/>
         <DCCReference Include="SQLRequests\KrapotkinLV\x-superobject\XSuperJSON.pas"/>
+        <DCCReference Include="WifiConnect.pas"/>
+        <DCCReference Include="Androidapi.JNI.Net.Wifi.pas"/>
         <None Include="OrdersBuild.todo"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

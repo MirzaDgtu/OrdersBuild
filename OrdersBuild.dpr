@@ -23,7 +23,9 @@ uses
   Exchanger in 'Exchanger.pas',
   JsonableObject in 'JsonableObject.pas',
   XSuperObject in 'SQLRequests\KrapotkinLV\x-superobject\XSuperObject.pas',
-  XSuperJSON in 'SQLRequests\KrapotkinLV\x-superobject\XSuperJSON.pas';
+  XSuperJSON in 'SQLRequests\KrapotkinLV\x-superobject\XSuperJSON.pas',
+  WifiConnect in 'WifiConnect.pas',
+  Androidapi.JNI.Net.Wifi in 'Androidapi.JNI.Net.Wifi.pas';
 
 {$R *.res}
 

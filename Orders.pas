@@ -12,9 +12,14 @@ uses
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
   System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures,
-  System.Notification, FMX.DialogService;
+  System.Notification, FMX.DialogService, FMX.SearchBox;
 
 type
+  TListViewSearchHelper = class helper for TListView
+    public
+      function SearchBox: TSearchBox;
+  end;
+
   TOrdersForm = class(TForm)
     MainLayout: TLayout;
     OrdersHeaderTB: TToolBar;
@@ -226,7 +231,6 @@ type
       const AItem: TListViewItem);
     procedure ReestrFilterSettingBtnClick(Sender: TObject);
     procedure BackReestrFilterSettingBtnClick(Sender: TObject);
-    procedure BrieforgFilterSettingBtnClick(Sender: TObject);
     procedure BackBrieforgBtnClick(Sender: TObject);
     procedure RefreshBrieforgBtnClick(Sender: TObject);
     procedure BrieforgLVItemClick(const Sender: TObject;
@@ -241,9 +245,7 @@ type
     procedure RefreshVidDocsBtnClick(Sender: TObject);
     procedure VidDocsLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
-    procedure DriverFilterSettingBtnClick(Sender: TObject);
     procedure RefreshDriversBtnClick(Sender: TObject);
-    procedure AgentFilterSettingBtnClick(Sender: TObject);
     procedure BackAgentsBtnClick(Sender: TObject);
     procedure RightStatistMenuBtnClick(Sender: TObject);
     procedure StatistLVClick(Sender: TObject);
@@ -285,11 +287,16 @@ type
     procedure NaklDetailBtnClick(Sender: TObject);
     procedure BackNaklDetailBtnClick(Sender: TObject);
     procedure TypeBuildComboChange(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure NaklLVKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     strReques: string;
     strRequesCountDoc: string;
     statusDocLoc: Byte;
+    strSearchValue: string;
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
 
@@ -324,12 +331,6 @@ uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
 
 
 { TOrdersForm }
-
-procedure TOrdersForm.AgentFilterSettingBtnClick(Sender: TObject);
-begin
- //  RefreshAgentsBtnClick(Self);
- //  PanelView(AgentsLayout, AgentsFA);
-end;
 
 procedure TOrdersForm.AgentFilterSettingEditClick(Sender: TObject);
 begin
@@ -389,13 +390,6 @@ procedure TOrdersForm.BegDateChange(Sender: TObject);
 begin
   correctDP;
   DBegSynchEdit.Date := BegDate.Date;
-end;
-
-procedure TOrdersForm.BrieforgFilterSettingBtnClick(Sender: TObject);
-begin
-  {BrieforgBS.DataSet.Active := False;
-  BrieforgBS.DataSet.Active := True;
-  PanelView(BrieforgLayout, BrieforgFA);}
 end;
 
 procedure TOrdersForm.BrieforgFilterSettingEditClick(Sender: TObject);
@@ -503,12 +497,6 @@ begin
   EndDate.Date := DEndSynchEdit.Date;
 end;
 
-procedure TOrdersForm.DriverFilterSettingBtnClick(Sender: TObject);
-begin
-  // RefreshDriversBtnClick(Self);
-  // PanelView(DriversLayout, DriversFA);
-end;
-
 procedure TOrdersForm.DriverFilterSettingEditClick(Sender: TObject);
 begin
    RefreshDriversBtnClick(Self);
@@ -539,6 +527,22 @@ end;
 procedure TOrdersForm.FormCreate(Sender: TObject);
 begin
   setActualDate();
+end;
+
+procedure TOrdersForm.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  strSearchValue := strSearchValue + KeyChar;
+
+  if Key = 13 then
+    Begin
+      NaklLV.SearchBox.Text := EmptyStr;
+      if Length(strSearchValue) > 0 then
+        Begin
+          NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
+          strSearchValue := EmptyStr;
+        End;
+    End;
 end;
 
 procedure TOrdersForm.LoaderNaklBtnClick(Sender: TObject);
@@ -597,6 +601,22 @@ begin
      PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
    end;
 
+end;
+
+procedure TOrdersForm.NaklLVKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  strSearchValue := strSearchValue + KeyChar;
+
+  if Key = 13 then
+    Begin
+      NaklLV.SearchBox.Text := EmptyStr;
+      if Length(strSearchValue) > 0 then
+        Begin
+          NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
+          strSearchValue := EmptyStr;
+        End;
+    End;
 end;
 
 procedure TOrdersForm.NextTabBtnClick(Sender: TObject);
@@ -878,6 +898,14 @@ begin
     EndDate.Date := BegDate.Date + 1;
     FilterLocal.DBeg := BegDate.Date;
     FilterLocal.DEnd := EndDate.Date;
+
+    if NaklLV.SearchBox <> nil then
+      Begin
+        NaklLV.SearchBox.TextSettings.FontColor := TAlphaColorRec.Red;
+        NaklLV.SearchBox.TextSettings.HorzAlign := TTextAlign.Center;
+        NaklLV.SearchBox.StyledSettings := NaklLV.SearchBox.StyledSettings - [TStyledSetting.FontColor];
+      End;
+
   except
   end;
 end;
@@ -1136,6 +1164,21 @@ begin
   FilterLocal.VidDoc := AItem.Data['VID_DOC'].AsString;
   VidDocFilterSettingEdit.Text := AItem.Data['VID_DOC'].AsString;
   PanelHide(VidDocsLayout, VidDocsFA);
+end;
+
+{ TListViewSearchHelper }
+
+function TListViewSearchHelper.SearchBox: TSearchBox;
+var
+   AIdx: integer;
+begin
+  Result := nil;
+  for AIdx := 0 to ComponentCount - 1 do
+    Begin
+      if Self.Components[AIdx] is TSearchBox then
+         Result := TSearchBox(Components[AIdx]);
+         Break;
+    End;
 end;
 
 end.

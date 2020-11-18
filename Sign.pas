@@ -140,7 +140,7 @@ begin
    AppDataLocal := TAppDataLocal.Create(Self);
    AppDataRemote := TAppDataRemote.Create(Self);
    //{$IFDEF ANDROID}
-   //wifiConnect1 := TWifiConnect.Create();
+      wifiConnect1 := TWifiConnect.Create();
    //{$ENDIF}
 
    AppDataLocal.ConnectionToLocalDB();

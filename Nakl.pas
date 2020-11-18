@@ -9,9 +9,14 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   FMX.Objects, FMX.Ani, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  NaklAct, System.Generics.Collections, Globals;
+  NaklAct, System.Generics.Collections, Globals, FMX.SearchBox;
 
 type
+  TListViewMyHelper = class helper for TListView
+  public
+    function SearchBox: TSearchBox;
+  end;
+
   TNaklForm = class(TForm)
     MainLayout: TLayout;
     NaklHeaderTB: TToolBar;
@@ -44,7 +49,6 @@ type
     CollectorSB: TStatusBar;
     CollectorCountLbl: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure CollectorBtnClick(Sender: TObject);
     procedure BackCollectBtnClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
     procedure CollectorLVItemClick(const Sender: TObject;
@@ -55,18 +59,14 @@ type
     procedure ProductLVUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
     procedure CollectorEditClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
   private
+    { Private declarations }
     FUnicumNumP: integer;
     FNumDocP: integer;
     FKolBuildProdP: integer;
     FKolProdP: integer;
     FStatusP: integer;
     NaklAct: TNaklAction;
-    flUpdateAction: Byte;
-   //FProdChecked: TList<Integer>;
-   //FCheckedBtnA: TList<Integer>;
-    { Private declarations }
     procedure setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
     procedure SetNumDocP(const Value: integer);
     procedure SetUnicumNumP(const Value: integer);
@@ -74,11 +74,13 @@ type
     procedure SetKolProdP(const Value: integer);
     procedure SetStatusP(const Value: integer);
 
+
     procedure PanelCollectorsView();
     procedure PanelCollectorsHide();
     procedure setCollectSB();
 
     procedure updateProdCheckedList();
+
   public
     { Public declarations }
     FProdChecked: TList<Integer>;
@@ -86,7 +88,6 @@ type
 
 
     constructor Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string) overload;
-    destructor Destroy; override;
 
   published
     property UnicumNumP: integer read FUnicumNumP write SetUnicumNumP;
@@ -108,18 +109,6 @@ uses ModuleDataLocal, Collectors, Sign;
 procedure TNaklForm.BackCollectBtnClick(Sender: TObject);
 begin
   PanelCollectorsHide();
-end;
-
-procedure TNaklForm.CollectorBtnClick(Sender: TObject);
-//var
-//    Collectors: TCollectors;
-begin
- { try
-    Collectors := TCollectors.Create();
-    PanelCollectorsView();
-  finally
-    Collectors.Free;
-  end;    }
 end;
 
 procedure TNaklForm.CollectorEditClick(Sender: TObject);
@@ -162,26 +151,14 @@ begin
     CollectorNakl.UID := CollectorUID;
     CollectorNakl.Name := Collector;
     CollectorEdit.Text := Collector;
-    flUpdateAction := 0;
 
     setNaklBottomSBInfo(KolProd, KolBuildProd);
-end;
-
-destructor TNaklForm.Destroy;
-begin
-  FProdChecked.Free();
-  inherited;
-end;
-
-procedure TNaklForm.FormActivate(Sender: TObject);
-begin
-  flUpdateAction := 1;
 end;
 
 procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
 Begin
   {$IFDEF ANDROID}
-    Action := TCloseAction.caFree;
+      Action := TCloseAction.caFree;
   {$ENDIF}
 end;
 
@@ -206,6 +183,7 @@ procedure TNaklForm.ProductLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 var
   accessory: TListItemAccessory;
+  sa: IListViewPresentationParent;
 begin
   accessory := AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA');
 
@@ -214,7 +192,7 @@ begin
       accessory.Visible := False;
       FCheckedBtnA.Remove(AItem.Index);
       if FProdChecked.Contains((AItem.Data['Article'].AsString).ToInteger) then
-        FProdChecked.Remove((AItem.Data['Article'].AsString).ToInteger);
+          FProdChecked.Remove((AItem.Data['Article'].AsString).ToInteger);
     end
   else
     Begin
@@ -228,8 +206,16 @@ end;
 
 procedure TNaklForm.ProductLVUpdateObjects(const Sender: TObject;
   const AItem: TListViewItem);
+  var
+      ac: TListItemAccessory;
 begin
-   AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA').Visible := True;//FCheckedBtnA.Contains(AItem.Index);
+ ac := AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA');
+
+ if Assigned(FCheckedBtnA) then
+  Begin
+    if ac <> nil then
+        AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA').Visible := FCheckedBtnA.Contains(AItem.Index);
+  End;
 end;
 
 procedure TNaklForm.RefreshBtnClick(Sender: TObject);
@@ -293,9 +279,9 @@ end;
 
 procedure TNaklForm.updateProdCheckedList;
 var
-   i: integer;
+   ac: TListItemAccessory;
 begin
-  i := 0;
+
   if Assigned(FProdChecked) then
     try
       if not AppDataLocal.OrdersMove.IsEmpty then
@@ -305,17 +291,30 @@ begin
 
           while not AppDataLocal.OrdersMove.Eof do
             Begin
-              i := i + 1;
               if AppDataLocal.OrdersMove.FieldByName('Status').AsInteger = 1 then
                 Begin
                   FProdChecked.Add(AppDataLocal.OrdersMove.FieldByName('Article').AsInteger);
-                  FCheckedBtnA.Add(i);
+                  FCheckedBtnA.Add(AppDataLocal.OrdersMove.FieldByName('Article').AsInteger);
                 End;
               AppDataLocal.OrdersMove.Next();
             End;
         End;
     finally
     end;
+end;
+
+{ TListViewMyHelper }
+
+function TListViewMyHelper.SearchBox: TSearchBox;
+var
+  AIdx: Integer;
+begin
+   for AIdx := 0 to Self.ComponentCount-1 do
+     if Self.Components[AIdx] is TSearchBox then
+      Begin
+        Result := TSearchBox(Self.Components[AIdx]);
+        Break;
+      End;
 end;
 
 end.

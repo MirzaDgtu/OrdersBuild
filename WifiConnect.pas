@@ -3,7 +3,7 @@ unit WifiConnect;
 
 interface
 
-{$IFDEF ANDOId}
+//{$IFDEF ANDOID}
 uses
     Androidapi.Helpers, Androidapi.jni.JavaTypes, FMX.Helpers.android, Androidapi.jni.GraphicsContentViewText,
     Androidapi.jni.App, Androidapi.jni.Net, Androidapi.jni.Location, Androidapi.JNIBridge, System.android.Notification,
@@ -43,12 +43,12 @@ type
 
     constructor Create();
   end;
-{$ENDIF}
+//{$ENDIF}
 
 implementation
 
 
-{$IFDEF ANDOId}
+//{$IFDEF ANDOId}
 
 
 uses Globals;
@@ -160,5 +160,5 @@ begin
   FSupplicantState := Value;
 end;
 
-{$ENDIF}
+//{$ENDIF}
 end.

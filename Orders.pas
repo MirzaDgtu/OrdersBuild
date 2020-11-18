@@ -297,6 +297,7 @@ type
     strRequesCountDoc: string;
     statusDocLoc: Byte;
     strSearchValue: string;
+    flKey: Char;
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
 
@@ -532,6 +533,7 @@ end;
 procedure TOrdersForm.FormKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
+  Focused := Self.OrdersTab;
   strSearchValue := strSearchValue + KeyChar;
 
   if Key = 13 then
@@ -539,6 +541,7 @@ begin
       NaklLV.SearchBox.Text := EmptyStr;
       if Length(strSearchValue) > 0 then
         Begin
+          //flKey := Key;
           NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
           strSearchValue := EmptyStr;
         End;
@@ -575,6 +578,7 @@ end;
 procedure TOrdersForm.NaklLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
+
    try
      NaklRec.UnicumNum := (AItem.Data['FolioUID'].AsString).toInteger;
      NaklRec.NumDoc := (AItem.Data['OrderNo'].AsString).toInteger;
@@ -606,8 +610,8 @@ end;
 procedure TOrdersForm.NaklLVKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
+  Focused := Self.OrdersTab;
   strSearchValue := strSearchValue + KeyChar;
-
   if Key = 13 then
     Begin
       NaklLV.SearchBox.Text := EmptyStr;

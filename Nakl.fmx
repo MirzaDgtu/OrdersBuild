@@ -47,7 +47,7 @@ object NaklForm: TNaklForm
       end
       object NumDocNaklLbl: TLabel
         Align = VertCenter
-        StyledSettings = []
+        StyledSettings = [Family, Size, Style]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
         Size.Width = 279.000000000000000000
@@ -56,7 +56,7 @@ object NaklForm: TNaklForm
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claRed
+        TextSettings.FontColor = claBlue
         TextSettings.HorzAlign = Center
         Text = 'NumDocNaklLbl'
         TabOrder = 2
@@ -181,7 +181,7 @@ object NaklForm: TNaklForm
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claSpringgreen
+          TextSettings.FontColor = claOlive
           TextSettings.HorzAlign = Center
           Text = 'CountBuildProdNaklLbl'
           TabOrder = 1

@@ -9,6 +9,7 @@ type
 
   public
     procedure Add; overload;
+    procedure Add(BegD, EndD: TDate); overload;
     class procedure Add(Unicum_Num: integer; OrderDatePD: string;
       Keeper: string; KeeperUID: integer;
       Collector: string; CollectorUID: integer; OrderBuildDate: string; Status: integer); overload;
@@ -31,12 +32,44 @@ implementation
 
 { TProcessedDoc }
 
-uses ModuleDataLocal, Globals, SConsts;
+uses ModuleDataLocal, Globals, SConsts, ModuleDataRemote;
 
 procedure TProcessedDoc.Add;
 begin
-  //TODO -opmp:  ѕолучить информацию об обработанных накладных с удаленного сервера
 end;
+
+procedure Add(BegD, EndD: TDate);
+Begin
+  //DONE -opmp:  ѕолучить информацию об обработанных накладных с удаленного сервера
+  if AppDataRemote.Connection = False then
+    AppDataRemote.ConnectToExternalDB();
+
+   AppDataRemote.ProcessedDoc.Active := False;
+   AppDataRemote.ProcessedDoc.SQL.Text := Format(SSQLGetProcessedDocs, [FormatDateTime('yyyy-mm-dd', BegD),
+                                                                        FormatDateTime('yyyy-mm-dd', EndD)]);
+   AppDataRemote.ProcessedDoc.Active := True;
+
+   if not AppDataRemote.ProcessedDoc.IsEmpty then
+    try
+       AppDataLocal.Connection.StartTransaction();
+
+       while not AppDataRemote.ProcessedDoc.Eof do
+       try
+         AppDataLocal.Command.Command.Execute(Format(SSQLAddCollectorOrder, [AppDataRemote.ProcessedDoc.FieldByName('FolioUID').AsInteger,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('DATE_P_POR').AsString,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('Keeper').AsString,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('KeeperUID').AsInteger,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('Collector').AsString,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('CollectorUID').AsInteger,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('OrderBuidDate').AsString,
+                                                                             AppDataRemote.ProcessedDoc.FieldByName('Status').AsInteger]));
+       except
+         AppDataLocal.Connection.Rollback;
+       end;
+    finally
+       AppDataLocal.Connection.Commit;
+    end;
+End;
 
 class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;
   Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer;
@@ -61,6 +94,11 @@ begin
     finally
       AppDataLocal.Connection.Commit;
     end;
+end;
+
+procedure TProcessedDoc.Add(BegD, EndD: TDate);
+begin
+
 end;
 
 constructor TProcessedDoc.Create(CollectorUID: integer; BegOD, EndOD: string);

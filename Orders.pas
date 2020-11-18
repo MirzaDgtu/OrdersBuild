@@ -464,13 +464,10 @@ begin
 
                 TNaklAction.SaveHeadNakl(NaklF.UnicumNumP, NaklF.KolProdP, NaklF.FProdChecked.Count);
             finally
+              FreeAndNil(NaklF);
             end;
        {$ENDIF}
-
      finally
-      {$IFDEF MSWINDOWS}
-        FreeAndNil(NaklF);
-      {$ENDIF}
        FreeAndNil(NaklAct);
        RefreshNaklBtnClick(Self);
      end;
@@ -541,7 +538,6 @@ begin
       NaklLV.SearchBox.Text := EmptyStr;
       if Length(strSearchValue) > 0 then
         Begin
-          //flKey := Key;
           NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
           strSearchValue := EmptyStr;
         End;

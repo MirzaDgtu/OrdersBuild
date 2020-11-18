@@ -79,7 +79,7 @@ resourcestring
 
                                                                 // Список реестров
 
-           SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                                                     //-----**********-----//
+      SSQLGetReestrsLocal        = 'SELECT R.UID, ' +                                                     //-----**********-----//
                                           'R.ProjectName as "ProjectName::VARCHAR(50)", ' +               //-----**********-----//
                                           'I.Screen ' +                                                   // Получение списка реестров с локальной базы
                                    'FROM Reestrs R ' +                                                    //-----**********-----//
@@ -353,7 +353,7 @@ resourcestring
     SSQLGetCollectorsOrdersBuild = 'EXEC STOREHOUSE..O_GetCollectorsOrdersBuild ''%s'', ''%s''';                         // Получение списка сборщиков
     SSQLGetJournalOrders         = 'EXEC DELIVERY..A_GetJournalOrders ''%s'', ''%s'', ''%s''';            // Список накладных
     SSQLGetPrintOrderDetails     = 'EXEC DELIVERY..A_GetPrintOrderDetails %d';                            // Детализация документа
-    SSQLGetProcessedDocs         = 'EXEC DELIVeRY..S_GetProcessedDocs ''%s'', ''%s''';                    // Получить список отработанных документов
+    SSQLGetProcessedDocs         = 'EXEC DELIVERY..S_GetProcessedDocs ''%s'', ''%s''';                    // Получить список отработанных документов
 
 
 

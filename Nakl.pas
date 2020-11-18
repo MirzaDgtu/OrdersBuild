@@ -41,7 +41,6 @@ type
     ProductsBS: TBindSourceDB;
     LinkListControlToField2: TLinkListControlToField;
     ClearEditButton1: TClearEditButton;
-    StyleB: TStyleBook;
     CollectorSB: TStatusBar;
     CollectorCountLbl: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -56,6 +55,7 @@ type
     procedure ProductLVUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
     procedure CollectorEditClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     FUnicumNumP: integer;
     FNumDocP: integer;
@@ -63,6 +63,7 @@ type
     FKolProdP: integer;
     FStatusP: integer;
     NaklAct: TNaklAction;
+    flUpdateAction: Byte;
    //FProdChecked: TList<Integer>;
    //FCheckedBtnA: TList<Integer>;
     { Private declarations }
@@ -147,10 +148,10 @@ end;
 constructor TNaklForm.Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string);
 begin
     inherited Create(Application);
-    NaklAct := TNaklAction.Create(UnicumNum);
     FProdChecked := TList<Integer>.Create;
     FCheckedBtnA := TList<Integer>.Create;
     updateProdCheckedList();
+    NaklAct := TNaklAction.Create(UnicumNum);
 
     NumDocNaklLbl.Text := (NumDoc).ToString;
     UnicumNumP := UnicumNum;
@@ -161,6 +162,7 @@ begin
     CollectorNakl.UID := CollectorUID;
     CollectorNakl.Name := Collector;
     CollectorEdit.Text := Collector;
+    flUpdateAction := 0;
 
     setNaklBottomSBInfo(KolProd, KolBuildProd);
 end;
@@ -169,6 +171,11 @@ destructor TNaklForm.Destroy;
 begin
   FProdChecked.Free();
   inherited;
+end;
+
+procedure TNaklForm.FormActivate(Sender: TObject);
+begin
+  flUpdateAction := 1;
 end;
 
 procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -222,8 +229,7 @@ end;
 procedure TNaklForm.ProductLVUpdateObjects(const Sender: TObject;
   const AItem: TListViewItem);
 begin
-  //if (Assigned(AItem) and Assigned(FCheckedBtnA)) then
-  //  AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA').Visible := FCheckedBtnA.Contains(AItem.Index);
+   AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA').Visible := True;//FCheckedBtnA.Contains(AItem.Index);
 end;
 
 procedure TNaklForm.RefreshBtnClick(Sender: TObject);
@@ -251,7 +257,7 @@ end;
 procedure TNaklForm.setCollectSB;
 begin
   if AppDataLocal.Collectors.Active then
-    CollectorCountLbl.Text := Format('Количество сборщиков: %d', [AppDataLocal.Collectors.RecordCount]);
+     CollectorCountLbl.Text := Format('Количество сборщиков: %d', [AppDataLocal.Collectors.RecordCount]);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);
@@ -266,8 +272,8 @@ end;
 
 procedure TNaklForm.setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
 begin
-     CountProdNaklLbl.Text := Format('Товаров: %d', [KolProd]);
-     CountBuildProdNaklLbl.Text := Format('Собрано: %d', [KolBuildProd]);
+   CountProdNaklLbl.Text := Format('Товаров: %d', [KolProd]);
+   CountBuildProdNaklLbl.Text := Format('Собрано: %d', [KolBuildProd]);
 end;
 
 procedure TNaklForm.SetNumDocP(const Value: integer);

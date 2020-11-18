@@ -122,12 +122,12 @@ uses Globals, SConsts, WifiConnect;
 
 function TAppDataRemote.ConnectToExternalDB: Boolean;
 begin
-  //{$IFDEF ANDROID}
+  {$IFDEF ANDROID}
 
       if wifiConnect1.getCheckConnectWifi = False then
          wifiConnect1.OpenSettingWifi()
       else
- // {$ENDIF}
+  {$ENDIF}
        try
           with Connection do
             Begin

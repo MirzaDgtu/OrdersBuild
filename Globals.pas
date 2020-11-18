@@ -90,9 +90,9 @@ var
     CollectorNakl: TNaklCollector;
     ProdNakl: TProdNakl;
     StatistNakl: TStatistNakl;
-  //{$IFDEF ANDOID}
+  {$IFDEF ANDOID}
     wifiConnect1: TWifiConnect;
- // {$ENDIF}
+  {$ENDIF}
 
 
 implementation

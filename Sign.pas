@@ -66,7 +66,6 @@ type
     SignBL: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
     UserFA: TFloatAnimation;
-    StyleB: TStyleBook;
     UsersBS: TBindSourceDB;
     UserBottomSB: TStatusBar;
     UserCountLbl: TLabel;
@@ -140,7 +139,9 @@ procedure TSignForm.FormCreate(Sender: TObject);
 begin
    AppDataLocal := TAppDataLocal.Create(Self);
    AppDataRemote := TAppDataRemote.Create(Self);
-   wifiConnect1 := TWifiConnect.Create();
+   //{$IFDEF ANDROID}
+   //wifiConnect1 := TWifiConnect.Create();
+   //{$ENDIF}
 
    AppDataLocal.ConnectionToLocalDB();
    usersUn := TUsers.Create();

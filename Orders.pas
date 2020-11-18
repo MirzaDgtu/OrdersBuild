@@ -177,7 +177,6 @@ type
     StatistNalkLV: TListView;
     StatistNaklBS: TBindSourceDB;
     LinkListControlToField8: TLinkListControlToField;
-    StyleB: TStyleBook;
     GM: TGestureManager;
     IL32: TImageList;
     NaklDetailLayout: TLayout;
@@ -216,11 +215,6 @@ type
     IndicateSynchCircle: TCircle;
     IndicateSynchText: TText;
     IndicateSynchLbl: TLabel;
-    ToastRect: TRectangle;
-    ToastImage: TImage;
-    ToastLbl: TLabel;
-    ToastFaFirst: TFloatAnimation;
-    ToastFaSecond: TFloatAnimation;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -310,9 +304,6 @@ type
     procedure setActualDate();
     procedure setNaklDetail();
     procedure correctDP();
-
-    procedure ShowToast(msg: string);
-
     procedure synchronizeToRemote();
 
 
@@ -814,7 +805,6 @@ begin
         statusDocLoc := 0;
        finally
          setOrdersBottomSBInfo();
-         ShowToast(Format('Получено документов: %d', [AppDataLocal.OrdersHead.RecordCount]));
        end
     else
       ShowMessage('Процесс получения документов еще завершен!' + #13 + 'Пожалуйста подождите');
@@ -980,30 +970,9 @@ begin
    PanelView(FilterSettingLayout, FilterSettingFA);
 end;
 
-procedure TOrdersForm.ShowToast(msg: string);
-begin
-  ToastLbl.Text := msg;
-
-  ToastFaFirst.Enabled := False;
-  ToastFaSecond.Enabled := False;
-  ToastRect.Visible := True;
-
-  ToastFaFirst.PropertyName     := 'Position.Y';
-  ToastFaFirst.StartFromCurrent := True;
-  ToastFaFirst.StopValue        := ToastRect.Position.Y + 500;
-  ToastFaFirst.Duration         := 1;
-
-  ToastFaSecond.PropertyName := 'Opasity';
-  ToastFaSecond.StartValue := 0.1;
-  ToastFaSecond.StopValue  := 0.7;
-  ToastFaSecond.Duration   := 3;
-  ToastFaSecond.Inverse    :=  True;
-end;
-
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
 begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
-
 end;
 
 procedure TOrdersForm.StatistLVGesture(Sender: TObject;

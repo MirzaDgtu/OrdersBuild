@@ -20,6 +20,8 @@ type
     procedure getNaklLocal(DBeg, DEnd: TDate; Build: smallint); overload; // получение документов с локального сервера
     procedure getNaklDetailRemote(UnicumNum: integer);          // Получение детализации документа с удаленного сервера
     procedure getNaklDetailLocal(UnicumNum: integer);           // Получение детализации документа с локального сервера
+    procedure getProcessedDocRemote(); overload;                // Получение отработанных документов с удаленного сервера
+    procedure getProcessedDocRemote(DBeg, DEnd: TDate); overload; // Получение отработанных документов с удаленного сервера
 
     procedure clearNaklHeadLocal();                             // Очистка шапок накладной локальной базы данных
     procedure clearNaklMoveLocal();                             // Очистка детализации накладных локальной базы данных
@@ -242,6 +244,19 @@ begin
       AppDataRemote.OrdersHeader.Active := True;
     finally
     end;
+end;
+
+procedure TExcangerNakl.getProcessedDocRemote;
+begin
+    getProcessedDocRemote(Self.BegD, Self.EndD);
+end;
+
+procedure TExcangerNakl.getProcessedDocRemote(DBeg, DEnd: TDate);
+begin
+  try
+    TProcessedDoc.Add(BegD, EndD);
+  except
+  end;
 end;
 
 procedure TExcangerNakl.pushNaklHeadLocalToRemote(UnicumNum: integer);

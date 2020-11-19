@@ -9,6 +9,7 @@ type
 
   public
     procedure Add; overload;
+    class procedure Add(BegD, EndD: TDate); overload;
     class procedure Add(Unicum_Num: integer; OrderDatePD: string;
       Keeper: string; KeeperUID: integer;
       Collector: string; CollectorUID: integer; OrderBuildDate: string; Status: integer); overload;
@@ -31,18 +32,16 @@ implementation
 
 { TProcessedDoc }
 
-uses ModuleDataLocal, Globals, SConsts;
+uses ModuleDataLocal, Globals, SConsts, ModuleDataRemote;
 
 procedure TProcessedDoc.Add;
 begin
-  //TODO -opmp:  ѕолучить информацию об обработанных накладных с удаленного сервера
 end;
 
 class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;
   Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer;
   OrderBuildDate: string; Status: integer);
 begin
-
     try
       AppDataLocal.Connection.StartTransaction;
       try
@@ -53,13 +52,42 @@ begin
                                                                             KeeperUID,
                                                                             Collector,
                                                                             CollectorUID,
-                                                                            FormatDateTime('yyyy-mm-dd', Now),
+                                                                            OrderBuildDate,
                                                                             Status]));
       except
         AppDataLocal.Connection.Rollback;
       end;
     finally
       AppDataLocal.Connection.Commit;
+    end;
+end;
+
+class procedure TProcessedDoc.Add(BegD, EndD: TDate);
+begin
+  //DONE -opmp:  ѕолучить информацию об обработанных накладных с удаленного сервера
+   if not AppDataRemote.Connection.Connected then
+     AppDataRemote.ConnectToExternalDB();
+
+   AppDataRemote.ProcessedDoc.Active := False;
+   AppDataRemote.ProcessedDoc.SQL.Text := Format(SSQLGetProcessedDocs, [FormatDateTime('yyyy-mm-dd', BegD),
+                                                                        FormatDateTime('yyyy-mm-dd', EndD)]);
+   AppDataRemote.ProcessedDoc.Active := True;
+
+   if not AppDataRemote.ProcessedDoc.IsEmpty then
+    try
+      while not AppDataRemote.ProcessedDoc.Eof do
+      begin
+         Add(AppDataRemote.ProcessedDoc.FieldByName('FolioUID').AsInteger,
+             AppDataRemote.ProcessedDoc.FieldByName('DATE_P_POR').AsString,
+             AppDataRemote.ProcessedDoc.FieldByName('Keeper').AsString,
+             AppDataRemote.ProcessedDoc.FieldByName('KeeperUID').AsInteger,
+             AppDataRemote.ProcessedDoc.FieldByName('Collector').AsString,
+             AppDataRemote.ProcessedDoc.FieldByName('CollectorUID').AsInteger,
+             AppDataRemote.ProcessedDoc.FieldByName('OrderBuidDate').AsString,
+             AppDataRemote.ProcessedDoc.FieldByName('Status').AsInteger);
+         AppDataRemote.ProcessedDoc.Next;
+      end;
+    finally
     end;
 end;
 

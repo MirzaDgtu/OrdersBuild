@@ -199,9 +199,10 @@ resourcestring
                                                    'Collector, ' +                                        //-----************-----//
                                                    'I.Screen ';
 
-      SSQLClearProcessedOrders = 'DELETE FROM ProcessedDoc';                                                // ќчистка всех записей из собранных накладных
+      SSQLClearProcessedOrders = 'DELETE FROM ProcessedDoc '+                                             //----******************************---
+                                 'WHERE Status = 3 ';                                                     // ќчистка всех записей из собранных накладных
 
-      SSQLDeleteProcessedOrder = 'DELETE FROM ProcessedDoc ' +                                              // ”даление определенного документа из собранных
+      SSQLDeleteProcessedOrder = 'DELETE FROM ProcessedDoc ' +                                            // ”даление определенного документа из собранных
                                'WHERE FolioUID = %s';
 
 

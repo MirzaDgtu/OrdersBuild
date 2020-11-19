@@ -10,6 +10,7 @@ object NaklForm: TNaklForm
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnClose = FormClose
+  OnKeyDown = FormKeyDown
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
@@ -188,276 +189,302 @@ object NaklForm: TNaklForm
         end
       end
     end
-    object ProductLV: TListView
-      ItemAppearanceClassName = 'TDynamicAppearance'
-      ItemEditAppearanceClassName = 'TDynamicAppearance'
-      HeaderAppearanceClassName = 'TListHeaderObjects'
-      FooterAppearanceClassName = 'TListHeaderObjects'
-      OnUpdateObjects = ProductLVUpdateObjects
-      SideSpace = 1
+    object Tabs: TTabControl
       Align = Client
       Size.Width = 375.000000000000000000
       Size.Height = 506.000000000000000000
       Size.PlatformDefault = False
+      TabHeight = 49.000000000000000000
+      TabIndex = 0
       TabOrder = 3
-      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-        item
-          AppearanceObjectName = 'ProductName'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.WordWrap = True
-          Appearance.TextColor = claIndigo
-          Appearance.Width = 334.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.Align = Center
-          Appearance.PlaceOffset.X = 9.000000000000000000
+      TabPosition = PlatformDefault
+      Sizes = (
+        375s
+        457s)
+      object ProductsTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        ImageIndex = 0
+        Size.Width = 375.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1058#1086#1074#1072#1088#1099
+        object ProductLV: TListView
+          ItemAppearanceClassName = 'TDynamicAppearance'
+          ItemEditAppearanceClassName = 'TDynamicAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          OnUpdateObjects = ProductLVUpdateObjects
+          SideSpace = 1
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 457.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'ProductName'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.WordWrap = True
+              Appearance.TextColor = claIndigo
+              Appearance.Width = 334.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.Align = Center
+              Appearance.PlaceOffset.X = 9.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Screen'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 20.000000000000000000
+              Appearance.Height = 44.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'StrikeCode'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claMidnightblue
+              Appearance.Width = 85.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 20.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Packages'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claSeagreen
+              Appearance.Width = 40.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 104.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'EDIN_IZMER'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.Width = 49.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 231.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'EDN_V_UPAK'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claMaroon
+              Appearance.Width = 41.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 143.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Qty'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claRed
+              Appearance.Width = 49.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 183.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'KON_KOLCH'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claOlive
+              Appearance.Width = 40.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.VertAlign = Center
+              Appearance.PlaceOffset.X = 279.000000000000000000
+              Appearance.PlaceOffset.Y = 10.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'FolioUID'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'Status'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'Date_Device'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'Article'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'Price'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'Sum_Predm'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'CheckBtnA'
+              AppearanceClassName = 'TAccessoryObjectAppearance'
+              Appearance.AccessoryType = Checkmark
+              Appearance.Width = 33.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.Visible = False
+              Appearance.PlaceOffset.X = 319.000000000000000000
+              Appearance.PlaceOffset.Y = 9.000000000000000000
+            end>
+          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'Article'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'StrikeCode'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Family = '10'
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claOrangered
+              Appearance.Width = 89.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 14.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'ProductName'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claMediumblue
+              Appearance.Width = 338.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.Align = Center
+              Appearance.PlaceOffset.X = 6.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Screen'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 23.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.PlaceOffset.X = -9.000000000000000000
+              Appearance.PlaceOffset.Y = 8.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'EDIN_IZMER'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claMediumvioletred
+              Appearance.Width = 34.000000000000000000
+              Appearance.Height = 23.000000000000000000
+              Appearance.PlaceOffset.X = 255.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Packages'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claMediumseagreen
+              Appearance.Width = 41.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 102.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'EDN_V_UPAK'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claSlateblue
+              Appearance.Width = 49.000000000000000000
+              Appearance.Height = 23.000000000000000000
+              Appearance.PlaceOffset.X = 143.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Qty'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claRed
+              Appearance.Width = 65.000000000000000000
+              Appearance.Height = 23.000000000000000000
+              Appearance.PlaceOffset.X = 191.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Price'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Family = '11'
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claDarkviolet
+              Appearance.Width = 57.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.Visible = False
+              Appearance.PlaceOffset.X = 174.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Sum_Predm'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.Width = 57.000000000000000000
+              Appearance.Height = 23.000000000000000000
+              Appearance.Visible = False
+              Appearance.PlaceOffset.X = 230.000000000000000000
+              Appearance.PlaceOffset.Y = 21.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'KON_KOLCH'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextColor = claRed
+              Appearance.Width = 50.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.VertAlign = Center
+              Appearance.PlaceOffset.X = 288.000000000000000000
+              Appearance.PlaceOffset.Y = 11.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'CheckBuild'
+              AppearanceClassName = 'TAccessoryObjectAppearance'
+              Appearance.AccessoryType = Checkmark
+              Appearance.Width = 22.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.Visible = False
+              Appearance.PlaceOffset.X = 337.000000000000000000
+              Appearance.PlaceOffset.Y = 8.000000000000000000
+            end>
+          ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+          ItemAppearanceObjects.HeaderObjects.Text.TextAlign = Center
+          ItemAppearanceObjects.HeaderObjects.Text.TextColor = claMaroon
+          ItemAppearanceObjects.HeaderObjects.Text.Align = Center
+          ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
+          CanSwipeDelete = False
+          OnItemClick = ProductLVItemClick
+          SearchVisible = True
         end
-        item
-          AppearanceObjectName = 'Screen'
-          AppearanceClassName = 'TImageObjectAppearance'
-          Appearance.Width = 20.000000000000000000
-          Appearance.Height = 44.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'StrikeCode'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claMidnightblue
-          Appearance.Width = 85.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 20.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Packages'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claSeagreen
-          Appearance.Width = 40.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 104.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'EDIN_IZMER'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.Width = 49.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 231.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'EDN_V_UPAK'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claMaroon
-          Appearance.Width = 41.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 143.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Qty'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claRed
-          Appearance.Width = 49.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 183.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'KON_KOLCH'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claOlive
-          Appearance.Width = 40.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.VertAlign = Center
-          Appearance.PlaceOffset.X = 279.000000000000000000
-          Appearance.PlaceOffset.Y = 10.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'FolioUID'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'Status'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'Date_Device'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'Article'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'Price'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'Sum_Predm'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'CheckBtnA'
-          AppearanceClassName = 'TAccessoryObjectAppearance'
-          Appearance.AccessoryType = Checkmark
-          Appearance.Width = 33.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.Visible = False
-          Appearance.PlaceOffset.X = 319.000000000000000000
-          Appearance.PlaceOffset.Y = 9.000000000000000000
-        end>
-      ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-        item
-          AppearanceObjectName = 'Article'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Visible = False
-        end
-        item
-          AppearanceObjectName = 'StrikeCode'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Family = '10'
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claOrangered
-          Appearance.Width = 89.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 14.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'ProductName'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claMediumblue
-          Appearance.Width = 338.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.Align = Center
-          Appearance.PlaceOffset.X = 6.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Screen'
-          AppearanceClassName = 'TImageObjectAppearance'
-          Appearance.Width = 23.000000000000000000
-          Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = -9.000000000000000000
-          Appearance.PlaceOffset.Y = 8.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'EDIN_IZMER'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 10.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claMediumvioletred
-          Appearance.Width = 34.000000000000000000
-          Appearance.Height = 23.000000000000000000
-          Appearance.PlaceOffset.X = 255.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Packages'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claMediumseagreen
-          Appearance.Width = 41.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.PlaceOffset.X = 102.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'EDN_V_UPAK'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claSlateblue
-          Appearance.Width = 49.000000000000000000
-          Appearance.Height = 23.000000000000000000
-          Appearance.PlaceOffset.X = 143.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Qty'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claRed
-          Appearance.Width = 65.000000000000000000
-          Appearance.Height = 23.000000000000000000
-          Appearance.PlaceOffset.X = 191.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Price'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Family = '11'
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claDarkviolet
-          Appearance.Width = 57.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.Visible = False
-          Appearance.PlaceOffset.X = 174.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'Sum_Predm'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.Width = 57.000000000000000000
-          Appearance.Height = 23.000000000000000000
-          Appearance.Visible = False
-          Appearance.PlaceOffset.X = 230.000000000000000000
-          Appearance.PlaceOffset.Y = 21.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'KON_KOLCH'
-          AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Font.Size = 11.000000000000000000
-          Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claRed
-          Appearance.Width = 50.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.VertAlign = Center
-          Appearance.PlaceOffset.X = 288.000000000000000000
-          Appearance.PlaceOffset.Y = 11.000000000000000000
-        end
-        item
-          AppearanceObjectName = 'CheckBuild'
-          AppearanceClassName = 'TAccessoryObjectAppearance'
-          Appearance.AccessoryType = Checkmark
-          Appearance.Width = 22.000000000000000000
-          Appearance.Height = 22.000000000000000000
-          Appearance.Visible = False
-          Appearance.PlaceOffset.X = 337.000000000000000000
-          Appearance.PlaceOffset.Y = 8.000000000000000000
-        end>
-      ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
-      ItemAppearanceObjects.HeaderObjects.Text.TextAlign = Center
-      ItemAppearanceObjects.HeaderObjects.Text.TextColor = claMaroon
-      ItemAppearanceObjects.HeaderObjects.Text.Align = Center
-      ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
-      CanSwipeDelete = False
-      OnItemClick = ProductLVItemClick
-      SearchVisible = True
+      end
     end
   end
   object CollectLayout: TLayout

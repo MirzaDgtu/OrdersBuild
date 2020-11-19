@@ -4,7 +4,7 @@ object RangeForm: TRangeForm
   Caption = 'RangeForm'
   ClientHeight = 624
   ClientWidth = 375
-  Fill.Color = xFF338989
+  Fill.Color = claDarkseagreen
   Fill.Kind = Solid
   Position = ScreenCenter
   WindowState = wsMaximized
@@ -28,6 +28,8 @@ object RangeForm: TRangeForm
       object BackRangeBtn: TButton
         Align = Left
         IconTintColor = claRed
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -37,7 +39,8 @@ object RangeForm: TRangeForm
       object SaveRangeBtn: TButton
         Align = Right
         IconTintColor = claRed
-        Position.X = 327.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 317.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -48,9 +51,9 @@ object RangeForm: TRangeForm
       object RangeHeadLbl: TLabel
         Align = VertCenter
         StyledSettings = [Family, Size]
-        Position.X = 48.000000000000000000
+        Position.X = 58.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 279.000000000000000000
+        Size.Width = 259.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -108,7 +111,7 @@ object RangeForm: TRangeForm
           TabOrder = 1
           Text = #1057
           object BegDE: TDateEdit
-            Date = 44153.000000000000000000
+            Date = 44154.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -139,7 +142,7 @@ object RangeForm: TRangeForm
           TabOrder = 2
           Text = #1055#1086
           object EndDE: TDateEdit
-            Date = 44153.000000000000000000
+            Date = 44154.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter

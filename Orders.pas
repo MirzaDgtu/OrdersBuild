@@ -297,7 +297,7 @@ type
     strRequesCountDoc: string;
     statusDocLoc: Byte;
     strSearchValue: string;
-    flKey: Char;
+
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
 
@@ -541,7 +541,6 @@ begin
       NaklLV.SearchBox.Text := EmptyStr;
       if Length(strSearchValue) > 0 then
         Begin
-          //flKey := Key;
           NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
           strSearchValue := EmptyStr;
         End;
@@ -1076,36 +1075,42 @@ begin
 
                                       IndicateSynchLbl.Text := 'Передача собранных документов...';
                                       exchanger.pushNaklHeadLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 59.76;
-                                      IndicateSynchText.Text := '17';
+                                      IndicateSynchPie.EndAngle := 51.5;
+                                      IndicateSynchText.Text := '14';
                                       Sleep(2000);
 
                                       IndicateSynchLbl.Text := 'Передача документов сборщиков...';
                                       exchanger.pushProcessedDocLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 119.52;
-                                      IndicateSynchText.Text := '33';
+                                      IndicateSynchPie.EndAngle := 103;
+                                      IndicateSynchText.Text := '25';
                                       Sleep(2000);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра документов...';
                                       exchanger.clearNaklHeadLocal();
-                                      IndicateSynchPie.EndAngle := 179.28;
-                                      IndicateSynchText.Text := '50';
+                                      IndicateSynchPie.EndAngle := 154.5;
+                                      IndicateSynchText.Text := '40';
                                       Sleep(2000);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
                                       exchanger.clearNaklMoveLocal();
-                                      IndicateSynchPie.EndAngle := 240;
-                                      IndicateSynchText.Text := '66';
+                                      IndicateSynchPie.EndAngle := 209;
+                                      IndicateSynchText.Text := '55';
                                       Sleep(2000);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра документов сборщиков...';
                                       exchanger.clearProcessedDocLocal();
-                                      IndicateSynchPie.EndAngle := 299;
-                                      IndicateSynchText.Text := '83';
+                                      IndicateSynchPie.EndAngle := 260.5;
+                                      IndicateSynchText.Text := '70';
                                       Sleep(2000);
 
                                       IndicateSynchLbl.Text := 'Получение документов с сервера...';
                                       exchanger.addNaklHeadRemoteToLocal();
+                                      IndicateSynchPie.EndAngle := 315;
+                                      IndicateSynchText.Text := '85';
+                                      Sleep(2000);
+
+                                      IndicateSynchLbl.Text := 'Получение документов сборщиков...';
+                                      exchanger.getProcessedDocRemote();
                                       IndicateSynchPie.EndAngle := 360;
                                       IndicateSynchText.Text := '100';
                                       Sleep(2000);

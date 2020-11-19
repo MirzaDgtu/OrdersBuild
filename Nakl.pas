@@ -9,7 +9,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   FMX.Objects, FMX.Ani, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  NaklAct, System.Generics.Collections, Globals, FMX.SearchBox;
+  NaklAct, System.Generics.Collections, Globals, FMX.SearchBox, FMX.TabControl;
 
 type
   TListViewMyHelper = class helper for TListView
@@ -48,6 +48,8 @@ type
     ClearEditButton1: TClearEditButton;
     CollectorSB: TStatusBar;
     CollectorCountLbl: TLabel;
+    Tabs: TTabControl;
+    ProductsTab: TTabItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BackCollectBtnClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
@@ -59,6 +61,8 @@ type
     procedure ProductLVUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
     procedure CollectorEditClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     FUnicumNumP: integer;
@@ -67,6 +71,7 @@ type
     FKolProdP: integer;
     FStatusP: integer;
     NaklAct: TNaklAction;
+    strSearchValue: string;
     procedure setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
     procedure SetNumDocP(const Value: integer);
     procedure SetUnicumNumP(const Value: integer);
@@ -160,6 +165,23 @@ Begin
   {$IFDEF ANDROID}
       Action := TCloseAction.caFree;
   {$ENDIF}
+end;
+
+procedure TNaklForm.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  Focused := ProductsTab;
+  strSearchValue := strSearchValue + KeyChar;
+
+  if Key = 13 then
+    Begin
+      ProductLV.SearchBox.Text := EmptyStr;
+      if Length(strSearchValue) > 0 then
+        Begin
+          ProductLV.SearchBox.Text := strSearchValue;
+          strSearchValue := EmptyStr;
+        End;
+    End;
 end;
 
 procedure TNaklForm.PanelCollectorsHide;

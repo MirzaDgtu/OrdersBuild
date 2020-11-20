@@ -17,6 +17,7 @@ type
     function SearchBox: TSearchBox;
   end;
 
+
   TNaklForm = class(TForm)
     MainLayout: TLayout;
     NaklHeaderTB: TToolBar;
@@ -316,7 +317,7 @@ begin
               if AppDataLocal.OrdersMove.FieldByName('Status').AsInteger = 1 then
                 Begin
                   FProdChecked.Add(AppDataLocal.OrdersMove.FieldByName('Article').AsInteger);
-                  FCheckedBtnA.Add(AppDataLocal.OrdersMove.FieldByName('Article').AsInteger);
+                  FCheckedBtnA.Add(ProductLV.ItemIndex);
                 End;
               AppDataLocal.OrdersMove.Next();
             End;

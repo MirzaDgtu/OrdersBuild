@@ -538,12 +538,26 @@ begin
 
   if Key = 13 then
     Begin
-      NaklLV.SearchBox.Text := EmptyStr;
-      if Length(strSearchValue) > 0 then
-        Begin
-          NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
-          strSearchValue := EmptyStr;
-        End;
+      case TabsOrder.Index of
+        0: Begin
+            NaklLV.SearchBox.Text := EmptyStr;
+            if Length(strSearchValue) > 0 then
+              Begin
+                NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
+                strSearchValue := EmptyStr;
+              End;
+           End;
+
+        1: Begin
+            StatistLV.SearchBox.Text := EmptyStr;
+            if Length(strSearchValue) > 0 then
+             Begin
+              StatistLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
+              strSearchValue := EmptyStr;
+             End;
+
+           End;
+      end;
     End;
 end;
 

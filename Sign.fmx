@@ -54,7 +54,7 @@ object SignForm: TSignForm
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      TintColor = claPowderblue
+      TintColor = claWhite
       object SignSBtn: TSpeedButton
         Align = Right
         IconTintColor = claRed
@@ -200,27 +200,29 @@ object SignForm: TSignForm
     end
     object SettingLayout: TLayout
       Align = Client
-      Size.Width = 356.000000000000000000
-      Size.Height = 613.000000000000000000
+      Size.Width = 365.000000000000000000
+      Size.Height = 528.000000000000000000
       Size.PlatformDefault = False
       Visible = False
       TabOrder = 4
+      TabStop = False
       object SettingRect: TRectangle
         Align = Client
-        Fill.Color = xFF0C1341
+        Fill.Color = claDarkcyan
         Opacity = 0.699999988079071000
-        Size.Width = 356.000000000000000000
-        Size.Height = 565.000000000000000000
+        Size.Width = 365.000000000000000000
+        Size.Height = 480.000000000000000000
         Size.PlatformDefault = False
       end
       object SettingHeaderTB: TToolBar
-        Size.Width = 356.000000000000000000
+        Size.Width = 365.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        TintColor = claWheat
+        TintColor = claWhite
         object BackSettingBtn: TButton
           Align = Left
+          IconTintColor = claRed
           Size.Width = 48.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
@@ -230,7 +232,8 @@ object SignForm: TSignForm
         end
         object SaveSettingBtn: TButton
           Align = Right
-          Position.X = 308.000000000000000000
+          IconTintColor = claRed
+          Position.X = 317.000000000000000000
           Size.Width = 48.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
@@ -243,11 +246,11 @@ object SignForm: TSignForm
           StyledSettings = [Family, Size]
           Position.X = 48.000000000000000000
           Position.Y = 12.000000000000000000
-          Size.Width = 260.000000000000000000
+          Size.Width = 269.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claBrown
+          TextSettings.FontColor = claDarkcyan
           TextSettings.HorzAlign = Center
           Text = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1089#1086#1077#1076#1080#1085#1077#1085#1080#1103
           TabOrder = 2
@@ -258,8 +261,8 @@ object SignForm: TSignForm
         Margins.Left = 5.000000000000000000
         Margins.Right = 5.000000000000000000
         Position.X = 5.000000000000000000
-        Position.Y = 221.000000000000000000
-        Size.Width = 346.000000000000000000
+        Position.Y = 178.000000000000000000
+        Size.Width = 355.000000000000000000
         Size.Height = 219.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -268,13 +271,13 @@ object SignForm: TSignForm
         DefaultItemStyles.ItemStyle = ''
         DefaultItemStyles.GroupHeaderStyle = ''
         DefaultItemStyles.GroupFooterStyle = ''
-        Viewport.Width = 346.000000000000000000
+        Viewport.Width = 355.000000000000000000
         Viewport.Height = 219.000000000000000000
         object SettingParamLBGH: TListBoxGroupHeader
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.HorzAlign = Center
           StyledSettings = [Family, Size, Style, FontColor]
-          Size.Width = 346.000000000000000000
+          Size.Width = 355.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -288,7 +291,7 @@ object SignForm: TSignForm
           Padding.Left = 85.000000000000000000
           Padding.Right = 40.000000000000000000
           Position.Y = 36.000000000000000000
-          Size.Width = 346.000000000000000000
+          Size.Width = 355.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
@@ -302,7 +305,7 @@ object SignForm: TSignForm
             TextSettings.HorzAlign = Center
             Position.X = 85.000000000000000000
             Position.Y = 2.000000000000000000
-            Size.Width = 221.000000000000000000
+            Size.Width = 230.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family, Size]
@@ -324,7 +327,7 @@ object SignForm: TSignForm
           Padding.Left = 85.000000000000000000
           Padding.Right = 40.000000000000000000
           Position.Y = 72.000000000000000000
-          Size.Width = 346.000000000000000000
+          Size.Width = 355.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
@@ -338,7 +341,7 @@ object SignForm: TSignForm
             TextSettings.HorzAlign = Center
             Position.X = 85.000000000000000000
             Position.Y = 2.000000000000000000
-            Size.Width = 221.000000000000000000
+            Size.Width = 230.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family, Size]
@@ -360,7 +363,7 @@ object SignForm: TSignForm
           Padding.Left = 85.000000000000000000
           Padding.Right = 40.000000000000000000
           Position.Y = 108.000000000000000000
-          Size.Width = 346.000000000000000000
+          Size.Width = 355.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
@@ -374,7 +377,7 @@ object SignForm: TSignForm
             TextSettings.HorzAlign = Center
             Position.X = 85.000000000000000000
             Position.Y = 2.000000000000000000
-            Size.Width = 221.000000000000000000
+            Size.Width = 230.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family, Size]
@@ -395,7 +398,7 @@ object SignForm: TSignForm
           StyledSettings = [Family, Other]
           Padding.Left = 85.000000000000000000
           Position.Y = 144.000000000000000000
-          Size.Width = 346.000000000000000000
+          Size.Width = 355.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
@@ -410,7 +413,7 @@ object SignForm: TSignForm
             TextSettings.HorzAlign = Center
             Position.X = 85.000000000000000000
             Position.Y = 2.000000000000000000
-            Size.Width = 221.000000000000000000
+            Size.Width = 230.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family, Size]
@@ -425,7 +428,7 @@ object SignForm: TSignForm
           end
           object PasswordPanelBtn: TPanel
             Align = Right
-            Position.X = 306.000000000000000000
+            Position.X = 315.000000000000000000
             Size.Width = 40.000000000000000000
             Size.Height = 36.000000000000000000
             Size.PlatformDefault = False
@@ -450,7 +453,7 @@ object SignForm: TSignForm
           Padding.Left = 85.000000000000000000
           Padding.Right = 40.000000000000000000
           Position.Y = 180.000000000000000000
-          Size.Width = 346.000000000000000000
+          Size.Width = 355.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 5
@@ -465,7 +468,7 @@ object SignForm: TSignForm
             TextSettings.HorzAlign = Center
             Position.X = 85.000000000000000000
             Position.Y = 2.000000000000000000
-            Size.Width = 221.000000000000000000
+            Size.Width = 230.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family, Size]
@@ -741,7 +744,7 @@ object SignForm: TSignForm
               89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
               F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
               01D549444154484BC594CD2E035114C7CF9D194C379E8048A4455FC18655BD80
-              0D6221F1B9F1D158615AB42C6C7C2492966D255EC0A2166C24DE409836116B2F
+              0D6221F1B9F1D158615AB42C6C7C2492966D251EC0A6166C24DE409836116B2F
               D029738F3B774E708DA6D38EC46F73CFFFDF66FE33E7DE7BE05F31F7EC492ADB
               46A355258B9A99B3CF01D905396D130CF01E6E548AC0D82C399160B4FA203233
               573D12B1CBE484A1CE11EE19B8338E35F44CDE274A40E7EE5352D3B407922DF1
@@ -754,7 +757,7 @@ object SignForm: TSignForm
               338C1C85E80112362707E42F21CA2DEDDAAFC45D0EB7068072DD5BE0581CED35
               EFB2920E8E0A3FE4FDC600A397AC96E0CC4DD637871E49065BE46C24AABAAE8D
               72C03B78BBFA7C93901CD737069FA896341D64CD30F315F912C8E1C8B1E2E9EF
-              EDF1F8934D46849C934928BDFF3362BBF63895FF01C00798DC8ED503D4DFB200
+              EDF1F8934D46849C934928BDFF3362BBF63895FF01C00797168ED46520E03C00
               00000049454E44AE426082}
             FileName = 'D:\Projects\Audit\Images\icons8_repeat_24px.png'
           end>
@@ -829,17 +832,17 @@ object SignForm: TSignForm
               E76FDC59252B2E1AFAFFFF7FB04D0A72B20C5C9C9C0C4F9FBF002B90929400DB
               FCF0F163064D355590F3191EBF7CBDDA5043250CC50520092D753586FF406D57
               EF3E6478F0F22DC37D20BE06640325C1722035C8800542FD5F033491E1E7AF5F
-              EC371F3FD7B977E99CE2264561C6075F3F3168098A307C7FF98BC177F7EBFF2A
-              DAA6F7941424AE72B1B1FD04EA590DD2097681A186EAAAC3A72EB6DE79F0CCD4
-              CBCA44E995951EE3F977AF18B8D7ED6108FDC9C2700EC87E636DC8E8616BA47C
+              EC371F3FD7B977F1ACE2262511C6075F3F3168098A307C7FF98BC177D7ABFF2A
+              3A66F7941424AE72B1B1FD04EA590DD2097681A186EAAAC3A72EB6DE79F0CCD4
+              CBCA44E995B53EE3F977AF18B8D7ED6108FDC9C2700EC87E6363C4E8616BA47C
               E7E1339383E7CEB700F5200CE858B58A9F8397636FA887BDA488001F030B13C4
               678CFFFE33F42E5E0C6683C44404F819C2DDEDA4F8D878F74E5CBC8D0F240E56
-              591116F6F1DB979FCD13672FF8FFF7EF3F86544D7D0676666686C7BEB60C8F7D
+              591116F6F1DB979FCD1366CDFFFFF7EF3F86544D7D0676666686C7BEB60C8F7D
               6C19389859C0627FFFFE65387AF4E8BF8F3FBE36E7C77A7D02E9450991098BD7
               3BF372B3CFB335D693FBC9CDC630EBFA45B082342D7D06B6CFBF188E5FBAFEE0
               C3A78F49F93121FB213AD00C0081FA55ABD8047FB0A4F1F270A50AB2FCD20489
-              7DF8CB7CEDC3D71FB3B9BFBE99959E9EFE1BAC7090000606006FCCD250D20FEB
-              660000000049454E44AE426082}
+              7DF8CB7CEDC3D71FB3B9BFBE99959E9EFE1BAC70900006060072B1D2517712BB
+              470000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_show_password_16px.png'
           end>
         Name = 'icons8_show_password_16px'
@@ -901,22 +904,22 @@ object SignForm: TSignForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              01DB49444154384FAD93CF4B1B4114C75F340D2D2AADA5BD16EAEA29A9D67F20
-              EDC1430F62D30A1E4A7B503C08951EBCF6D073F11F50312839780951A14A05A1
-              3F2EA5A5106DB16C8C3F2E5A104168B236E8CC7B6F3A936CC668523CE8BB7C67
-              67DEE733C3EE2C5CB4027E9EAA38A73B04895E446A412090485B1228F5BAA9EB
-              A7DF62EB94604AADDC108C7156FC14890019A19C47AEABB8B525250285C1B737
-              FB723E722230F031C9CF0A54FB59B8328F917ED45FC50765495D91D6854C93E7
-              C1BA0718B0A3F0578EFB584930C6DFEFEDAEBB55C7AECC43CF839DEC76714C99
-              6CDFE0C674D80A98F9F12DC709FC17CE7BB03836035FE7964B73CEDD8002D963
-              0584E8949BD757D7E0D3FC921ECBE2B397CBC38286512244FB63562C88DBAC40
-              9A497F819821FDE10B7C4CBE87FC9F1C2C8ECF980DE0E1C01308355EB3A72296
-              062D0950E16679E14ED881AEE73170BFA521393AA161AA824D4AE6AC15481629
-              7489AD24D206D167DDD0D07CBD26FC7B4FEF8F62D6B0F61EBC39789740E217E6
-              53C98AE69A8938357B7F64C070C513982A30BDD42F6EF53C58DFD495FA60E895
-              8F9D08466FC73C0E06A3123181998CAA82DD7DA5E5D357EA42D16464F8D0C76A
-              FF4C439B898850E21112868516B0A23592B894EA1CF9E5B75C5601FC03A952C9
-              66E6DF948B0000000049454E44AE426082}
+              01DA49444154384FAD93414F134114C75FA13610350AC12B89B63DB58A7C81C2
+              810307A355120E460F120E26100F5C3D78367C012010480F5C9A028912494C14
+              2E044352D0E0162B7A0112424262BBD8C8CC7B6F9C69B743A1251CE05DFEB333
+              EFF79BC9EE2C5CB47C5E9EA8094EB709123D887407814022FD9240A9D7D7BBBE
+              792DB64E0826D5DA4DC138C18A9F2011202394F39FE3280E0753C257E87FDBDC
+              9BF3906381818F482E2950F74EC3957984F4B5BE013BCA92BA22AD0B99C6CF83
+              750F30605BE1AF1CF5B092608457EFEE6C3A55C7AECC43D785EDECEFE29832D9
+              DEFE9F53112B60E6472DA190EF4C38EFC2FCC834ACCC7E2CCD856EFB14C88756
+              4088C172F38FF50D589C5BD063597C76737978AF619408B117712B16C4612B90
+              66D25B2066487F5A86CFC90F90FF9383F9D169B30174F63D86C0B5467B2A6269
+              D09200156E95175A2341E87A1687CC97342487C7344C55B049C99CB502C92285
+              0EB19544C3107BFA00AE36DDA809EFEEE9FD51CC18D6DE833707EF1248FCDC7C
+              2A59D15C33112767EE0FF519AE78025305A601FDE2D6CF83F54D5DABF7075E79
+              D8B160F856DC65BF3F26111398D95455B0B3AFB47CEA4A5D20968C0E1E7A58ED
+              9FE9E556222A94E846C288D00256B441121752ED43DFBD96CB2A80FFA5C5C963
+              406ED7960000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_checked_16px_1.png'
           end>
         Name = 'icons8_checked_16px_1'

@@ -485,7 +485,7 @@ object OrdersForm: TOrdersForm
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claOlive
+                TextSettings.FontColor = claLimegreen
                 TextSettings.HorzAlign = Center
                 Text = #1057#1086#1073#1088#1072#1085#1086': 0'
                 TabOrder = 1
@@ -503,14 +503,454 @@ object OrdersForm: TOrdersForm
           object FilterSettingRect: TRectangle
             Align = Client
             Fill.Color = claBlack
-            Opacity = 0.800000011920929000
             Margins.Left = 2.000000000000000000
             Margins.Top = 2.000000000000000000
             Margins.Right = 2.000000000000000000
             Margins.Bottom = 2.000000000000000000
             Size.Width = 371.000000000000000000
-            Size.Height = 475.000000000000000000
+            Size.Height = 523.000000000000000000
             Size.PlatformDefault = False
+            object FilterSettingHeaderTB: TToolBar
+              Align = Bottom
+              Position.Y = 475.000000000000000000
+              Size.Width = 371.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              TintColor = claWhite
+              object BackFilterSettingBtn: TButton
+                Align = Left
+                IconTintColor = claRed
+                Margins.Left = 10.000000000000000000
+                Position.X = 10.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'backtoolbutton'
+                TabOrder = 0
+                OnClick = BackFilterSettingBtnClick
+              end
+              object SaveFilterSettingBtn: TButton
+                Align = Right
+                StyledSettings = [Family, Size, FontColor]
+                IconTintColor = claRed
+                Margins.Right = 10.000000000000000000
+                Position.X = 313.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'donetoolbutton'
+                TabOrder = 1
+                OnClick = SaveFilterSettingBtnClick
+              end
+              object SettingFilterLbl: TLabel
+                Align = VertCenter
+                StyledSettings = [Family]
+                Position.X = 58.000000000000000000
+                Position.Y = 12.000000000000000000
+                Size.Width = 255.000000000000000000
+                Size.Height = 23.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 13.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkcyan
+                TextSettings.HorzAlign = Center
+                Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1092#1080#1083#1100#1090#1088#1072#1094#1080#1080
+                TabOrder = 2
+              end
+            end
+            object FilterSettingLB: TListBox
+              Align = VertCenter
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 2.000000000000000000
+              Position.X = 5.000000000000000000
+              Position.Y = 45.000000000000000000
+              Size.Width = 361.000000000000000000
+              Size.Height = 387.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              DisableFocusEffect = True
+              ItemHeight = 35.000000000000000000
+              DefaultItemStyles.ItemStyle = ''
+              DefaultItemStyles.GroupHeaderStyle = ''
+              DefaultItemStyles.GroupFooterStyle = ''
+              Viewport.Width = 361.000000000000000000
+              Viewport.Height = 387.000000000000000000
+              object JournalNumLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 150.000000000000000000
+                Padding.Right = 80.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 0
+                Text = #1046#1091#1088#1085#1072#1083
+                object JournalSpin: TSpinBox
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = VertCenter
+                  TabOrder = 0
+                  Cursor = crIBeam
+                  Position.X = 150.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  Size.Width = 131.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, Size, FontColor]
+                end
+              end
+              object DateBetweenLBGH: TListBoxGroupHeader
+                TextSettings.HorzAlign = Center
+                StyledSettings = [Family, Size, Style, FontColor]
+                Position.Y = 35.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+                Text = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1072#1090
+              end
+              object BegDateLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 2
+                Text = #1057
+                object BegDate: TDateEdit
+                  Date = 44118.000000000000000000
+                  OnChange = BegDateChange
+                  Align = VertCenter
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family]
+                  TabOrder = 0
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.FontColor = claChocolate
+                  TextSettings.HorzAlign = Center
+                end
+              end
+              object EndDateLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 105.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 3
+                Text = #1055#1086
+                object EndDate: TDateEdit
+                  Date = 44118.000000000000000000
+                  OnChange = EndDateChange
+                  Align = VertCenter
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family]
+                  TabOrder = 0
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.FontColor = claChocolate
+                  TextSettings.HorzAlign = Center
+                end
+              end
+              object ParamLNGH: TListBoxGroupHeader
+                TextSettings.HorzAlign = Center
+                StyledSettings = [Family, Size, Style, FontColor]
+                Position.Y = 140.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 4
+                Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+              end
+              object ReestrLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 175.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 5
+                Text = #1056#1077#1077#1089#1090#1088
+                object ReestrFilterSettingBtn: TButton
+                  Align = Right
+                  Position.X = 317.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'detailstoolbutton'
+                  TabOrder = 0
+                  Visible = False
+                end
+                object ReestrFilterSettingEdit: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = VertCenter
+                  TabOrder = 1
+                  ReadOnly = True
+                  TextSettings.Font.Size = 10.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.HorzAlign = Center
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, FontColor]
+                  OnClick = ReestrFilterSettingEditClick
+                  object ClearEditButton2: TClearEditButton
+                    CanFocus = False
+                    Cursor = crArrow
+                    Size.Width = 32.000000000000000000
+                    Size.Height = 30.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                  end
+                end
+              end
+              object BrieforgLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 210.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 6
+                Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
+                object BrieforgFilterSettingBtn: TButton
+                  Align = Right
+                  Position.X = 317.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'detailstoolbutton'
+                  TabOrder = 0
+                  Text = 'BrieforgFilterSettingBtn'
+                  Visible = False
+                end
+                object BrieforgFilterSettingEdit: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = VertCenter
+                  TabOrder = 1
+                  ReadOnly = True
+                  TextSettings.Font.Size = 10.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.HorzAlign = Center
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, FontColor]
+                  OnClick = BrieforgFilterSettingEditClick
+                  object ClearEditButton3: TClearEditButton
+                    CanFocus = False
+                    Cursor = crArrow
+                    Size.Width = 32.000000000000000000
+                    Size.Height = 30.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                  end
+                end
+              end
+              object VidDocLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 245.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 7
+                Text = #1058#1080#1087' '#1086#1087#1077#1088#1072#1094#1080#1080
+                object VidDocFilterSettingBtn: TButton
+                  Align = Right
+                  Position.X = 317.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'detailstoolbutton'
+                  TabOrder = 0
+                  Text = 'VidDocFilterSettingBtn'
+                  Visible = False
+                end
+                object VidDocFilterSettingEdit: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = VertCenter
+                  TabOrder = 1
+                  ReadOnly = True
+                  TextSettings.Font.Size = 10.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.HorzAlign = Center
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, FontColor]
+                  OnClick = VidDocFilterSettingEditClick
+                  object ClearEditButton4: TClearEditButton
+                    CanFocus = False
+                    Cursor = crArrow
+                    Size.Width = 32.000000000000000000
+                    Size.Height = 30.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                  end
+                end
+              end
+              object DriverLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 280.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 8
+                Text = #1042#1086#1076#1080#1090#1077#1083#1100
+                object DriverFilterSettingBtn: TButton
+                  Align = Right
+                  Position.X = 317.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'detailstoolbutton'
+                  TabOrder = 0
+                  Text = 'DriverFilterSettingBtn'
+                  Visible = False
+                end
+                object DriverFilterSettingEdit: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = VertCenter
+                  TabOrder = 1
+                  ReadOnly = True
+                  TextSettings.Font.Size = 10.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.HorzAlign = Center
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, FontColor]
+                  OnClick = DriverFilterSettingEditClick
+                  object ClearEditButton5: TClearEditButton
+                    CanFocus = False
+                    Cursor = crArrow
+                    Size.Width = 32.000000000000000000
+                    Size.Height = 30.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                  end
+                end
+              end
+              object AgentLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family, Other]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 315.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 9
+                Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090
+                object AgentFilterSettingBtn: TButton
+                  Align = Right
+                  Position.X = 317.000000000000000000
+                  Size.Width = 48.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'detailstoolbutton'
+                  TabOrder = 0
+                  Text = 'AgentFilterSettingBtn'
+                  Visible = False
+                end
+                object AgentFilterSettingEdit: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = VertCenter
+                  TabOrder = 1
+                  ReadOnly = True
+                  TextSettings.Font.Size = 10.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.HorzAlign = Center
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, FontColor]
+                  OnClick = AgentFilterSettingEditClick
+                  object ClearEditButton6: TClearEditButton
+                    CanFocus = False
+                    Cursor = crArrow
+                    Size.Width = 32.000000000000000000
+                    Size.Height = 30.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                  end
+                end
+              end
+              object BuildLBI: TListBoxItem
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkblue
+                StyledSettings = [Family]
+                Padding.Left = 100.000000000000000000
+                Padding.Right = 50.000000000000000000
+                Position.Y = 350.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 10
+                Text = #1057#1073#1086#1088#1082#1072
+                object TypeBuildCombo: TComboBox
+                  Align = VertCenter
+                  Items.Strings = (
+                    '['#1042#1089#1077']'
+                    #1053#1077#1089#1086#1073#1088#1072#1085#1085#1099#1077
+                    #1053#1077#1079#1072#1074#1077#1088#1096#1077#1085#1085#1099#1077
+                    #1057#1086#1073#1088#1072#1085#1085#1099#1077)
+                  ItemIndex = 0
+                  Position.X = 100.000000000000000000
+                  Position.Y = 1.000000000000000000
+                  Size.Width = 211.000000000000000000
+                  Size.Height = 32.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'comboboxstyle'
+                  TabOrder = 0
+                  OnChange = TypeBuildComboChange
+                end
+              end
+            end
           end
           object FilterSettingFA: TFloatAnimation
             AnimationType = InOut
@@ -518,447 +958,6 @@ object OrdersForm: TOrdersForm
             PropertyName = 'Position.Y'
             StartValue = 0.000000000000000000
             StopValue = 0.000000000000000000
-          end
-          object FilterSettingHeaderTB: TToolBar
-            Align = Bottom
-            Position.Y = 479.000000000000000000
-            Size.Width = 375.000000000000000000
-            Size.Height = 48.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            TintColor = claWhite
-            object BackFilterSettingBtn: TButton
-              Align = Left
-              IconTintColor = claRed
-              Margins.Left = 10.000000000000000000
-              Position.X = 10.000000000000000000
-              Size.Width = 48.000000000000000000
-              Size.Height = 48.000000000000000000
-              Size.PlatformDefault = False
-              StyleLookup = 'backtoolbutton'
-              TabOrder = 0
-              OnClick = BackFilterSettingBtnClick
-            end
-            object SaveFilterSettingBtn: TButton
-              Align = Right
-              StyledSettings = [Family, Size, FontColor]
-              IconTintColor = claRed
-              Margins.Right = 10.000000000000000000
-              Position.X = 317.000000000000000000
-              Size.Width = 48.000000000000000000
-              Size.Height = 48.000000000000000000
-              Size.PlatformDefault = False
-              StyleLookup = 'donetoolbutton'
-              TabOrder = 1
-              OnClick = SaveFilterSettingBtnClick
-            end
-            object SettingFilterLbl: TLabel
-              Align = VertCenter
-              StyledSettings = [Family]
-              Position.X = 58.000000000000000000
-              Position.Y = 12.000000000000000000
-              Size.Width = 259.000000000000000000
-              Size.Height = 23.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 13.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkcyan
-              TextSettings.HorzAlign = Center
-              Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1092#1080#1083#1100#1090#1088#1072#1094#1080#1080
-              TabOrder = 2
-            end
-          end
-          object FilterSettingLB: TListBox
-            Align = VertCenter
-            Margins.Left = 5.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 2.000000000000000000
-            Position.X = 5.000000000000000000
-            Position.Y = 47.000000000000000000
-            Size.Width = 365.000000000000000000
-            Size.Height = 387.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 2
-            DisableFocusEffect = True
-            ItemHeight = 35.000000000000000000
-            DefaultItemStyles.ItemStyle = ''
-            DefaultItemStyles.GroupHeaderStyle = ''
-            DefaultItemStyles.GroupFooterStyle = ''
-            Viewport.Width = 365.000000000000000000
-            Viewport.Height = 387.000000000000000000
-            object JournalNumLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 150.000000000000000000
-              Padding.Right = 80.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              Text = #1046#1091#1088#1085#1072#1083
-              object JournalSpin: TSpinBox
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = VertCenter
-                TabOrder = 0
-                Cursor = crIBeam
-                Position.X = 150.000000000000000000
-                Position.Y = 1.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Size.Width = 135.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family, Size, FontColor]
-              end
-            end
-            object DateBetweenLBGH: TListBoxGroupHeader
-              TextSettings.HorzAlign = Center
-              StyledSettings = [Family, Size, Style, FontColor]
-              Position.Y = 35.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 1
-              Text = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1072#1090
-            end
-            object BegDateLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 70.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 2
-              Text = #1057
-              object BegDate: TDateEdit
-                Date = 44118.000000000000000000
-                OnChange = BegDateChange
-                Align = VertCenter
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family]
-                TabOrder = 0
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claChocolate
-                TextSettings.HorzAlign = Center
-              end
-            end
-            object EndDateLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 105.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 3
-              Text = #1055#1086
-              object EndDate: TDateEdit
-                Date = 44118.000000000000000000
-                OnChange = EndDateChange
-                Align = VertCenter
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family]
-                TabOrder = 0
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claChocolate
-                TextSettings.HorzAlign = Center
-              end
-            end
-            object ParamLNGH: TListBoxGroupHeader
-              TextSettings.HorzAlign = Center
-              StyledSettings = [Family, Size, Style, FontColor]
-              Position.Y = 140.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 4
-              Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
-            end
-            object ReestrLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 175.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 5
-              Text = #1056#1077#1077#1089#1090#1088
-              object ReestrFilterSettingBtn: TButton
-                Align = Right
-                Position.X = 317.000000000000000000
-                Size.Width = 48.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'detailstoolbutton'
-                TabOrder = 0
-                Visible = False
-              end
-              object ReestrFilterSettingEdit: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = VertCenter
-                TabOrder = 1
-                ReadOnly = True
-                TextSettings.Font.Size = 10.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.HorzAlign = Center
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family, FontColor]
-                OnClick = ReestrFilterSettingEditClick
-                object ClearEditButton2: TClearEditButton
-                  CanFocus = False
-                  Cursor = crArrow
-                  Size.Width = 32.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                end
-              end
-            end
-            object BrieforgLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 210.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 6
-              Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
-              object BrieforgFilterSettingBtn: TButton
-                Align = Right
-                Position.X = 317.000000000000000000
-                Size.Width = 48.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'detailstoolbutton'
-                TabOrder = 0
-                Text = 'BrieforgFilterSettingBtn'
-                Visible = False
-              end
-              object BrieforgFilterSettingEdit: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = VertCenter
-                TabOrder = 1
-                ReadOnly = True
-                TextSettings.Font.Size = 10.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.HorzAlign = Center
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family, FontColor]
-                OnClick = BrieforgFilterSettingEditClick
-                object ClearEditButton3: TClearEditButton
-                  CanFocus = False
-                  Cursor = crArrow
-                  Size.Width = 32.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                end
-              end
-            end
-            object VidDocLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 245.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 7
-              Text = #1058#1080#1087' '#1086#1087#1077#1088#1072#1094#1080#1080
-              object VidDocFilterSettingBtn: TButton
-                Align = Right
-                Position.X = 317.000000000000000000
-                Size.Width = 48.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'detailstoolbutton'
-                TabOrder = 0
-                Text = 'VidDocFilterSettingBtn'
-                Visible = False
-              end
-              object VidDocFilterSettingEdit: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = VertCenter
-                TabOrder = 1
-                ReadOnly = True
-                TextSettings.Font.Size = 10.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.HorzAlign = Center
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family, FontColor]
-                OnClick = VidDocFilterSettingEditClick
-                object ClearEditButton4: TClearEditButton
-                  CanFocus = False
-                  Cursor = crArrow
-                  Size.Width = 32.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                end
-              end
-            end
-            object DriverLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 280.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 8
-              Text = #1042#1086#1076#1080#1090#1077#1083#1100
-              object DriverFilterSettingBtn: TButton
-                Align = Right
-                Position.X = 317.000000000000000000
-                Size.Width = 48.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'detailstoolbutton'
-                TabOrder = 0
-                Text = 'DriverFilterSettingBtn'
-                Visible = False
-              end
-              object DriverFilterSettingEdit: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = VertCenter
-                TabOrder = 1
-                ReadOnly = True
-                TextSettings.Font.Size = 10.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.HorzAlign = Center
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family, FontColor]
-                OnClick = DriverFilterSettingEditClick
-                object ClearEditButton5: TClearEditButton
-                  CanFocus = False
-                  Cursor = crArrow
-                  Size.Width = 32.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                end
-              end
-            end
-            object AgentLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family, Other]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 315.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 9
-              Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090
-              object AgentFilterSettingBtn: TButton
-                Align = Right
-                Position.X = 317.000000000000000000
-                Size.Width = 48.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'detailstoolbutton'
-                TabOrder = 0
-                Text = 'AgentFilterSettingBtn'
-                Visible = False
-              end
-              object AgentFilterSettingEdit: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = VertCenter
-                TabOrder = 1
-                ReadOnly = True
-                TextSettings.Font.Size = 10.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.HorzAlign = Center
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyledSettings = [Family, FontColor]
-                OnClick = AgentFilterSettingEditClick
-                object ClearEditButton6: TClearEditButton
-                  CanFocus = False
-                  Cursor = crArrow
-                  Size.Width = 32.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                end
-              end
-            end
-            object BuildLBI: TListBoxItem
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkblue
-              StyledSettings = [Family]
-              Padding.Left = 100.000000000000000000
-              Padding.Right = 50.000000000000000000
-              Position.Y = 350.000000000000000000
-              Size.Width = 365.000000000000000000
-              Size.Height = 35.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 10
-              Text = #1057#1073#1086#1088#1082#1072
-              object TypeBuildCombo: TComboBox
-                Align = VertCenter
-                Items.Strings = (
-                  '['#1042#1089#1077']'
-                  #1053#1077#1089#1086#1073#1088#1072#1085#1085#1099#1077
-                  #1053#1077#1079#1072#1074#1077#1088#1096#1077#1085#1085#1099#1077
-                  #1057#1086#1073#1088#1072#1085#1085#1099#1077)
-                ItemIndex = 0
-                Position.X = 100.000000000000000000
-                Position.Y = 1.000000000000000000
-                Size.Width = 215.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'comboboxstyle'
-                TabOrder = 0
-                OnChange = TypeBuildComboChange
-              end
-            end
           end
           object ReestrFilterSettingFA: TFloatAnimation
             Duration = 0.200000002980232200
@@ -1538,7 +1537,7 @@ object OrdersForm: TOrdersForm
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            TintColor = claPowderblue
+            TintColor = claWhite
             object RefreshStatistBtn: TButton
               Align = Left
               IconTintColor = claRed
@@ -1570,7 +1569,7 @@ object OrdersForm: TOrdersForm
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1057#1086#1073#1088#1072#1085#1085#1086' '#1085#1072#1082#1083#1072#1076#1085#1099#1093
               TabOrder = 2
@@ -1948,7 +1947,7 @@ object OrdersForm: TOrdersForm
             object DBegSynchLBI: TListBoxItem
               TextSettings.Font.Size = 13.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               StyledSettings = [Family, Other]
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
@@ -1967,17 +1966,18 @@ object OrdersForm: TOrdersForm
                 Size.Width = 231.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                StyledSettings = [Family, Size]
+                StyledSettings = [Family]
                 TabOrder = 0
+                TextSettings.Font.Size = 15.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claChocolate
+                TextSettings.FontColor = claDarkcyan
                 TextSettings.HorzAlign = Center
               end
             end
             object DEndSynchLBI: TListBoxItem
               TextSettings.Font.Size = 13.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               StyledSettings = [Family, Other]
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
@@ -1996,17 +1996,18 @@ object OrdersForm: TOrdersForm
                 Size.Width = 231.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                StyledSettings = [Family, Size]
+                StyledSettings = [Family]
                 TabOrder = 0
+                TextSettings.Font.Size = 15.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claChocolate
+                TextSettings.FontColor = claDarkcyan
                 TextSettings.HorzAlign = Center
               end
             end
             object ReestrSynchLBI: TListBoxItem
               TextSettings.Font.Size = 13.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               StyledSettings = [Family, Other]
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
@@ -2064,7 +2065,7 @@ object OrdersForm: TOrdersForm
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
-            TintColor = claPowderblue
+            TintColor = claWhite
             object SynchBtn: TSpeedButton
               Align = Left
               StyledSettings = [Family, Size, Style]
@@ -2088,7 +2089,7 @@ object OrdersForm: TOrdersForm
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103' '#1076#1086#1082#1091#1084#1077#1085#1090#1086#1074
               TabOrder = 2

@@ -4,7 +4,6 @@ object RangeForm: TRangeForm
   Caption = 'RangeForm'
   ClientHeight = 624
   ClientWidth = 375
-  Fill.Color = claDarkseagreen
   Fill.Kind = Solid
   Position = ScreenCenter
   WindowState = wsMaximized
@@ -24,7 +23,7 @@ object RangeForm: TRangeForm
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      TintColor = claPowderblue
+      TintColor = claWhite
       object BackRangeBtn: TButton
         Align = Left
         IconTintColor = claRed
@@ -57,7 +56,7 @@ object RangeForm: TRangeForm
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBlue
+        TextSettings.FontColor = claDarkcyan
         TextSettings.HorzAlign = Center
         Text = #1055#1077#1088#1080#1086#1076
         TabOrder = 2
@@ -100,7 +99,7 @@ object RangeForm: TRangeForm
         object BegDLBI: TListBoxItem
           TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claCrimson
+          TextSettings.FontColor = claDarkcyan
           StyledSettings = [Family, Other]
           Padding.Left = 30.000000000000000000
           Padding.Right = 20.000000000000000000
@@ -111,7 +110,7 @@ object RangeForm: TRangeForm
           TabOrder = 1
           Text = #1057
           object BegDE: TDateEdit
-            Date = 44154.000000000000000000
+            Date = 44155.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -122,16 +121,16 @@ object RangeForm: TRangeForm
             Size.PlatformDefault = False
             StyledSettings = [Family]
             TabOrder = 0
-            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.Size = 15.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.FontColor = claRed
+            TextSettings.FontColor = claDarkcyan
             TextSettings.HorzAlign = Center
           end
         end
         object EndDLBI: TListBoxItem
           TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claCrimson
+          TextSettings.FontColor = claDarkcyan
           StyledSettings = [Family, Other]
           Padding.Left = 30.000000000000000000
           Padding.Right = 20.000000000000000000
@@ -142,7 +141,7 @@ object RangeForm: TRangeForm
           TabOrder = 2
           Text = #1055#1086
           object EndDE: TDateEdit
-            Date = 44154.000000000000000000
+            Date = 44155.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -153,9 +152,9 @@ object RangeForm: TRangeForm
             Size.PlatformDefault = False
             StyledSettings = [Family]
             TabOrder = 0
-            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.Size = 15.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.FontColor = claRed
+            TextSettings.FontColor = claDarkcyan
             TextSettings.HorzAlign = Center
           end
         end

@@ -23,7 +23,7 @@ object NaklForm: TNaklForm
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      TintColor = claPowderblue
+      TintColor = claWhite
       object BackNaklBtn: TButton
         Align = Left
         IconTintColor = claRed
@@ -57,7 +57,7 @@ object NaklForm: TNaklForm
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBlue
+        TextSettings.FontColor = claDarkcyan
         TextSettings.HorzAlign = Center
         Text = 'NumDocNaklLbl'
         TabOrder = 2
@@ -70,7 +70,7 @@ object NaklForm: TNaklForm
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      TintColor = claMediumaquamarine
+      TintColor = claWhite
       object CollectorLeftLbl: TLabel
         Align = Left
         StyledSettings = [Family]
@@ -510,10 +510,10 @@ object NaklForm: TNaklForm
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      TintColor = claSpringgreen
+      TintColor = claWhite
       object BackCollectBtn: TButton
         Align = Left
-        IconTintColor = claBlue
+        IconTintColor = claRed
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -523,7 +523,7 @@ object NaklForm: TNaklForm
       end
       object RefreshBtn: TButton
         Align = Right
-        IconTintColor = claBlue
+        IconTintColor = claRed
         Position.X = 327.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
@@ -543,7 +543,7 @@ object NaklForm: TNaklForm
         StyleLookup = 'listboxheaderlabel'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claRed
+        TextSettings.FontColor = claDarkcyan
         TextSettings.HorzAlign = Center
         Text = #1057#1073#1086#1088#1097#1080#1082#1080
         TabOrder = 2

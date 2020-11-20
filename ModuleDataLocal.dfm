@@ -509,16 +509,14 @@ object AppDataLocal: TAppDataLocal
     object IntegerField11: TIntegerField
       FieldName = 'CollectorUID'
     end
-    object WideMemoField3: TWideMemoField
-      FieldName = 'OrderBuildDate'
-      BlobType = ftWideMemo
-    end
-    object WideMemoField4: TWideMemoField
-      FieldName = 'OrderDatePD'
-      BlobType = ftWideMemo
-    end
     object ProcessedDocLoadStatus: TIntegerField
       FieldName = 'Status'
+    end
+    object ProcessedDocLoadOrderBuildDate: TDateTimeField
+      FieldName = 'OrderBuildDate'
+    end
+    object ProcessedDocLoadOrderDatePD: TDateTimeField
+      FieldName = 'OrderDatePD'
     end
   end
 end

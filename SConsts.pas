@@ -156,12 +156,12 @@ resourcestring
 
       SSQLGetCollectorOrdersOverride = 'SELECT 	PD.UID, ' +                                                       //-----************-----//
                                                'PD.FolioUID, ' +                                                  //-----************-----//
-                                               'PD.OrderDatePD, ' +                                               //-----************-----//
+                                               'PD.OrderDatePD as "OrderDatePD::datetime", ' +                                               //-----************-----//
                                                'PD.Keeper, ' +                                                    //-----************-----//
                                                'PD.KeeperUID, ' +                                                 //-----************-----//
                                                'PD.Collector, ' +                                                 //-----************-----//
                                                'PD.CollectorUID, ' +                                              //---Получение списка собранных накладных---//
-                                               'PD.OrderBuildDate, ' +                                            //---выбранный сборщиком---//
+                                               'PD.OrderBuildDate as "OrderBuildDate::datetime", ' +                                            //---выбранный сборщиком---//
                                                'PD.Status ' +
                                       'FROM ProcessedDoc PD ';                                                    //-----************-----//
 

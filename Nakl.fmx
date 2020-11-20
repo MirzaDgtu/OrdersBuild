@@ -213,6 +213,8 @@ object NaklForm: TNaklForm
         StyleLookup = ''
         TabOrder = 0
         Text = #1058#1086#1074#1072#1088#1099
+        ExplicitSize.cx = 375.000000000000000000
+        ExplicitSize.cy = 49.000000000000000000
         object ProductLV: TListView
           ItemAppearanceClassName = 'TDynamicAppearance'
           ItemEditAppearanceClassName = 'TDynamicAppearance'

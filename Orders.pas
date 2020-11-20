@@ -229,7 +229,6 @@ type
     procedure NextTabBtnClick(Sender: TObject);
     procedure ReestrsLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
-    procedure ReestrFilterSettingBtnClick(Sender: TObject);
     procedure BackReestrFilterSettingBtnClick(Sender: TObject);
     procedure BackBrieforgBtnClick(Sender: TObject);
     procedure RefreshBrieforgBtnClick(Sender: TObject);
@@ -430,6 +429,7 @@ begin
                           var iVal: integer;
                               NaklAct: TNaklAction;
                           Begin
+
                             if ModalResult = mrOk then
                              try
                                TNaklAction.setMoveNaklDefault(NaklRec.UnicumNum);
@@ -445,6 +445,8 @@ begin
 
                                 TNaklAction.SaveHeadNakl(NaklRec.UnicumNum, NaklF.KolProdP, NaklF.FProdChecked.Count);
                              finally
+                              // FreeAndNil(NaklF.FProdChecked);
+                              // FreeAndNil(NaklF.FCheckedBtnA);
                              end;
                           end
                           );
@@ -613,7 +615,6 @@ begin
      NaklRec.NAMEP_USER := AItem.Data['NAMEP_USER'].AsString;
      NaklRec.ADRES_USER := AItem.Data['ADRES_USER'].AsString;
      NaklRec.ProjectName := AItem.Data['ProjectName'].AsString;
-
    finally
      PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
    end;
@@ -733,19 +734,6 @@ begin
     //DONE -opmp: Доделать обновление списка статистики при изменении промежутка дат
     RefreshStatistBtnClick(Self);
   end;
-end;
-
-procedure TOrdersForm.ReestrFilterSettingBtnClick(Sender: TObject);
-//var
-//    reestrsI: IInterfaceMove;
-begin
-{
-  try
-    ReestrLayout.Parent := OrdersTab;
-    reestrsI := TReestrs.Create;
-    PanelView(ReestrLayout, ReestrsFA);
-  finally
-  end;  }
 end;
 
 procedure TOrdersForm.ReestrFilterSettingEditClick(Sender: TObject);
@@ -1037,7 +1025,10 @@ begin
 end;
 
 procedure TOrdersForm.SynchBtnClick(Sender: TObject);
+var
+   exchanger: TExcangerNakl;
 begin
+    exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
     {$IFDEF ANDROID}
     if wifiConnect1.getCheckConnectWifi = False then
         Begin
@@ -1063,6 +1054,17 @@ begin
 
     {$IFDEF MSWINDOWS}
            synchronizeToRemote();
+           {try
+             exchanger.pushNaklHeadLocalToRemote;
+             exchanger.pushProcessedDocLocalToRemote();
+             exchanger.clearNaklHeadLocal();
+             exchanger.clearNaklMoveLocal();
+             exchanger.clearProcessedDocLocal();
+             exchanger.addNaklHeadRemoteToLocal();
+             exchanger.getProcessedDocRemote();
+           finally
+             FreeAndNil(exchanger);
+            end;    }
     {$ENDIF}
 
 end;

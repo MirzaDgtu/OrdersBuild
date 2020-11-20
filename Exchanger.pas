@@ -55,7 +55,11 @@ uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote, ProcessedDoc;
 
 procedure TExcangerNakl.addNaklHeadRemoteToLocal;
 begin
-   getNaklRemote(Self.BegD, Self.EndD, Self.Reestr);
+   AppDataRemote.OrdersHeader.Active := False;
+   AppDataRemote.OrdersHeader.SQL.Text := Format(SSQLGetJournalOrders, [FormatDateTime('yyyy-mm-dd', Self.BegD),
+                                                                        FormatDateTime('yyyy-mm-dd', Self.EndD),
+                                                                        Reestr]);
+   AppDataRemote.OrdersHeader.Active := True;
 
    if not AppDataRemote.OrdersHeader.IsEmpty then
     try
@@ -356,12 +360,12 @@ begin
         while not AppDataLocal.ProcessedDocLoad.Eof do
           Begin
             AppDataRemote.Command.SQL.Text := Format(SSQLInsProcessedDoc, [AppDataLocal.ProcessedDocLoad.FieldByName('FolioUID').AsString,
-                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('OrderDatePD').AsString,
+                                                                           FormatDateTime('yyyy-mm-dd', AppDataLocal.ProcessedDocLoad.FieldByName('OrderDatePD').AsDateTime),
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('Keeper').AsString,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('KeeperUID').AsInteger,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('Collector').AsString,
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('CollectorUID').AsInteger,
-                                                                           AppDataLocal.ProcessedDocLoad.FieldByName('OrderBuildDate').AsString,
+                                                                           FormatDateTime('yyyy-mm-dd', AppDataLocal.ProcessedDocLoad.FieldByName('OrderBuildDate').AsDateTime),
                                                                            AppDataLocal.ProcessedDocLoad.FieldByName('Status').AsInteger]);
            AppDataRemote.Command.ExecSQL;
            AppDataLocal.ProcessedDocLoad.Next;
@@ -443,6 +447,7 @@ begin
     clearNaklMoveLocal();
     clearProcessedDocLocal();
     addNaklHeadRemoteToLocal();
+    getProcessedDocRemote();
 end;
 
 end.

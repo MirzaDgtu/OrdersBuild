@@ -152,9 +152,9 @@ type
     IntegerField10: TIntegerField;
     StringField17: TStringField;
     IntegerField11: TIntegerField;
-    WideMemoField3: TWideMemoField;
-    WideMemoField4: TWideMemoField;
     ProcessedDocLoadStatus: TIntegerField;
+    ProcessedDocLoadOrderBuildDate: TDateTimeField;
+    ProcessedDocLoadOrderDatePD: TDateTimeField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

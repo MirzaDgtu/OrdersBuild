@@ -139,9 +139,9 @@ procedure TSignForm.FormCreate(Sender: TObject);
 begin
    AppDataLocal := TAppDataLocal.Create(Self);
    AppDataRemote := TAppDataRemote.Create(Self);
-   //{$IFDEF ANDROID}
+  // {$IFDEF ANDROID}
       wifiConnect1 := TWifiConnect.Create();
-   //{$ENDIF}
+  // {$ENDIF}
 
    AppDataLocal.ConnectionToLocalDB();
    usersUn := TUsers.Create();

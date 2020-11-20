@@ -86,6 +86,7 @@ type
     procedure setCollectSB();
 
     procedure updateProdCheckedList();
+    procedure updateFCheckedBtn();
 
   public
     { Public declarations }
@@ -143,10 +144,13 @@ end;
 constructor TNaklForm.Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string);
 begin
     inherited Create(Application);
+
     FProdChecked := TList<Integer>.Create;
     FCheckedBtnA := TList<Integer>.Create;
-    updateProdCheckedList();
+
+    //updateProdCheckedList();
     NaklAct := TNaklAction.Create(UnicumNum);
+    updateFCheckedBtn();
 
     NumDocNaklLbl.Text := (NumDoc).ToString;
     UnicumNumP := UnicumNum;
@@ -158,7 +162,7 @@ begin
     CollectorNakl.Name := Collector;
     CollectorEdit.Text := Collector;
 
-    setNaklBottomSBInfo(KolProd, KolBuildProd);
+    setNaklBottomSBInfo(KolProd, FProdChecked.Count);
 end;
 
 procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -300,6 +304,25 @@ begin
   FUnicumNumP := Value;
 end;
 
+procedure TNaklForm.updateFCheckedBtn;
+var
+    i: integer;
+    AItem: TListViewItem;
+begin
+  FCheckedBtnA.Clear;
+  FProdChecked.Clear;
+
+  for i := 0 to ProductLV.Items.Count - 1 do
+   Begin
+     AItem := (ProductLV.Items.Item[i] as TListViewItem);
+     if AItem.Data['Status'].AsString = '1' then
+      Begin
+       FCheckedBtnA.Add(AItem.Index);
+       FProdChecked.Add((AItem.Data['Article'].AsString).ToInteger);
+      End;
+   End;
+end;
+
 procedure TNaklForm.updateProdCheckedList;
 var
    ac: TListItemAccessory;
@@ -315,13 +338,12 @@ begin
           while not AppDataLocal.OrdersMove.Eof do
             Begin
               if AppDataLocal.OrdersMove.FieldByName('Status').AsInteger = 1 then
-                Begin
                   FProdChecked.Add(AppDataLocal.OrdersMove.FieldByName('Article').AsInteger);
-                  FCheckedBtnA.Add(ProductLV.ItemIndex);
-                End;
               AppDataLocal.OrdersMove.Next();
             End;
-        End;
+        End
+        else
+          FProdChecked.Clear();
     finally
     end;
 end;

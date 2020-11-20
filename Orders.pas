@@ -12,7 +12,7 @@ uses
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
   System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures,
-  System.Notification, FMX.DialogService, FMX.SearchBox;
+  System.Notification, FMX.DialogService, FMX.SearchBox, FMX.VirtualKeyboard, FMX.Platform;
 
 type
   TListViewSearchHelper = class helper for TListView
@@ -445,8 +445,6 @@ begin
 
                                 TNaklAction.SaveHeadNakl(NaklRec.UnicumNum, NaklF.KolProdP, NaklF.FProdChecked.Count);
                              finally
-                              // FreeAndNil(NaklF.FProdChecked);
-                              // FreeAndNil(NaklF.FCheckedBtnA);
                              end;
                           end
                           );
@@ -580,8 +578,12 @@ begin
 end;
 
 procedure TOrdersForm.NaklLVClick(Sender: TObject);
+var
+   KeyboardService: IFMXVirtualKeyboardService;
 begin
    PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+   if TPlatformServices.Current.SupportsPlatformService(IFMXVirtualKeyboardService, IInterface(KeyboardService)) then
+        KeyboardService.HideVirtualKeyboard;
 end;
 
 procedure TOrdersForm.NaklLVGesture(Sender: TObject;
@@ -1004,8 +1006,12 @@ begin
 end;
 
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
+var
+   KeyboardService: IFMXVirtualKeyboardService;
 begin
   PanelHide(RightStatistMenuLayout,  RightStatistMenuFA);
+  if TPlatformServices.Current.SupportsPlatformService(IFMXVirtualKeyboardService, IInterface(KeyboardService)) then
+       KeyboardService.HideVirtualKeyboard;
 end;
 
 procedure TOrdersForm.StatistLVGesture(Sender: TObject;

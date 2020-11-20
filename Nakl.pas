@@ -9,7 +9,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   FMX.Objects, FMX.Ani, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  NaklAct, System.Generics.Collections, Globals, FMX.SearchBox, FMX.TabControl;
+  NaklAct, System.Generics.Collections, Globals, FMX.SearchBox, FMX.TabControl, FMX.Platform, FMX.VirtualKeyboard;
 
 type
   TListViewMyHelper = class helper for TListView
@@ -64,6 +64,7 @@ type
     procedure CollectorEditClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure ProductLVClick(Sender: TObject);
   private
     { Private declarations }
     FUnicumNumP: integer;
@@ -204,6 +205,14 @@ begin
    CollectorFA.Inverse := False;
    CollectorFA.StartValue := Self.Height + 20;
    CollectorFA.Start;
+end;
+
+procedure TNaklForm.ProductLVClick(Sender: TObject);
+var
+   KeyboardService: IFMXVirtualKeyboardService;
+begin
+   if TPlatformServices.Current.SupportsPlatformService(IFMXVirtualKeyboardService, IInterface(KeyboardService)) then
+        KeyboardService.HideVirtualKeyboard;
 end;
 
 procedure TNaklForm.ProductLVItemClick(const Sender: TObject;

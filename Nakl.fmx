@@ -482,6 +482,7 @@ object NaklForm: TNaklForm
           ItemAppearanceObjects.HeaderObjects.Text.TextColor = claMaroon
           ItemAppearanceObjects.HeaderObjects.Text.Align = Center
           ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
+          OnClick = ProductLVClick
           CanSwipeDelete = False
           OnItemClick = ProductLVItemClick
           SearchVisible = True

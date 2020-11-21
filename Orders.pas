@@ -12,7 +12,8 @@ uses
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
   System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures,
-  System.Notification, FMX.DialogService, FMX.SearchBox, FMX.VirtualKeyboard, FMX.Platform;
+  System.Notification, FMX.DialogService, FMX.SearchBox, FMX.VirtualKeyboard, FMX.Platform,
+  FMX.Media, System.Permissions, ZXing.BarcodeFormat, ZXing.ReadResult, ZXing.ScanManager;
 
 type
   TListViewSearchHelper = class helper for TListView
@@ -220,6 +221,25 @@ type
     IndicateSynchCircle: TCircle;
     IndicateSynchText: TText;
     IndicateSynchLbl: TLabel;
+    StrikeCamera: TCameraComponent;
+    IL35: TImageList;
+    CameraScanBtn: TSpeedButton;
+    ExitBtn: TSpeedButton;
+    CameraScanLayout: TLayout;
+    CameraScanRect: TRectangle;
+    CameraScanHeaderTB: TToolBar;
+    BackCameraScanBtn: TSpeedButton;
+    SaveCameraScanBtn: TSpeedButton;
+    CameraScanHeaderLbl: TLabel;
+    CameraScanBottomTB: TToolBar;
+    CameraScanBottonBtnsGPL: TGridPanelLayout;
+    StopCameraScanBtn: TSpeedButton;
+    StartCameraScanBtn: TSpeedButton;
+    CameraScanImage: TImage;
+    CameraScanLB: TListBox;
+    CameraScanSearchLBGH: TListBoxGroupHeader;
+    CameraScanLBI: TListBoxItem;
+    CameraScanStrikeCodLbl: TLabel;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -290,12 +310,28 @@ type
       Shift: TShiftState);
     procedure NaklLVKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure ExitBtnClick(Sender: TObject);
+    procedure StartCameraScanBtnClick(Sender: TObject);
+    procedure StopCameraScanBtnClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
     strRequesCountDoc: string;
     statusDocLoc: Byte;
     strSearchValue: string;
+
+    fPermissionCamera: String;
+    fScanInProgress: Boolean;
+    fScanBitmap: TBitmap;
+
+    function AppEvent(AAppEvent: TApplicationEvent; AContext: TObject): Boolean;
+    procedure ParseImage();
+    procedure CameraPermissionRequestResult(Sender: TObject;
+      const APermissions: TArray<string>;
+      const AGrantResults: TArray<TPermissionStatus>);
+    procedure ExplainReason(Sender: TObject; const APermissions: TArray<string>;
+      const APostRationaleProc: TProc);
+
 
     procedure PanelView(LayoutName: TLayout; FA: TFloatAnimation);
     procedure PanelHide(LayoutName: TLayout; FA: TFloatAnimation);
@@ -326,7 +362,13 @@ implementation
 {$R *.fmx}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
-  Statist, RangeDate, Exchanger, Sign, WifiConnect;
+  Statist, RangeDate, Exchanger, Sign, WifiConnect,
+  {$IFDEF ANDROID}
+    Androidapi.Helpers,
+    Androidapi.JNI.JavaTypes,
+    Androidapi.JNI.Os,
+  {$ENDIF}
+  FMX.DialogService;
 
 
 
@@ -344,6 +386,16 @@ begin
     FilterLocal.Agent := AItem.Data['L_CP1_PLAT'].AsString;
     AgentFilterSettingEdit.Text := AItem.Data['L_CP1_PLAT'].AsString;
     PanelHide(AgentsLayout, AgentsFA);
+end;
+
+function TOrdersForm.AppEvent(AAppEvent: TApplicationEvent;
+  AContext: TObject): Boolean;
+begin
+  case AAppEvent of
+    TApplicationEvent.WillBecomeInactive, TApplicationEvent.EnteredBackground,
+      TApplicationEvent.WillTerminate:
+      StrikeCamera.Active := false;
+  end;
 end;
 
 procedure TOrdersForm.BackAgentsBtnClick(Sender: TObject);
@@ -476,6 +528,24 @@ begin
      end;
 end;
 
+procedure TOrdersForm.CameraPermissionRequestResult(Sender: TObject;
+  const APermissions: TArray<string>;
+  const AGrantResults: TArray<TPermissionStatus>);
+begin
+  if (Length(AGrantResults) = 1) and
+    (AGrantResults[0] = TPermissionStatus.Granted) then
+  begin
+    StrikeCamera.Active := false;
+    StrikeCamera.Quality := FMX.Media.TVideoCaptureQuality.MediumQuality;
+    StrikeCamera.Kind := FMX.Media.TCameraKind.BackCamera;
+    StrikeCamera.FocusMode := FMX.Media.TFocusMode.ContinuousAutoFocus;
+    StrikeCamera.Active := True;
+  end
+  else
+    TDialogService.ShowMessage
+      ('—канирование невозможно, т.к. не предоставлен доступ к камере устройства!')
+end;
+
 procedure TOrdersForm.correctDP;
 begin
     if (DBegSynchEdit.Date  > DEndSynchEdit.Date) then
@@ -518,16 +588,48 @@ begin
   DEndSynchEdit.Date := EndDate.Date;
 end;
 
+procedure TOrdersForm.ExitBtnClick(Sender: TObject);
+begin
+  Close();
+end;
+
+procedure TOrdersForm.ExplainReason(Sender: TObject;
+  const APermissions: TArray<string>; const APostRationaleProc: TProc);
+begin
+   TDialogService.ShowMessage
+    ('ѕриложению необходим доступ к камере устройства...',
+    procedure(const AResult: TModalResult)
+    begin
+      APostRationaleProc;
+    end)
+end;
+
 procedure TOrdersForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   {$IFDEF ANDROID}
     Action := TCloseAction.caFree;
+    if Assigned(fScanBitmap) then
+      FreeAndNil(fScanBitmap);
   {$ENDIF}
 end;
 
 procedure TOrdersForm.FormCreate(Sender: TObject);
+var
+  AppEventSvc: IFMXApplicationEventService;
 begin
   setActualDate();
+
+   if TPlatformServices.Current.SupportsPlatformService
+    (IFMXApplicationEventService, IInterface(AppEventSvc)) then
+  begin
+    AppEventSvc.SetApplicationEventHandler(AppEvent);
+  end;
+
+  fScanBitmap := nil;
+
+{$IFDEF ANDROID}
+  fPermissionCamera := JStringToString(TJManifest_permission.JavaClass.CAMERA);
+{$ENDIF}
 end;
 
 procedure TOrdersForm.FormKeyDown(Sender: TObject; var Key: Word;
@@ -692,6 +794,66 @@ begin
   finally
     FA.Start;
   end;
+end;
+
+procedure TOrdersForm.ParseImage;
+begin
+  TThread.CreateAnonymousThread(
+    procedure
+    var
+      ReadResult: TReadResult;
+      ScanManager: TScanManager;
+
+    begin
+      try
+        fScanInProgress := True;
+        ScanManager := TScanManager.Create(TBarcodeFormat.Auto, nil);
+
+        try
+
+          ReadResult := ScanManager.Scan(fScanBitmap);
+
+        except
+          on E: Exception do
+          begin
+
+            TThread.Synchronize(TThread.CurrentThread,
+              procedure
+              begin
+                lblScanStatus.Text := E.Message;
+              end);
+
+            exit;
+          end;
+
+        end;
+
+        TThread.Synchronize(TThread.CurrentThread,
+          procedure
+          begin
+
+            if (Length(lblScanStatus.Text) > 10) then
+            begin
+              lblScanStatus.Text := '*';
+            end;
+
+            lblScanStatus.Text := lblScanStatus.Text + '*';
+            if (ReadResult <> nil) then
+            begin
+              Memo1.Lines.Insert(0, ReadResult.Text);
+            end;
+
+          end);
+
+      finally
+        if ReadResult <> nil then
+          FreeAndNil(ReadResult);
+
+        ScanManager.Free;
+        fScanInProgress := false;
+      end;
+
+    end).Start();
 end;
 
 procedure TOrdersForm.PrevTabBtnClick(Sender: TObject);
@@ -1005,6 +1167,12 @@ begin
    PanelView(FilterSettingLayout, FilterSettingFA);
 end;
 
+procedure TOrdersForm.StartCameraScanBtnClick(Sender: TObject);
+begin
+//  PermissionsService.RequestPermissions([fPermissionCamera],
+//    CameraPermissionRequestResult, ExplainReason);
+end;
+
 procedure TOrdersForm.StatistLVClick(Sender: TObject);
 var
    KeyboardService: IFMXVirtualKeyboardService;
@@ -1028,6 +1196,11 @@ begin
   StatistNakl.CollectorUID := (AItem.Data['CollectorUID'].AsString).toInteger;
   StatistNakl.CollectorName := AItem.Data['Collector'].AsString;
   StatistNakl.CollectNaklCount := (AItem.Data['DocKol'].AsString).toInteger;
+end;
+
+procedure TOrdersForm.StopCameraScanBtnClick(Sender: TObject);
+begin
+  StrikeCamera.Active := false;
 end;
 
 procedure TOrdersForm.SynchBtnClick(Sender: TObject);

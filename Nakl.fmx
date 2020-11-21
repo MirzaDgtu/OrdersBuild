@@ -70,7 +70,7 @@ object NaklForm: TNaklForm
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      TintColor = claWhite
+      TintColor = claLightskyblue
       object CollectorLeftLbl: TLabel
         Align = Left
         StyledSettings = [Family]

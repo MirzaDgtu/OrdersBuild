@@ -3,7 +3,7 @@ object OrdersForm: TOrdersForm
   Top = 0
   Caption = 'OrdersForm'
   ClientHeight = 624
-  ClientWidth = 375
+  ClientWidth = 383
   Position = ScreenCenter
   WindowState = wsMaximized
   FormFactor.Width = 320
@@ -15,12 +15,12 @@ object OrdersForm: TOrdersForm
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
-    Size.Width = 375.000000000000000000
+    Size.Width = 383.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object OrdersHeaderTB: TToolBar
-      Size.Width = 375.000000000000000000
+      Size.Width = 383.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -30,7 +30,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family, Size]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 279.000000000000000000
+        Size.Width = 287.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -41,7 +41,7 @@ object OrdersForm: TOrdersForm
       end
       object PrevTabBtn: TButton
         Align = Left
-        IconTintColor = claRed
+        IconTintColor = claAqua
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -51,8 +51,8 @@ object OrdersForm: TOrdersForm
       end
       object NextTabBtn: TButton
         Align = Right
-        IconTintColor = claRed
-        Position.X = 327.000000000000000000
+        IconTintColor = claAqua
+        Position.X = 335.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -67,7 +67,7 @@ object OrdersForm: TOrdersForm
       OnGesture = TabsOrderGesture
       Align = Client
       Images = IL32
-      Size.Width = 375.000000000000000000
+      Size.Width = 383.000000000000000000
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
@@ -76,11 +76,11 @@ object OrdersForm: TOrdersForm
       TabPosition = PlatformDefault
       OnChange = TabsOrderChange
       Sizes = (
-        375s
+        383s
         527s
-        375s
+        383s
         527s
-        375s
+        383s
         527s)
       object OrdersTab: TTabItem
         CustomIcon = <
@@ -91,7 +91,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family, Size, FontColor]
         IsSelected = True
         ImageIndex = 0
-        Size.Width = 125.000000000000000000
+        Size.Width = 127.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -101,21 +101,21 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object NaklLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object NaklHeaderTB: TToolBar
             Align = Bottom
             Position.Y = 479.000000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
             TintColor = claWhite
             object RefreshNaklBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claAqua
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -125,8 +125,8 @@ object OrdersForm: TOrdersForm
             end
             object RightNaklMenuBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 327.000000000000000000
+              IconTintColor = claAqua
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -139,7 +139,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -158,7 +158,7 @@ object OrdersForm: TOrdersForm
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 457.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -357,7 +357,7 @@ object OrdersForm: TOrdersForm
             SearchVisible = True
             object NaklRigthMenuLayout: TLayout
               Align = Right
-              Position.X = 320.000000000000000000
+              Position.X = 328.000000000000000000
               Position.Y = 48.000000000000000000
               Size.Width = 55.000000000000000000
               Size.Height = 409.000000000000000000
@@ -375,15 +375,15 @@ object OrdersForm: TOrdersForm
                 Align = VertCenter
                 Fill.Color = xFF0C0C0C
                 Opacity = 0.699999988079071000
-                Position.Y = 88.000000000000000000
+                Position.Y = 40.000000000000000000
                 Size.Width = 55.000000000000000000
-                Size.Height = 232.000000000000000000
+                Size.Height = 328.000000000000000000
                 Size.PlatformDefault = False
                 object RightMenuVCLayout: TLayout
                   Align = VertCenter
-                  Position.Y = 44.000000000000000000
+                  Position.Y = 36.000000000000000000
                   Size.Width = 55.000000000000000000
-                  Size.Height = 143.000000000000000000
+                  Size.Height = 256.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
                   object BuildNaklBtn: TSpeedButton
@@ -399,13 +399,13 @@ object OrdersForm: TOrdersForm
                   end
                   object SettingFilterBtn: TSpeedButton
                     Align = Top
-                    Images = IL
-                    ImageIndex = 0
-                    Margins.Left = 10.000000000000000000
-                    Margins.Right = 10.000000000000000000
-                    Position.X = 10.000000000000000000
-                    Position.Y = 96.000000000000000000
-                    Size.Width = 35.000000000000000000
+                    Images = IL35
+                    ImageIndex = 1
+                    Margins.Left = 12.000000000000000000
+                    Margins.Right = 9.000000000000000000
+                    Position.X = 12.000000000000000000
+                    Position.Y = 144.000000000000000000
+                    Size.Width = 34.000000000000000000
                     Size.Height = 48.000000000000000000
                     Size.PlatformDefault = False
                     OnClick = SettingFilterBtnClick
@@ -422,6 +422,227 @@ object OrdersForm: TOrdersForm
                     StyleLookup = 'pagecurltoolbutton'
                     OnClick = NaklDetailBtnClick
                   end
+                  object CameraScanBtn: TSpeedButton
+                    Align = Top
+                    IconTintColor = claAqua
+                    Images = IL35
+                    Position.X = 4.000000000000000000
+                    Position.Y = 96.000000000000000000
+                    Size.Width = 48.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'cameratoolbutton'
+                  end
+                  object ExitBtn: TSpeedButton
+                    Align = Top
+                    IconTintColor = claAqua
+                    Position.X = 4.000000000000000000
+                    Position.Y = 192.000000000000000000
+                    Size.Width = 48.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'escapetoolbutton'
+                    OnClick = ExitBtnClick
+                  end
+                end
+              end
+            end
+            object CameraScanLayout: TLayout
+              Align = Client
+              Margins.Left = 7.000000000000000000
+              Margins.Top = 7.000000000000000000
+              Margins.Right = 7.000000000000000000
+              Margins.Bottom = 7.000000000000000000
+              Size.Width = 369.000000000000000000
+              Size.Height = 395.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object CameraScanRect: TRectangle
+                Align = Client
+                Size.Width = 369.000000000000000000
+                Size.Height = 395.000000000000000000
+                Size.PlatformDefault = False
+                object CameraScanHeaderTB: TToolBar
+                  Padding.Left = 3.000000000000000000
+                  Padding.Top = 3.000000000000000000
+                  Padding.Right = 3.000000000000000000
+                  Padding.Bottom = 3.000000000000000000
+                  Margins.Left = 3.000000000000000000
+                  Margins.Top = 3.000000000000000000
+                  Margins.Right = 3.000000000000000000
+                  Margins.Bottom = 3.000000000000000000
+                  Position.X = 3.000000000000000000
+                  Position.Y = 3.000000000000000000
+                  Size.Width = 363.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                  object BackCameraScanBtn: TSpeedButton
+                    Align = FitLeft
+                    IconTintColor = claAqua
+                    Size.Width = 48.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'backtoolbutton'
+                  end
+                  object SaveCameraScanBtn: TSpeedButton
+                    Align = FitRight
+                    IconTintColor = claAqua
+                    Position.X = 315.000000000000000000
+                    Size.Width = 48.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'donetoolbutton'
+                  end
+                  object CameraScanHeaderLbl: TLabel
+                    Align = VertCenter
+                    StyledSettings = [Family]
+                    Position.X = 51.000000000000000000
+                    Position.Y = 12.000000000000000000
+                    Size.Width = 261.000000000000000000
+                    Size.Height = 23.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.Font.Size = 11.000000000000000000
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    TextSettings.FontColor = claDarkcyan
+                    TextSettings.HorzAlign = Center
+                    Text = #1057#1082#1072#1085#1080#1088#1086#1074#1072#1085#1080#1077' '#1096#1090#1088#1080#1093#1082#1086#1076#1072
+                    TabOrder = 2
+                  end
+                end
+                object CameraScanBottomTB: TToolBar
+                  Align = Bottom
+                  Padding.Left = 7.000000000000000000
+                  Padding.Top = 2.000000000000000000
+                  Padding.Right = 7.000000000000000000
+                  Padding.Bottom = 2.000000000000000000
+                  Margins.Left = 3.000000000000000000
+                  Margins.Top = 3.000000000000000000
+                  Margins.Right = 3.000000000000000000
+                  Margins.Bottom = 3.000000000000000000
+                  Position.X = 3.000000000000000000
+                  Position.Y = 344.000000000000000000
+                  Size.Width = 363.000000000000000000
+                  Size.Height = 48.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 1
+                  object CameraScanBottonBtnsGPL: TGridPanelLayout
+                    Align = Client
+                    Size.Width = 349.000000000000000000
+                    Size.Height = 44.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                    ColumnCollection = <
+                      item
+                        Value = 50.000000000000000000
+                      end
+                      item
+                        Value = 50.000000000000000000
+                      end>
+                    ControlCollection = <
+                      item
+                        Column = 0
+                        Control = StopCameraScanBtn
+                        Row = 0
+                      end
+                      item
+                        Column = 1
+                        Control = StartCameraScanBtn
+                        Row = 0
+                      end>
+                    RowCollection = <
+                      item
+                        Value = 100.000000000000000000
+                      end
+                      item
+                        SizeStyle = Auto
+                      end>
+                    object StopCameraScanBtn: TSpeedButton
+                      Align = VertCenter
+                      IconTintColor = claRed
+                      Position.X = 63.000000000000000000
+                      Position.Y = -2.000000000000000000
+                      Size.Width = 48.000000000000000000
+                      Size.Height = 48.000000000000000000
+                      Size.PlatformDefault = False
+                      StyleLookup = 'pausetoolbutton'
+                      OnClick = StopCameraScanBtnClick
+                    end
+                    object StartCameraScanBtn: TSpeedButton
+                      Align = VertCenter
+                      IconTintColor = claOlivedrab
+                      Position.X = 237.500000000000000000
+                      Position.Y = -2.000000000000000000
+                      Size.Width = 48.000000000000000000
+                      Size.Height = 48.000000000000000000
+                      Size.PlatformDefault = False
+                      StyleLookup = 'playtoolbutton'
+                      OnClick = StartCameraScanBtnClick
+                    end
+                  end
+                end
+                object CameraScanImage: TImage
+                  MultiResBitmap = <
+                    item
+                    end>
+                  Align = Client
+                  Size.Width = 369.000000000000000000
+                  Size.Height = 205.000000000000000000
+                  Size.PlatformDefault = False
+                end
+                object CameraScanLB: TListBox
+                  Align = Bottom
+                  Padding.Top = 3.000000000000000000
+                  Margins.Left = 3.000000000000000000
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 3.000000000000000000
+                  Position.X = 3.000000000000000000
+                  Position.Y = 264.000000000000000000
+                  Size.Width = 363.000000000000000000
+                  Size.Height = 77.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 3
+                  DisableFocusEffect = True
+                  DefaultItemStyles.ItemStyle = ''
+                  DefaultItemStyles.GroupHeaderStyle = ''
+                  DefaultItemStyles.GroupFooterStyle = ''
+                  Viewport.Width = 363.000000000000000000
+                  Viewport.Height = 77.000000000000000000
+                  object CameraScanSearchLBGH: TListBoxGroupHeader
+                    TextSettings.Font.Size = 11.000000000000000000
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    TextSettings.HorzAlign = Center
+                    StyledSettings = [Family, Style, FontColor]
+                    Size.Width = 363.000000000000000000
+                    Size.Height = 30.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                    Text = #1056#1077#1079#1091#1083#1100#1090#1072#1090' '#1089#1082#1072#1085#1080#1088#1086#1074#1072#1085#1080#1103
+                  end
+                  object CameraScanLBI: TListBoxItem
+                    TextSettings.Font.Size = 11.000000000000000000
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    TextSettings.FontColor = claDarkcyan
+                    StyledSettings = [Family, Other]
+                    Padding.Left = 70.000000000000000000
+                    Padding.Right = 30.000000000000000000
+                    Position.Y = 30.000000000000000000
+                    TabOrder = 1
+                    Text = #1064#1090#1088#1080#1093#1082#1086#1076':'
+                    object CameraScanStrikeCodLbl: TLabel
+                      Align = VertCenter
+                      StyledSettings = [Family]
+                      Position.X = 70.000000000000000000
+                      Position.Y = 10.000000000000000000
+                      Size.Width = 263.000000000000000000
+                      Size.Height = 23.000000000000000000
+                      Size.PlatformDefault = False
+                      TextSettings.Font.StyleExt = {00070000000000000004000000}
+                      TextSettings.FontColor = claRed
+                      TextSettings.HorzAlign = Center
+                      TabOrder = 0
+                    end
+                  end
                 end
               end
             end
@@ -429,13 +650,13 @@ object OrdersForm: TOrdersForm
           object OrdersBottomSB: TStatusBar
             Position.Y = 457.000000000000000000
             ShowSizeGrip = True
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             object OrdersBottomGPL: TGridPanelLayout
               Align = Client
-              Size.Width = 375.000000000000000000
+              Size.Width = 383.000000000000000000
               Size.Height = 22.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
@@ -467,7 +688,7 @@ object OrdersForm: TOrdersForm
               object KolDocLbl: TLabel
                 Align = VertCenter
                 StyledSettings = [Family, FontColor]
-                Size.Width = 187.500000000000000000
+                Size.Width = 191.500000000000000000
                 Size.Height = 22.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 10.000000000000000000
@@ -479,8 +700,8 @@ object OrdersForm: TOrdersForm
               object KolBuildDocLbl: TLabel
                 Align = VertCenter
                 StyledSettings = [Family]
-                Position.X = 187.500000000000000000
-                Size.Width = 187.500000000000000000
+                Position.X = 191.500000000000000000
+                Size.Width = 191.500000000000000000
                 Size.Height = 22.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 10.000000000000000000
@@ -1516,7 +1737,7 @@ object OrdersForm: TOrdersForm
         TextSettings.FontColor = claAqua
         IsSelected = False
         ImageIndex = 1
-        Size.Width = 125.000000000000000000
+        Size.Width = 127.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -1526,21 +1747,21 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object StatistLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object StatistBottomTB: TToolBar
             Align = Bottom
             Position.Y = 479.000000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
             TintColor = claWhite
             object RefreshStatistBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claAqua
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1550,8 +1771,8 @@ object OrdersForm: TOrdersForm
             end
             object RightStatistMenuBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 327.000000000000000000
+              IconTintColor = claAqua
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1564,7 +1785,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -1583,7 +1804,7 @@ object OrdersForm: TOrdersForm
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -1894,7 +2115,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family, Size, FontColor]
         IsSelected = False
         ImageIndex = 2
-        Size.Width = 125.000000000000000000
+        Size.Width = 129.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -1904,7 +2125,7 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object SynchLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -1913,7 +2134,7 @@ object OrdersForm: TOrdersForm
             OnGesture = SynchRectGesture
             Align = Client
             Fill.Color = claCadetblue
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
@@ -1923,7 +2144,7 @@ object OrdersForm: TOrdersForm
             Margins.Right = 7.000000000000000000
             Position.X = 7.000000000000000000
             Position.Y = 166.000000000000000000
-            Size.Width = 361.000000000000000000
+            Size.Width = 369.000000000000000000
             Size.Height = 147.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -1932,13 +2153,13 @@ object OrdersForm: TOrdersForm
             DefaultItemStyles.ItemStyle = ''
             DefaultItemStyles.GroupHeaderStyle = ''
             DefaultItemStyles.GroupFooterStyle = ''
-            Viewport.Width = 361.000000000000000000
+            Viewport.Width = 369.000000000000000000
             Viewport.Height = 147.000000000000000000
             object SynchParamLBGH: TListBoxGroupHeader
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               TextSettings.HorzAlign = Center
               StyledSettings = [Family, Size, Style, FontColor]
-              Size.Width = 361.000000000000000000
+              Size.Width = 369.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
@@ -1952,7 +2173,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
               Position.Y = 36.000000000000000000
-              Size.Width = 361.000000000000000000
+              Size.Width = 369.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
@@ -1963,7 +2184,7 @@ object OrdersForm: TOrdersForm
                 Align = VertCenter
                 Position.X = 100.000000000000000000
                 Position.Y = 2.000000000000000000
-                Size.Width = 231.000000000000000000
+                Size.Width = 239.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Family]
@@ -1982,7 +2203,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
               Position.Y = 72.000000000000000000
-              Size.Width = 361.000000000000000000
+              Size.Width = 369.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
@@ -1993,7 +2214,7 @@ object OrdersForm: TOrdersForm
                 Align = VertCenter
                 Position.X = 100.000000000000000000
                 Position.Y = 2.000000000000000000
-                Size.Width = 231.000000000000000000
+                Size.Width = 239.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Family]
@@ -2012,7 +2233,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
               Position.Y = 108.000000000000000000
-              Size.Width = 361.000000000000000000
+              Size.Width = 369.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 3
@@ -2049,7 +2270,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.HorzAlign = Center
                 Position.X = 100.000000000000000000
                 Position.Y = 2.000000000000000000
-                Size.Width = 231.000000000000000000
+                Size.Width = 239.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Family]
@@ -2061,7 +2282,7 @@ object OrdersForm: TOrdersForm
             Align = Bottom
             Padding.Left = 5.000000000000000000
             Position.Y = 479.000000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -2069,7 +2290,7 @@ object OrdersForm: TOrdersForm
             object SynchBtn: TSpeedButton
               Align = Left
               StyledSettings = [Family, Size, Style]
-              IconTintColor = claRed
+              IconTintColor = claAqua
               ImageIndex = 5
               Position.X = 5.000000000000000000
               Size.Width = 48.000000000000000000
@@ -2084,7 +2305,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 53.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 322.000000000000000000
+              Size.Width = 330.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -2550,6 +2771,10 @@ object OrdersForm: TOrdersForm
       end
     end
   end
+  object StrikeCamera: TCameraComponent
+    Left = 280
+    Top = 273
+  end
   object IL: TImageList
     Source = <
       item
@@ -2625,16 +2850,16 @@ object OrdersForm: TOrdersForm
               50339BF017AD1BE2BA0C72A2DF853F1FBFFA2290092A4710D8CFDFCF21FF5B6F
               678E8F9AA2E86721662EAE1F3C0CFF99E4893200E46C1D16C955DCFFD82C3998
               9919ACD585188E5FFEFA48E5A5DE62825E006916FDA1BFD445F65928A3840DD3
-              A51B577E7CFCC671E831EB65DFD56161BFF0BAC078E61956D15F066B44EFAE0A
+              A51B577E7CFCC671E831EB65DFD56161BFF0BAC078E61956D15F066B44EF2E0B
               E390B567FAF0F7C99FC71FD8D69D957AE10DD20C5283D30520CDE6DC7CAB446F
-              AFF4378FAD667CF9E3E19F63A77E2C9B9DA891C0C0C8F81FAA0CBB01C46A0601
+              2FF5378FAD677CF9E3E19F63A77E2C9B9DA891C0C0C8F81FAA0CBB01C46A0601
               0C03B0693E79F6C7B21971989A4100C50052358300DC00503C6BB3481C13BDB3
-              C600A4F9EBF76B7F779F655E362B5E231E97661080C7822A83E0091B5D794390
-              E6938B5BFEEF3BC7BCE93DD7E5447C9A4180194444CD3A6FE0672852F8F0D537
-              7676563686CB3FA4EFBEE3BA6C0F8CAABF60557800D8056C0C8CD374E425F994
+              C200A4F9EBF76B7F779F655E362B5E231E97661080C7822A83E0091B5D794390
+              E6938B1BFFEF3BC7BCE93DD7E5447C9A4180194444CD3A6FE0672852F8F0D537
+              7676563686CB3F64EFBEE3BA6C0F8CAABF60557800D8056C0C8CD374E425F994
               05B9BEEC3F77F7D2A34FF77588D10C028CBECD0715FFB2B3DF1215E038FAF3D7
-              FFEC15398657A172C401978EE39A5E5D2725A05C12010303007CD5BDA118086B
-              EE0000000049454E44AE426082}
+              FFEC15398657A172C401978EE39A5E5D2725A05C1201030300750DBDA0EAA7EB
+              0F0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_edit_16px.png'
           end>
         Name = 'icons8_edit_16px'
@@ -2714,22 +2939,22 @@ object OrdersForm: TOrdersForm
               6E4074EBA1101109D11E1929497910FFEFDF7F0C8F1E7CFDC52AF2FF9F383727
               072B0B2B58DDF3272F1EBC7CFD269D959DD1F0EFEFFFC6600322DA0F188A0A89
               6D94939392FDF3F72FC3A3878FCF7CFAFC79D38F4FDFB7FF65FAF5958757C083
-              8797375CFCE501331E8B78C6672F9E3DE161E7E67FF1EAE526B00189BD27F76B
-              69A93B7C39B1F0FF431EF375F7BF7C8F38D8E8F807240703696967587FAAFC5A
-              A6F0F57430C81090D8AD9BB7963245D4EFD113151532FEF3E70FC32B31BBB35F
-              4F3D0A47D70C02B36699FC0606E7A5CF6AEEDFA14260C018DEB55799F50F9327
+              8797375CFCE56E331E8B14C6672F9E3DE161E7E67FF1EAE526B00189BD27F76B
+              69A93B7C3931E7FF431E9B75F7BF7C8F38D8E8F807240703696967587FAAFC5A
+              A6F0F55830C81090D8AD9BB7963245D4EFD113151532FEF3E70FC32B31E7B35F
+              4F3D0A47D70C02B36699FC0606E7A5CF6A3EDFA14260C018DEB55799F50F9327
               88F38799E1C48A72C733601934105ABF2B8C9397BB9E9787176EC0A78F9F4E40
               99030818633A8ECC151010B084F2193E7EFAC4FEEDEB97EEB58D6E33A0422820
               AC7DAF1D1B238B3B88FDFDD79F654C9C1C6CECF2F2329A20CCC6CB024C03FFE6
-              E1D26C5FBF9F45985FA84F5F5FBF4A5654229385E5DF6F26A81C18F0DEDAC1C9
-              CCC06C125ABF8A0D2A0407A06854E6E55825F6F2901188FFF2D387E32BAB5C6F
-              B180389FDE7FFCFCE5E7D78F52160932EABF7F073C7AC8712CA6FDC8D22F5F3F
+              E1D26C5FBF9F45985FA84F5F5FBF4A5654229385E5DF6F26A81C18F0DEDACCC9
+              CCC06C125ABF8A0D2A0407A06854E6E55825F672AF1188FFF2D387E32BAB5C6F
+              B180389FDE7FFCFCE5E7D78F5216A932EABF7F073C7AC8712CA6FDC8D22F5F3F
               EC60FEC7C6CD25C0E9C9CACBECAF24AB68CCCCACC9F0F4C9E307DFDE7E2903E9
               658CE93CBC9A8585E9CCDFDF7F2E880A4BCC9094115700498092F2F3AF5F7FF0
               33FE67E6E2E2616566863816A4F9F59B0F454B2B6DD783F88C5ED55BE4B7B5FA
               3C0471C29B0E6872F371F58B098A5808890AF22367A6776FDFBC7BF9E6DDD9CF
               1F3F17AC6974B9069600027866420621CD07157938D912FEFDFF2FC3CCC8C8FC
-              FBCF9F57DFBF7F5EB2B6D1EB1254091430300000EEA0186CB3184E4800000000
+              FBCF9F57DFBF7F5EB2B6D1EB125409143030000002781871728C74AB00000000
               49454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_available_updates_16px.png'
           end>
@@ -2819,28 +3044,28 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              02B149444154384FC5935D48536118C7CFE73ECFD9973B9BDA749A9228D4B049
-              18642565A50406A913F4A26E8CAE8A2E920C1A33C43EED568CBA4A49D3228994
-              48D492B498105E04AE8BDCFC9CCEB99DB3E3743B1FF9CED350A9EB7EF0C2FB7F
-              FECFF3E770DEF785A1BF50D33C685328C83A14414C822040BC200636629B4F7B
-              EF9C9A965A92EC0AA86A1E39A821D56D668DC6AE4F33E96178DB1605115A0BAC
-              855782ABE34C2874ADDB55E601F5CAC681AC64405DCBA72A632AF5C8929E6605
-              9AE705C837C3C670A32898D54A058EE189BEC5B9A519FF4AE00A2E870BF9B868
-              4F04D4B68E145206D3DBCCCCF40C8EE7219F77D64D334CFF061D1DE091184B90
-              BA7304493ACCFED92344F131786169618E90ABB54BCBFEFE44C0E5C75F870B0A
-              F24E4626C6442F617CFD2B12AD1D759572C0FB4343831BDFCC8D7565B1C18B20
-              04D43CD39E4EA4D6F9F1104519EC1CC741CBA67D93EC379F63EF30A0A3A328BE
-              F53BA79803B951A99400763C18CAC139A41C080E85265E3696BA13CE1EAA9D1F
-              6A94A4DA49126432800ED313D2F63F02D7DF1B7BA6D3E98E4A1A0AD3B47C9D8D
-              3CEC739D69974ABBA8691D3A2E83B1B3601F8D715D885221935BAD967CB06424
-              B6750784E7FF1A3EE11CC652B486369BCDD69441A55EC530218E485E02D2F353
-              89426851B5B3472695928063CC21153D26FFFC61A0FD7468BCBBA9CC830141AF
-              8599C8261B4E2F2EB1E4C5E3177C5EC597FAD6B1CE081B1A4405995AA55396E3
-              245AB93F23DB8EA228343F373BB3BE1AB90966E1FAFB9F5F6118E2E6E3DC772A
-              25B53DCD62CE0206B8CA8B2CBBA1854554A5227014DDFE5830BC1208DDE8BC55
-              F20668B8E2F63BEBFB96F35E201CCD23F96A8DEA89496F2C36507AEDCEC7145C
-              0D04FD81E0241366AEF7BA4EFF48185B241FD34EAAEE8E66134AD92541142D28
-              0CA3718E5B8E4699177DAE8A29A94502827E03451B1823455F34990000000049
+              02B149444154384FC5935D48536118C7CFE73ECFD9976E7332DDCC4826D4B049
+              D8451F56568A60903A412FEAC6E8AAE822C9A03143ECD36EC5A8AB94342D9248
+              89442D498B09E185E02E6A9BA64EE7DCCED971BA9D8F7CE769A8D4753F78E1FD
+              3FFFE7F97338EFFBC2D05FA86D19B2CB64643D8A20069EE7218E17421B89CDA7
+              7D774ECF8A2D69760554B78C1E5491CA76A34AE5D09A0C5A18DEB6055E80D642
+              6BD195F0EA041D895CEB71977941BDAA69D09A0EA86FFD549D99A57F64CE3659
+              80E6381E0AF898049E29F046A55C866378AA6F717EC9175C095DC1A570119714
+              1CA980BAB6D122BDCEF03637373B87E53828E09FF350343DB041C5073924C110
+              A4E63C41924E63F0C711A2A4145E585A9827A44AF5D27270201570F9F1D791C2
+              C28293B1C911C14F985EFF8CC5EBC6DCA52CF0FED0D8E8C137F727BAAD4CF022
+              080135EFACB70BA9737D3CA4D7EB1C2CCB42CB06EB14F32DE0DC3B0CE8EC2C4E
+              6EFDCE69FA802D2E9652C0CE07C3F9388B9403C1A2D0E4CBA6524FCAD9438DEB
+              43AD9C54BA48824C0750516A52DCFE47E0867BE3CF341ACD515143518A92AE33
+              B187FDEEB31D626917B56DC3C72530760EECE309B61B91CB24528BC56C034B42
+              625B77807FFEAFE113AE112C43AD6BB7DBEDCD39FAACAB18C62711D14B417A67
+              E4288416D7B87A2562290D38C67C52D66B08FA0E031DA422133DCD655E0C086A
+              2D4AC736996876C9297341327921E0977D69681BEF8A319121949728151A7939
+              4EA255FB72F21C286A837ECDCFF9D6576337C12CDC70FFF32B0C433C5C92FDAE
+              CFC8EA30998D566080ABBCC8301B6A5840150A0247D1ED8F05C32BA1C88DAE5B
+              C7DE000D57DC7E6779DF5AE907C2D9326A53AA144F0CDACC129D5EABDEF998C2
+              ABA17030149EA2A3F4F53EF7999994B145FA31EDA4FAEE581E21975CE205C18C
+              C2309A64D9E5789C7ED1EFAE98165B4420E83777EA184EAFB1230C0000000049
               454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_available_updates_16px.png'
           end>
@@ -2891,15 +3116,15 @@ object OrdersForm: TOrdersForm
               A881B9971003E7E9B74FEF7E00A9457181564A71279B8A86FDFFEFDF05B89CDD
               D419FEFC01AA002A6146B5E7E38A451BAE4D6B0B04B1594084B1B131EB070E91
               404E1D8B7436235D7E90D8CF2B1719FEFFFD03D4CFC4C0C4C3C3C0AAA40A1266
-              F8FFE33B033327B73A90C904C4FF98419ABF193AEC1430B32D61B530E3F8FBE6
+              F8FFE33B033327B73A90C904C4FF98419ABF193AEC1430B42861B5B2E0F8FBE6
               1503C3DFBF0C3F4E1D63E076746360119764F8FBE10303B3A010C3FFAF5FC006
-              B028288A0A8849DBBEE6605CC6CCAB6F1525989C5DC42022C2F8E7D96306267E
+              B028288A0A8849DBBEE6605CC6CCAB6F1525989C5DC4202ECEF8E7D96306267E
               2106265E5E0666513106266E1EB0ADDF0EEE6160D7D0666064636360E4E46260
               0262364515458E33E76E31FDF9FBF7EDF367DFFF30B2B3839D09722E0830B171
               307C3F7D9CE1FBA9A30C5CF6CE603164F0FCD9B73F40D7BC617E7FEFC61D2931
               015946163635A000FBBF0FEF194018E454900B98B87919FEFFFC091683E1EFCF
               9E7C623AB667D1ED0D0B27C263414A4A43988585151C8084C09F3FBF3F3E7B76
-              E32D943BB4010303001A38999A2A400BA00000000049454E44AE426082}
+              E32D943BB40103030018A2999AD97501920000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_cloud_sync_16px.png'
           end>
         Name = 'icons8_cloud_sync_16px'
@@ -3357,7 +3582,7 @@ object OrdersForm: TOrdersForm
   object VidDocsBS: TBindSourceDB
     DataSet = AppDataLocal.VidDocs
     ScopeMappings = <>
-    Left = 248
+    Left = 192
     Top = 280
   end
   object CollectorBuild: TBindSourceDB
@@ -3369,13 +3594,13 @@ object OrdersForm: TOrdersForm
   object OrdersHeaderBS: TBindSourceDB
     DataSet = AppDataLocal.OrdersHead
     ScopeMappings = <>
-    Left = 168
+    Left = 192
     Top = 336
   end
   object StatistNaklBS: TBindSourceDB
     DataSet = AppDataLocal.CollectorOrders
     ScopeMappings = <>
-    Left = 256
+    Left = 280
     Top = 336
   end
   object GM: TGestureManager
@@ -3456,42 +3681,42 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
               F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              044C494441545847ED967B4C5B551CC7CF39F7F65E564AE706484B067B04B3A0
-              6EC82333CEE8822E8E57AA7599D1F8585C64649A652AC1AD8874ADABC52CFA97
-              FEB1A2CE1A339D0A19AC03C96250FF1A6E8238966D763145487C94C0266DE9BD
-              BD3DC79EBBB34A57C00103FFD927393DE77EBFE7DCF3EB795EF07F0359BE2894
-              EDEE1085B46805C6DCB0A7A9E234D590EA2C124BD2359F180DD96E41D47499F6
-              7614526D5103E000B9D3986D48CB58AE1508C2ABA936EF29B05AAD6800DE7F12
-              4C448BA0883EF8CABEA58E59096CB376EBE448E07B9EE77410A2337E203EF79D
-              AD54997700A686CEB54B5275A78A0BD6DDD673EA87F116FB237A66C5A141F6C9
-              1B3E8708B4B4392A8F325965DA00B659BF10A2446F85841084C6ED5FDA9E9099
-              9580B9B6EB76AC8406758674251C0E0465197F8B30B7AFEDED721FAB024C9613
-              4D0092F1F6B7AA1C4C8A336D00E6FD5FBF69C8105FA3E5BFFCB2B3C5B665BF6A
-              4C6293B59B5F2A05DA6343EA5208F9B9443CEDEB95373C0C217100887A380D5F
-              84889229CBA0F7B8B3E249D62C816917218C803CE0BFACF141C047A3F851737D
-              A7915971F491D07BB1E1E96873561E3BD154F5ABCD66C3C79D9527456FE83E9E
-              47EB56E7E66C5C09B83C41E046599324A61C0193C5F30A00A48AE7F9FE588550
-              44210300620B21F0284E15DDDC44782389C2A2586B6DACC33DAC5902E6C6CE1A
-              314D7F101000C257C66B8F39CA9A9995403C80AD8D9D2FC5B2F59212D142C005
-              8D2359BB5DAE92C855F7EA21A2D1913D82466337C02CF43BF8134B926C8CFDF3
-              31562509D3EB9ECD1823E271567CC3A424D4006845EDD265ADD9C180CE1725DE
-              D603656B55770A1E6FEC1A2D2E2E5CF6636FFF5858910A3B1C5583CC9A133CFD
-              21184211CBE4B755B1F3C1A70CA9CE34100C769EE9FDE90087D091D9745E7DD8
-              7204F1B89C539012049114A0C05A77F54157C2141000EF96A1FC86C7661A61F2
-              4D63D7A78DAD9BD6179A97EBF5E0D2F010E8397FAE860610DF052DF6F2F75BED
-              65BB16A2F39958D4BB602AE61DC0F6E67DC54F7DF46AF0C5C3163F4DCF7F587F
-              915937C44D198155992B428F956ECEA049D0C01426DF100B32054FBBEA1EA08B
-              EE5ADAE1AEDFC1AC24D46D381D2F7CDCD0CE215240CB1803459670A5BBC67941
-              35678087207F8D31DB9C939905FE0E0541DFA55F9893CC8C23403BDFFAE043B9
-              3465A4A7EB0122A9CCFA4F52C51440B79C5E3B7393594FC1F6E6BA9D931393E7
-              CCECD7004FDEB937FFAE4334D13253E74C7C0D54BB1B1C089267D8239888482F
-              B36202A94013CE5B91A3A3E501EFC570905E77F3203E023C87F24BEF2951E7BB
-              60CD1DB910C34C662D280BB20D67C3AD006E0510DF86518C95BE73172E239DA8
-              844742EA85428FDFEEB3FDEAF781FFCA1F028D778C48DA6B1A2D0B4050BDEEB3
-              40D5681B9A7BBDC381A1B1D1300E483C7D37D5AE7F3F25FE45F4ECA1BDB908FD
-              BBF5642C0F0A40CC987CFC8A583C2F21299F3DAA2469180665208D084858C994
-              5850C44FF3EBDFFF59CDBB23FF00F01ABB9F106BED6C0000000049454E44AE42
-              6082}
+              044B494441545847ED967B4C5B551CC7CF39F7F65ED696CE8D222D19EC11CC82
+              BA218FCC38A30BBA385EA9D66546E3637191916996A904B722D2B5AE16B3E85F
+              FAC7603A6BCC742A64300692C5A0FE35DC04712CDBEC3410487CB40127B4F4DE
+              DE9E63CFDD59A52BC50103FFD927393DE77EBFE7DCF3EB795EF07F0359BE2894
+              ECEE1085D44819C6DC487B43D919AA21D5592496A4693E369B323D82A8E9B2EC
+              EDC8A7DAA206C00172A739D3946A5CAE1508C2ABA936EF29B0DBED6800DE7F0A
+              4C460AA0880E7FE9DC52C3AC38B6D9BBF57278E23B9EE7F410A2B33E203EF7AD
+              A35899770096BACEB54B74FAD38579EB6EEB39FDFD78B3F31103B362D020FBE4
+              0D9F41049A5B5DE5C798AC9234806DF6CF850831D8212104A171E7178E276466
+              C561ADEEBA1D2BC121BD294D09852602B28CBF4198DBD7FA76E920AB022CB693
+              0D0092F1B6B72A5C4C8A913400EBFEAFDE3419C5D768F94F9FEC6E766CD9AF1A
+              53D864EFE6974A136DD1216D5408F9A9483C33D82B6F781842E20210F5701ABE
+              0011255D9641EF0977D993AC591C4917210C831CE0F369BC10F091087ED45ADB
+              6966560C4338F85E74783A5ADDE5C74F3654FCEA7038F00977F929D11BBC8FE7
+              D1BAD5D9591B57029C2308DC286B92C0B42360B1B5BF0200A9E079BE3F5A2118
+              56C80080D846083C8675A2879B0C6D241158106DAD8D76B887358BC35ADF5925
+              A61A0E020240E8CA78F571574913B3E28805B0B5BEF3A568B65E52C25A08B880
+              D99FB1BBB1B1287CD5BD7A8868F4648FA0D1384D3003FD06FEC092249BA3FF7C
+              8C5549C0F27AFB668C116977977DCDA404D4006845EDD2652D998131FD6084F7
+              B61C2859ABBAD3F0787DD7686161FEB21F7AFBC7428A94DFE1AA1862D69CE0E9
+              0FC1108A5826BFACD211CDA032AC3A492018EC3CDBFBE3010EA1A3B3E9BCF288
+              ED28E27129A7202500C2294081D59ECA838D71534000BC5B86F21BED0E8B9FC9
+              378D5D9FD4B76C5A9F6F5D6E3080CB23C3A0E7C2F92A1A406C17343B4BDF6F71
+              96EC5A88CE676251EF82E9987700DB9BF6153EF5E1AB81178FD87C343DFF41ED
+              2566DD1037650456A5AF083E56BCD94893A081294CBE2116640A9E6EAC79802E
+              BA6B6987A77607B31250B761325EF8A8AE8D43248F9631068A2CE1724F95FBA2
+              6ACE000F41EE1A73A6352B3D03FC1D0C80BECB3F33279119478076BEF5C187B2
+              6932A6A51900223A66FD273A3105D02D67D0CEDC64D653B0BDA966E7D4C4E439
+              33FB35C09377EECDBDEB104DB4CCD439135B03959E3A1782E419F60826C3D2CB
+              AC18870E6842392BB2F4B43CE0BD140AD0EB6E1EC44680E7506EF13D45EA7CE7
+              ADB9231B6298CEAC056541B6E16CB815C0AD0062DB3082B1D277FEE25F482F2A
+              217F50BD50E8F1DB7DAE5FFD3EF05DF95DA0F18E11497B4DA3650108AAD77D0E
+              A81A6D4373AF776462786C348427249EBE9B6AD7BF9F12FB227AF6D0DE6C84FE
+              DD7A32968704201AA71EBF22162F4848CA658F2A091A860119487E01092B9912
+              0D8AF8687EFDFB3FAD7AD7FF0F8EDBBB932FEA51790000000049454E44AE4260
+              82}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_combo_chart_32px.png'
           end>
         Name = 'icons8_combo_chart_32px'
@@ -3506,40 +3731,40 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
               F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              0412494441545847ED955F6C537514C7CFBDB7B7EDDDD67FB77F2C7776FDB78E
-              6EB8C12602232C269B2E314466088444E39B046394071F78C004038926868824
-              266A0C04FF851862343EF8309789812D90B9C25A9A219D2E1BDD3F5DDD5DA5B4
-              BDEBFDE3BDB7BFAD74766C8D26FAD0CFCBFD9DEF39B7BFF33BE7FC6EA142850A
-              FF35187A960BE6F53ED62C80E0C0447CDA66D3FF120A8572C857166527E06DDC
-              D181998CE7F45B5B69D2E9A5B26936C747C3BF49F3898FC6877F388BC2364C59
-              09F85ADA3BC1E7FFDCF1EA3106D36A919A27DDDF772FF9DDA52F2686AFBE82A4
-              0D5146020709FF93D951FB9B6F37601A1269C52C9E3F9F480FF676E3268B1FAB
-              A93E8C0BA255E273BF2FB10B27E2776E0EA3B02208F45C97BA06A2D3D8F9EC61
-              6D6353F1D11F80F478AA32FDFD870C077AF69B5F7CB9B1BA7B2F43EDEA08E4A6
-              A60E9A693BC9C6C7AFA0D0151E5601DCD7FEF4718C249E0311137936C1D95E7F
-              638F361044EED2C8278652154A9C7D8715A2917DE3B1D0009254D64CC0DBFED4
-              97C69EBD3D55BB9FD12B76A67F80D3ED68D1E106A3EA074180DC745CDE4C031A
-              2723A78BE7F53510D3F72171F278DFAFD77ABB91A452F22D86095A758CA76379
-              7305AA6BCFCAE6DCED5BB0F0FE69E06E8D40762404EC0767808BDC547D6B8157
-              550354E91CC85C41839E2AF5F5DBEC82C1F89A844197D81C3423B9087E660A32
-              8357803E7AAC706A5184E4C50BA0611E05C266CF6BCB28959ABAAB5640649346
-              7B5353CDFCE8680A790B2DA86FDBDD2D1A4C172C2FBCE4243D3E1CD353C8530C
-              FBE17BA0A9758161DF01A4AC8D985C046EEC67D0FA03EA5CDC1BBA2CE47EBC36
-              2D2CCE3D3F1EBE3EA8C4A84770B936339299FEC471F25D461BDC52B439170D43
-              E6FA00646F0C81945B027E6E06744D2DC85B4048CCC31FA74F214B86E74148FD
-              09D4F65D4058ACA0B4CFD4D543584F9CAAC31DCE8B4A9B9530F51A5A83AD6FD1
-              478E7611165A3141E238E0C221C8C9E5C67514E85BB78366532D600401D4E33B
-              D5F56A52DF7E0552260DF2B5CB0B727B08A329BF7E00E53748C6651062519C9D
-              99E8532B40E88836D2ED530314B2F2E6FAD627D4ECB58D5B909A47CC66207DF9
-              7B6415C0280AE47B8FAC8743FA03B8A4D5ED54D66A02022FE694615986305B0A
-              03B60A8DC3290F541A929F9D936F4314B8D1082C7EFAB15C6243C9D694029387
-              5692B755D66A0B2C8E4D35B851D749D605D45B4158574DF22AB40D41205D1E79
-              BA27414AA5806AEF007DF336E45D9FF4D5DEEC522472869DBB3BAC26C0580CE1
-              FB63F1437ADB23369CA9DDD0FF032E979C74B981747B01AFAE41EAFAF03F0D49
-              0B5F5F8AD1903A323B3B2B16AEA1FC0D9068FA1BD2130C64DAB6D2160D59F48D
-              F8A7B07C8EA76E8C2C2C4DC6EE64D8F8FED9582CA1E87F3BADDBBDD923E1783D
-              32FF557009C626266E4F22B342850AFF0700FE020BE757810778614300000000
-              49454E44AE426082}
+              0411494441545847ED955F685B7514C7CFBD3737C96D9B7F377FC8EE4CF3AFE9
+              D2CE766B9DDB3A5684560B325C65740C14DF1C13D13DF8B08709930D14643807
+              828A6CCC7F0C9181ECC187AE54656B758C646BB2D0B9544BBBF49F36F6362E4B
+              729BFBC77B6F7E6D969AAE0D0AFA90CFCBFD9DEF3937BFF33BE7FC6EA04A952A
+              FF35187A560AE6F53EDE2280E0C0447CDA66D3FF120E87F3C857111527E06DDA
+              D989998CE7F4DBDA68D2E9A5721936CFC722BF49F3C98FC743DF9D45611BA6A2
+              047CAD1D5DE0F37FE178ED188369B5482D90191CB89FFAF6EB2F2742D75E45D2
+              86A820818384FFA9DCA8FDAD771A310D89B45216CF9F4F6686FB7B7093C58FD5
+              D51EC605D12AF1F9DF97D8851389BBB74228AC04023DD7A5BE91E832763D7758
+              DBD45C7AF487203D9E9AECE0E021435FEF01F34BAF34D5F6EC63A8DD9D81FCD4
+              D441336D27D9C4F85514BAC2A32A80FB3A9E398E91C4F3206222CF2639DB1B6F
+              EED50682C85D1EF9C450AE42C9B3EFB2422CBA7F3C1E1E4292CA9A09783B9EFE
+              CAD8BBAFB766CFB37AC5CE0E0E71BA9DAD3ADC6054FD2008909F4EC89B6940E3
+              64E474F182BE0662E601244F1E1FF8F5A7FE1E24A9947D8B6182561DE3E95CDE
+              5C81EADEBBB23977E7362C7C701AB8DB23901B0903FBE119E0A2B754DF5AE035
+              B500353A073257D0A0A74A43C376BB6030BE2E61D02DB604CD482E819F9982EC
+              F055A08F1E2B9E5A142175F1026898C780B0D90BDA324AA5A6EEA91510D994D1
+              DEDC5C373F3A9A46DE620B1ADAF7F48806D305CB8B2F3B498F0FC7F414F294C2
+              7EF43E6836BBC0B0BF0F296B23A616811BFB19B4FE803A17F76F5C11F23F84A6
+              85C5B917C623D7879518F5082ED7164632D39F3A4EBEC768835B4B36E76211C8
+              5E1F82DCCD1B20E597809F9B015D732BF2161192F3F0C7E953C892E17910D27F
+              02B5633710162B28ED3375F711D613A7EA7187F3A2D266254CBD86D660DBDBF4
+              91A3DD8485564C90380EB84818F272B9711D05FAB61DA0D9B419308200EA895D
+              EA7A35E9CB9740CA6640BE7605416E0F613415D60FA1FC06C9B80C423C86B333
+              13036A05081DD14EBA7D6A80424EDE5CDFF6A49ABDB6692B520B88B92C64BEBF
+              82AC221845817CEF91F568487F0097B4BA5DCA5A4D40E0C5BC322CCB10664B71
+              C056A17138E581CA40EAF373F26D8801371A85C5CF3E914B6C28DB9A7260F2D0
+              4AF2B6CA5A6D81C5B1A90E37EABAC8FA807A2B08EBAA495E85B63108A4CB234F
+              F72448E934501D9DA06FD98EBCEB93B9D69F5B8A46CFB073F7426A028CC51079
+              309638A437D136DC55BFA1FF075C2E39E97203E9F6025E5B87D4F5E17F1C9616
+              2E5F8AD3903E323B3B2B16AFA1FC0D9068FA1BD2130C64DBB7D1160D59F28DF8
+              A7B07C9EA76E8E2C2C4DC6EF66D9C481D9783CA9E87F3BADDBBDC523E1780332
+              FF557009C62626EE4C22B34A952AFF0700FE020464577DEF62B9D50000000049
+              454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_cloud_sync_32px.png'
           end>
         Name = 'icons8_cloud_sync_32px'
@@ -3565,5 +3790,165 @@ object OrdersForm: TOrdersForm
       end>
     Left = 128
     Top = 385
+  end
+  object IL35: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 35
+        MultiResBitmap.Width = 35
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 35
+            Height = 35
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
+              59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              05A2494441545847CD986B6C54451480CFDCDBED3EBA85624B5B5BA022A5A535
+              D196427818684A218A44310ADB4A2B41A362F447F50721FD6B0884C41843A246
+              D044100A1621205AFEB0540C0F79B58D416B794B690B2CAD85EE6E6F777BEF38
+              E7EEEC76EFEEEC6E4B6AC2F76377CEB9F33877E69C333397C023B0BAB151BE9C
+              3E3C4B227416EB209DAB8102F4524D6B9FD967EED8EF70A85C3D6A466D4C7163
+              63B235DDBF9212F2A61FA0DC0430813F8A823D7F6802FAAB46C8F73E57D24F7F
+              391C3EFE282E098DC96F6A32A75AFAEB8635F8C824C1935C3D06681750E973A5
+              57DE96C8A8B8C6943637CC6173BF9B552AE4AA47876AED40936A5B9656B7704D
+              1412FF8FA2D4D9F036A1EAC9713104215291EAD54E9538F7ACE59A2884C6CC76
+              36D41302DF02C866AE1A17643B58248FE7BBD2E3BB37729581A8652A3DD6F03E
+              91E02B2E26C4913B136CB209DCAA0F7EECBACAB5A380D0775B2A6ABEE1928EC1
+              9812E7DE855E8F72C26E372771555CF26C13E0E0BC155C0278E5CC11E852DC5C
+              8A8FDB3D349C624D5EDCBAACE60C578D2C53D985AF4D2C6FEC88658845967969
+              84C51939BC146051848C88DA21FA3804B697373787C60BD5CCAE5A53C7FCA496
+              8B06B2CC36D855F60254644C81CE4137645B6CB0616619BC96930F496C4D8394
+              A5654161EA24B8A37820D76A874F8A16C0BA69C5D0ECBA0D1E95659F08082199
+              3E70F7F6EC3C705697F167FEE91FAC8303FEEBB249CA46391C9B9C04FBE62ED7
+              3B7F546EB317A83E7F1406D561AE09C7DF9D4AB419272ADE52F4D7F229AA4364
+              08E2651DB87C835C32A2510A573DFD70F6DF3B70CDF3409745DC1BF2C6300431
+              E50CD0E4D7B1C4E7985605FEC57C71FD0F5E0A804336765D8197CE1C86AA7347
+              E183B666709C6B82154CC6888A3429B2BD0007FE48B8E730FF2FD7553118D286
+              0D036CFAFB1C6CBD7C015C43C619BBC7E42D97CFC3E68EF35C13307C484BB067
+              7A7D4BF4004A4ED78AEC406C5C2DA466EAAC500E38D07D150EF55CE392988361
+              75B05D2D6B1F179BD94E0626164A126831D33D46CDAADC7C58941E0859F4891D
+              372FE9E5446CBF7129349BE519B9B0765A114C8913042A550B2566FA642E1B58
+              C532EB2F0B56427DC15C3DC32237BC0FA39626167799D3FEC3EA235616917533
+              4AE0F0FC97F57E856864323AB0252019C1908EA4CFA7F0D2E8E815D4B7C64882
+              20511B33860A5F55148A69A6B1ED9B9304F56387387824A0E43E170CEC67A1FB
+              EAEF3FC3B66B6DA168989132113292AD7A391198B5A7B3FA081AB085455F30F4
+              63705FD240EAE042149D8303B0F3563B9CECEDD66589ED17EBF28AF47222D6E5
+              158722F0545F0F33E20ADB26BC5C138D4CE40E69A294F5279E59B94EC8DEDB23
+              F656E516C0B2CC695C12F362561EAC0E73D47D61ED850C41FF7497D42E9DA8A8
+              186687E7535C2D243CCDE3EC6C79E679D8583007269B8D4B96C9E47AA6DF54BC
+              30342B881699922331D3DFF036A1B7297136BC211168D01F08D8515A09B3D332
+              B934021A79DDFB408F1AF4A5E9EC7C83C646D2DAEF82775A8F71291A42A9E362
+              65CD7E7D6FB258E543AA5FBBA33F8900431C9D51040E9C9F9206F32665EBCE2D
+              3204C1190BE6AA68FCDD76C977044BA1D6EC00FE31EBEB332E1AC04CBCBDA412
+              BAD93905373D9955AC995A080B9FC8311C9E145585D37DDDB0A7B38365540A1F
+              3EFD2CE45852E0BD36673CE7AD6B59B2661B1642C6E046451FA6B6B162714063
+              0407C5C1C2A99E52A01FB2827C7AA5C5E0EC88A85D10AAD14B13E49C52F45B94
+              F91102E0E29CF57E8948558ACF234C82A20E8FBB3A43FB0FFE3B5DB7024218B1
+              0CC171D88DB33A680812B5C863BD1D2CCF7A4ADF7B1496D89AEEDEE4DA5190E8
+              761004EF4DECC9662E8E2F6E37A5765B7DEB92DAAD5C1342ECFE0CFD4649D42F
+              C7F322A7BA412129747D5B65CD2EAE3210D318E4B1B96B23AD156B2E0C2869CF
+              31E7DCE8D7A087ABC7087E85201B94DEE4927886207167269CC7E2FB8C88FFE7
+              CB15C07F4D913B2D5577C07A0000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_35px.png'
+          end>
+        Name = 'icons8_settings_35px'
+      end
+      item
+        MultiResBitmap.Height = 10
+        MultiResBitmap.Width = 10
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 3.500000000000000000
+            Width = 35
+            Height = 35
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
+              59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0775494441545847CD986B4C1BD91580CF78C6331E3F31A638E615C34212D8CD
+              5258164849C88B967D5549543555D35F555529AA2A75173555A4FE60B7AAD495
+              AA4D535595A23EFE54557F64574D569B25ADC836212C4908D944D02C109E8118
+              13830D7E62CF78ECE9BDE3EBC7AC930D78FFF4932C73CE9D7BEFF1B9E79E7306
+              0ABE025DEF0E56C932C71011284A90AE9CDEB748C42D53B031FB7BAF1A8D2CFB
+              D86AD10944056B811817670DF6FE535F8F10D596D090EF2DC373BACE9A0A8B74
+              E295A6E2F4A7CA591C8744B4933CB2650A3686D5D16F5457965A88A8E0B4992D
+              7A8E799D885BA620637A7B654D1292DF2A2F31114D8AEAB2628A826437C87241
+              C7BFA549DDBF1E71703CBC1D97E5EFD86D46EEF8BE5D463294E1FCE064D8E30B
+              0B9C46FE4094E0EDBE5FB43D2643CF6453C6A060658A2C865E5A93F8695B6D85
+              7157ED3646CBD064341F319E80C919B7343CEB0E2712F41F02C1C8AF06DE3928
+              91E1A7A23206DF10B3D9700D296FC7E2890B1A7EFDBA18B6161975CC959D55D6
+              EA7DBB9D0686519FAC944842027D685A030CFAE4224949181C7B18997AB4361B
+              05E9A0A5D215F04F57B4F33AE67BC924EC11803D907BF354C61C79EFF67BCE4A
+              F34F4A0D7A6E6125BCEEF684196044F9F00B4EC3CEDAB24C3E717B4330B9E885
+              454F0038641CABD580104F828836AFB25BA07E7B09386CD9789A405E1A185FF0
+              CBC06A1C5603384B8D564F2422CCBA427FBCD4D3FA73F258D698EEDFDC74F234
+              33FAC3234D662DF98549598648340E263DABC8F8EFAB77E701E40474376D83FA
+              720B68733C1547C64C2C05E0DFF71E03A5A1E1607335E8755A652CB4218281D7
+              82068538469412F097CBA381A42434F69DEA58C0BACC4A2C4B9F6B6F2933A40D
+              C1E08969437C810DB8F8E9041C78DE06A78ED6C38BDBAD2A433058C67A3CDE59
+              5F0C170627C0178C2A63789DB4211816C5DCDE4687514BB3E7882A65CC77CF9F
+              A741A6ECD1203C31C8B0472E0FCFC08F0FD7C0CBB536A2FD725AEB4AE047876A
+              E0F2AD69D888C589564D3C849C29835DD91FA118F3FEF1E309394475DC9D7B34
+              3A3CBE94FA29395CBB370F475ACA607B69DE4DFE52AAED4678BDD981E63F249A
+              2CC3134BD1CF665CA35490DA8BF7C7BACCFD9C1AF853DCD1FE83BFFB23E22151
+              8895546EB32AE78383D5BDE287E37BB72BCFA591D1E7E67FDDC9BF0DCCAF5DBC
+              E192EECC7AC35A59D255969A5597A2A2C400D73FF740918907239F3AF21BA373
+              91D139EF88C0780FF79DDE1F539408D5A1A35C101344F14D972F9C79E001BA35
+              DD4D0E22A540710DE7FAC7831F8C2CDF5A58DD381206B10E7F23F9F6B92BB341
+              6C681A6C190E76BC4E1ABC7E5412DEFCD7CF5ECB14598C3A021194867AE96B25
+              450622826B2508F515AA12044363AEE48C2B7AEF42CFCB1DFDBFFCC650FFA98E
+              15FCFDCFB75AF74CB9D647071EB815B7A76940F3711A48535E62D05309AA9988
+              19F28C6118E639BB99D7E1BF7142A3690A45BEFAB181076BEB1131DE43441521
+              41EE191AF5FA89A8C06969749350AA48A67C566432F11CABAD51841C9EE49962
+              2D9A8C89C52530647BA70CFE58948E6D08534454A187F883001A27620603CA37
+              5121755959B43E2343DEB5CC33464ECA6B71545B303A2D0311B2402E468341E2
+              78AE81882A449979DE6634E44D8AA0EBCD931F866B9744814F1172C8334692A4
+              594F30AA0430AE358984ACA4F95C0EBC506CE5759A334454A1D7D1673A76DBAC
+              445410D0E6F88434F8AC10FE50282A88F13945C821EF0C90673E5BF5FA51F1AA
+              52E2A6A2D40C13AE00343AB3EB77EE28A3C717FDBB8F9D191942B1F3961015C6
+              584ED768E2E9B37515450D1D750ED5318DA3F9B866A559F24636645ABE4BC40C
+              2ACFA0AAADE358F66C85CDA81882D95955826ACD329152E0AC7EF29B0DE6137B
+              CADAABEDA64BC546A3A7C661FCE8447B79EBC9AEE7548906872CAE55789D3478
+              7D9EE1CEBEF2FB3E8EA81432F3DEE8BDA3A72CD2D5E6DAF2DD6D0DE53C512B7C
+              7C630A3A771543EB8EEC829BE5C6E42ADC9CF6C36B7BEA882605CEC0A353EE31
+              29481FBAF44ECB06D6299EC1B58132C943CD35958D5F340473A0A91A3EBCE306
+              D45610CDE698F784E1E3BBCB68BE9368B2B4D597F32FD55634CA66F9D3BCDA04
+              94ECE1CDF93184C1A5FFD5B65AF8F3277330329377099EC8F0B417FEFA9F3978
+              B5BD2ED3467C11AD09157A0A3CE9DA948919514C9CBC35B2188AA3449706F733
+              B80FC1D82C7A38BAB71EAE7DEE83DF5E9C80B18575A57FC905CB588FC70727D6
+              E0D8BE7AB099538EC6EBE0F5D2E07E26B59F7892A8D49DDEB751A757B3894E6F
+              D91782A9473E58464514073383B2B4845200DECB81DE187654DA549D1EEE873F
+              B9FF3042492C5566374ACFECF43085F4C032B20027310E2548F56AA91EF8FAFD
+              C5F0E4E2EABC9090BA6836104846AD9D3A2D7D0CE59D564166F73FB5077E1A5B
+              7D3B88A323C0DEB835F315DE0E9EC5FFC57B531EE88DF1E8EF6E4F7DBFEBC55A
+              933E9BB7421B02FCA3FFFEF4873D2D3B513065A37593A80360B3A08D92A0B934
+              BBE4536D38F36815C9F24785188229CC18444C94FA16BCA16CC78458F4450248
+              7F99885BA6B06342E09BC769F52B463D9569518392C05194A9B4D0FFCF146C0C
+              A6EBDD3B164E8E66BC2B507CF2CAE91695B7360FC0FF00B2F858E7A695CFAA00
+              00000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_35px_3.png'
+          end>
+        Name = 'icons8_settings_35px_3'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'icons8_settings_35px'
+            SourceRect.Right = 35.000000000000000000
+            SourceRect.Bottom = 35.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_settings_35px_3'
+            SourceRect.Right = 10.000000000000000000
+            SourceRect.Bottom = 10.000000000000000000
+          end>
+      end>
+    Left = 168
+    Top = 386
   end
 end

@@ -67,7 +67,7 @@ Coordinates=297,794,102,58
 Coordinates=142,1006,99,36
 
 []
-Coordinates=118,188,82,33
+Coordinates=920,922,112,36
 
 [AppDataLocal.Agents]
 Coordinates=708,578,139,102
@@ -112,7 +112,7 @@ Coordinates=1040,10,169,36
 Visible=False
 
 [AppDataLocal.Users]
-Coordinates=10,578,132,190
+Coordinates=294,598,132,190
 Visible=False
 
 [AppDataLocal.CollectorOrders]
@@ -127,7 +127,4 @@ Coordinates=985,54,143,146
 
 [ProductsBS]
 Coordinates=401,65,156,402
-
-[ClearEditButton1]
-Coordinates=920,922,112,36
 

@@ -26,7 +26,7 @@ object RangeForm: TRangeForm
       TintColor = claWhite
       object BackRangeBtn: TButton
         Align = Left
-        IconTintColor = claRed
+        IconTintColor = claBlack
         Margins.Left = 10.000000000000000000
         Position.X = 10.000000000000000000
         Size.Width = 48.000000000000000000
@@ -37,7 +37,7 @@ object RangeForm: TRangeForm
       end
       object SaveRangeBtn: TButton
         Align = Right
-        IconTintColor = claRed
+        IconTintColor = claBlack
         Margins.Right = 10.000000000000000000
         Position.X = 317.000000000000000000
         Size.Width = 48.000000000000000000
@@ -110,7 +110,7 @@ object RangeForm: TRangeForm
           TabOrder = 1
           Text = #1057
           object BegDE: TDateEdit
-            Date = 44155.000000000000000000
+            Date = 44158.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -141,7 +141,7 @@ object RangeForm: TRangeForm
           TabOrder = 2
           Text = #1055#1086
           object EndDE: TDateEdit
-            Date = 44155.000000000000000000
+            Date = 44158.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter

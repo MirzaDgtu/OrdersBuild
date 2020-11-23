@@ -502,14 +502,14 @@ object NaklForm: TNaklForm
             Margins.Top = 7.000000000000000000
             Margins.Right = 7.000000000000000000
             Margins.Bottom = 7.000000000000000000
-            Size.Width = 361.000000000000000000
+            Size.Width = 350.000000000000000000
             Size.Height = 395.000000000000000000
             Size.PlatformDefault = False
             Visible = False
             TabOrder = 1
             object CameraScanRect: TRectangle
               Align = Client
-              Size.Width = 361.000000000000000000
+              Size.Width = 350.000000000000000000
               Size.Height = 395.000000000000000000
               Size.PlatformDefault = False
               object CameraScanHeaderTB: TToolBar
@@ -523,7 +523,7 @@ object NaklForm: TNaklForm
                 Margins.Bottom = 3.000000000000000000
                 Position.X = 3.000000000000000000
                 Position.Y = 3.000000000000000000
-                Size.Width = 355.000000000000000000
+                Size.Width = 344.000000000000000000
                 Size.Height = 48.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
@@ -539,7 +539,7 @@ object NaklForm: TNaklForm
                 object SaveCameraScanBtn: TSpeedButton
                   Align = FitRight
                   IconTintColor = claBlack
-                  Position.X = 307.000000000000000000
+                  Position.X = 296.000000000000000000
                   Size.Width = 48.000000000000000000
                   Size.Height = 48.000000000000000000
                   Size.PlatformDefault = False
@@ -551,7 +551,7 @@ object NaklForm: TNaklForm
                   StyledSettings = [Family]
                   Position.X = 51.000000000000000000
                   Position.Y = 12.000000000000000000
-                  Size.Width = 253.000000000000000000
+                  Size.Width = 242.000000000000000000
                   Size.Height = 23.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.Size = 11.000000000000000000
@@ -574,13 +574,13 @@ object NaklForm: TNaklForm
                 Margins.Bottom = 3.000000000000000000
                 Position.X = 3.000000000000000000
                 Position.Y = 344.000000000000000000
-                Size.Width = 355.000000000000000000
+                Size.Width = 344.000000000000000000
                 Size.Height = 48.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
                 object CameraScanBottonBtnsGPL: TGridPanelLayout
                   Align = Client
-                  Size.Width = 341.000000000000000000
+                  Size.Width = 330.000000000000000000
                   Size.Height = 44.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
@@ -612,7 +612,7 @@ object NaklForm: TNaklForm
                   object StopCameraScanBtn: TSpeedButton
                     Align = VertCenter
                     IconTintColor = claRed
-                    Position.X = 61.000000000000000000
+                    Position.X = 58.000000000000000000
                     Position.Y = -2.000000000000000000
                     Size.Width = 48.000000000000000000
                     Size.Height = 48.000000000000000000
@@ -623,7 +623,7 @@ object NaklForm: TNaklForm
                   object StartCameraScanBtn: TSpeedButton
                     Align = VertCenter
                     IconTintColor = claOlivedrab
-                    Position.X = 231.500000000000000000
+                    Position.X = 223.000000000000000000
                     Position.Y = -2.000000000000000000
                     Size.Width = 48.000000000000000000
                     Size.Height = 48.000000000000000000
@@ -638,7 +638,7 @@ object NaklForm: TNaklForm
                   item
                   end>
                 Align = Client
-                Size.Width = 361.000000000000000000
+                Size.Width = 350.000000000000000000
                 Size.Height = 205.000000000000000000
                 Size.PlatformDefault = False
               end
@@ -650,7 +650,7 @@ object NaklForm: TNaklForm
                 Margins.Right = 3.000000000000000000
                 Position.X = 3.000000000000000000
                 Position.Y = 264.000000000000000000
-                Size.Width = 355.000000000000000000
+                Size.Width = 344.000000000000000000
                 Size.Height = 77.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 3
@@ -658,14 +658,14 @@ object NaklForm: TNaklForm
                 DefaultItemStyles.ItemStyle = ''
                 DefaultItemStyles.GroupHeaderStyle = ''
                 DefaultItemStyles.GroupFooterStyle = ''
-                Viewport.Width = 355.000000000000000000
+                Viewport.Width = 344.000000000000000000
                 Viewport.Height = 77.000000000000000000
                 object CameraScanSearchLBGH: TListBoxGroupHeader
                   TextSettings.Font.Size = 11.000000000000000000
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
                   TextSettings.HorzAlign = Center
                   StyledSettings = [Family, Style, FontColor]
-                  Size.Width = 355.000000000000000000
+                  Size.Width = 344.000000000000000000
                   Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
@@ -686,7 +686,7 @@ object NaklForm: TNaklForm
                     StyledSettings = [Family]
                     Position.X = 70.000000000000000000
                     Position.Y = 10.000000000000000000
-                    Size.Width = 255.000000000000000000
+                    Size.Width = 244.000000000000000000
                     Size.Height = 23.000000000000000000
                     Size.PlatformDefault = False
                     TextSettings.Font.StyleExt = {00070000000000000004000000}

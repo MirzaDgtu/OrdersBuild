@@ -102,10 +102,10 @@ type
     NaklAct: TNaklAction;
     strSearchValue: string;
 
+    // —читывание штрихкода по камере
     fPermissionCamera: String;
     fScanInProgress: Boolean;
     fScanBitmap: TBitmap;
-
     function AppEvent(AAppEvent: TApplicationEvent; AContext: TObject): Boolean;
     procedure ParseImage();
     procedure CameraPermissionRequestResult(Sender: TObject;

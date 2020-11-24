@@ -368,7 +368,7 @@ object SignForm: TSignForm
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 10
+    TabOrder = 9
     TabStop = False
     object SettingRect: TRectangle
       Align = Client
@@ -465,7 +465,7 @@ object SignForm: TSignForm
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = VertCenter
           TabOrder = 0
-          TextSettings.Font.Size = 10.000000000000000000
+          TextSettings.Font.Size = 11.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
@@ -501,7 +501,7 @@ object SignForm: TSignForm
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = VertCenter
           TabOrder = 0
-          TextSettings.Font.Size = 10.000000000000000000
+          TextSettings.Font.Size = 11.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
@@ -537,7 +537,7 @@ object SignForm: TSignForm
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = VertCenter
           TabOrder = 0
-          TextSettings.Font.Size = 10.000000000000000000
+          TextSettings.Font.Size = 11.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
@@ -573,7 +573,7 @@ object SignForm: TSignForm
           Align = VertCenter
           TabOrder = 0
           Password = True
-          TextSettings.Font.Size = 10.000000000000000000
+          TextSettings.Font.Size = 11.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000
@@ -628,7 +628,7 @@ object SignForm: TSignForm
           Align = VertCenter
           TabOrder = 0
           KeyboardType = NumberPad
-          TextSettings.Font.Size = 10.000000000000000000
+          TextSettings.Font.Size = 11.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.HorzAlign = Center
           Position.X = 85.000000000000000000

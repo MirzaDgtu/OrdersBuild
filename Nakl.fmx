@@ -178,7 +178,6 @@ object NaklForm: TNaklForm
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claBlue
           TextSettings.HorzAlign = Center
           Text = 'CountProdNaklLbl'
           TabOrder = 0
@@ -244,7 +243,7 @@ object NaklForm: TNaklForm
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
               Appearance.WordWrap = True
-              Appearance.TextColor = claIndigo
+              Appearance.TextColor = claBlack
               Appearance.Width = 334.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.Align = Center
@@ -261,7 +260,7 @@ object NaklForm: TNaklForm
               AppearanceClassName = 'TTextObjectAppearance'
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.TextColor = claMidnightblue
+              Appearance.TextColor = claBlack
               Appearance.Width = 85.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.PlaceOffset.X = 20.000000000000000000
@@ -272,7 +271,7 @@ object NaklForm: TNaklForm
               AppearanceClassName = 'TTextObjectAppearance'
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.TextColor = claSeagreen
+              Appearance.TextColor = claDarkcyan
               Appearance.Width = 40.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.PlaceOffset.X = 104.000000000000000000
@@ -293,7 +292,7 @@ object NaklForm: TNaklForm
               AppearanceClassName = 'TTextObjectAppearance'
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.TextColor = claMaroon
+              Appearance.TextColor = claBlack
               Appearance.Width = 41.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.PlaceOffset.X = 143.000000000000000000
@@ -304,7 +303,7 @@ object NaklForm: TNaklForm
               AppearanceClassName = 'TTextObjectAppearance'
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.TextColor = claRed
+              Appearance.TextColor = claDarkcyan
               Appearance.Width = 49.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.PlaceOffset.X = 183.000000000000000000
@@ -489,7 +488,7 @@ object NaklForm: TNaklForm
             end>
           ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
           ItemAppearanceObjects.HeaderObjects.Text.TextAlign = Center
-          ItemAppearanceObjects.HeaderObjects.Text.TextColor = claMaroon
+          ItemAppearanceObjects.HeaderObjects.Text.TextColor = claDarkcyan
           ItemAppearanceObjects.HeaderObjects.Text.Align = Center
           ItemAppearanceObjects.HeaderObjects.Text.VertAlign = Center
           OnClick = ProductLVClick

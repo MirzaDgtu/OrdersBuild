@@ -456,6 +456,7 @@ Coordinates=1618,54,164,168
 
 [AppDataLocal.OrdersMove]
 Coordinates=1016,20,169,36
+Visible=False
 
 [AppDataLocal.OrdersHead]
 Coordinates=155,10,169,36
@@ -478,6 +479,7 @@ Coordinates=2395,1412,111,36
 
 [AppDataLocal.Collectors]
 Coordinates=1845,786,156,36
+Visible=False
 
 [StatistNaklFA]
 Coordinates=534,242,93,36

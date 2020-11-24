@@ -64,7 +64,6 @@ object NaklForm: TNaklForm
       end
     end
     object CollectorTB: TToolBar
-      Padding.Right = 30.000000000000000000
       Position.Y = 48.000000000000000000
       Size.Width = 364.000000000000000000
       Size.Height = 48.000000000000000000
@@ -105,7 +104,7 @@ object NaklForm: TNaklForm
         TextSettings.HorzAlign = Center
         Position.X = 70.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 209.000000000000000000
+        Size.Width = 239.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         StyledSettings = [Family]
@@ -244,26 +243,27 @@ object NaklForm: TNaklForm
               Appearance.Font.StyleExt = {00070000000000000004000000}
               Appearance.WordWrap = True
               Appearance.TextColor = claBlack
-              Appearance.Width = 334.000000000000000000
+              Appearance.Width = 315.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.Align = Center
-              Appearance.PlaceOffset.X = 9.000000000000000000
+              Appearance.PlaceOffset.X = 12.000000000000000000
             end
             item
               AppearanceObjectName = 'Screen'
               AppearanceClassName = 'TImageObjectAppearance'
-              Appearance.Width = 20.000000000000000000
+              Appearance.Width = 26.000000000000000000
               Appearance.Height = 44.000000000000000000
+              Appearance.VertAlign = Center
             end
             item
               AppearanceObjectName = 'StrikeCode'
               AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Font.Size = 10.000000000000000000
+              Appearance.Font.Size = 9.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
               Appearance.TextColor = claBlack
-              Appearance.Width = 85.000000000000000000
+              Appearance.Width = 79.000000000000000000
               Appearance.Height = 22.000000000000000000
-              Appearance.PlaceOffset.X = 20.000000000000000000
+              Appearance.PlaceOffset.X = 26.000000000000000000
               Appearance.PlaceOffset.Y = 21.000000000000000000
             end
             item
@@ -794,7 +794,7 @@ object NaklForm: TNaklForm
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claMidnightblue
+          Appearance.TextColor = claDarkcyan
           Appearance.Width = 48.000000000000000000
           Appearance.Height = 44.000000000000000000
           Appearance.PlaceOffset.X = 26.000000000000000000
@@ -804,8 +804,8 @@ object NaklForm: TNaklForm
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
-          Appearance.TextColor = claRed
-          Appearance.Width = 266.000000000000000000
+          Appearance.TextColor = claBlack
+          Appearance.Width = 256.000000000000000000
           Appearance.Height = 44.000000000000000000
           Appearance.Align = Center
           Appearance.PlaceOffset.X = 36.000000000000000000

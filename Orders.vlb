@@ -455,8 +455,7 @@ Coordinates=1327,1098,109,58
 Coordinates=1618,54,164,168
 
 [AppDataLocal.OrdersMove]
-Coordinates=837,10,169,36
-Visible=False
+Coordinates=1016,20,169,36
 
 [AppDataLocal.OrdersHead]
 Coordinates=155,10,169,36
@@ -478,8 +477,7 @@ Coordinates=1583,1474,120,36
 Coordinates=2395,1412,111,36
 
 [AppDataLocal.Collectors]
-Coordinates=1679,776,156,36
-Visible=False
+Coordinates=1845,786,156,36
 
 [StatistNaklFA]
 Coordinates=534,242,93,36
@@ -631,9 +629,6 @@ Coordinates=625,681,129,36
 [IndicateSynchVCLayout]
 Coordinates=625,736,152,36
 
-[NaklForm.CollectorsBS]
-Coordinates=148,732,148,146
-
 [ExitBtn]
 Coordinates=148,175,55,58
 
@@ -642,9 +637,6 @@ Coordinates=402,659,113,58
 
 [IndicateSynchPie]
 Coordinates=867,65,114,36
-
-[NaklForm.ProductsBS]
-Coordinates=372,1194,156,388
 
 [AppDataLocal.ProcessedDocLoad]
 Coordinates=323,769,211,256

@@ -201,9 +201,9 @@ object OrdersForm: TOrdersForm
               item
                 AppearanceObjectName = 'OrderDate'
                 AppearanceClassName = 'TTextObjectAppearance'
-                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.Size = 10.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claTeal
+                Appearance.TextColor = claBlack
                 Appearance.Width = 85.000000000000000000
                 Appearance.Height = 22.000000000000000000
                 Appearance.PlaceOffset.X = 23.000000000000000000
@@ -219,7 +219,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 10.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claSlateblue
+                Appearance.TextColor = claBlack
                 Appearance.Width = 64.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.PlaceOffset.X = 106.000000000000000000
@@ -229,8 +229,8 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 9.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claGreen
-                Appearance.Width = 105.000000000000000000
+                Appearance.TextColor = claDarkcyan
+                Appearance.Width = 112.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.Align = Center
                 Appearance.PlaceOffset.X = 124.000000000000000000
@@ -260,7 +260,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 10.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claTomato
+                Appearance.TextColor = claBlack
                 Appearance.Width = 45.000000000000000000
                 Appearance.Height = 49.000000000000000000
                 Appearance.PlaceOffset.X = 170.000000000000000000
@@ -268,9 +268,9 @@ object OrdersForm: TOrdersForm
               item
                 AppearanceObjectName = 'StrikeCode'
                 AppearanceClassName = 'TTextObjectAppearance'
-                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.Size = 10.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claMediumblue
+                Appearance.TextColor = claDarkcyan
                 Appearance.Width = 85.000000000000000000
                 Appearance.Height = 22.000000000000000000
                 Appearance.PlaceOffset.X = 23.000000000000000000
@@ -306,7 +306,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 10.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claSlategray
+                Appearance.TextColor = claBlack
                 Appearance.Width = 35.000000000000000000
                 Appearance.Height = 22.000000000000000000
                 Appearance.PlaceOffset.X = 214.000000000000000000
@@ -316,7 +316,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 10.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claRed
+                Appearance.TextColor = claLimegreen
                 Appearance.Width = 35.000000000000000000
                 Appearance.Height = 22.000000000000000000
                 Appearance.PlaceOffset.X = 214.000000000000000000

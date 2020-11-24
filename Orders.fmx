@@ -71,7 +71,7 @@ object OrdersForm: TOrdersForm
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
-      TabIndex = 2
+      TabIndex = 0
       TabOrder = 1
       TabPosition = PlatformDefault
       OnChange = TabsOrderChange
@@ -89,7 +89,7 @@ object OrdersForm: TOrdersForm
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claAqua
         StyledSettings = [Family, Size, FontColor]
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 0
         Size.Width = 127.000000000000000000
         Size.Height = 49.000000000000000000
@@ -1906,7 +1906,7 @@ object OrdersForm: TOrdersForm
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claAqua
         StyledSettings = [Family, Size, FontColor]
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 2
         Size.Width = 129.000000000000000000
         Size.Height = 49.000000000000000000
@@ -2116,13 +2116,13 @@ object OrdersForm: TOrdersForm
     Margins.Top = 5.000000000000000000
     Margins.Right = 3.000000000000000000
     Margins.Bottom = 5.000000000000000000
-    Size.Width = 369.000000000000000000
+    Size.Width = 377.000000000000000000
     Size.Height = 614.000000000000000000
     Size.PlatformDefault = False
     Visible = False
     TabOrder = 14
     object NaklDetailHaederTB: TToolBar
-      Size.Width = 369.000000000000000000
+      Size.Width = 377.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -2140,7 +2140,7 @@ object OrdersForm: TOrdersForm
       object RefreshNaklDetailBtn: TButton
         Align = Right
         Margins.Right = 5.000000000000000000
-        Position.X = 316.000000000000000000
+        Position.X = 324.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -2152,7 +2152,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family]
         Position.X = 53.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 263.000000000000000000
+        Size.Width = 271.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 14.000000000000000000
@@ -2167,7 +2167,7 @@ object OrdersForm: TOrdersForm
       Align = Client
       Fill.Color = claBlack
       Opacity = 0.699999988079071000
-      Size.Width = 369.000000000000000000
+      Size.Width = 377.000000000000000000
       Size.Height = 566.000000000000000000
       Size.PlatformDefault = False
     end
@@ -2177,7 +2177,7 @@ object OrdersForm: TOrdersForm
       Margins.Right = 5.000000000000000000
       Position.X = 5.000000000000000000
       Position.Y = 131.000000000000000000
-      Size.Width = 359.000000000000000000
+      Size.Width = 367.000000000000000000
       Size.Height = 400.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -2186,13 +2186,13 @@ object OrdersForm: TOrdersForm
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 359.000000000000000000
+      Viewport.Width = 367.000000000000000000
       Viewport.Height = 400.000000000000000000
       object NaklDetailLBGH: TListBoxGroupHeader
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.HorzAlign = Center
         StyledSettings = [Family, Size, Style, FontColor]
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -2201,12 +2201,12 @@ object OrdersForm: TOrdersForm
       object NumDocNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 36.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -2216,12 +2216,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'NumDocNaklDetailLBl'
           TabOrder = 0
@@ -2230,12 +2228,12 @@ object OrdersForm: TOrdersForm
       object JournalNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 72.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -2245,12 +2243,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'JournalNaklDetailLBl'
           TabOrder = 0
@@ -2259,12 +2255,12 @@ object OrdersForm: TOrdersForm
       object BrieforgNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 108.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 3
@@ -2274,12 +2270,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'BrieforgNaklDetailLBl'
           TabOrder = 0
@@ -2288,12 +2282,12 @@ object OrdersForm: TOrdersForm
       object OrganizaklNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 144.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
@@ -2303,12 +2297,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'OrganizaklNaklDetailLBl'
           TabOrder = 0
@@ -2317,12 +2309,12 @@ object OrdersForm: TOrdersForm
       object TypeOperNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 180.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
@@ -2332,12 +2324,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'TypeOperNaklDetailLBl'
           TabOrder = 0
@@ -2346,12 +2336,12 @@ object OrdersForm: TOrdersForm
       object DriverNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 216.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 6
@@ -2361,12 +2351,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'DriverNaklDetailLBl'
           TabOrder = 0
@@ -2375,12 +2363,12 @@ object OrdersForm: TOrdersForm
       object AgentNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 252.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 7
@@ -2390,12 +2378,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'AgentNaklDetailLBl'
           TabOrder = 0
@@ -2404,12 +2390,12 @@ object OrdersForm: TOrdersForm
       object SummaFactNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 288.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 8
@@ -2419,12 +2405,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'SummaFactNaklDetailLBl'
           TabOrder = 0
@@ -2433,12 +2417,12 @@ object OrdersForm: TOrdersForm
       object SummaRoznNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 324.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 9
@@ -2448,12 +2432,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'SummaRoznNaklDetailLBl'
           TabOrder = 0
@@ -2462,12 +2444,12 @@ object OrdersForm: TOrdersForm
       object StatusNaklDetailLBi: TListBoxItem
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBrown
+        TextSettings.FontColor = claDarkcyan
         StyledSettings = [Family, Other]
         Padding.Left = 100.000000000000000000
         Padding.Right = 30.000000000000000000
         Position.Y = 360.000000000000000000
-        Size.Width = 359.000000000000000000
+        Size.Width = 367.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 10
@@ -2477,12 +2459,10 @@ object OrdersForm: TOrdersForm
           StyledSettings = [Family]
           Position.X = 100.000000000000000000
           Position.Y = 6.000000000000000000
-          Size.Width = 229.000000000000000000
+          Size.Width = 237.000000000000000000
           Size.Height = 23.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claDarkblue
           TextSettings.HorzAlign = Center
           Text = 'StatusNaklDetailLBl'
           TabOrder = 0

@@ -71,7 +71,7 @@ object OrdersForm: TOrdersForm
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = PlatformDefault
       OnChange = TabsOrderChange
@@ -89,7 +89,7 @@ object OrdersForm: TOrdersForm
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claAqua
         StyledSettings = [Family, Size, FontColor]
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 0
         Size.Width = 127.000000000000000000
         Size.Height = 49.000000000000000000
@@ -506,7 +506,7 @@ object OrdersForm: TOrdersForm
         end
         object FilterSettingLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           Visible = False
@@ -518,20 +518,20 @@ object OrdersForm: TOrdersForm
             Margins.Top = 2.000000000000000000
             Margins.Right = 2.000000000000000000
             Margins.Bottom = 2.000000000000000000
-            Size.Width = 371.000000000000000000
+            Size.Width = 379.000000000000000000
             Size.Height = 523.000000000000000000
             Size.PlatformDefault = False
             object FilterSettingHeaderTB: TToolBar
               Align = Bottom
               Position.Y = 475.000000000000000000
-              Size.Width = 371.000000000000000000
+              Size.Width = 379.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
               TintColor = claWhite
               object BackFilterSettingBtn: TButton
                 Align = Left
-                IconTintColor = claRed
+                IconTintColor = claBlack
                 Margins.Left = 10.000000000000000000
                 Position.X = 10.000000000000000000
                 Size.Width = 48.000000000000000000
@@ -544,9 +544,9 @@ object OrdersForm: TOrdersForm
               object SaveFilterSettingBtn: TButton
                 Align = Right
                 StyledSettings = [Family, Size, FontColor]
-                IconTintColor = claRed
+                IconTintColor = claBlack
                 Margins.Right = 10.000000000000000000
-                Position.X = 313.000000000000000000
+                Position.X = 321.000000000000000000
                 Size.Width = 48.000000000000000000
                 Size.Height = 48.000000000000000000
                 Size.PlatformDefault = False
@@ -559,7 +559,7 @@ object OrdersForm: TOrdersForm
                 StyledSettings = [Family]
                 Position.X = 58.000000000000000000
                 Position.Y = 12.000000000000000000
-                Size.Width = 255.000000000000000000
+                Size.Width = 263.000000000000000000
                 Size.Height = 23.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 13.000000000000000000
@@ -578,7 +578,7 @@ object OrdersForm: TOrdersForm
               Margins.Bottom = 2.000000000000000000
               Position.X = 5.000000000000000000
               Position.Y = 45.000000000000000000
-              Size.Width = 361.000000000000000000
+              Size.Width = 369.000000000000000000
               Size.Height = 387.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
@@ -587,15 +587,15 @@ object OrdersForm: TOrdersForm
               DefaultItemStyles.ItemStyle = ''
               DefaultItemStyles.GroupHeaderStyle = ''
               DefaultItemStyles.GroupFooterStyle = ''
-              Viewport.Width = 361.000000000000000000
+              Viewport.Width = 369.000000000000000000
               Viewport.Height = 387.000000000000000000
               object JournalNumLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 150.000000000000000000
                 Padding.Right = 80.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
@@ -608,7 +608,7 @@ object OrdersForm: TOrdersForm
                   Position.X = 150.000000000000000000
                   Position.Y = 1.000000000000000000
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  Size.Width = 131.000000000000000000
+                  Size.Width = 139.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, Size, FontColor]
@@ -618,7 +618,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.HorzAlign = Center
                 StyledSettings = [Family, Size, Style, FontColor]
                 Position.Y = 35.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
@@ -626,12 +626,12 @@ object OrdersForm: TOrdersForm
               end
               object BegDateLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 70.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 2
@@ -642,25 +642,24 @@ object OrdersForm: TOrdersForm
                   Align = VertCenter
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family]
                   TabOrder = 0
                   TextSettings.Font.Size = 14.000000000000000000
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.FontColor = claChocolate
                   TextSettings.HorzAlign = Center
                 end
               end
               object EndDateLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 105.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 3
@@ -671,14 +670,13 @@ object OrdersForm: TOrdersForm
                   Align = VertCenter
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family]
                   TabOrder = 0
                   TextSettings.Font.Size = 14.000000000000000000
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.FontColor = claChocolate
                   TextSettings.HorzAlign = Center
                 end
               end
@@ -686,7 +684,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.HorzAlign = Center
                 StyledSettings = [Family, Size, Style, FontColor]
                 Position.Y = 140.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 4
@@ -694,12 +692,12 @@ object OrdersForm: TOrdersForm
               end
               object ReestrLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 175.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 5
@@ -724,7 +722,7 @@ object OrdersForm: TOrdersForm
                   TextSettings.HorzAlign = Center
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, FontColor]
@@ -741,12 +739,12 @@ object OrdersForm: TOrdersForm
               end
               object BrieforgLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 210.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 6
@@ -772,7 +770,7 @@ object OrdersForm: TOrdersForm
                   TextSettings.HorzAlign = Center
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, FontColor]
@@ -789,12 +787,12 @@ object OrdersForm: TOrdersForm
               end
               object VidDocLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 245.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 7
@@ -820,7 +818,7 @@ object OrdersForm: TOrdersForm
                   TextSettings.HorzAlign = Center
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, FontColor]
@@ -837,12 +835,12 @@ object OrdersForm: TOrdersForm
               end
               object DriverLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 280.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 8
@@ -868,7 +866,7 @@ object OrdersForm: TOrdersForm
                   TextSettings.HorzAlign = Center
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, FontColor]
@@ -885,12 +883,12 @@ object OrdersForm: TOrdersForm
               end
               object AgentLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family, Other]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 315.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 9
@@ -916,7 +914,7 @@ object OrdersForm: TOrdersForm
                   TextSettings.HorzAlign = Center
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, FontColor]
@@ -933,12 +931,12 @@ object OrdersForm: TOrdersForm
               end
               object BuildLBI: TListBoxItem
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkblue
+                TextSettings.FontColor = claDarkcyan
                 StyledSettings = [Family]
                 Padding.Left = 100.000000000000000000
                 Padding.Right = 50.000000000000000000
                 Position.Y = 350.000000000000000000
-                Size.Width = 361.000000000000000000
+                Size.Width = 369.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 10
@@ -953,7 +951,7 @@ object OrdersForm: TOrdersForm
                   ItemIndex = 0
                   Position.X = 100.000000000000000000
                   Position.Y = 1.000000000000000000
-                  Size.Width = 211.000000000000000000
+                  Size.Width = 219.000000000000000000
                   Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   StyleLookup = 'comboboxstyle'
@@ -978,7 +976,7 @@ object OrdersForm: TOrdersForm
         end
         object ReestrLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           Visible = False
@@ -987,19 +985,19 @@ object OrdersForm: TOrdersForm
             Align = Client
             Fill.Color = claBlack
             Opacity = 0.699999988079071000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
           object ReestrsHeaderTB: TToolBar
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            TintColor = claSpringgreen
+            TintColor = claWhite
             object BackReestrFilterSettingBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claBlack
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1009,22 +1007,23 @@ object OrdersForm: TOrdersForm
             end
             object ReestrFilterSettingHeaderLbl: TLabel
               Align = VertCenter
-              StyledSettings = [Family, Size]
+              StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1056#1077#1077#1089#1090#1088#1099
               TabOrder = 1
             end
             object RefreshReestrFilterSettingBtn: TButton
               Align = Right
-              IconTintColor = claFirebrick
-              Position.X = 327.000000000000000000
+              IconTintColor = claBlack
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1043,7 +1042,7 @@ object OrdersForm: TOrdersForm
             Margins.Top = 5.000000000000000000
             Margins.Right = 5.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 469.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -1053,7 +1052,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 11.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claNavy
+                Appearance.TextColor = claDarkcyan
                 Appearance.Width = 89.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.PlaceOffset.X = 25.000000000000000000
@@ -1069,7 +1068,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 11.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claTeal
+                Appearance.TextColor = claBlack
                 Appearance.Width = 230.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.Align = Center
@@ -1094,7 +1093,7 @@ object OrdersForm: TOrdersForm
         end
         object BrieforgLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           Visible = False
@@ -1103,7 +1102,7 @@ object OrdersForm: TOrdersForm
             Align = Client
             Fill.Color = claBlack
             Opacity = 0.500000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
@@ -1115,14 +1114,14 @@ object OrdersForm: TOrdersForm
             StopValue = 0.000000000000000000
           end
           object BrieforgHeaderTB: TToolBar
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            TintColor = claSpringgreen
+            TintColor = claWhite
             object BackBrieforgBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claBlack
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1132,8 +1131,8 @@ object OrdersForm: TOrdersForm
             end
             object RefreshBrieforgBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 327.000000000000000000
+              IconTintColor = claBlack
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1143,13 +1142,15 @@ object OrdersForm: TOrdersForm
             end
             object BrieforgHeaderLbl: TLabel
               Align = VertCenter
-              StyledSettings = [Family, Size, Style]
+              StyledSettings = []
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
-              TextSettings.FontColor = claBlue
+              TextSettings.Font.Family = '(Default)'
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
               TabOrder = 2
@@ -1165,7 +1166,7 @@ object OrdersForm: TOrdersForm
             Margins.Top = 5.000000000000000000
             Margins.Right = 5.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 469.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -1199,7 +1200,7 @@ object OrdersForm: TOrdersForm
         end
         object DriversLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           Visible = False
@@ -1208,19 +1209,19 @@ object OrdersForm: TOrdersForm
             Align = Client
             Fill.Color = claBlack
             Opacity = 0.500000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
           object DriversHeaderTB: TToolBar
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            TintColor = claSpringgreen
+            TintColor = claWhite
             object BackDriversBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claBlack
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1230,8 +1231,8 @@ object OrdersForm: TOrdersForm
             end
             object RefreshDriversBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 327.000000000000000000
+              IconTintColor = claBlack
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1241,13 +1242,14 @@ object OrdersForm: TOrdersForm
             end
             object DriversHeaderLbl: TLabel
               Align = VertCenter
-              StyledSettings = [Family, Size, Style]
+              StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
-              TextSettings.FontColor = claBlue
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1042#1086#1076#1080#1090#1077#1083#1080
               TabOrder = 2
@@ -1270,7 +1272,7 @@ object OrdersForm: TOrdersForm
             Margins.Top = 5.000000000000000000
             Margins.Right = 5.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 469.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -1280,7 +1282,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 11.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claTeal
+                Appearance.TextColor = claBlack
                 Appearance.Width = 318.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.Align = Center
@@ -1304,7 +1306,7 @@ object OrdersForm: TOrdersForm
         end
         object AgentsLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           Visible = False
@@ -1313,19 +1315,19 @@ object OrdersForm: TOrdersForm
             Align = Client
             Fill.Color = claBlack
             Opacity = 0.500000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
           object AgentsHeaderTB: TToolBar
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            TintColor = claSpringgreen
+            TintColor = claWhite
             object BackAgentsBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claBlack
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1335,8 +1337,8 @@ object OrdersForm: TOrdersForm
             end
             object RefreshAgentsBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 327.000000000000000000
+              IconTintColor = claBlack
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1346,14 +1348,14 @@ object OrdersForm: TOrdersForm
             end
             object AgentsHeaderLbl: TLabel
               Align = VertCenter
-              StyledSettings = [Family, Size]
+              StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1040#1075#1077#1085#1090#1099
               TabOrder = 2
@@ -1369,7 +1371,7 @@ object OrdersForm: TOrdersForm
             Margins.Top = 5.000000000000000000
             Margins.Right = 5.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 469.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -1379,7 +1381,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 11.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claTeal
+                Appearance.TextColor = claBlack
                 Appearance.Width = 318.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.Align = Center
@@ -1411,20 +1413,20 @@ object OrdersForm: TOrdersForm
         end
         object VidDocsLayout: TLayout
           Align = Client
-          Size.Width = 375.000000000000000000
+          Size.Width = 383.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           Visible = False
           TabOrder = 7
           object VidDocsHeaderTB: TToolBar
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            TintColor = claSpringgreen
+            TintColor = claWhite
             object BackVidDocsBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claBlack
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1434,8 +1436,8 @@ object OrdersForm: TOrdersForm
             end
             object RefreshVidDocsBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 327.000000000000000000
+              IconTintColor = claBlack
+              Position.X = 335.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1445,14 +1447,15 @@ object OrdersForm: TOrdersForm
             end
             object VidDocsHeaderLbl: TLabel
               Align = VertCenter
-              StyledSettings = [Family, Size]
+              StyledSettings = [Size]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 279.000000000000000000
+              Size.Width = 287.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
+              TextSettings.Font.Family = '11'
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBlue
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = #1042#1080#1076#1099' '#1076#1086#1082#1091#1084#1077#1085#1090#1086#1074
               TabOrder = 2
@@ -1469,7 +1472,7 @@ object OrdersForm: TOrdersForm
             Align = Client
             Fill.Color = claBlack
             Opacity = 0.500000000000000000
-            Size.Width = 375.000000000000000000
+            Size.Width = 383.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
@@ -1483,7 +1486,7 @@ object OrdersForm: TOrdersForm
             Margins.Top = 5.000000000000000000
             Margins.Right = 5.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 469.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -1493,7 +1496,7 @@ object OrdersForm: TOrdersForm
                 AppearanceClassName = 'TTextObjectAppearance'
                 Appearance.Font.Size = 11.000000000000000000
                 Appearance.Font.StyleExt = {00070000000000000004000000}
-                Appearance.TextColor = claTeal
+                Appearance.TextColor = claBlack
                 Appearance.Width = 316.000000000000000000
                 Appearance.Height = 44.000000000000000000
                 Appearance.Align = Center
@@ -1525,7 +1528,7 @@ object OrdersForm: TOrdersForm
           end>
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claAqua
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 1
         Size.Width = 127.000000000000000000
         Size.Height = 49.000000000000000000
@@ -1726,7 +1729,7 @@ object OrdersForm: TOrdersForm
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
           Margins.Bottom = 5.000000000000000000
-          Size.Width = 365.000000000000000000
+          Size.Width = 373.000000000000000000
           Size.Height = 517.000000000000000000
           Size.PlatformDefault = False
           Visible = False
@@ -1739,13 +1742,13 @@ object OrdersForm: TOrdersForm
             StopValue = 0.000000000000000000
           end
           object StatistNaklHeaderTB: TToolBar
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
             object BackStatistNaklBtn: TButton
               Align = Left
-              IconTintColor = claRed
+              IconTintColor = claBlack
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1755,8 +1758,8 @@ object OrdersForm: TOrdersForm
             end
             object RefreshStatistNaklBtn: TButton
               Align = Right
-              IconTintColor = claRed
-              Position.X = 317.000000000000000000
+              IconTintColor = claBlack
+              Position.X = 325.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1769,12 +1772,12 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 269.000000000000000000
+              Size.Width = 277.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 11.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claBrown
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = 'NameStatistNaklHeadLbl'
               TabOrder = 2
@@ -1783,19 +1786,19 @@ object OrdersForm: TOrdersForm
           object BottomStatistNaklSB: TStatusBar
             Position.Y = 495.000000000000000000
             ShowSizeGrip = True
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
             object DocKolSBInfoLbl: TLabel
               Align = VertCenter
               StyledSettings = [Family]
-              Size.Width = 365.000000000000000000
+              Size.Width = 373.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 11.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claRed
+              TextSettings.FontColor = claDarkcyan
               TextSettings.HorzAlign = Center
               Text = 'DocKolSBInfoLbl'
               TabOrder = 0
@@ -1805,7 +1808,7 @@ object OrdersForm: TOrdersForm
             Align = Client
             Fill.Color = claBlack
             Opacity = 0.699999988079071000
-            Size.Width = 365.000000000000000000
+            Size.Width = 373.000000000000000000
             Size.Height = 447.000000000000000000
             Size.PlatformDefault = False
           end
@@ -1819,7 +1822,7 @@ object OrdersForm: TOrdersForm
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 349.000000000000000000
+            Size.Width = 357.000000000000000000
             Size.Height = 437.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
@@ -1981,7 +1984,6 @@ object OrdersForm: TOrdersForm
                 TabOrder = 0
                 TextSettings.Font.Size = 15.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
                 TextSettings.HorzAlign = Center
               end
             end
@@ -2011,7 +2013,6 @@ object OrdersForm: TOrdersForm
                 TabOrder = 0
                 TextSettings.Font.Size = 15.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
                 TextSettings.HorzAlign = Center
               end
             end

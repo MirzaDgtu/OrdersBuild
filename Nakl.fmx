@@ -711,7 +711,7 @@ object NaklForm: TNaklForm
   end
   object CollectLayout: TLayout
     Align = Client
-    Size.Width = 375.000000000000000000
+    Size.Width = 364.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     Visible = False
@@ -720,12 +720,12 @@ object NaklForm: TNaklForm
       Align = Client
       Fill.Color = claBlack
       Opacity = 0.600000023841857900
-      Size.Width = 375.000000000000000000
+      Size.Width = 364.000000000000000000
       Size.Height = 554.000000000000000000
       Size.PlatformDefault = False
     end
     object CollectHeaderTB: TToolBar
-      Size.Width = 375.000000000000000000
+      Size.Width = 364.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -743,7 +743,7 @@ object NaklForm: TNaklForm
       object RefreshBtn: TButton
         Align = Right
         IconTintColor = claBlack
-        Position.X = 327.000000000000000000
+        Position.X = 316.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -756,7 +756,7 @@ object NaklForm: TNaklForm
         StyledSettings = [Family]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 279.000000000000000000
+        Size.Width = 268.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'listboxheaderlabel'
@@ -785,7 +785,7 @@ object NaklForm: TNaklForm
       Margins.Top = 7.000000000000000000
       Margins.Right = 7.000000000000000000
       Margins.Bottom = 7.000000000000000000
-      Size.Width = 361.000000000000000000
+      Size.Width = 350.000000000000000000
       Size.Height = 540.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -830,14 +830,14 @@ object NaklForm: TNaklForm
     object CollectorSB: TStatusBar
       Position.Y = 602.000000000000000000
       ShowSizeGrip = True
-      Size.Width = 375.000000000000000000
+      Size.Width = 364.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       object CollectorCountLbl: TLabel
         Align = VertCenter
         StyledSettings = [Family]
-        Size.Width = 375.000000000000000000
+        Size.Width = 364.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 11.000000000000000000

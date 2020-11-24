@@ -545,7 +545,7 @@ begin
 
   if Key = 13 then
     Begin
-      case TabsOrder.Index of
+      case TabsOrder.TabIndex of
         0: Begin
             NaklLV.SearchBox.Text := EmptyStr;
             if Length(strSearchValue) > 0 then
@@ -559,13 +559,16 @@ begin
             StatistLV.SearchBox.Text := EmptyStr;
             if Length(strSearchValue) > 0 then
              Begin
-              StatistLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
+              StatistLV.SearchBox.Text := strSearchValue;
               strSearchValue := EmptyStr;
              End;
-
            End;
       end;
     End;
+
+  if Key = vkHardwareBack then
+     Key := 0;
+
 end;
 
 procedure TOrdersForm.LoaderNaklBtnClick(Sender: TObject);

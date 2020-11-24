@@ -110,7 +110,7 @@ object RangeForm: TRangeForm
           TabOrder = 1
           Text = #1057
           object BegDE: TDateEdit
-            Date = 44158.000000000000000000
+            Date = 44159.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -123,7 +123,6 @@ object RangeForm: TRangeForm
             TabOrder = 0
             TextSettings.Font.Size = 15.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.FontColor = claDarkcyan
             TextSettings.HorzAlign = Center
           end
         end
@@ -141,7 +140,7 @@ object RangeForm: TRangeForm
           TabOrder = 2
           Text = #1055#1086
           object EndDE: TDateEdit
-            Date = 44158.000000000000000000
+            Date = 44159.000000000000000000
             TodayDefault = True
             OnChange = BegDEChange
             Align = VertCenter
@@ -154,7 +153,6 @@ object RangeForm: TRangeForm
             TabOrder = 0
             TextSettings.Font.Size = 15.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.FontColor = claDarkcyan
             TextSettings.HorzAlign = Center
           end
         end

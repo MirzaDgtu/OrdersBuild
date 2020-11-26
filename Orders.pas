@@ -13,7 +13,7 @@ uses
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.StrUtils,
   System.Threading, System.SyncObjs, System.Generics.Collections, FMX.Gestures,
   System.Notification, FMX.DialogService, FMX.SearchBox, FMX.VirtualKeyboard, FMX.Platform,
-  FMX.Media;
+  FMX.Media, FMX.Styles.Objects;
 
 type
   TListViewSearchHelper = class helper for TListView
@@ -294,6 +294,8 @@ type
     procedure NaklLVKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure ExitBtnClick(Sender: TObject);
+    procedure NaklLVPaint(Sender: TObject; Canvas: TCanvas;
+      const ARect: TRectF);
   private
     { Private declarations }
     strReques: string;
@@ -330,7 +332,7 @@ implementation
 {$R *.fmx}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
-  Statist, RangeDate, Exchanger, Sign, WifiConnect;
+  Statist, RangeDate, Exchanger, Sign, WifiConnect, Collectors;
 
 { TOrdersForm }
 
@@ -540,10 +542,10 @@ end;
 procedure TOrdersForm.FormKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  Focused := Self.OrdersTab;
-  strSearchValue := strSearchValue + KeyChar;
+ //Focused := Self.OrdersTab;
+ strSearchValue := strSearchValue + KeyChar;
 
-  if Key = 13 then
+   if Key = 13 then
     Begin
       case TabsOrder.TabIndex of
         0: Begin
@@ -567,7 +569,7 @@ begin
     End;
 
   if Key = vkHardwareBack then
-     Key := 0;
+      Key := 0;
 
 end;
 
@@ -636,9 +638,10 @@ end;
 procedure TOrdersForm.NaklLVKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  Focused := Self.OrdersTab;
-  strSearchValue := strSearchValue + KeyChar;
-  if Key = 13 then
+   Focused := Self.OrdersTab;
+{  strSearchValue := strSearchValue + KeyChar;
+
+ if Key = 13 then
     Begin
       NaklLV.SearchBox.Text := EmptyStr;
       if Length(strSearchValue) > 0 then
@@ -647,6 +650,38 @@ begin
           strSearchValue := EmptyStr;
         End;
     End;
+
+    // Для ТСД
+      case TabsOrder.TabIndex of
+        0: Begin
+            NaklLV.SearchBox.Text := EmptyStr;
+            if Length(KeyChar) > 0 then
+              Begin
+                NaklLV.SearchBox.Text := Copy(KeyChar, 3, Length(KeyChar));
+              End;
+           End;
+
+        1: Begin
+            StatistLV.SearchBox.Text := EmptyStr;
+            if Length(KeyChar) > 0 then
+             Begin
+              StatistLV.SearchBox.Text := KeyChar;
+             End;
+           End;
+      end;
+
+      if Length(strSearchValue)>=8 then
+        Begin
+          NaklLV.SearchBox.Text := Copy(strSearchValue, 3, Length(strSearchValue));
+          strSearchValue := EmptyStr;
+      end;  }
+end;
+
+procedure TOrdersForm.NaklLVPaint(Sender: TObject; Canvas: TCanvas;
+  const ARect: TRectF);
+begin
+//  Canvas.Fill.Color := TAlphaColorRec.Darkcyan;
+//  Canvas.FillRect(ARect, 0, 0, AllCorners, 0.2);
 end;
 
 procedure TOrdersForm.NextTabBtnClick(Sender: TObject);
@@ -1098,6 +1133,17 @@ var
 begin
       try
         task := TTask.Create(procedure()
+                                procedure getCollectorsDiraction();
+                                var
+                                  Collectors: TCollectors;
+                                begin
+                                  Collectors := TCollectors.Create();
+                                  try
+                                    Collectors.Add();
+                                  finally
+                                    Collectors.Free;
+                                  end;
+                                end;
                              Begin
                                 exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
                                   try
@@ -1107,45 +1153,54 @@ begin
 
                                       IndicateSynchLbl.Text := 'Передача собранных документов...';
                                       exchanger.pushNaklHeadLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 51.5;
-                                      IndicateSynchText.Text := '14';
-                                      Sleep(2000);
+                                      IndicateSynchPie.EndAngle := 45;
+                                      IndicateSynchText.Text := '12';
+                                      Sleep(1500);
 
                                       IndicateSynchLbl.Text := 'Передача документов сборщиков...';
                                       exchanger.pushProcessedDocLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 103;
+                                      IndicateSynchPie.EndAngle := 90;
                                       IndicateSynchText.Text := '25';
-                                      Sleep(2000);
+                                      Sleep(1500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра документов...';
                                       exchanger.clearNaklHeadLocal();
-                                      IndicateSynchPie.EndAngle := 154.5;
-                                      IndicateSynchText.Text := '40';
-                                      Sleep(2000);
+                                      IndicateSynchPie.EndAngle := 135;
+                                      IndicateSynchText.Text := '38';
+                                      Sleep(1500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
                                       exchanger.clearNaklMoveLocal();
-                                      IndicateSynchPie.EndAngle := 209;
-                                      IndicateSynchText.Text := '55';
-                                      Sleep(2000);
+                                      IndicateSynchPie.EndAngle := 180;
+                                      IndicateSynchText.Text := '50';
+                                      Sleep(1500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра документов сборщиков...';
                                       exchanger.clearProcessedDocLocal();
-                                      IndicateSynchPie.EndAngle := 260.5;
-                                      IndicateSynchText.Text := '70';
-                                      Sleep(2000);
+                                      IndicateSynchPie.EndAngle := 225;
+                                      IndicateSynchText.Text := '62';
+                                      Sleep(1500);
 
                                       IndicateSynchLbl.Text := 'Получение документов с сервера...';
                                       exchanger.addNaklHeadRemoteToLocal();
-                                      IndicateSynchPie.EndAngle := 315;
-                                      IndicateSynchText.Text := '85';
-                                      Sleep(2000);
+                                      IndicateSynchPie.EndAngle := 265;
+                                      IndicateSynchText.Text := '74';
+                                      Sleep(1500);
+
+                                      IndicateSynchLbl.Text := 'Получение сборщиков...';
+                                      getCollectorsDiraction();
+                                      IndicateSynchPie.EndAngle := 310;
+                                      IndicateSynchText.Text := '86';
+                                      Sleep(1500);
 
                                       IndicateSynchLbl.Text := 'Получение документов сборщиков...';
                                       exchanger.getProcessedDocRemote();
+                                      IndicateSynchPie.EndAngle := 355;
+                                      IndicateSynchText.Text := '98';
+                                      Sleep(1500);
+
                                       IndicateSynchPie.EndAngle := 360;
                                       IndicateSynchText.Text := '100';
-                                      Sleep(2000);
                                     except
                                       on Ex: Exception do
                                         Begin

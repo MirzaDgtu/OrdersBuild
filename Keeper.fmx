@@ -1,0 +1,507 @@
+object KeeperForm: TKeeperForm
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 527
+  ClientWidth = 301
+  WindowState = wsMaximized
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object MainLayout: TLayout
+    Align = Client
+    Padding.Left = 2.000000000000000000
+    Padding.Top = 2.000000000000000000
+    Padding.Right = 2.000000000000000000
+    Padding.Bottom = 2.000000000000000000
+    Size.Width = 301.000000000000000000
+    Size.Height = 527.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object KeeperHeaderTB: TToolBar
+      Padding.Left = 7.000000000000000000
+      Padding.Right = 7.000000000000000000
+      Position.X = 2.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 297.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object BackBtn: TSpeedButton
+        Align = FitLeft
+        IconTintColor = claBlack
+        ModalResult = 2
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+      end
+      object OkBtn: TSpeedButton
+        Align = FitRight
+        IconTintColor = claBlack
+        ModalResult = 1
+        Position.X = 249.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'donetoolbutton'
+        Text = 'OkBtn'
+      end
+      object KeeperHeaderLbl: TLabel
+        Align = VertCenter
+        StyledSettings = [Family]
+        Position.X = 55.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 187.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claDarkcyan
+        TextSettings.HorzAlign = Center
+        Text = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+        TabOrder = 2
+      end
+    end
+    object Tabs: TTabControl
+      Touch.GestureManager = GM
+      Align = Client
+      Images = IL35
+      Size.Width = 297.000000000000000000
+      Size.Height = 475.000000000000000000
+      Size.PlatformDefault = False
+      TabHeight = 49.000000000000000000
+      TabIndex = 0
+      TabOrder = 1
+      TabPosition = PlatformDefault
+      Sizes = (
+        297s
+        426s
+        297s
+        426s)
+      object TeamTab: TTabItem
+        OnGesture = TeamTabGesture
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        ImageIndex = 0
+        Size.Width = 148.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1050#1086#1084#1072#1085#1076#1072
+        object TeamBottomSB: TStatusBar
+          Position.Y = 354.000000000000000000
+          ShowSizeGrip = True
+          Size.Width = 297.000000000000000000
+          Size.Height = 24.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object TeamBottomLbl: TLabel
+            Align = VertCenter
+            StyledSettings = [Family]
+            Size.Width = 297.000000000000000000
+            Size.Height = 23.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 11.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claDarkcyan
+            TextSettings.HorzAlign = Center
+            Text = #1057#1073#1086#1088#1097#1080#1082#1086#1074': 0'
+            TabOrder = 0
+          end
+        end
+        object TeamBottomTB: TToolBar
+          Align = Bottom
+          Position.Y = 378.000000000000000000
+          Size.Width = 297.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object TeamGPL: TGridPanelLayout
+            Align = Client
+            Padding.Left = 2.000000000000000000
+            Padding.Top = 2.000000000000000000
+            Padding.Right = 2.000000000000000000
+            Padding.Bottom = 2.000000000000000000
+            Size.Width = 297.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 50.000000000000000000
+              end
+              item
+                Value = 50.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = DeleteCollectorsBtn
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = GoToCollectorsBtn
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end
+              item
+                SizeStyle = Auto
+              end>
+            object DeleteCollectorsBtn: TSpeedButton
+              Align = VertCenter
+              StyledSettings = [Family, Size, Style]
+              IconTintColor = claBlack
+              Position.X = 50.000000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'deleteitembutton'
+              TextSettings.FontColor = claGreen
+            end
+            object GoToCollectorsBtn: TSpeedButton
+              Align = VertCenter
+              IconTintColor = claBlack
+              Position.X = 198.500000000000000000
+              Size.Width = 48.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'nexttoolbutton'
+              Text = 'GoToCollectorsBtn'
+              OnClick = GoToCollectorsBtnClick
+            end
+          end
+        end
+        object TeamLV: TListView
+          OnGesture = TeamLVGesture
+          ItemAppearanceClassName = 'TListItemAppearance'
+          ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          Align = Client
+          Size.Width = 297.000000000000000000
+          Size.Height = 354.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+        end
+      end
+      object CollectorsTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        ImageIndex = 1
+        Size.Width = 149.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = #1057#1073#1086#1088#1097#1080#1082#1080
+        object CollectorsLayout: TLayout
+          Align = Client
+          Size.Width = 297.000000000000000000
+          Size.Height = 426.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object CollectorsBottomTB: TToolBar
+            Align = Bottom
+            Position.Y = 378.000000000000000000
+            Size.Width = 297.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object CollectorsGPL: TGridPanelLayout
+              Align = Client
+              Size.Width = 297.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              ColumnCollection = <
+                item
+                  Value = 50.000000000000000000
+                end
+                item
+                  Value = 50.000000000000000000
+                end>
+              ControlCollection = <
+                item
+                  Column = 0
+                  Control = GoToTeamBtn
+                  Row = 0
+                end
+                item
+                  Column = 1
+                  Control = AddCollectorToTeamBtn
+                  Row = 0
+                end>
+              RowCollection = <
+                item
+                  Value = 100.000000000000000000
+                end
+                item
+                  SizeStyle = Auto
+                end>
+              object GoToTeamBtn: TSpeedButton
+                Align = VertCenter
+                IconTintColor = claBlack
+                Position.X = 50.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'backtoolbutton'
+                Text = 'GoToTeamBtn'
+                OnClick = GoToTeamBtnClick
+              end
+              object AddCollectorToTeamBtn: TSpeedButton
+                Align = VertCenter
+                IconTintColor = claBlack
+                Position.X = 198.500000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'additembutton'
+              end
+            end
+          end
+          object CollectorsBottomSB: TStatusBar
+            Position.Y = 356.000000000000000000
+            ShowSizeGrip = True
+            Size.Width = 297.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object CollectorsBottomLV: TLabel
+              Align = VertCenter
+              StyledSettings = [Family]
+              Size.Width = 297.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              TextSettings.HorzAlign = Center
+              Text = #1057#1073#1086#1088#1097#1080#1082#1086#1074': 0'
+              TabOrder = 0
+            end
+          end
+          object CollectorsLV: TListView
+            OnGesture = CollectorsLVGesture
+            ItemAppearanceClassName = 'TListItemAppearance'
+            ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
+            Margins.Left = 2.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Size.Width = 293.000000000000000000
+            Size.Height = 356.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+          end
+        end
+      end
+    end
+  end
+  object IL35: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 10
+        MultiResBitmap.Width = 10
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 3.500000000000000000
+            Width = 35
+            Height = 35
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
+              59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0827494441545847ED976B6C14D715C7FF776676F631EBDD65776DE3C7DAD8D8
+              E115620204B09496464945ABF4035542DA4A69044D0B22A1242DB451A5AA0829
+              8AFA0004825472129154852A4DD5AA54951AA4521E810036D806820D0EC60F8C
+              EDB5F7E17DCF6367A677662705D75E305155F5437FD66AAFCFBD3BF39F73CF39
+              F70CFE9720D6F77DD9F7FD7D7659F53CE77231DF411E0FE5A0FB1C1C11199D84
+              65553BA4E6F09B6D2DEB6F5BCB3F17F715B3FBA577BF62739057B48CB21A3E8D
+              AFF30BACE024E07940D3804C4EC77032A76747399575933DE3EEBE9FECDCB993
+              CE3C38F714B367EB7B3F6025EC0AD5B28CCFC3C05BC2583353C9E43474F4A575
+              92771C9515FDA724AF24F20209BFF6ABEFA6AC25F7A5A8985D1B5B828AC33EDC
+              3C9FB7950833DB4D5505CE5E4FE96A8CD709FD4996CF110FEFEC91156CDEB67F
+              FD716B59518A3E2AB1F1AB4B5859FF4C483AAB231C53CDAD2906CB024BE6B809
+              E302D3BC82679E7CD44BAACAD879AC8CBF1FF8E16FDFB09615A5B8DF09EA5D01
+              7A758A28E9E8BC26637482C5D9CB327A061424521AF279737A12463C794A588C
+              4454D83882DA0A0E4D4D3646CDAAAFEDDDFADED7AD65D352548CAE8327D6ECE0
+              988E45CB2AF0FCAB2BB176431366550770FD968ED31D223E6A9770A653C2E55E
+              0D9E729F698F4FE4114FEA851F533C0283DA3A8EA18970C0324D4BD160D8BDE5
+              E04BC100FBC6534FCFF50A1501385D3C083379793EAF211913CD6F878385C7EF
+              C45F7F771565E54ED4543B68BAD12032A0BACE9C1AD5866F67190D6CFD8F0EBC
+              D05798984C71CF1088B03933A58D9570B9ED538418701C037F990B65956E5388
+              416DC32C848733286FACC0EC05A1C267610891A1AC46BDFD7A3AA58E980BA761
+              5A31BB5E3EB88664D122789CB49A3C18C10A37FA7B62F8F0836ECB52A0729E9F
+              6308692E15329C659A4211CFE8CF3CF2A56AE9E96F2D085A86195311F2E09B9B
+              97E246D738DDA53B71B3F40B21B8EDFA6ACDE179D6324D617A31846492395565
+              E9367C1E78870D1CCBD0CB58064AD51C1FEC01074B34ED013DA3E97F1CEA1864
+              15C50AC007E45AE728EAA853EF8EB3FEEB5124C66559CA4A7FB64C539856CCF6
+              5FBF785A65ED1FBEFDFAC709499CA698DC83F3C7FBD1F9F110563C5163590059
+              52F1A7F72FAA4A3EBF66FB5B9B2296790A45F72111E87B4ED5B49E2BADC369CB
+              745F0CE11DA787B0767D13FCA5826505E835E077B92F6CDBFFE249CB342D45C5
+              18272FD1F537CF1DEF55749A9333A1BB7DD44CF5F2EA12CB02C4C633F8E8E480
+              22E5F03DCB54947B46682238705853D8B1B6A38392652A4A3A21A1EDC4009A9F
+              AAB32CC044248B236F7740C8A465A72EDA2D7351EE29A6243AA7816644B2F558
+              3F3B76BB7827A06B3A8EFCBE8BEAC9E8292ACAF424FDFCE3D015D4A932EA9CBC
+              10C9CBAD875F7DE7FD968D2D36EB675398F638F8F9C616AF8DE77F2632CCCBF3
+              97D6D818B757EE3DDF6E5FF7EDE5C4A8237723CB2AFE72A853CF256DF9D98FD6
+              7203A72EABB462EBCD259A2D18BDF3006195E08CC84151C44C99CBF9FCB37B36
+              4CC9AA496276ECD8C178A27336108DFCD25DEA268D4F2E9B551E0A9873C3DDB7
+              D075AC0375F3FC68581804CB3388D0D8BEDC3A420F483F16AD590E9BDD065194
+              71F3EC350C5FEA458851B1DC96878B29C49C4A6FD72933B82AB3A8E4B45313D9
+              FC5737BDB5296B4E52FE2566D7E68321C2923FD89CFCBCBAC71B3DDEEA90B985
+              1E7A2EB17415438B9898153170F106E24311E469C724F8DDA85E3C1765F5B3A1
+              880A15C821992E1C9C4A8EB61C673F41E4D61815A4623EFD7C46C4F092C44103
+              496474E5E157F66F1C32ECA6985F6C3DD8A8494CEBECA652AEFEB125B43B9A1C
+              4AB7DBAE2336104643F37C542FAAA5C5ECCE7C269E46EFB96E846F8C60F1BA2F
+              82E32787447A348EFE6317D10019CBF83B35CBF0D22991454C67476FFBFAAA8C
+              EC658DAE5FD79CA7CA16D596CD5DB5D849EEAEE1162595017A80F3186CBF817E
+              EA198E7A80D0BFAE1397D07DE2329C012FEA573F029B636AC2F06E277CF515E8
+              EE1E4280FAC2636D99F138218EF6CD8A2CB833C19EBFB51DB9C218AF1FB0DB42
+              F5ABE6153DA10D81FEFA4A3CBCF6718456CE475F7B2FCE7D7012ACCB81A675AB
+              51B37201783A2E8621A86AC502B4A9936F611C524D36DAC3116C32FEA7DD17BB
+              A5EEB146D7741E99025DE20B9561E1D75661C9379E40E59206708E9975198186
+              2A64A8538EE60ADB686457BBC4A28C7A4A0269306C0C7DC3784808FACC053386
+              0A67B8427F3C538C047079DD18A3220CD21A419C7E78DA0632D0CDB38351F369
+              AF110FFF0D38C18E057CE1F5A286D3B1DC3EB92B609CA0ED3CC548C5E88DC2DB
+              69666C02E970DC1C477B8721D39436AA6AF86A3FADACB4D06544C46E16BAC7E4
+              48149948C21C8FF7DC32535EA31539DC45D752C44416F1C131736C047DD878B7
+              A2DB7381D69B2E85419BCC816EDC3563DE6C745455436A3C86D14B37E1A8F062
+              AC77885E905601B70DC39FF4A154CB4328F560B0F51A5C213FD22331C43E1D81
+              BDBC04639FDE2AC48D93A585EE268D560636C181A10B3D70D706A99051A48663
+              10667B9126B2A86B4C9BA26B9DC67D0DE8B3C5459BBACF1893DD5BDED5435F5E
+              6C3E792E9C80BB26082996368E1638026EA40723709679C1D2EA9AE80DC33BB7
+              1C795A65A5681A42B51FB9F124CD0216769F80547F0442A50F847688A9BE7178
+              E85A85164139958350310BF1F3834A723CFAE36D6F6ED86B2AF93718A2C9727A
+              284A0564E84539644726A04A796872DE1C1B36299E417674823EB1DDFC9627B2
+              2034208D799D565B35A79863D6CE41A42273E12438175D4B6D4A4A34B7C718C7
+              A5282D505AD1E68AECDD7EF8197AE31DAAA616ED4DFF53703C73C995965EA0E7
+              916299FECF0C00FE0909076664B4C4D2570000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_user_account_35px.png'
+          end>
+        Name = 'icons8_user_account_35px'
+      end
+      item
+        MultiResBitmap.Height = 10
+        MultiResBitmap.Width = 10
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 3.500000000000000000
+            Width = 35
+            Height = 35
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
+              59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0720494441545847ED975B6C5CC51DC6BF39D7BD7A7DDD38BEC44EEC94D02849
+              6D0A044A8548A2546D854A5F5A155470AAAA9142524A1252553C9848E5819240
+              6908286D0A16480D2452A5D2A252924A4D01C594D4960D8E137C77ECF5266BAF
+              ED5DAFCFEEB94D67CE9ED0A6B1774FDA87BEF4F73233DFCC39F39D39FFF39F39
+              F83FCB40DCF2A639B4FBD57502E84E4995BE48A8D54489A0890299D2B3F6DB10
+              E889C75FD831EA0EF5CC4D99F9F90F7FB5C2B2C447559FF4D59C69B4D4542A62
+              C807A88A008B529806456A1148242C5BF2E1A49513773E76E4BB29F7F2A27836
+              F3B33D1D4D0AEC9ED272215019964855B90849743BFF8D1C3375694CA70B1932
+              B6A049AD3F79F9A159B7AB20825B16C527E2B5BA954A70C31A95ACAC5ADE0847
+              95093634AB24124643C86FFC8E827A7A684F665EDCF562C8D4E9E6BA687EB865
+              5324E76CD8B6D35C123EFBBA06990836BDEBD0EE8EAFE5D5C27832932381D5A2
+              4C4D993D3165ED4F064C0C4D019D1FEB18BC6C6021B3B42B5124A8A996254920
+              7B5DA9209ECC10D82A88E8CC98602B6209221EDE7727EE7F7823222B2B7061D4
+              C67B5D397CD467A0FBA2899E4F4D109F1F57D3840E4F1AB04DEB9EF6F6938A73
+              B302787A973C78D943F63FF040AD1CAEAE821450118AA86E6F9EAC66223DAB39
+              2511086A1B22E87E6F22F7C19F87FF6299E4C08197DB7ADDA1CBE269652C534E
+              C2A672DDA635285D597283118ECF2FA1AA268CFAA632D4AD2E750CAD595FA10A
+              94DCDD381DE8738715A4A899679E381E5625FDAC200A593EC1CD1029F7B3A5A7
+              FE2B755AFFB11F1C0BB8F2B21435236AE2567F40A96FDB7F274B6F370737FFC8
+              8FEF9244BF549352D47B5D79598ABF264A9CC00D868AC6DF92F0EB24424D420B
+              25823C45CD10C5785F4B67D5E978C6556E0E7EDDC25C4E9205F99C2B2D4B813C
+              9AE7DDCEDF6BDBEFF8A6DCD71D6B658129874B7D9E03273E91C26F8F77A54C4A
+              9ED97BE49133AEBC2C9EBEA67D47773C651BB4E383D323575DC913EFBF3330A3
+              EBF4D8FE233B9E76A5827832C3B105E117F19154657A2EEB2A85994F66111F59
+              88506A1F75A5A2783673E048DB902DE2D77F7AB33FE5EC0905A0EC3871FA547F
+              86C8F4F8132F7D7FCC958BE2D9CCA13DAFDCADFA94D6A9895449EFB949D39597
+              A4F7C398C5C6054559B98D5FE7CA45291A8CCFEDE9D8CE96FA492A92D6E6DBD7
+              052BEA2B49F75B1FE2DEAF37E3D696A83BEA9F5CF87B1C7FFDE3305AEEDF8CD9
+              F8B4FDE9B9FE4562D12EB6583FDD7FF47BA7DD614BB2A499F6F676A1647AF537
+              58F54951169AAA36AE316AD73756955784D839464072621A3D7FE844B426848D
+              B757A3AC2A80646211BD1F4D2111CBE00BCC48596D252CCBC6CCCC02267B4613
+              573E19522C6A0F108AA7D315A36F1D3C78F086BC738399E776757C8B52F3A0E8
+              57A2351BD692E8FA55656C2B70FA0496518301851D3325E85A0EA35D83480CC6
+              905DC8C2C7CE9FD1E65A34B43641F1ABC8E926328B3A3BF3E403CC66C6AEF68D
+              CFC63E1EA0866E5E116DE1A9BD2FB59D743A5D3E33F3ECBED78242CE7A431484
+              2FD76CBE5558B1B6364C84A5436AF4F479E4163444D7D6A1B2A91AC1F23032C9
+              34A687E2B83A3801351C44E3D65677F4F5F0447C6560321DEBECB72D6A9D0DE5
+              8CEFECFCE54E76727603981F0B25C33E11AA2AF9D2A687B644AA6FA95FD60827
+              3D9DC27DFA1C4AFB2E61ECED4E74BD7E8695E71061EDFB72735848CCB9236F84
+              DF97DF7FD3835B228168D93D6945F9CDB563A933E3E1475FDD4E0469CBE7BE72
+              479928495C2A4A994051070375A68615828D7A338B55ACCD752F88B28475DB6E
+              2B974579DBF3BB5FD9CA35C78C208BBBA21B1B553EC00B228B99534610EF9230
+              C61B1BA17DBE1963AC7C87B54F1901D62FBB230BC3C7556E6850214ABB78DB59
+              9EC33F7A7DEC966D2DAB4AD811D20BFA22CBC22C309590DF4970B1EE01D4B4AC
+              052104B9B40681FD3AC87E6FBB7C2A36838133E7C71E7FA1AD31BF32B61D9114
+              EF470425E0738C70A86921D633EC941C35ECF76C8423A90A7B2052CAEBD74569
+              2A9E84C13E594E72841DFFD9EBB70D137397F3FB63762E83C564FE07913F91A9
+              1B4EFD1ABCCD75CEE24C1AD9F9FCB1835FCFEFC357717624EE687C9E349B8F73
+              ED93FE17336CB97B06313D1283A669183EDB8B54720EC9A904C6FF76D1D1E297
+              C6317561CCA95F3E7F09C9B138B46C7EE3E4256F739DF74FF58F227E71DCA9F3
+              EBF97DD2C9790C9DED71343ECF249BCF796297CFCCA452F390CB82B01582743A
+              85504325345D834E4DF8AB238E464212C412C5A9ABD1300C89B2C49671C6F2D2
+              946CA6879C7E31AC800425A7EEAB2E810E139A9145988DE59AC5E691CB83989F
+              9F771DB8666C4930338979A865016729F5F94584EACA61B0CC6AB34CEA8FB29B
+              318D7F45128B075EF7B1AD81C789CEFEF4C3F5154E699B36D3C34EBFC432B5A8
+              B24CCDEA81680476CE84C1823BC8EECB353611D4D200322C275159D0B90FE775
+              3DBFF7C4B7611ACF5A82FD9F1D74FF0BD8B6A00BB2B4FFB1C30F5EB735FC8F01
+              FE016F3F16C48FB1DE2F0000000049454E44AE426082}
+            FileName = 'D:\Projects\OrdersBuild\Icons\icons8_user_35px.png'
+          end>
+        Name = 'icons8_user_35px'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'icons8_user_account_35px'
+            SourceRect.Right = 10.000000000000000000
+            SourceRect.Bottom = 10.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_user_35px'
+            SourceRect.Right = 10.000000000000000000
+            SourceRect.Bottom = 10.000000000000000000
+          end>
+      end>
+    Left = 256
+    Top = 352
+  end
+  object GM: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 216
+    Top = 352
+    GestureData = <
+      item
+        Control = Tabs
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
+      end>
+  end
+end

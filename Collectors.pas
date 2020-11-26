@@ -12,6 +12,7 @@ type
     procedure Add(UID: integer; Name: string); overload;
     procedure Delete;
     procedure Get;
+    class procedure GetRemote;
 
 
     constructor Create();
@@ -105,6 +106,11 @@ begin
     AppDataLocal.Collectors.Active := True;
   finally
   end;
+end;
+
+class procedure TCollectors.GetRemote;
+begin
+
 end;
 
 end.

@@ -92,6 +92,8 @@ type
     procedure SaveCameraScanBtnClick(Sender: TObject);
     procedure StartCameraScanBtnClick(Sender: TObject);
     procedure CameraScanBtnClick(Sender: TObject);
+    procedure ProductLVKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
   private
     { Private declarations }
     FUnicumNumP: integer;
@@ -432,6 +434,12 @@ begin
     End;
 
     setNaklBottomSBInfo(KolProdP, FProdChecked.Count);
+end;
+
+procedure TNaklForm.ProductLVKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  Focused := ProductsTab;
 end;
 
 procedure TNaklForm.ProductLVUpdateObjects(const Sender: TObject;

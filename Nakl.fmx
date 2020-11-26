@@ -3,7 +3,7 @@ object NaklForm: TNaklForm
   Top = 0
   Caption = 'NaklForm'
   ClientHeight = 624
-  ClientWidth = 364
+  ClientWidth = 335
   Position = ScreenCenter
   WindowState = wsMaximized
   FormFactor.Width = 320
@@ -14,12 +14,12 @@ object NaklForm: TNaklForm
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
-    Size.Width = 364.000000000000000000
+    Size.Width = 335.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object NaklHeaderTB: TToolBar
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -37,7 +37,7 @@ object NaklForm: TNaklForm
       object SaveNaklBtn: TButton
         Align = Right
         IconTintColor = claBlack
-        Position.X = 316.000000000000000000
+        Position.X = 287.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -51,7 +51,7 @@ object NaklForm: TNaklForm
         StyledSettings = [Family, Size, Style]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 268.000000000000000000
+        Size.Width = 239.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Arial'
@@ -64,8 +64,9 @@ object NaklForm: TNaklForm
       end
     end
     object CollectorTB: TToolBar
+      Padding.Right = 7.000000000000000000
       Position.Y = 48.000000000000000000
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -104,7 +105,7 @@ object NaklForm: TNaklForm
         TextSettings.HorzAlign = Center
         Position.X = 70.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 239.000000000000000000
+        Size.Width = 258.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         StyledSettings = [Family]
@@ -122,25 +123,26 @@ object NaklForm: TNaklForm
         Align = FitRight
         IconTintColor = claBlack
         Margins.Right = 7.000000000000000000
-        Position.X = 309.000000000000000000
+        Position.X = 280.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'cameratoolbutton'
+        Visible = False
         OnClick = CameraScanBtnClick
       end
     end
     object NaklBottomSB: TStatusBar
       Position.Y = 602.000000000000000000
       ShowSizeGrip = True
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'statusbarstyle'
       TabOrder = 2
       object ProductNaklInfo: TGridPanelLayout
         Align = Client
-        Size.Width = 364.000000000000000000
+        Size.Width = 335.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -172,7 +174,7 @@ object NaklForm: TNaklForm
         object CountProdNaklLbl: TLabel
           Align = VertCenter
           StyledSettings = [Family]
-          Size.Width = 182.000000000000000000
+          Size.Width = 167.500000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
@@ -184,8 +186,8 @@ object NaklForm: TNaklForm
         object CountBuildProdNaklLbl: TLabel
           Align = VertCenter
           StyledSettings = [Family]
-          Position.X = 182.000000000000000000
-          Size.Width = 182.000000000000000000
+          Position.X = 167.500000000000000000
+          Size.Width = 167.500000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
@@ -199,7 +201,7 @@ object NaklForm: TNaklForm
     end
     object Tabs: TTabControl
       Align = Client
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 506.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
@@ -207,7 +209,7 @@ object NaklForm: TNaklForm
       TabOrder = 3
       TabPosition = PlatformDefault
       Sizes = (
-        364s
+        335s
         457s)
       object ProductsTab: TTabItem
         CustomIcon = <
@@ -215,7 +217,7 @@ object NaklForm: TNaklForm
           end>
         IsSelected = True
         ImageIndex = 0
-        Size.Width = 364.000000000000000000
+        Size.Width = 335.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -231,10 +233,12 @@ object NaklForm: TNaklForm
           OnUpdateObjects = ProductLVUpdateObjects
           SideSpace = 1
           Align = Client
-          Size.Width = 364.000000000000000000
+          Size.Width = 335.000000000000000000
           Size.Height = 457.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
+          OnKeyDown = ProductLVKeyDown
+          ItemAppearance.ItemHeight = 50
           ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
             item
               AppearanceObjectName = 'ProductName'
@@ -243,28 +247,29 @@ object NaklForm: TNaklForm
               Appearance.Font.StyleExt = {00070000000000000004000000}
               Appearance.WordWrap = True
               Appearance.TextColor = claBlack
-              Appearance.Width = 315.000000000000000000
-              Appearance.Height = 22.000000000000000000
+              Appearance.Width = 263.000000000000000000
+              Appearance.Height = 28.000000000000000000
               Appearance.Align = Center
-              Appearance.PlaceOffset.X = 12.000000000000000000
+              Appearance.PlaceOffset.X = 24.000000000000000000
             end
             item
               AppearanceObjectName = 'Screen'
               AppearanceClassName = 'TImageObjectAppearance'
               Appearance.Width = 26.000000000000000000
-              Appearance.Height = 44.000000000000000000
+              Appearance.Height = 50.000000000000000000
               Appearance.VertAlign = Center
+              Appearance.PlaceOffset.Y = -1.000000000000000000
             end
             item
               AppearanceObjectName = 'StrikeCode'
               AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Font.Size = 9.000000000000000000
+              Appearance.Font.Size = 8.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
               Appearance.TextColor = claBlack
-              Appearance.Width = 79.000000000000000000
+              Appearance.Width = 67.000000000000000000
               Appearance.Height = 22.000000000000000000
-              Appearance.PlaceOffset.X = 26.000000000000000000
-              Appearance.PlaceOffset.Y = 21.000000000000000000
+              Appearance.PlaceOffset.X = 48.000000000000000000
+              Appearance.PlaceOffset.Y = 27.000000000000000000
             end
             item
               AppearanceObjectName = 'Packages'
@@ -274,18 +279,18 @@ object NaklForm: TNaklForm
               Appearance.TextColor = claDarkcyan
               Appearance.Width = 40.000000000000000000
               Appearance.Height = 22.000000000000000000
-              Appearance.PlaceOffset.X = 104.000000000000000000
-              Appearance.PlaceOffset.Y = 21.000000000000000000
+              Appearance.PlaceOffset.X = 114.000000000000000000
+              Appearance.PlaceOffset.Y = 27.000000000000000000
             end
             item
               AppearanceObjectName = 'EDIN_IZMER'
               AppearanceClassName = 'TTextObjectAppearance'
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.Width = 49.000000000000000000
+              Appearance.Width = 37.000000000000000000
               Appearance.Height = 22.000000000000000000
-              Appearance.PlaceOffset.X = 231.000000000000000000
-              Appearance.PlaceOffset.Y = 21.000000000000000000
+              Appearance.PlaceOffset.X = 236.000000000000000000
+              Appearance.PlaceOffset.Y = 27.000000000000000000
             end
             item
               AppearanceObjectName = 'EDN_V_UPAK'
@@ -295,8 +300,8 @@ object NaklForm: TNaklForm
               Appearance.TextColor = claBlack
               Appearance.Width = 41.000000000000000000
               Appearance.Height = 22.000000000000000000
-              Appearance.PlaceOffset.X = 143.000000000000000000
-              Appearance.PlaceOffset.Y = 21.000000000000000000
+              Appearance.PlaceOffset.X = 153.000000000000000000
+              Appearance.PlaceOffset.Y = 27.000000000000000000
             end
             item
               AppearanceObjectName = 'Qty'
@@ -304,22 +309,22 @@ object NaklForm: TNaklForm
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
               Appearance.TextColor = claDarkcyan
-              Appearance.Width = 49.000000000000000000
+              Appearance.Width = 44.000000000000000000
               Appearance.Height = 22.000000000000000000
-              Appearance.PlaceOffset.X = 183.000000000000000000
-              Appearance.PlaceOffset.Y = 21.000000000000000000
+              Appearance.PlaceOffset.X = 193.000000000000000000
+              Appearance.PlaceOffset.Y = 27.000000000000000000
             end
             item
               AppearanceObjectName = 'KON_KOLCH'
               AppearanceClassName = 'TTextObjectAppearance'
               Appearance.Font.Size = 10.000000000000000000
               Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.TextColor = claOlive
-              Appearance.Width = 40.000000000000000000
+              Appearance.TextColor = claSeagreen
+              Appearance.Width = 38.000000000000000000
               Appearance.Height = 22.000000000000000000
               Appearance.VertAlign = Center
-              Appearance.PlaceOffset.X = 279.000000000000000000
-              Appearance.PlaceOffset.Y = 10.000000000000000000
+              Appearance.PlaceOffset.X = 273.000000000000000000
+              Appearance.PlaceOffset.Y = 14.000000000000000000
             end
             item
               AppearanceObjectName = 'FolioUID'
@@ -355,11 +360,11 @@ object NaklForm: TNaklForm
               AppearanceObjectName = 'CheckBtnA'
               AppearanceClassName = 'TAccessoryObjectAppearance'
               Appearance.AccessoryType = Checkmark
-              Appearance.Width = 33.000000000000000000
-              Appearance.Height = 22.000000000000000000
+              Appearance.Width = 23.000000000000000000
+              Appearance.Height = 50.000000000000000000
+              Appearance.VertAlign = Center
               Appearance.Visible = False
-              Appearance.PlaceOffset.X = 319.000000000000000000
-              Appearance.PlaceOffset.Y = 9.000000000000000000
+              Appearance.PlaceOffset.X = 26.000000000000000000
             end>
           ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
             item
@@ -710,7 +715,7 @@ object NaklForm: TNaklForm
   end
   object CollectLayout: TLayout
     Align = Client
-    Size.Width = 364.000000000000000000
+    Size.Width = 335.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     Visible = False
@@ -719,12 +724,12 @@ object NaklForm: TNaklForm
       Align = Client
       Fill.Color = claBlack
       Opacity = 0.600000023841857900
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 554.000000000000000000
       Size.PlatformDefault = False
     end
     object CollectHeaderTB: TToolBar
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -742,7 +747,7 @@ object NaklForm: TNaklForm
       object RefreshBtn: TButton
         Align = Right
         IconTintColor = claBlack
-        Position.X = 316.000000000000000000
+        Position.X = 287.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -755,7 +760,7 @@ object NaklForm: TNaklForm
         StyledSettings = [Family]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 268.000000000000000000
+        Size.Width = 239.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'listboxheaderlabel'
@@ -784,7 +789,7 @@ object NaklForm: TNaklForm
       Margins.Top = 7.000000000000000000
       Margins.Right = 7.000000000000000000
       Margins.Bottom = 7.000000000000000000
-      Size.Width = 350.000000000000000000
+      Size.Width = 321.000000000000000000
       Size.Height = 540.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -829,19 +834,18 @@ object NaklForm: TNaklForm
     object CollectorSB: TStatusBar
       Position.Y = 602.000000000000000000
       ShowSizeGrip = True
-      Size.Width = 364.000000000000000000
+      Size.Width = 335.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       object CollectorCountLbl: TLabel
         Align = VertCenter
         StyledSettings = [Family]
-        Size.Width = 364.000000000000000000
+        Size.Width = 335.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 11.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBlue
         TextSettings.HorzAlign = Center
         Text = 'CollectorCountLbl'
         TabOrder = 0

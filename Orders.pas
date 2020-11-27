@@ -223,6 +223,10 @@ type
     IndicateSynchLbl: TLabel;
     IL35: TImageList;
     ExitBtn: TSpeedButton;
+    FilterSettingVSB: TVertScrollBox;
+    KeeperTeamLBI: TListBoxItem;
+    KeeperSettingBtn: TSpeedButton;
+    IL14: TImageList;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -296,6 +300,7 @@ type
     procedure ExitBtnClick(Sender: TObject);
     procedure NaklLVPaint(Sender: TObject; Canvas: TCanvas;
       const ARect: TRectF);
+    procedure KeeperSettingBtnClick(Sender: TObject);
   private
     { Private declarations }
     strReques: string;
@@ -332,7 +337,7 @@ implementation
 {$R *.fmx}
 
 uses ModuleDataLocal, SConsts, Globals, Reestrs, Interfaces, Nakl, NaklAct,
-  Statist, RangeDate, Exchanger, Sign, WifiConnect, Collectors;
+  Statist, RangeDate, Exchanger, Sign, WifiConnect, Collectors, Keeper;
 
 { TOrdersForm }
 
@@ -571,6 +576,25 @@ begin
   if Key = vkHardwareBack then
       Key := 0;
 
+end;
+
+procedure TOrdersForm.KeeperSettingBtnClick(Sender: TObject);
+var
+    keeperF: TKeeperForm;
+begin
+    keeperF := TKeeperForm.Create();
+    {$IFDEF ANDROID}
+    try
+      keeperF.ShowModal(procedure(AResult: TModalResult)
+                        Begin
+                          if AResult = mrOk then
+                            Begin
+                              ShowMessage('Сохранено');
+                            End;
+                        End);
+    finally
+    end;
+    {$ENDIF}
 end;
 
 procedure TOrdersForm.LoaderNaklBtnClick(Sender: TObject);

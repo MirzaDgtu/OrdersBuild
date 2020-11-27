@@ -11,8 +11,8 @@ type
     procedure Add; overload;
     procedure Add(UID: integer; Name: string); overload;
     procedure Delete;
-    procedure Get;
-    class procedure GetRemote;
+    procedure Get; overload;
+    class procedure Get(bl: boolean); overload;
 
 
     constructor Create();
@@ -98,7 +98,7 @@ begin
   end;
 end;
 
-procedure TCollectors.Get;
+class procedure TCollectors.Get(bl: boolean);
 begin
   try
     AppDataLocal.Collectors.Active := False;
@@ -108,9 +108,14 @@ begin
   end;
 end;
 
-class procedure TCollectors.GetRemote;
+procedure TCollectors.Get;
 begin
-
+  try
+    AppDataLocal.Collectors.Active := False;
+    AppDataLocal.Collectors.SQL.Text := SSQLGetCollectors;
+    AppDataLocal.Collectors.Active := True;
+  finally
+  end;
 end;
 
 end.

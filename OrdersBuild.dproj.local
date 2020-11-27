@@ -71,6 +71,7 @@
     <Transaction>1899.12.30 00:00:00.000.311,=D:\Projects\OrdersBuild\Lib\Classes\Common\ZXing.Common.BitMatrix.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.302,=D:\Projects\OrdersBuild\Lib\Classes\Filtering\ZXing.LuminanceSource.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.807,=D:\Projects\OrdersBuild\Lib\Classes\1D Barcodes\ZXing.OneD.UPCAReader.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.432,=D:\Projects\OrdersBuild\LVHelper.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.907,=D:\Projects\OrdersBuild\Lib\Classes\1D Barcodes\ZXing.OneD.UPCEANReader.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.346,=D:\Projects\OrdersBuild\Lib\Classes\Common\ZXing.Common.GridSampler.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.253,=D:\Projects\OrdersBuild\Lib\Classes\Common\ZXing.CharacterSetECI.pas</Transaction>
@@ -105,44 +106,45 @@
     <Transaction>1899.12.30 00:00:00.000.075,D:\Projects\OrdersBuild\SQLRequests\KrapotkinLV\superobject\superobject.pas=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.495,=D:\Projects\OrdersBuild\Lib\Classes\Common\ZXing.Reader.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.220,=D:\Projects\OrdersBuild\Lib\Classes\Filtering\ZXing.BinaryBitmap.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.613,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Interfaces.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.208,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.144,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.679,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.418,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.822,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.842,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.230,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.090,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.208,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.746,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.822,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.440,=D:\Projects\OrdersBuild\Lib\Classes\Common\ZXing.EncodeHintType.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.374,=D:\Projects\OrdersBuild\Lib\Classes\2D Barcodes\Decoder\ZXing.QrCode.Internal.BitMatrixParser.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.725,=D:\Projects\OrdersBuild\SQLRequests\KrapotkinLV\superobject\supertypes.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.058,D:\Projects\OrdersBuild\SQLRequests\KrapotkinLV\superobject\supertypes.pas=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.432,=D:\Projects\OrdersBuild\LVHelper.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.746,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.360,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.700,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.198,=D:\Projects\OrdersBuild\Lib\Classes\Filtering\ZXing.Binarizer.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.440,=D:\Projects\OrdersBuild\Lib\Classes\Common\ZXing.EncodeHintType.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.021,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.079,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Collectors.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.891,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Users.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.746,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Globals.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.775,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\SConsts.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.613,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Interfaces.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.079,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Collectors.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.688,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\ModuleDataRemote.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.322,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\WifiConnect.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.461,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\ModuleDataLocal.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.892,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.977,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.987,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.277,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Statist.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.103,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.860,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.892,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.038,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.277,D:\Projects\OrdersBuild\Unit1.pas=D:\Projects\OrdersBuild\Statist.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.860,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.11.26 15:09:53.039,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.11.26 15:12:12.072,D:\Projects\OrdersBuild\Keeper.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
     <Transaction>2020.11.26 15:12:12.073,D:\Projects\OrdersBuild\Keeper.fmx=D:\Projects\OrdersBuild\Unit1.fmx</Transaction>
+    <Transaction>2020.11.27 13:13:27.464,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
+    <Transaction>2020.11.27 13:13:38.766,D:\Projects\OrdersBuild\KeeperAct.pas=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
-		<NoProfile Android64="VP" Android="VP"/>
+		<NoProfile Android64="VP" Android="c03a1d5"/>
 	</ActiveMobileDevice>
 </BorlandProject>

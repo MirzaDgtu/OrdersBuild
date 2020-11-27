@@ -337,10 +337,31 @@ resourcestring
                                                    'Qty, ' +                                                        //-----*********-----//
                                                    'Price, ' +                                                      //-----*********-----//
                                                    'Sum_Predm, ' +                                                  //-----*********-----//
-                                                   'KON_KOLCH, ' +
-                                                   'STATUS) ' +
+                                                   'KON_KOLCH, ' +                                                  //-----*********-----//
+                                                   'STATUS) ' +                                                     //-----*********-----//
                             'VALUES (%d, ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', %d)';  //-----*********-----//
 
+
+
+                                             /// Настройка команды кладовщика
+      SSQLGetKeeperAccessLoc =  'SELECT KA.KeeperUid, ' +                                     //-----*********-----//
+                                       'KA.KeeperName, ' +                                    //-----*********-----//
+                                       'KA.CollectorUid, ' +                                  //-----*********-----//
+                                       'KA.CollectorName, ' +                                 // Получение списка сборщиков доступных для кладовщика
+                                       'I.Screen ' +                                          //-----*********-----//
+                                'FROM KeeperAccess KA ' +                                     //-----*********-----//
+                                   ' LEFT JOIN Icons I ON I.UID = 27 ' +                      //-----*********-----//
+                                ' WHERE KA.KeeperUID = %d ';                                  //-----*********-----//
+
+      SSQLInsKeeperAccessLoc = 'INSERT INTO KeeperAccess (KeeperUID, ' +                      //-----*********-----//
+                                                        ' KeeperName, ' +                     //-----*********-----//
+                                                        ' CollectorUid, ' +                   // Добавление сборщика в свою команду
+                                                        ' CollectorName) ' +                  //-----*********-----//
+                               'VALUES 					(%d, ''%s'', %d, ''%s'') ';                   //-----*********-----//
+
+      SSQLDelKeeperAccess = 'DELETE FROM KeeperAccess ' +                                     //-----*********-----//
+                            'WHERE KeeperUID = %d AND ' +                                     // Удаление сборщика из команды кладовщика
+                                 ' CollectorUid = %d ';                                       //-----*********-----//
 
 
 

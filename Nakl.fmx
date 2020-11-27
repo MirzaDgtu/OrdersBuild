@@ -810,7 +810,7 @@ object NaklForm: TNaklForm
           Appearance.Font.Size = 10.000000000000000000
           Appearance.Font.StyleExt = {00070000000000000004000000}
           Appearance.TextColor = claBlack
-          Appearance.Width = 256.000000000000000000
+          Appearance.Width = 228.000000000000000000
           Appearance.Height = 44.000000000000000000
           Appearance.Align = Center
           Appearance.PlaceOffset.X = 36.000000000000000000

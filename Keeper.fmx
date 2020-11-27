@@ -8,6 +8,7 @@ object KeeperForm: TKeeperForm
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
@@ -66,6 +67,8 @@ object KeeperForm: TKeeperForm
     end
     object Tabs: TTabControl
       Touch.GestureManager = GM
+      Touch.InteractiveGestures = [Rotate]
+      OnGesture = TabsGesture
       Align = Client
       Images = IL35
       Size.Width = 297.000000000000000000
@@ -81,7 +84,6 @@ object KeeperForm: TKeeperForm
         297s
         426s)
       object TeamTab: TTabItem
-        OnGesture = TeamTabGesture
         CustomIcon = <
           item
           end>
@@ -181,9 +183,10 @@ object KeeperForm: TKeeperForm
           end
         end
         object TeamLV: TListView
+          Touch.GestureManager = GM
           OnGesture = TeamLVGesture
-          ItemAppearanceClassName = 'TListItemAppearance'
-          ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+          ItemAppearanceClassName = 'TDynamicAppearance'
+          ItemEditAppearanceClassName = 'TDynamicAppearance'
           HeaderAppearanceClassName = 'TListHeaderObjects'
           FooterAppearanceClassName = 'TListHeaderObjects'
           Align = Client
@@ -191,6 +194,48 @@ object KeeperForm: TKeeperForm
           Size.Height = 354.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
+          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'CollectorName'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.WordWrap = True
+              Appearance.Width = 204.000000000000000000
+              Appearance.Height = 44.000000000000000000
+              Appearance.Align = Center
+              Appearance.PlaceOffset.X = 35.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'CollectorUID'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 11.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.Width = 47.000000000000000000
+              Appearance.Height = 44.000000000000000000
+              Appearance.PlaceOffset.X = 25.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Screen'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 26.000000000000000000
+              Appearance.VertAlign = Center
+            end
+            item
+              AppearanceObjectName = 'KeeperUID'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end
+            item
+              AppearanceObjectName = 'KeeperName'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Visible = False
+            end>
+          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'Text1'
+              AppearanceClassName = 'TTextObjectAppearance'
+            end>
         end
       end
       object CollectorsTab: TTabItem
@@ -293,9 +338,10 @@ object KeeperForm: TKeeperForm
             end
           end
           object CollectorsLV: TListView
+            Touch.GestureManager = GM
             OnGesture = CollectorsLVGesture
-            ItemAppearanceClassName = 'TListItemAppearance'
-            ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
@@ -305,6 +351,45 @@ object KeeperForm: TKeeperForm
             Size.Height = 356.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Name'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.WordWrap = True
+                Appearance.Width = 174.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.Align = Center
+                Appearance.PlaceOffset.X = 48.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Screen'
+                AppearanceClassName = 'TImageObjectAppearance'
+                Appearance.Width = 26.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'UID'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Size = 11.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.Width = 50.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 48.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'CheckBtnA'
+                AppearanceClassName = 'TAccessoryObjectAppearance'
+                Appearance.AccessoryType = Checkmark
+                Appearance.Width = 24.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 25.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
           end
         end
       end
@@ -502,6 +587,94 @@ object KeeperForm: TKeeperForm
           item
             GestureID = sgiRight
           end>
+      end
+      item
+        Control = TeamLV
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
+      end
+      item
+        Control = CollectorsLV
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
       end>
+  end
+  object BL: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 44
+    Top = 221
+    object LinkFillControlToField2: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = CollectorsLV
+      Track = True
+      FillDataSource = CollectorBS
+      AutoFill = True
+      FillExpressions = <
+        item
+          SourceMemberName = 'UID'
+          ControlMemberName = 'UID'
+        end
+        item
+          SourceMemberName = 'Name'
+          ControlMemberName = 'Name'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = TeamBS
+      Control = TeamLV
+      FillExpressions = <
+        item
+          SourceMemberName = 'KeeperUid'
+          ControlMemberName = 'KeeperUID'
+        end
+        item
+          SourceMemberName = 'KeeperName'
+          ControlMemberName = 'KeeperName'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
+        end
+        item
+          SourceMemberName = 'CollectorName'
+          ControlMemberName = 'CollectorName'
+        end
+        item
+          SourceMemberName = 'CollectorUid'
+          ControlMemberName = 'CollectorUID'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object CollectorBS: TBindSourceDB
+    DataSet = AppDataLocal.Collectors
+    ScopeMappings = <>
+    Left = 104
+    Top = 272
+  end
+  object TeamBS: TBindSourceDB
+    DataSet = AppDataLocal.KeeperAccess
+    ScopeMappings = <>
+    Left = 48
+    Top = 272
   end
 end

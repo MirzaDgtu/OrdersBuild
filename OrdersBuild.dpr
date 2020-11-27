@@ -102,7 +102,8 @@ uses
   ZXing.LuminanceSource in 'Lib\Classes\Filtering\ZXing.LuminanceSource.pas',
   ZXing.PlanarYUVLuminanceSource in 'Lib\Classes\Filtering\ZXing.PlanarYUVLuminanceSource.pas',
   ZXing.RGBLuminanceSource in 'Lib\Classes\Filtering\ZXing.RGBLuminanceSource.pas',
-  Keeper in 'Keeper.pas' {KeeperForm};
+  Keeper in 'Keeper.pas' {KeeperForm},
+  KeeperAct in 'KeeperAct.pas';
 
 {$R *.res}
 

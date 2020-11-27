@@ -1,7 +1,7 @@
 object AppDataLocal: TAppDataLocal
   OldCreateOrder = False
   Height = 427
-  Width = 388
+  Width = 406
   object Connection: TFDConnection
     Params.Strings = (
       'Database=D:\Projects\OrdersBuild\SqlLiteBase.db'
@@ -299,8 +299,8 @@ object AppDataLocal: TAppDataLocal
   object Collectors: TFDQuery
     BeforeOpen = CollectorsBeforeOpen
     Connection = Connection
-    Left = 320
-    Top = 72
+    Left = 264
+    Top = 128
     object CollectorsUID: TIntegerField
       FieldName = 'UID'
     end
@@ -487,8 +487,8 @@ object AppDataLocal: TAppDataLocal
   end
   object ProcessedDocLoad: TFDQuery
     Connection = Connection
-    Left = 280
-    Top = 120
+    Left = 336
+    Top = 72
     object IntegerField9: TIntegerField
       FieldName = 'UID'
     end
@@ -517,6 +517,29 @@ object AppDataLocal: TAppDataLocal
     end
     object ProcessedDocLoadOrderDatePD: TDateTimeField
       FieldName = 'OrderDatePD'
+    end
+  end
+  object KeeperAccess: TFDQuery
+    BeforeOpen = CollectorsBeforeOpen
+    Connection = Connection
+    Left = 336
+    Top = 128
+    object KeeperAccessKeeperUid: TIntegerField
+      FieldName = 'KeeperUid'
+    end
+    object KeeperAccessKeeperName: TStringField
+      FieldName = 'KeeperName'
+      Size = 50
+    end
+    object KeeperAccessCollectorUid: TIntegerField
+      FieldName = 'CollectorUid'
+    end
+    object KeeperAccessCollectorName: TStringField
+      FieldName = 'CollectorName'
+      Size = 50
+    end
+    object KeeperAccessScreen: TBlobField
+      FieldName = 'Screen'
     end
   end
 end

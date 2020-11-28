@@ -649,3 +649,6 @@ Coordinates=867,120,134,36
 [IL35]
 Coordinates=148,318,40,36
 
+[AppDataLocal.KeeperAccess]
+Visible=False
+

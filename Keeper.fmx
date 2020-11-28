@@ -48,13 +48,14 @@ object KeeperForm: TKeeperForm
         Size.PlatformDefault = False
         StyleLookup = 'donetoolbutton'
         Text = 'OkBtn'
+        Visible = False
       end
       object KeeperHeaderLbl: TLabel
         Align = VertCenter
         StyledSettings = [Family]
         Position.X = 55.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 187.000000000000000000
+        Size.Width = 235.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 13.000000000000000000
@@ -75,7 +76,7 @@ object KeeperForm: TKeeperForm
       Size.Height = 475.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = PlatformDefault
       Sizes = (
@@ -87,7 +88,7 @@ object KeeperForm: TKeeperForm
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         ImageIndex = 0
         Size.Width = 148.000000000000000000
         Size.Height = 49.000000000000000000
@@ -236,13 +237,15 @@ object KeeperForm: TKeeperForm
               AppearanceObjectName = 'Text1'
               AppearanceClassName = 'TTextObjectAppearance'
             end>
+          CanSwipeDelete = False
+          SearchVisible = True
         end
       end
       object CollectorsTab: TTabItem
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         ImageIndex = 1
         Size.Width = 149.000000000000000000
         Size.Height = 49.000000000000000000
@@ -284,7 +287,7 @@ object KeeperForm: TKeeperForm
                 end
                 item
                   Column = 1
-                  Control = AddCollectorToTeamBtn
+                  Control = RefreshCollectorBtn
                   Row = 0
                 end>
               RowCollection = <
@@ -305,14 +308,15 @@ object KeeperForm: TKeeperForm
                 Text = 'GoToTeamBtn'
                 OnClick = GoToTeamBtnClick
               end
-              object AddCollectorToTeamBtn: TSpeedButton
+              object RefreshCollectorBtn: TSpeedButton
                 Align = VertCenter
                 IconTintColor = claBlack
                 Position.X = 198.500000000000000000
                 Size.Width = 48.000000000000000000
                 Size.Height = 48.000000000000000000
                 Size.PlatformDefault = False
-                StyleLookup = 'additembutton'
+                StyleLookup = 'refreshtoolbutton'
+                OnClick = RefreshCollectorBtnClick
               end
             end
           end
@@ -344,6 +348,7 @@ object KeeperForm: TKeeperForm
             ItemEditAppearanceClassName = 'TDynamicAppearance'
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
+            OnUpdateObjects = CollectorsLVUpdateObjects
             Align = Client
             Margins.Left = 2.000000000000000000
             Margins.Right = 2.000000000000000000
@@ -383,6 +388,7 @@ object KeeperForm: TKeeperForm
                 Appearance.AccessoryType = Checkmark
                 Appearance.Width = 24.000000000000000000
                 Appearance.Height = 44.000000000000000000
+                Appearance.Visible = False
                 Appearance.PlaceOffset.X = 25.000000000000000000
               end>
             ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
@@ -390,6 +396,9 @@ object KeeperForm: TKeeperForm
                 AppearanceObjectName = 'Text1'
                 AppearanceClassName = 'TTextObjectAppearance'
               end>
+            CanSwipeDelete = False
+            OnItemClick = CollectorsLVItemClick
+            SearchVisible = True
           end
         end
       end

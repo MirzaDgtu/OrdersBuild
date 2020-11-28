@@ -223,10 +223,8 @@ type
     IndicateSynchLbl: TLabel;
     IL35: TImageList;
     ExitBtn: TSpeedButton;
-    FilterSettingVSB: TVertScrollBox;
-    KeeperTeamLBI: TListBoxItem;
-    KeeperSettingBtn: TSpeedButton;
     IL14: TImageList;
+    KeeperSettingBtn: TSpeedButton;
     procedure RightNaklMenuBtnClick(Sender: TObject);
     procedure SettingFilterBtnClick(Sender: TObject);
     procedure NaklLVClick(Sender: TObject);
@@ -585,12 +583,9 @@ begin
     keeperF := TKeeperForm.Create();
     {$IFDEF ANDROID}
     try
+      PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
       keeperF.ShowModal(procedure(AResult: TModalResult)
                         Begin
-                          if AResult = mrOk then
-                            Begin
-                              ShowMessage('Сохранено');
-                            End;
                         End);
     finally
     end;

@@ -415,7 +415,6 @@ procedure TNaklForm.ProductLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 var
   accessory: TListItemAccessory;
-  sa: IListViewPresentationParent;
 begin
   accessory := AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA');
 

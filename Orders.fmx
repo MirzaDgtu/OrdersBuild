@@ -377,16 +377,16 @@ object OrdersForm: TOrdersForm
               object NaklRigthMenuRect: TRoundRect
                 Align = VertCenter
                 Fill.Color = xFF0C0C0C
-                Opacity = 0.699999988079071000
-                Position.Y = 78.000000000000000000
+                Opacity = 0.600000023841857900
+                Position.Y = 55.000000000000000000
                 Size.Width = 55.000000000000000000
-                Size.Height = 253.000000000000000000
+                Size.Height = 298.000000000000000000
                 Size.PlatformDefault = False
                 object RightMenuVCLayout: TLayout
                   Align = VertCenter
-                  Position.Y = 32.000000000000000000
+                  Position.Y = 31.000000000000000000
                   Size.Width = 55.000000000000000000
-                  Size.Height = 189.000000000000000000
+                  Size.Height = 236.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
                   object BuildNaklBtn: TSpeedButton
@@ -407,7 +407,7 @@ object OrdersForm: TOrdersForm
                     Margins.Left = 12.000000000000000000
                     Margins.Right = 9.000000000000000000
                     Position.X = 12.000000000000000000
-                    Position.Y = 96.000000000000000000
+                    Position.Y = 144.000000000000000000
                     Size.Width = 34.000000000000000000
                     Size.Height = 48.000000000000000000
                     Size.PlatformDefault = False
@@ -429,12 +429,25 @@ object OrdersForm: TOrdersForm
                     Align = Top
                     IconTintColor = claAqua
                     Position.X = 4.000000000000000000
-                    Position.Y = 144.000000000000000000
+                    Position.Y = 192.000000000000000000
                     Size.Width = 48.000000000000000000
                     Size.Height = 48.000000000000000000
                     Size.PlatformDefault = False
                     StyleLookup = 'escapetoolbutton'
                     OnClick = ExitBtnClick
+                  end
+                  object KeeperSettingBtn: TSpeedButton
+                    Align = Top
+                    Images = IL35
+                    ImageIndex = 2
+                    Margins.Left = 12.000000000000000000
+                    Margins.Right = 9.000000000000000000
+                    Position.X = 12.000000000000000000
+                    Position.Y = 96.000000000000000000
+                    Size.Width = 34.000000000000000000
+                    Size.Height = 48.000000000000000000
+                    Size.PlatformDefault = False
+                    OnClick = KeeperSettingBtnClick
                   end
                 end
               end
@@ -587,419 +600,383 @@ object OrdersForm: TOrdersForm
               TabOrder = 2
             end
           end
-          object FilterSettingVSB: TVertScrollBox
-            Align = Client
-            Size.Width = 330.000000000000000000
-            Size.Height = 479.000000000000000000
+          object FilterSettingLB: TListBox
+            Align = VertCenter
+            Margins.Left = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Position.X = 5.000000000000000000
+            Position.Y = 62.000000000000000000
+            Size.Width = 320.000000000000000000
+            Size.Height = 353.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            Viewport.Width = 330.000000000000000000
-            Viewport.Height = 479.000000000000000000
-            object FilterSettingLB: TListBox
-              Align = VertCenter
-              Margins.Left = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 2.000000000000000000
-              Position.X = 5.000000000000000000
-              Position.Y = 45.000000000000000000
+            DisableFocusEffect = True
+            ItemHeight = 32.000000000000000000
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+            Viewport.Width = 320.000000000000000000
+            Viewport.Height = 353.000000000000000000
+            object JournalNumLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 150.000000000000000000
+              Padding.Right = 80.000000000000000000
               Size.Width = 320.000000000000000000
-              Size.Height = 386.000000000000000000
+              Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
-              DisableFocusEffect = True
-              ItemHeight = 32.000000000000000000
-              DefaultItemStyles.ItemStyle = ''
-              DefaultItemStyles.GroupHeaderStyle = ''
-              DefaultItemStyles.GroupFooterStyle = ''
-              Viewport.Width = 320.000000000000000000
-              Viewport.Height = 386.000000000000000000
-              object JournalNumLBI: TListBoxItem
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 150.000000000000000000
-                Padding.Right = 80.000000000000000000
-                Size.Width = 320.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
+              Text = #1046#1091#1088#1085#1072#1083
+              object JournalSpin: TSpinBox
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
                 TabOrder = 0
-                Text = #1046#1091#1088#1085#1072#1083
-                object JournalSpin: TSpinBox
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = VertCenter
-                  TabOrder = 0
-                  Cursor = crIBeam
-                  Position.X = 150.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  Size.Width = 90.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, Size, FontColor]
-                end
-              end
-              object DateBetweenLBGH: TListBoxGroupHeader
-                TextSettings.HorzAlign = Center
-                StyledSettings = [Family, Size, Style, FontColor]
-                Position.Y = 32.000000000000000000
-                Size.Width = 320.000000000000000000
+                Cursor = crIBeam
+                Position.X = 150.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                Size.Width = 90.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
+                StyledSettings = [Family, Size, FontColor]
+              end
+            end
+            object DateBetweenLBGH: TListBoxGroupHeader
+              TextSettings.HorzAlign = Center
+              StyledSettings = [Family, Size, Style, FontColor]
+              Position.Y = 32.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Text = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1072#1090
+            end
+            object BegDateLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 64.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Text = #1057
+              object BegDate: TDateEdit
+                Date = 44118.000000000000000000
+                OnChange = BegDateChange
+                Align = VertCenter
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family]
+                TabOrder = 0
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+              end
+            end
+            object EndDateLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 96.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              Text = #1055#1086
+              object EndDate: TDateEdit
+                Date = 44118.000000000000000000
+                OnChange = EndDateChange
+                Align = VertCenter
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Family]
+                TabOrder = 0
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+              end
+            end
+            object ParamLNGH: TListBoxGroupHeader
+              TextSettings.HorzAlign = Center
+              StyledSettings = [Family, Size, Style, FontColor]
+              Position.Y = 128.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+            end
+            object ReestrLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 160.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 5
+              Text = #1056#1077#1077#1089#1090#1088
+              object ReestrFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Visible = False
+              end
+              object ReestrFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
                 TabOrder = 1
-                Text = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1072#1090
-              end
-              object BegDateLBI: TListBoxItem
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 64.000000000000000000
-                Size.Width = 320.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 2
-                Text = #1057
-                object BegDate: TDateEdit
-                  Date = 44118.000000000000000000
-                  OnChange = BegDateChange
-                  Align = VertCenter
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family]
-                  TabOrder = 0
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                end
-              end
-              object EndDateLBI: TListBoxItem
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 96.000000000000000000
-                Size.Width = 320.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 3
-                Text = #1055#1086
-                object EndDate: TDateEdit
-                  Date = 44118.000000000000000000
-                  OnChange = EndDateChange
-                  Align = VertCenter
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family]
-                  TabOrder = 0
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                end
-              end
-              object ParamLNGH: TListBoxGroupHeader
                 TextSettings.HorzAlign = Center
-                StyledSettings = [Family, Size, Style, FontColor]
-                Position.Y = 128.000000000000000000
-                Size.Width = 320.000000000000000000
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                TabOrder = 4
-                Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099
-              end
-              object ReestrLBI: TListBoxItem
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 160.000000000000000000
-                Size.Width = 320.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 5
-                Text = #1056#1077#1077#1089#1090#1088
-                object ReestrFilterSettingBtn: TButton
-                  Align = Right
-                  Position.X = 317.000000000000000000
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
+                StyledSettings = [Family, FontColor]
+                OnClick = ReestrFilterSettingEditClick
+                object ClearEditButton2: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'detailstoolbutton'
                   TabOrder = 0
-                  Visible = False
-                end
-                object ReestrFilterSettingEdit: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = VertCenter
-                  TabOrder = 1
-                  ReadOnly = True
-                  TextSettings.Font.Size = 10.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, FontColor]
-                  OnClick = ReestrFilterSettingEditClick
-                  object ClearEditButton2: TClearEditButton
-                    CanFocus = False
-                    Cursor = crArrow
-                    Size.Width = 32.000000000000000000
-                    Size.Height = 30.000000000000000000
-                    Size.PlatformDefault = False
-                    TabOrder = 0
-                  end
                 end
               end
-              object BrieforgLBI: TListBoxItem
+            end
+            object BrieforgLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 192.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 6
+              Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
+              object BrieforgFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'BrieforgFilterSettingBtn'
+                Visible = False
+              end
+              object BrieforgFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 192.000000000000000000
-                Size.Width = 320.000000000000000000
+                TextSettings.HorzAlign = Center
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                TabOrder = 6
-                Text = #1050#1088#1072#1090#1082#1080#1081' '#1082#1086#1076
-                object BrieforgFilterSettingBtn: TButton
-                  Align = Right
-                  Position.X = 317.000000000000000000
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
+                StyledSettings = [Family, FontColor]
+                OnClick = BrieforgFilterSettingEditClick
+                object ClearEditButton3: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'detailstoolbutton'
                   TabOrder = 0
-                  Text = 'BrieforgFilterSettingBtn'
-                  Visible = False
-                end
-                object BrieforgFilterSettingEdit: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = VertCenter
-                  TabOrder = 1
-                  ReadOnly = True
-                  TextSettings.Font.Size = 10.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, FontColor]
-                  OnClick = BrieforgFilterSettingEditClick
-                  object ClearEditButton3: TClearEditButton
-                    CanFocus = False
-                    Cursor = crArrow
-                    Size.Width = 32.000000000000000000
-                    Size.Height = 30.000000000000000000
-                    Size.PlatformDefault = False
-                    TabOrder = 0
-                  end
                 end
               end
-              object VidDocLBI: TListBoxItem
+            end
+            object VidDocLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 224.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 7
+              Text = #1058#1080#1087' '#1086#1087#1077#1088#1072#1094#1080#1080
+              object VidDocFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'VidDocFilterSettingBtn'
+                Visible = False
+              end
+              object VidDocFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 224.000000000000000000
-                Size.Width = 320.000000000000000000
+                TextSettings.HorzAlign = Center
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                TabOrder = 7
-                Text = #1058#1080#1087' '#1086#1087#1077#1088#1072#1094#1080#1080
-                object VidDocFilterSettingBtn: TButton
-                  Align = Right
-                  Position.X = 317.000000000000000000
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
+                StyledSettings = [Family, FontColor]
+                OnClick = VidDocFilterSettingEditClick
+                object ClearEditButton4: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'detailstoolbutton'
                   TabOrder = 0
-                  Text = 'VidDocFilterSettingBtn'
-                  Visible = False
-                end
-                object VidDocFilterSettingEdit: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = VertCenter
-                  TabOrder = 1
-                  ReadOnly = True
-                  TextSettings.Font.Size = 10.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, FontColor]
-                  OnClick = VidDocFilterSettingEditClick
-                  object ClearEditButton4: TClearEditButton
-                    CanFocus = False
-                    Cursor = crArrow
-                    Size.Width = 32.000000000000000000
-                    Size.Height = 30.000000000000000000
-                    Size.PlatformDefault = False
-                    TabOrder = 0
-                  end
                 end
               end
-              object DriverLBI: TListBoxItem
+            end
+            object DriverLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 256.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 8
+              Text = #1042#1086#1076#1080#1090#1077#1083#1100
+              object DriverFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'DriverFilterSettingBtn'
+                Visible = False
+              end
+              object DriverFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 256.000000000000000000
-                Size.Width = 320.000000000000000000
+                TextSettings.HorzAlign = Center
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                TabOrder = 8
-                Text = #1042#1086#1076#1080#1090#1077#1083#1100
-                object DriverFilterSettingBtn: TButton
-                  Align = Right
-                  Position.X = 317.000000000000000000
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
+                StyledSettings = [Family, FontColor]
+                OnClick = DriverFilterSettingEditClick
+                object ClearEditButton5: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'detailstoolbutton'
                   TabOrder = 0
-                  Text = 'DriverFilterSettingBtn'
-                  Visible = False
-                end
-                object DriverFilterSettingEdit: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = VertCenter
-                  TabOrder = 1
-                  ReadOnly = True
-                  TextSettings.Font.Size = 10.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, FontColor]
-                  OnClick = DriverFilterSettingEditClick
-                  object ClearEditButton5: TClearEditButton
-                    CanFocus = False
-                    Cursor = crArrow
-                    Size.Width = 32.000000000000000000
-                    Size.Height = 30.000000000000000000
-                    Size.PlatformDefault = False
-                    TabOrder = 0
-                  end
                 end
               end
-              object AgentLBI: TListBoxItem
+            end
+            object AgentLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family, Other]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 288.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 9
+              Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090
+              object AgentFilterSettingBtn: TButton
+                Align = Right
+                Position.X = 317.000000000000000000
+                Size.Width = 48.000000000000000000
+                Size.Height = 48.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'detailstoolbutton'
+                TabOrder = 0
+                Text = 'AgentFilterSettingBtn'
+                Visible = False
+              end
+              object AgentFilterSettingEdit: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = VertCenter
+                TabOrder = 1
+                ReadOnly = True
+                TextSettings.Font.Size = 10.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 288.000000000000000000
-                Size.Width = 320.000000000000000000
+                TextSettings.HorzAlign = Center
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                TabOrder = 9
-                Text = #1058#1086#1088#1075#1086#1074#1099#1081' '#1072#1075#1077#1085#1090
-                object AgentFilterSettingBtn: TButton
-                  Align = Right
-                  Position.X = 317.000000000000000000
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
+                StyledSettings = [Family, FontColor]
+                OnClick = AgentFilterSettingEditClick
+                object ClearEditButton6: TClearEditButton
+                  CanFocus = False
+                  Cursor = crArrow
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'detailstoolbutton'
                   TabOrder = 0
-                  Text = 'AgentFilterSettingBtn'
-                  Visible = False
-                end
-                object AgentFilterSettingEdit: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = VertCenter
-                  TabOrder = 1
-                  ReadOnly = True
-                  TextSettings.Font.Size = 10.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, FontColor]
-                  OnClick = AgentFilterSettingEditClick
-                  object ClearEditButton6: TClearEditButton
-                    CanFocus = False
-                    Cursor = crArrow
-                    Size.Width = 32.000000000000000000
-                    Size.Height = 30.000000000000000000
-                    Size.PlatformDefault = False
-                    TabOrder = 0
-                  end
                 end
               end
-              object BuildLBI: TListBoxItem
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 320.000000000000000000
-                Size.Width = 320.000000000000000000
+            end
+            object BuildLBI: TListBoxItem
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claDarkcyan
+              StyledSettings = [Family]
+              Padding.Left = 100.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Position.Y = 320.000000000000000000
+              Size.Width = 320.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 10
+              Text = #1057#1073#1086#1088#1082#1072
+              object TypeBuildCombo: TComboBox
+                Align = VertCenter
+                Items.Strings = (
+                  '['#1042#1089#1077']'
+                  #1053#1077#1089#1086#1073#1088#1072#1085#1085#1099#1077
+                  #1053#1077#1079#1072#1074#1077#1088#1096#1077#1085#1085#1099#1077
+                  #1057#1086#1073#1088#1072#1085#1085#1099#1077)
+                ItemIndex = 0
+                Position.X = 100.000000000000000000
+                Size.Width = 170.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
-                TabOrder = 10
-                Text = #1057#1073#1086#1088#1082#1072
-                object TypeBuildCombo: TComboBox
-                  Align = VertCenter
-                  Items.Strings = (
-                    '['#1042#1089#1077']'
-                    #1053#1077#1089#1086#1073#1088#1072#1085#1085#1099#1077
-                    #1053#1077#1079#1072#1074#1077#1088#1096#1077#1085#1085#1099#1077
-                    #1057#1086#1073#1088#1072#1085#1085#1099#1077)
-                  ItemIndex = 0
-                  Position.X = 100.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                  StyleLookup = 'comboboxstyle'
-                  TabOrder = 0
-                  OnChange = TypeBuildComboChange
-                end
-              end
-              object KeeperTeamLBI: TListBoxItem
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = claDarkcyan
-                StyledSettings = [Family, Other]
-                Padding.Left = 100.000000000000000000
-                Padding.Right = 50.000000000000000000
-                Position.Y = 352.000000000000000000
-                Size.Width = 320.000000000000000000
-                Size.Height = 32.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 11
-                Text = #1057#1073#1086#1088#1097#1080#1082#1080
-                object KeeperSettingBtn: TSpeedButton
-                  Align = VertCenter
-                  StyledSettings = [Family, Size, FontColor]
-                  Images = IL32
-                  ImageIndex = 3
-                  Position.X = 100.000000000000000000
-                  Position.Y = -8.000000000000000000
-                  Size.Width = 170.000000000000000000
-                  Size.Height = 48.000000000000000000
-                  Size.PlatformDefault = False
-                  Text = #1053#1072#1089#1090#1088#1086#1080#1090#1100
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  OnClick = KeeperSettingBtnClick
-                end
+                StyleLookup = 'comboboxstyle'
+                TabOrder = 0
+                OnChange = TypeBuildComboChange
               end
             end
           end
@@ -2745,22 +2722,22 @@ object OrdersForm: TOrdersForm
               6E4074EBA1101109D11E1929497910FFEFDF7F0C8F1E7CFDC52AF2FF9F383727
               072B0B2B58DDF3272F1EBC7CFD269D959DD1F0EFEFFFC6600322DA0F188A0A89
               6D94939392FDF3F72FC3A3878FCF7CFAFC79D38F4FDFB7FF65FAF5958757C083
-              8797375CFCE546331E8B3CC6672F9E3DE161E7E67FF1EAE526B00189BD27F76B
-              69A93B7C3931E9FF431EB775F7BF7C8F38D8E8F807240703696967587FAAFC5A
-              A6F0754F30C81090D8AD9BB7963245D4EFD113151532FEF3E70FC32B31DFB35F
-              4F3D0A47D70C02B36699FC0606E7A5CF6A61DFA14260C018DEB55799F50F9327
+              8797375CFCE506331E8B7CC6672F9E3DE161E7E67FF1EAE526B00189BD27F76B
+              69A93B7C3931F1FF431EF775F7BF7C8F38D8E8F807240703696967587FAAFC5A
+              A6F0757730C81090D8AD9BB7963245D4EFD113151532FEF3E70FC32B31BFB35F
+              4F3D0A47D70C02B36699FC0606E7A5CF6AE1DFA14260C018DEB55799F50F9327
               88F38799E1C48A72C733601934105ABF2B8C9397BB9E9787176EC0A78F9F4E40
               99030818633A8ECC151010B084F2193E7EFAC4FEEDEB97EEB58D6E33A0422820
               AC7DAF1D1B238B3B88FDFDD79F654C9C1C6CECF2F2329A20CCC6CB024C03FFE6
-              E1D26C5FBF9F45985FA84F5F5FBF4A5654229385E5DF6F26A81C18F0DE5AC9C9
-              CCC06C125ABF8A0D2A0407A06854E6E55825F672B31188FFF2D387E32BAB5C6F
-              B180389FDE7FFCFCE5E7D78F5216F932EABF7F073C7AC8712CA6FDC8D22F5F3F
+              E1D26C5FBF9F45985FA84F5F5FBF4A5654229385E5DF6F26A81C18F0DE5AC1C9
+              CCC06C125ABF8A0D2A0407A06854E6E55825F672931188FFF2D387E32BAB5C6F
+              B180389FDE7FFCFCE5E7D78F52160532EABF7F073C7AC8712CA6FDC8D22F5F3F
               EC60FEC7C6CD25C0E9C9CACBECAF24AB68CCCCACC9F0F4C9E307DFDE7E2903E9
               658CE93CBC9A8585E9CCDFDF7F2E880A4BCC9094115700498092F2F3AF5F7FF0
               33FE67E6E2E2616566863816A4F9F59B0F454B2B6DD783F88C5ED55BE4B7B5FA
               3C0471C29B0E6872F371F58B098A5808890AF22367A6776FDFBC7BF9E6DDD9CF
               1F3F17AC6974B9069600027866420621CD07157938D912FEFDFF2FC3CCC8C8FC
-              FBCF9F57DFBF7F5EB2B6D1EB12540914303000002A0A187BEB931A5500000000
+              FBCF9F57DFBF7F5EB2B6D1EB12540914303000002DFF187C191B134D00000000
               49454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_available_updates_16px.png'
           end>
@@ -2850,29 +2827,29 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
               61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              02B149444154384FC5935D48536118C7CFE73ECFD9976E53996E66240A356C12
-              76D18794952618A44ED08BBA31BA2ABA483268CC10FBB45B31EA2A254D8BA452
-              22514BD262424808EE46374D9DCEB99DB3E3743B1FF91E4F43A5AEFBC10BEFFF
-              F93FCF9FC379DF1786FE4275D3805DA1206B510431F13C0F71BC10DC886F3EED
-              B9736A5A6A49B22BA0B269F8A08654B79A351A873EDDA487E16D5BE005682DB8
-              165909AD8ED1E1F0B52E778917D42B1AFA6DC980DAE6CF95A969C647968C742B
-              D01CC743FE59268EA70ABC59AD54E0182EF62DCE2FCD0656825770395CC02504
-              871850D3325C603498DE66656564B21C07F97D731E8AA6FB36A8583F87C41982
-              D49D2348D2690EFC3C42149D87179616E609B95ABBB41CE813032E3FFE36949F
-              9F7B323AFE5EF01139AF67A2B19A1177310BBC3FD4D77BF0CDFDF14E1B337311
-              84809A77DADB81D4B83E1D321A0D0E9665A16553FE04F3DDEFDC3B0C686F2F4C
-              6CFDCE49FA802326954460E783C11C9C454A81605168FC6543B14774F650E5FA
-              58AD24D52E9220930154841A97B6FF11B8EEDEE8339D4E7754D25084A2E4EB4C
-              F461AFFB4C9B54DA4575CBE071198C9D05FB589CED44940A99DC6AB5E4812523
-              B1AD3BC03FFFD7F009D71096A235B4DAEDF6C64C63DA550CE31388E489905E8F
-              1285D0C22A57B74C2A2501C798432ABA4D81A9C34007A8F0585763891703825A
-              8BD0D14D269251546EC94D242EF87D8AAF752DA31D51263C80F232B54AA72CC5
-              49B4625F66B60345F3A05FF373B3EBABD19B6016AEBBFFE51586211E2EC1FE30
-              A6A4B5A55BCC366080ABBCC8301B5A5840552A0247D1ED8F05C32BC1F08D8E5B
-              C7DE000D97DD7E67FDD05CEE03C2D9349CA7D6A89E98F4A94506A35EBBF33185
-              5683A14030344147E8EB3DEED353A2B145F231EDA4F2EE4836A1945DE205C182
-              C2309A60D9E5588C7ED1EB2E9B945A2420E8379F7C18586A97E30A0000000049
-              454E44AE426082}
+              02B249444154384F6364C002C29A76E87370F04633333189FDFBF78FE1EFBFFF
+              6F7EFCFA397B4D9DF34DA81238403120A4E9802E1F2F779F381F9FB1A0A49820
+              232344FAFFBFFF0CEFDFBCFFF8FADDDBE39F3F7CC85FD9E87A0B24EE5FBE5D01
+              6E4074EBA1101109D11E1929497910FFEFDF7F0C8F1E7CFDC52AF2FF9F383727
+              072B0B2B58DDF3272F1EBC7CFD269D959DD1F0EFEFFFC6600322DA0F188A0A89
+              6D94939392FDF3F72FC3A3878FCF7CFAFC79D38F4FDFB7FF65FAF5958757C083
+              8797375CFCE565331E0B1FC6672F9E3DE161E7E67FF1EAE526B00189BD27F76B
+              69A93B7C39B1E5FF431E9575F7BF7C8F38D8E8F807240703696967587FAAFC5A
+              A6F0F55E30C81090D8AD9BB7963245D4EFD113151532FEF3E70FC32B31EDB35F
+              4F3D0A47D70C02B36699FC0606E7A5CF6A26DFA14260C018DEB55799F50F9327
+              88F38799E1C48A72C733601934105ABF2B8C9397BB9E9787176EC0A78F9F4E40
+              99030818633A8ECC151010B084F2193E7EFAC4FEEDEB97EEB58D6E33A0422820
+              AC7DAF1D1B238B3B88FDFDD79F654C9C1C6CECF2F2329A20CCC6CB024C03FFE6
+              E1D26C5FBF9F45985FA84F5F5FBF4A5654229385E5DF6F26A81C18F0DE3ACDC9
+              CCC06C125ABF8A0D2A0407A06854E6E55825F6F2AA1188FFF2D387E32BAB5C6F
+              B180389FDE7FFCFCE5E7D78F5216BE32EABF7F073C7AC8712CA6FDC8D22F5F3F
+              EC60FEC7C6CD25C0E9C9CACBECAF24AB68CCCCACC9F0F4C9E307DFDE7E2903E9
+              658CE93CBC9A8585E9CCDFDF7F2E880A4BCC9094115700498092F2F3AF5F7FF0
+              33FE67E6E2E2616566863816A4F9F59B0F454B2B6DD783F88C5ED55BE4B7B5FA
+              3C0471C29B0E6872F371F58B098A5808890AF22367A6776FDFBC7BF9E6DDD9CF
+              1F3F17AC6974B9069600027866420621CD07157938D912FEFDFF2FC3CCC8C8FC
+              FBCF9F57DFBF7F5EB2B6D1EB1254091430300000A3711859C8064ACF00000000
+              49454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_available_updates_16px.png'
           end>
         Name = 'Item 0'
@@ -2922,7 +2899,7 @@ object OrdersForm: TOrdersForm
               A881B9971003E7E9B74FEF7E00A9457181564A71279B8A86FDFFEFDF05B89CDD
               D419FEFC01AA002A6146B5E7E38A451BAE4D6B0B04B1594084B1B131EB070E91
               404E1D8B7436235D7E90D8CF2B1719FEFFFD03D4CFC4C0C4C3C3C0AAA40A1266
-              F8FFE33B033327B73A90C904C4FF98419ABF193AEC1430D02B61B5B6E5F8FBE6
+              F8FFE33B033327B73A90C904C4FF98419ABF193AEC1430D02D61B5B6E3F8FBE6
               1503C3DFBF0C3F4E1D63E076746360119764F8FBE10303B3A010C3FFAF5FC006
               B028288A0A8849DBBEE6605CC6CCAB6F1525989C5DC4202EC3F8E7D96306267E
               2106265E5E0666513106266E1EB0ADDF0EEE6160D7D0666064636360E4E46260
@@ -2930,7 +2907,7 @@ object OrdersForm: TOrdersForm
               307C3F7D9CE1FBA9A30C5CF6CE603164F0FCD9B73F40D7BC617E7FEFC61D2931
               015946163635A000FBBF0FEF194018E454900B98B87919FEFFFC091683E1EFCF
               9E7C623AB667D1ED0D0B27C263414A4A43988585151C8084C09F3FBF3F3E7B76
-              E32D943BB4010303001745999A904275F20000000049454E44AE426082}
+              E32D943BB4010303001741999AA82F0A4B0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_cloud_sync_16px.png'
           end>
         Name = 'icons8_cloud_sync_16px'
@@ -3406,7 +3383,7 @@ object OrdersForm: TOrdersForm
   object StatistNaklBS: TBindSourceDB
     DataSet = AppDataLocal.CollectorOrders
     ScopeMappings = <>
-    Left = 280
+    Left = 256
     Top = 336
   end
   object GM: TGestureManager
@@ -3487,41 +3464,41 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
               F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              044D494441545847ED967B4C5B551CC7CF39F7F65ED696CE8D2214077B04B3A0
-              6EC82333CEE8822E8E57AA7599D1F8585C64649A652AC1AD8874ADABC52CFA97
-              FE3150678DD943850CD6816431A87F0DB78138E636BB2804121F25E0A42DBDB7
-              B7E7D8737756E90A3860E03FFB24A7E7DCEFF79C7B7E3DCF0BFE6F20CB1784E2
-              9D6DA2901C29C5981BF2D4979EA61A529D0562518AE653537A865B10351DE6DD
-              6D79545BD0003840EE3265A4271B976A0582F04AAACD790A6C361BEA830F9C04
-              E3917C28A20FBF746CAA66561C5B6C9D7A39ECFF8EE7393D84E88C0F88CF7F6B
-              2F52E61C80B9B67DF5229DFE5441EE9ADBBA4E7D3FD6E478D4C0AC1834C81E79
-              DD118840538BB3EC289355A60C608BED7321420C3648084168CCF185FD499959
-              7158AA3A6EC74A70409F9EA28442FE802CE36F10E6F6B4BC53D2CFAA00B3F544
-              3D8064ACF5ED722793624C198065EF576FA51BC5D769F94F9FEC6AB26FDAAB1A
-              13D860EBE4174BFED6E890362884FC58289EEEEF96D73D0221710288BA380D9F
-              8F88922ACBA0FBB8ABF429D62C8E2917210C836CE0F36A7E82808F44F063969A
-              7613B36218C2C1F7A3C3D3D6E22A3B76A2BEFC17BBDD8E8FBBCA4E8ADEE0FD3C
-              8FD6ACCCCA5CBF1C8C640B0237C29A2430E90898AD9E570120E53CCFF7462B04
-              C30AE903105B098147B14E7473E3A1F52402F3A3ADB5D10E77B1667158EADA2B
-              C564C37E4000085D19AB3AE62C6E64561CB10036D7B5BF1CCDD64A4A580B0117
-              300DA7ED6C68280C5F75AF1E221A3DD92568348E7498867E037F6049924DD17F
-              3ECAAA24607EC3B31163443CAED2AF9994801A00ADA85DBCA43923F0ABBE3F62
-              F436EF2B5EADBA93F0445DC7484141DE92B3DDBDA32145CA6B73960F306B56F0
-              F4876008452C93B32BEE20A9FDCAA0EA4C01C160FB99EE1FF671081D9A49E715
-              07AD87108F4B38052901104E020AAC7257EC6F889B0202E03D3294DFF4D8CDC3
-              4CBE69ECF8ACAE79C3DA3CCB5283015C1E1A045D17CE57D20062BBA0C951F241
-              B3A378C77C743E1D0B7A174CC69C03D8DAB8A7E0E98F5F0BBC74D0EAA3E9858F
-              6A2E31EB86B82923B0227559F0F1A28D469A040D4C62F20D312F53F04C43F583
-              74D15D4BDBDC35DB989580BA0DA7E2C54F6A5B394472691963A0C8122E7357BA
-              2EAAE634F010E4AC3265583253D3C0DFC100E8B9FC33731299760468E79B1F7A
-              388B26634A8A0120A263D67FA2139300DD7206EDF44D663C055B1BABB74F4C4C
-              9E35335F033C79F7BE9CBB0FD044CB4C9D35B13550E1AE7522489E658F603C2C
-              BDC28A71E8802694BD2C534FCB7DDE4BA100BDEEE6406C04780EE514DD5BA8CE
-              77EEAA3BB32086A9CC9A57E6651BCE845B01DC0A20B60D23182B3DE72FFE85F4
-              A2121A0EAA170A3D7E3BCFF5AADF07BE2BBF0B34DE512269AF69B42C0041F53A
-              CF0155A36D68EEF50EF907474742D82FF1F4DD54BBFEFD94D817D17307766721
-              F4EFD693B13C2000D138F1F815B1784142520E7B5449D0300CC8401A1690B09C
-              29D1A0888FE6D7BFFF70E57BC3FF0077E9BB7E2D5F6DE80000000049454E44AE
+              044D494441545847ED967B4C5B551CC7CF39F7F65E564AE7462B94007B04B3A0
+              6EC82333CEE8822E8E57AA7599D1F8585C64649A652AC10D44BAD6D56216FD4B
+              FF184C678D99DB14321803C96250FF1A6E0371CC3DBA2C10487CB482135A7A6F
+              6FCFB1E7EEACD295E28081FFEC939C9E73BFDF73EEF9F53C2FF8BF812C5F108A
+              76B48B4252A804636EB8ADBEE434D590EA2C108B92359F9B52D35C82A8E934EF
+              6ACFA5DA8206C00172AF292D35C9B0542B108457506DCE5360B55A513F7CF824
+              9808E541111DF8DABEB18A59516CB676E9E4E0F80F3CCFE92044673C407CE97B
+              5BA132E700CCB51DAB1625EA4EE5E7ACBEABFBD48F634DF627F4CC8A4083EC95
+              D71E860834B5384A8F3059256E009BAD478510D15B212104A131FB57B6676466
+              4561A9ECBC1B2BFE415D6AB212088CFB64197F8730B7BBE5FDE201560598AB4F
+              D40348C65ADF2B73302942DC002C7BBE7937D520BE45CB7F786467936DE31ED5
+              98C47A6B17BF581A6F0D0F698342C8CF05E2E9811E79EDE310120780A89BD3F0
+              7988284659063DC79D25CFB26651C45D843008B280E7B2E61708F850083F69A9
+              E930312B823EE8FF283C3CED2DCED26327EACBAEDA6C367CDC597A5274FB1FE2
+              79B47A4566C6BA65E0CF2C41E046589318A61C017375DB1B0090329EE7FBC215
+              FC4185F40388AB09814770A2E8E22602EB4808E6855B6BC31DEE64CDA2B0D475
+              548849FA7D800010B8365679CC51D4C8AC2822016CAAEB782D9CAD9194A01602
+              CE67F2A6EC686828085E77AF1F221A1DD9296834F65498827E05BF6349924DE1
+              7F3ECAAAC4607EBB6D03C688B4394BBE65520C6A00B4A276F192E634DF55DD40
+              C8E86EDE5BB44A75A7E0E9BACE91FCFCDC25677BFA46038A94DBEE281B64D6AC
+              E0E90FC1108A58266797A713E38032A43A7120186C3BD3F3D35E0EA14333E9BC
+              FC60F521C4E3624E418A0F041380022B5DE5FB1AA2A6800078BF0CE577DA6C66
+              2F936F1BDBBFA86B5EBF26D7B254AF0757868740F785F3153480C82E68B2177F
+              DC6C2FDA3E1F9D4FC782DE055331E700B634EECE7FEED3377DAF1EACF6D0F4F2
+              27359798754BDC9611586E4CF73F55B8C14093A081094CBE25E6650A9E6FA87A
+              842EBA1B69ABAB662BB36250B7613C5EF9ACB6954324879631068A2CE1525785
+              F3A26A4E030F41F64A539A25C39802FEF6FB40EF95CBCC8965DA11A09D6F7AF4
+              B14C9A0CC9C97A804822B3FE93443101D02DA7D74EDF64C653B0A5B16ADBE4C4
+              E45933F335C0930F1ECCBE6F3F4DB4CCD459135903E5AE5A0782E405F6082682
+              D2EBAC184522D004B2D23374B4DCEFBE14F0D1EB6E0E444680E75076E10305EA
+              7CE7ACBC2713626864D6BC322FDB7026DC09E04E00916D18C258E93D7FF12FA4
+              139580D7AF5E28F4F8ED3AD7A77E1F78AEFD26D0784789A4BDA1D1B20004D5EB
+              3A07548DB6A1B9DB3D3C3E343A12C0E3124FDF4DB59BDF4F897C11BDB87F5726
+              42FF6E3D19CB8302100D938F5F118B17242465B34795180D439F0C24AF808465
+              4C0907453C34BFF9FD5F567CE8FD076A3CBB7D33DA469E0000000049454E44AE
               426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_combo_chart_32px.png'
           end>
@@ -3537,40 +3514,40 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
               F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              0420494441545847ED956F681B7518C79FFB5D2E974B9BA4499AD85D97E55FD3
-              A59DEDD63AB7752E0EDAAE3087AB8C8D81E23BC744742F7CB11713FCF34241D4
-              3910FF201B43272222C8601DD412956D45D1C6365DE85C3A43BBB46B5D43AFA1
-              59926B72775E2EBFFE49EDBFA0A02FF27973BFE7FB3C97DFF37B7ECF73811225
-              4AFCD710F8592C84D3F9708300829510D17865A5E64E2010C8605F51149D80B3
-              6E978F30E8CF6BB63799A82A27934E72996C28F8A73415FB24D2F7FD391CB661
-              8A4AC0D5D8D20A2EF725EB8BA75942ADC66A9EA4BF6736DEF5F517237DD75FC0
-              D28628228163A47B7F7AC8F2DA5BB5848AC25A2133172EC492BDDD1DC8607413
-              E5652790209AA56CE6FE1C37FD6AF4767F1F0E2B80C4CF75D9524BB6EA5B9F3C
-              A1AEAB2F3CFA122887439BF2FB8FEB8E761EA978F6F9BAB28E432CB3C7E7C98C
-              8D1DAB3059282E1AB986431758AB02C8D572E00C41914F814888592EC657BEFC
-              CA3EB5C78BDD2B239F1856AA50ECDCDB9C101A3C1C09076E604961D5049C2DED
-              5FE93B0F756AF71ED4E4EC94FF064FEF6AA4914EAFF8411020331E95375381AA
-              8A95D345797D15C4E40388BD71A6E78F9FBA3BB0A4B0E25B2CEB35D3ACC337BF
-              790EA66DDFC2E6FCAD9B30FDC13BC0DF1C80F44000B88FCE023FD8AFF8560369
-              CB00B4B4159B0BA8F053A1A6668745D0E95F920868131BBC15582E207B6F0C52
-              BDD7C074EAF4E2A94511E25F5E0415BB19C84A4B5E9B2757A9B1BB4A05442EAE
-              B7D4D7974F0D0D25B077F10A6A9AF776883AC345E333CF55510E1722340CF614
-              C27DFC3EA8AA6DA03B7C142BAB23C667801FFE1DD46E8FD217B3BF7409991F83
-              E3C2CCE4D391E0CFBDB918650A6CB6AD2C59BDF9AAF5F5775995E521626913F1
-              A12064227740B83FA99C2E71F53294B53F01A4C98C23F208B129E03E7C0FB48F
-              EDCF0BD92CC88D0BB4771B20460B044D83C6D58018DFE38654FFAFED9A345C9A
-              9D8DA59404CCDEA6374D274FB5914693F2AEC4F3C007039091CB8D6806344D3B
-              41B5A91A089204E691DDCA7A3989CBDF80944A823C767941BE1E526FC8AF9790
-              FB0D8AB5E984700871F7467A944B2469B299B2BB94801C6979734DD3A3C0ECDC
-              03EABA6D58CD23A65390FCE13B6C2D42300CC8738FADB5A1DC1E24A9E9DDB9B5
-              9280901533B9669987AC302E36D83254D62AB9A19210FFFCBC3C0D21E0870661
-              E6B34F01E97440D737E2A8B521E4A695E46D736BE50A8CD64DE5484FB7525B3C
-              CA5490E6659DBC0C75AD17289B43EEEE51901209605A7CA069D881BDEB93BCDE
-              9D9E1B1C3CCB4DDEED5312608DBAE083E1E8710D852A91AB7643FF0F482E3965
-              B3036577022A2BC7EAFA64FD5DD274D795B0091227272626C4C53194BF0192C9
-              F42DE5F07A52CDDB4D461555F08DF8A770D94C96F96D607A6E347C3BC5458F4C
-              84C3B19CFEB7D3DAED5B1D124235D8FC5741120C8F8CDC1AC566891225FE0F00
-              FC0577B45A5DB32995B30000000049454E44AE426082}
+              041F494441545847ED956F4C1B7518C79FFB5DAF77D7D242FFCA8E75FD036585
+              091B38B731874B8091CCC561962D4B34BE739931BA17BED88B99F8E78526469D
+              4B8C7F62B62C3A638C31314BC61224A8D946344A857684B9321B183070341C84
+              AEED71BD3BAFD71F94227FA389BEE8E7CDFD9EEFF35C7FCFEFF93DCF150A1428
+              F05F43E0E74621BCDE876B24909C848CC6EC76E64E301814B16F436C38016FD5
+              AE46A2D87C9ED95E67A54ABD6C2AC18BE9FED09FCA64EC9368CFF7E770D8BAD9
+              5002BEDA8626F0955F72BE789A23F47AAC66497475CECEB47FFDC550CFF517B0
+              B42E3690C031B27C7F6AC0F1DA5B95848EC25A3ED3172EC412DD1DADA8D8524E
+              14194F2049B62969F1FE1C3FF5EAC8EDDE1E1C9607899F6BB2A5926C32373D79
+              425F559D7FF445501E8F21D9D575DC74B4ED48C9B3CF57195B0F71EC9E46BF38
+              3A7AACC4EAA0F891E8351CBAC06A1540BE860367088A7C0A64424EF331C1FEF2
+              2BFBF4FE00762F8F7A6258AE42B1736FF3527FF8703412BC81258D1513F036B4
+              7C656E3BD466D87B90C9D8C9AE1B02BDAB964626B3E6074902716C44DD4C07BA
+              524E4D1765F51590130F20F6C699CE3F7EEA68C592C6B26F715CC046739EC6F9
+              CD33B0CDFB1636176EDD84A90FDE01E1661FA4FA82C07F74168470AFE65B0964
+              30021868273617D0E1A74645C50E876432BFA410D02CD7044AB09C47FADE2824
+              BBAF81F5D4E9DCA9651966BEBC083A6E33907647569B2753A9D1BB5A05647EC6
+              ECA8AE2E9A1C1888636FEE0A2AEAF7B6CAA6E28B96679E2BA53C3E44302CF6E4
+              C37FFC3EE8CA5C603A7C142B2B23CF4C8330F83BE8CBFD5A5FCCFED22E893F86
+              C6A4E989A7A3A19FBB3331DA14B85C5B39B26CF355E7EBEF723AC743C4E22612
+              FA432046EF80747F423B5DFCEA6530B63C01A4D58623B248B149E03F7C0F0C8F
+              EDCF0AE934A88D0B74601B20D600044D03E3AB416CE3E3C5C9DE5F5B98145C9A
+              9D8D25B5046C81BA37AD274F359316ABF6AE220820848220AAE546340B4CDD4E
+              D06D2A038224817D64B7B65E4AFCF237A02413A08E5D5650AF87341767D78BC8
+              FC06C5B94C52A41FF1F7863AB54B2469B29E72FBB4800C297573A6EE516077EE
+              017DD536AC6691534948FCF01DB672102C0BEADC636B75A8723F52F4F4EECC5A
+              4B404ACB62A659E6214B2CB9065B82CE59AA365402663E3FAF4E433F08036198
+              FEEC53402613D0D5B5386A7508B5691575DBCC5ABB028B73531132D34DD416BF
+              3615A46D49272F415F1900CAE551BB7B1894781CD88646606A7660EFDA24AE77
+              A4E6C2E1B3FCC4DD1E2D01CE620A3D181C39CE50841DF92AD7F5FF80D492532E
+              37506E2F20631156D726DD7545996A6F8F58217E727C7C5CCE8DA1FA0D50ACD6
+              6F294FC09FACDF6EB5E8A8BC6FC43F854F8B69F6B7BEA9B9E1C8ED243F72643C
+              128965F4BF9DD6EDDEEA5110AAC0E6BF0A52607068E8D630360B1428F07F00E0
+              2F72B55A5C2DBE2E810000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_cloud_sync_32px.png'
           end>
         Name = 'icons8_cloud_sync_32px'
@@ -3585,51 +3562,51 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
               F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              058B494441545847E5976B6C54451480CFCCDCDDED6E69B7B85D28DA07253CE4
-              4741A856D052A040AD04C243372A016DF4870A4642B44A14124BE4878F269098
-              263CE58D29C188B54D0885AA0431F2033068C0820BB2C8B37557F6D5DD7B673C
-              77F6064AD9DEBDD59F7EC966E69C7BEE9D33E79C792CFCEF21463B6066CC9831
-              42D3B4224AE9105DF6783C07F6EDDB97900F07C0801DA8AEAEF609211A082163
-              0D950475AF7674746C3444CB0CC8011C7C0D36AB53D27DC439E71D8CB18F0F1F
-              3EFCADA1CB88650730E4CFE12CBF30C47EC1B468989625188DBD86CA144B0E94
-              9797DB7273732F60D88B0CD53D50FC4A493E05FF4D2E6542204C082D6C6F6F0F
-              498509D4684D71BBDD33FB0ECEF0CDF2E10C56D438A0F975176CAE73C2E2C936
-              F94C081884819827850C30A335A5B4B4F4156C2A6D685D314281171EB7C1DBB5
-              593067BC02A30B2838EDA9404E2866321AA72E738C0239EFF7FB0FC90726588A
-              00E67ED8F8220A5FBE910D6B173AA0B64C819C2CE3611F963C61878A52A6BFE3
-              3554A658720067E3CA735170D90D4506F488E03BD986684A460744C754E5C992
-              68DAE233A3B23852289A33A738B30357AF4C6F98D53D49CFB7CEE56B1158BFEB
-              17D9EFCDFA9DBF42E07A44F675DB0F6AFE9A0C7CD474A93021730A547E9A73B8
-              30BE900A5D2CF03AC157532A1FF5E6D99AE150E071C9BE6ECB89E814449C960A
-              132C6F446AEBECDF1965F78F9C065C82E795396DA30CD1144B45A84380B518DD
-              8C1066DDD6B203D42E1A350D52493601671F262A6F34C48C584E810E6F9B3317
-              EB613F6324B5E5F541D3449232BA803EFD75EB8BEF353E4488B6057726B91270
-              77DCB4E3C3FA6669D80BCB11D0A1B3BF69A1B7CFAC86F82D43D30BD4D1E09955
-              FAE052667C1CA1E4299CE1CCD44FD44A7D1F0614011DB1017C20A01914AC78C5
-              D86BD408F0641C36057D4DC7E393DE775C75451243FE5E835F5F993290FCA446
-              A17A57637DA46EF54753142AFC9B1B560606148159B30E669F549F2901F7688C
-              770FCEFA66EA87FDEFC45CF831FAE852C27B02316FE8AC3EB89A4C423C168544
-              4F5C4F4185E2E29D75AB3EC1A549BF4F70B641FFA6A5084C5DD056C8055F4339
-              79DE3588682D9F57391825B6E8D1AFF00B18DCF25A58F9D96E08C7E2D21E2F26
-              10BC76A327160B39A402210A8D798715396DF6BB8788106441C6ADB26A61EB22
-              0EDA41466805568C2DA982FDB171F9C71E208912FF6BF5103A72027E1BFB089C
-              E8BC68BC01D07DFD06C4A321DC3AB5300E7D5CC38549B8F044C3A1D820F7601B
-              DE15A41D01EE364D41D5FCD6E54468BB18B07B0E96C68DE71EA4F9F9226BCC18
-              D07F959593442C98D785610619F64810ADB4B010F68987F66C99E64986460A0E
-              1DF8738643A93B0ADA1E604C59DCAF0355F35AA670A27D8AE57C5F9A2E06C223
-              43E1E449F5D62D50BBBA20184A9C3AF7B3E249C4183A80B52121C7DAF76EE8D4
-              7BF2B64CC41EBD9F8CF54803C660D59686B7BAFB714060C46813CE3C7502A561
-              E7EE733D892B5720110840D3D6139AC3A901B309A0F8651DBC928CF1F97C770E
-              702C95717ACBEC4CEAB8C62BF4366D114E9DDF56891E1F35C4B4D8404BAEEB6E
-              94135896BB98149785706CFDBC12F0E7A5F331A17227077E8412B2034FA689B8
-              292D1582B2A145A5C4E6D06B53C33B0B7B376D0404F06AA3DB2F499C6F64C2B4
-              3FBACBA604121CF0222C0F4B8480B7A0C88967479C02ADC6606EC3D9BF8983B1
-              1CEF109E1A5C2795DAB4ABA0F8E1452FE18D668221F68B5FF3A83F74D983D742
-              36AFDDC1C195A34A3D5314C8CE732B94CA3BA29AE5CAA183BD43892B3BE7EE84
-              053F1B6591BAB429A89AD75A4698186A88A644A291A41A0BDB72F25477F1E8DB
-              2BEC0EB10E23781A0381FF92E834C30C34D02E2B9CBE2C14D10D9C2EC722D9BE
-              6D6DFD114B1BD1BF0177BC85E8C47E43C4098BA6ED6BDF59668877E87719FE67
-              18BFBB33E950B864F47A01F00FE55F0BF3D88668570000000049454E44AE4260
+              058B494441545847E5976B6C54451480CFCCDCBBDBDDD22EB82C14A15B4A78C8
+              0F8A502D2050A0402D06C243372A016DF4870A4642B44A14124BE4874A13484C
+              1310086F4C0946C0362114AA12C4C80FC0A0010B2EC822CFD62EEEABBB73673C
+              77F6066AD9EE6EF5A75FB29939E79E7BE7BCEEDC59F8DF43ACB1D7CC9C397398
+              61188594D201A6EC76BB0FEEDFBF3FAE2EF6825E3B505151E19352D61242465B
+              2A05EA5E6B6969D96C8959D32B0770F1B538AC494A0F111342B430C63E3976EC
+              D837962E23593B80297F1EA3FCC2127B84736EA0134B311BFB2C555AB272A0B4
+              B454CFCFCFBF8C692FB454FF80E2538AFA53F0DF114A26044284D021CDCDCD41
+              A54803B5C6B4B85CAE59DD17677867E950062B2BEDD0F08613B6543B60C9245D
+              5D9312FA6083CE5742069835A6A5B8B8F8551CA6E8685D364C831727E8F04E55
+              0ECC1DABC1C8020A0E5B3291E3BC4C65E3EC3581592097FC7EFF5175210D5965
+              006B3F686C21852FDFCC85758BEC50354683BC1CEB6237963E6583B26266DEE3
+              B15469C9CA018CC6D9D749C169B31419303382F7E45A625A323A205BA669938B
+              22299B2F1D53BCE121B2217389333B70E3FA8CDAD9ED13CD7A9B5CBB19868DBB
+              7F56F3AE6CDCF50B046E85D5DCB4FDB0F2CF492046CC508A34642E0117E70C03
+              2E970CA6D2140B3C0EF05516AB4B5D79AE722814B89D6A6EDA1A44B64A22CF29
+              451AB2DE88128D737ED3A8F6F0CA29E08671499FDB34C212D39255139A50D00E
+              5BD38C50C6B2B7B5C68C509BACE31C92454E03461F225CD4596246B22E818968
+              9A3B0FFBE180A691E496D70DCE65826974219D73A8F1A5F7EB0613626CC59D49
+              BD09B83B7EBEF3A39A0665D885AC3360429FF9FA300B9D5F03B1BB96A60BA863
+              C1F3ABCDC595CC4409A1E4698C7056F227AB94BE1BBDCA8089DC043E90D0001A
+              76BC66ED353C0C221183CF3B7CF5A762133FB0DF7086E303EEADC5A7AF4A1A28
+              7EE411A8D85D5713AE5EF3F1548D4AFF96DA55815E6560F6EC23B967F8B345E0
+              1A09607462D477923F9C7F2BE7C10F91279611110B443DC10BE6E23C91805834
+              02F1CE98598232CD295AAB577F8AAF26FD2E2ED826F399596560DAC2A621428A
+              B5D4202F38F3C038B4ADDCAE31AA474E7C65EED3204BAB60D5677B20148D297B
+              3C9840C78DDB9DD158D0AE1408D148D433C8EBD06D0F3E2252928519B7CAF245
+              8D8B0DE047186165D8317A8283EDC9B1FD4F3E42E245FED76B2078FC34FC3AFA
+              7138DD7AC5BA03A0FDD66D8C3C885B270FE1D2A738104605B823A18E681F573F
+              1DCF0ACA8E8070A52D41F982C61544F2DDDAFD6227A9DB7CF151E276CB9C51A3
+              C0FC4D9E3C41463B5C6D986650690F77A0150F49691F7F74EFD6E9FD13C1E152
+              408B14C4110A26CF28687B90316D498F0E94CF3F3CD5207C3D76DA4365BA1208
+              0DBF17E667F8DDBBC0DBDA20782F71F6E24FBA3B1E65E800F686829E6CDEB7A9
+              D59CA9D332917BCD7922D2A90C1883D55B6BDF6EEFC1014984A4F51879F20B94
+              825D7B2E76C6AF5F87782000F5DB4E1B7687014C97E62EA8AEE3916494CFE7BB
+              FF01C75629314766674A270C51668E299B70DA82A629E8F1094B4C892E8DC486
+              F6F52A80E5F94B89B724886B9BDF2B097F5C6D8D4A2E1D02C4714AC84E4CFD78
+              42F83229191B58584C74BBD99B1CCF2CDA7B293320415458D31E4910A687C7CF
+              F8BDADA43C10C7C069F2638910F014781D44B218055A81C9DC8ED1BF858BB13E
+              9E0122B9B849B2B429DF02EF638B5FC613CD384BEC113F77F3EFDB6C1D3783BA
+              C76617E0CCE34ACFB072B97D5D1AA5784604C97372F3693FCF40929B9BF72060
+              292E4458B83A6509CAE7378E214C0EB4C4B48423E1048F86F4BCBEDCE51DF9D7
+              4A9B5D6EC00C9EC344E0BF243ADD32030EC6355DD057A426DB41D015D8243BB6
+              AFAB399ED546F46FC01D6F113A71C012316059BF63DDBBCB2DF13E3DBE86FF19
+              261EEC4C2614AE5AB32E00FC0DCFF70DFAC2DBC9B50000000049454E44AE4260
               82}
             FileName = 
               'D:\Projects\OrdersBuild\Icons\icons8_admin_settings_male_32px_1.' +
@@ -3678,52 +3655,52 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
               59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              05A3494441545847CD986B6C54451480CFDCDBED3EE80BFAD8DA0215292DAD89
-              B614C2C340532A51248A51D8565A091A15A33FAA3F08E95F432024C618123582
-              268258B00801D1F287A56278C8AB6D0C5ACB5B4A5BDA654BA1AFDBDDDE3BCEB9
-              3BBBDDBB3BBBDB929AF0FDD89D73EE3CCE9D39E7CCCC25F008ACADAF97AFA48E
-              CE95089DCB3A48E56AA0006EAA69AD737ACD6D071C0E95ABC7CDB88D29ACAF8F
-              B7A67A575342DEF402949A0092F8A330D8F38726A0BF69847CEF71C5FDFCB7C3
-              E1E18FA212D398DC860673A2A5AF6654838F4C123CC1D513807600953E57DCF2
-              8E58464535A6B8B16E3E9BFBBDAC523E573D3A546B051A57DDF47C6513D78421
-              F1FF308A9D756F13AA9E9A1443102215A8FDDAE922E70FEBB9260CA131F39C75
-              B584C0B700B299AB260539192C524FCF77C527F66EE62A0361CB547CBCEE7D22
-              C1575C8C89237B0ED864130CA81EF8A9E31AD78E0342DF6D2AABFA864B3A0663
-              8A9CFB96DCEF514EA6DACD715C15951C5B121C5AB88A4B00AF9C3D0A1DCA0097
-              A2E3EE1E199D9616BFAC7945D559AE1A5BA6928B5F9B58DED815C9108B2CF3D2
-              18CBD2B278C9C7D2101911B543F47108EC2C6D6C0C8C17A89959B1AE86F94935
-              170DD8CD36D853F20294A54D87F6E101C8B4D860D39C12782D2B17E2D89AFA29
-              49B1437EE254B8AB0C42B635013E29580C1B661642A3EB0E0CAA2CFB844008C9
-              F0C080BB6BF7C173BA8C3F8BCEFC681DEEF7DE904D5226CAC1D8E438D8BF60A5
-              DEF9A37287BD40E5856330AC8E724D30DECE44A2CD3E59F696A2BF9647511D22
-              439021D681CB33CC25231AA5706DB00FCEDDBF0BD7071FE8B2889E91A1088620
-              A6AC7E1AFF3A96F81CD30ADFBF982F6EFCC94B3E70C8FA8EABF0D2D9235071FE
-              187CD0D2088EF30DB08AC91851A12685B617E0C01F09F71CE6FFA5BA2A0223DA
-              A861802DFF9C87ED572E826BC438633D4CDE76E5026C6DBBC0353EC347B4187B
-              E69067B91E40F1A95A4102101B570BA99A313790030E765E83C35DD7B924E650
-              501D6C57CDDA47C5664E20FDC9F992045AC4748F51B3263B1796A6FA42167D62
-              D7ADCB7A39163B6F5E0ECC66695A36AC9F5900D3A304814AD57C89999ECE6503
-              6B5866FD75F16AA8CD5BA06758E4E6D0C3B0A589443773DA7F597DC4CA22B266
-              76111C59F4B2DEAF108DA4A3035B7C92110CE9507A3D0A2F8D0FB7A0BE354212
-              0489DA983154F8AAA2504C314D6CDF9C2AA81F39C46150024AEE71C1C00116BA
-              AFFEF10BECB8DE128886D95392212DDEAA976381597B16AB8FA001DB58F4F943
-              3F02F7240DA4362E84D13EDC0FBB6FB7C22977A72E4B6CBFD89053A09763B121
-              A7301081A77BBB981157D93631C435E1C8446E939225FB5F7866E53A21FBEE8C
-              D95B919D072B32667249CC8BF61C581BE4A8FB83DA0B1981BE592EA9553A5956
-              36CA0ECFA7B95A48709AC7D9D9F6F473B0396F3EA49B8D4B96C1E45AA6DF52B8
-              24302B88169A924331D3DFF136A1B72972D6BD2111A8D31F08D8555C0EF35232
-              B834061A7963E8811E35E84BB3D8F9068D0DA5B9CF05EF341FE752388452C7A5
-              F2AA03FADE64B1CA8755AF76577F120286383AA3081C38774A0A2C9C9AA93BB7
-              C8100467CC9FABC2F17626489EA3580AB46607F08F595F9F71D10066E29D45E5
-              D0C9CE29B8E9C9AC62D58C7C58322DCB7078525415CEF476C20FED6D2CA352F8
-              F0A96720CB3205DE6B714673DE9AA6E5EB766021600C6E54F461620B2B16FA34
-              4670501C2C98CAE979FA21CBCFA7579B0CCE8E88DAF9A11ABD9C246715A3DFA2
-              CC8F100097E66FF44A44AA503C83C22428EAF084AB3DB0FFE0BFD375DB270411
-              C9101C87DD382BFD8620618B3CD1DBC14AFB93FADEA3B0C4D6D07D8B6BC741AC
-              DB811FBC37B1275BB938B97477536A4FAF6D5E5EBD9D6B0288DD9FA1DF2889FA
-              E5645EE4D407A09024BAB1A5BC6A0F571988680CF2D8DCB591E6B27517FB9594
-              6799736EF66AD0C5D51304BF42904D8A3BBE289A2148D49909E6B1F83E23E2FF
-              F97205F01FF6DB3B3B98A46A490000000049454E44AE426082}
+              05A4494441545847CD986B6C54451480CFDCDBED3EE80B5ADADA162A525A5A13
+              6D29848781A654A24814A3B0ADB412342A467F547F10D2BF8640488C31246A04
+              4D04A1602B0444CB1F968AE121AFB631682DEFB6B405962D85BE6E777BEF38E7
+              EEEC76EFEEEC6E4B6AC2F76377CEB9F33877E69C333397C063B0B6AE4EBE923C
+              3A5722742EEB2099AB8102B8A8A6B5CEE935B7D5DBED2A578F9B711B53505717
+              6B4DF6ACA684BCED0128310124F04721B0E78F4C407FD708F9D1ED8CF9E51FBB
+              DDCD1F4524AA31390D0DE6784B5FF5A8069F9824788AAB2700ED022A7DA9B8E4
+              1DD18C8A684C5163ED7C36F77B59A53CAE7A7CA8D60A34A6AAE9C58A26AE0941
+              E2FF2114396ADF25543D3529862044CA57FBB5D3858E7DEBB92604A131F31CB5
+              3584C0F700B299AB260539112C5247C70F4527F66EE62A0321CB5474BCF64322
+              C1375C8C8A3D730ED864130CA86EF8B9EB1AD78E0342DF6F2AADFC8E4B3A0663
+              0A1DFB973CE8504E26679B63B82A22D9B60438B4701597005E3B7B14BA94012E
+              45C6D53E323A2D2B7659F38ACAB35C35B64CC517BF35B1BCB12B9C211659E6A5
+              3196A564F09297A54132226A87E8E310D859D2D8E81FCF5F33BD7C5D35F3932A
+              2E1A4833DB604FF14B509A92059DC303906EB1C1A639C5F046460EC4B035F551
+              9C940679F153E18E320899D638F82C7F316C9859008DCEDB30A8B2EC13042124
+              D50D03AE9EDD07CFE932FE2C3AF39375B8DF73433649E92807629363E0C08295
+              7AE78FCB6DF60215178EC1B03ACA358178BAE38936FB64E93B8AFE5A6E45B58B
+              0C418658074EF730978C6894C2B5C13E38F7E00E5C1F7CA8CB22EE8D0C853104
+              3165F4D3D837B1C4E798967BFFC57C75E32F5EF28243D6755D8557CE1E81F2F3
+              C7E0A39646B09F6F80554CC6880A3629B8BD003BFE48B8E730FF2FD1556118D1
+              460D036CF9F73C6CBF72119C23C619BBC7E46D572EC0D6B60B5CE3357C448BB2
+              670EB997EB01149BACE5C701B171B590CA1973FD39E060F73538DC739D4B620E
+              05D4C17655AC7D446CE638D29F982749A0854DF718356B32736069B23764D127
+              76DDBAAC97A3B1F3E665FF6C96A464C2FA99F99015210854AAE649CCF4E95C36
+              B08665D6DF16AF869ADC057A86456E0E3D0A599A70DC654EDBCEEA23561691D5
+              B30BE1C8A257F57E8568643A3AB0C52B19C1900EA6D7ADF0D2F87009EA5BC324
+              4190A88D194385AF2A0AC524D3C4F6CDA982FAE1431C0625A0E43E170CD4B3D0
+              7DFDCF5F61C7F5167F34CC9E920829B156BD1C0DCCDAB3587D040DD8C6A2CF17
+              FA61B82F6920B5712184CEE17ED8DDD10AA75CDDBA2CB1FD624376BE5E8EC686
+              EC027F049EEEED61465C65DBC410D7842213B94D4A94D2FEC6332BD709D97F7B
+              CCDEF2CC5C58913A934B625E4ECB86B5018E7A20A0BD9011E89BE5945AA593A5
+              A5A3ECF07C9AAB8504A6799C9D6DCFBE009B73E7C374B371C952995CC3F45B0A
+              96F86705D18253723066FA07DE26F436858EDAB72402B5FA0301BB8ACA605E52
+              2A97C640236F0C3DD4A3067D69163BDFA0B1C134F739E1BDE6E35C0A85506ABF
+              545659AFEF4D16AB7C58F56877F427416088A3338AC08173A624C1C2A9E9BA73
+              8B0C4170C67CB92A144F779CE43E8A257F6B7600FF94F5F505170D6026DE5958
+              06DDEC9C829B9ECC2A56CEC88325D3320C87274555E14C6F37ECEB6C631995C2
+              C7CF3C07199629F0418B2392F356372D5FB7030B7E6370A3A28FE25B58B1C0AB
+              318283E260815464E5EA872C1F9F5F6D32383B226AE7836AF472829C51847E8B
+              323F42005C9ABFD12311A95C710F0A93A0A8C313CE4EFFFE83FF0E6787570820
+              9C21380EBB7156F80C41421679A2B78395694FEB7B8FC2125BC3DD5B5C3B0EA2
+              DD0E7CE0BD893DD9CAC5C9A5BD9DD2EC1935CDCBABB6738D1FB1FB33F41B2551
+              BF9ECC8B9CFA1014924037B69455EEE12A03618D419E98BB36D25CBAEE62BF92
+              F43C73CECD1E0D7AB87A82E05708B24971C516463204893833813C11DF6744FC
+              3F5FAE00FE03DEB33B3B5FB212EE0000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_35px.png'
           end>
         Name = 'icons8_settings_35px'
@@ -3740,70 +3717,140 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
               59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              077B494441545847CD987B6C53D719C0BFEB7BEDEBEBEBD871EC25B8B1F32201
-              922E3509348101E19535A50F019A4635F6D7344D62D3A4B5D19890F647DA69D2
-              2A4D654CD334B4C73FD354691D1A54A561536879A43C029460DA9210434282F3
-              C44E6CC78E7D1FF6DD39D7C78F5B4349DC7FF693AEAEBFEFDC73CE77CFF9CEF7
-              7DD7147C0D3ADFEEAF52149621225094209F3DB26D82882BA66863B6F79C339B
-              C13063FB8651202A987F946025335FD177787D8CA856848EDC570CC71A3BEAEA
-              ACF2C1175BCA32977B4D9904C978077964C5146D8CC148BF52EB2EB712516595
-              91B69A58E66522AE98A28CE9E951742948BD50E928219A344D0D6E8A82541728
-              4A51DBBFA24E5DBFBEEE643978535294EF94DBCDEC6BDBD6994953967FF60F47
-              E7825181D529274419DEECFD45FB0C697A2ACB3206392B536AE57B685DF2A7ED
-              CE55E6751E17A36768D25A88282561D8EB97076666A2C924FD877024F6AB0B6F
-              ED9449F313D118834F88C5C29F47CA6B09297952C72D5C14A3B652B39139BBB6
-              CA56BBADB9866718EDCECAC91424D145D33A60D0958F2CA7A0FFF683D8C8C3F9
-              FB7190775ADDFE70C8E7DAC41999D75229D82C806147FEC9D318B3F79D6BEFD4
-              B8F53F2905233B1D5316A666A30C3082B2BBD6C5AFF55467E3C9546011862702
-              30311B06161967D0EB40905220A2C9AB2AACD058ED00A73DE74F43DE71F9C2F8
-              54480183CE69E3C1C953B6102484FB7EE98FA7BBDB7E4E1ECB19D3F59B2B351C
-              C5787FB0BFC5A2276F98521488C5252831195419FF3E77730C40494257CB2A68
-              ACB4823E6FA52464CCD06418FE3B3803948E869DADB56032EAD5B6C52511784E
-              0F3AE4E218514EC25FCF78C32959F0F41EDE328E75D9910C06FAB8A7CDCA670C
-              C1E08E194382E12538F5C910EC78D60E87F735C273D5368D21182C633D6EEF68
-              2C8393FD43108CC4D5363C4EC6108C01F9DC068FC5ACA70DC7892A6DCC77DF7B
-              8F0685AA8069FEB14E8657E4CCC03DF8D1EE3A78BEDE4EB45F4D5B83037EB8AB
-              0ECE5CF5C15242225A2D4C989764052AD4F911AA31FF3A7020A92C525B6ECE3E
-              F40EDC994CBF4A1EE707C760EFC667A0BABCE0247F25B5156678B9D589FA3F20
-              9A1C034393F14F47FD5E2A426DC5F3635DF67C8E5CF8B3E4DCF4FD7F8462E22E
-              514838DCAB6CEAFE60679D9A0BC181ADD5EA731914745D19F4A5FEDE3F397FAA
-              DF2FDF180D44F562D8E876DA3587C2E5E0E1E217B3505AC281994B6FF965EF68
-              CC3B1AB82E3081DDBD47B627542542B3E928162404517CDD1F8C661FB88B4E4D
-              578B934869905FC3F1BECF2227062357C71F2DED8DD26203BE9FB815B9F6A7B3
-              F723D8D00CD832ECEC789C0C78FCB82CBCFE9F9FBD944DB218AD0722281DB5C1
-              EA28E58908FEB90834BA3429082EDDBA9BBAE717074F763FBFA5EF97DFBAD477
-              78CB1CBEFFFB8DB6CD3EFF82B7F7AE4F5DF60C4DA83F0E03192A1D8C894A52AD
-              44CC52600CC330ABDD16CE887FE38046D314F27CED63177CC2424C94BA89A861
-              5150BA6F79E32122AAB07A1A9D24142A52E9352B2D7170AC415FA70A793C6E65
-              CAF4A8332621C9C0E76AA72CA1449C4E2C092344D46002E96E18B513310B8FE2
-              4D5C481F56031A9F51A0E0581618A3A4947909E5168C51CF408C0C900FCFF332
-              CBB14D44D4202ACCB37673618888A1E3CD9117C3B94BA620A80A79141823CBF2
-              FD8791B8EAC038D724938A1AE6F369FB266BE38CBAA344D46032D247D7371B6D
-              445411D0E478877478AF10A1C5405C10A55155C8A3600FD0CA7C1A0E8450F2AA
-              52FDC6556E81217F183C35B9F1F7AC69A0C7273E6BDE7FF4FA25E43B6F0871E1
-              B681357A4A38FA58BDABB4E98586D59A6DBA83FAE39C956132202F29B4729388
-              59342B83B2B69135188EB9EC66D510CCDA2A07CA35D3444A83A3FAA16F375B0E
-              B65837D556949C2EE3CCB3754EF30707D797B6FDB873B5253FD06097C5B90A8F
-              93018FCF31ECB1177FDFCB12954AB6DF2B3D374C94553ED75A5FD9DCDE54C911
-              B5CA879747A0635D19B4ADC90DB85C2E0F3F822BBE10BCB4B98168D2E008EC1D
-              99BA2D47E85DA7DFDAB88475EACAE0DC409528975A2BDC9E2F1B82D9D1520BEF
-              DF9882F1B928D12C8FB1D9287C78731AF5AF219A1CED8D95DC863A9747B1289F
-              14E426A0945970C60ACF3102A7FE3DEDF5F0978F46E1FABD8243F058067C01F8
-              DBC7A3B0675343B68CF832B235A6672898CDE4A6ACCF8862F2907720B828A140
-              9701D733B80EC1D8AD26D8B7B511CE7F1184DF9E1A82DBE30B6AFD920F96B11E
-              B7F70FCDC3FE6D8D60B7A4171A8F83C7CB80EB99F47CE221A2D2567AAFA24AAF
-              6E1995DE747011461E06611A2551ECCC0C8AD2320A01782E27FA6258E3B66B2A
-              BD6154E97D34E68F51324B3D5361969F5AE9618AA9811564010E622C0A90DAD1
-              D235F0C5CF27A2C3138FC684A4DC491BC2E154DCD661D4D3FB51DC691314C3F6
-              27D6C04F62A55F0712DA02FC757075FA6B7C1D3C8DFF8BEFA602D017E3BEDF5D
-              1BF95EE773F525A65CDC5A5C12E0DDBECF7DEF776F5C8B9C29E7ADCB44EB00CB
-              054D9402DDE93B23139A09EF0C3F40B2F2413186608A33069110E5DE99782A57
-              312166121046FA33445C31C56D13029F3C164C73662B952D5183728C3550B6F2
-              62FF9F29DA184CE7DB37ACAC12CFAEAE4071A9B347366A566BF900FC0FE8C256
-              C9AF0D302A0000000049454E44AE426082}
+              077C494441545847CD98696C1BC71580DF7297BB5C9212459191CC88D465C9B6
+              94CA8A6447B26B5BBED42A576B0B451DD4FD1504059CA04013A12E0CF48792A2
+              400314715D14458D1E7F8AA04053237610476E20273E141FB21DCB941349966C
+              3992A9831229912229720F723BB31C1E1BDAB1C4FCE9072C96EFCDCECCDB9937
+              EFBD2505DF82F6B7FBCA15856388081425C8678FEC9824E2AAC9DB989DDDE7CC
+              666067AD4F1804A28285F91827994DA5BD879F8E10D5AAD091FBAAE139435B75
+              B5453EF86C5371EA72AD2B96201E6D238FAC9ABC8D610DF48B55AE120B1155D6
+              80643172CC0B445C357919D3DDADE81290F87E99BD806892D437D45214243A40
+              51F2DAFE5575EAF8ED7507C7C39B92A2FCA8C466E65EDAB1C14C9AD2FCBB6F24
+              3CE70F0B9C4E3921CAF066CFAF5A6749D363599131C85999228BA99BD6C57FDE
+              6A5D63DED0EA64F40C4D5A7311A5388CF47BE4FEC06C381EA7FF145C8AFCE6C2
+              5BBB65D2FC4834C6E0135258683A8F94D76252FCA48E5FBC2886AD4566037376
+              7DB9B56A4743A58961B43B2BC7131047174DEB80415736B29C80BEC1AF22A30F
+              16EE4541DE6D7179828131E716DEC0BC9448C05601D85DD9274F63CCBE77AEBD
+              53E9D2BF5614036E26CE2D4E7BC30C3082B2D7E134AD6FAD48C793695F084626
+              7D30E90D02878C63F53A10A4048868F2F2520BD455D8C161CBF8D370FF847CC1
+              3B1D5080D539AC2670D082356000E19E47FAF3E9AE965F92C732C674FCEE4A25
+              4F31EE973B9B0AF5E40D138A0291A80405465695F1EF7337EF032871E8685A03
+              756516D067AD94848C199E0AC2C703B340E968D8DD5C0546835E6D0B2D8B60E2
+              F5A0432E8E11E538FCFD8C3B989085C69EC3DB26B02E3D12CBD2C71B5B7853CA
+              100CEE9832C41F5C86539F0DC3AEA76C70787F1D6CACB06A0CC16019EB717B5B
+              5D319CEC1B06FF52546DC3E3A40CC1B0C8E736351ACC7A9A3D4E5449637EFCDE
+              7B342854294C591FEA647845CEF4DF859FEDAD86676A6C44FBCDB4D4DAE1953D
+              D570E6EA182CC724A2D5C204AD92AC40A93A3F4235E63F070EC49510B5EDE6FC
+              0377FFD054F255B2383F701FF66D7E122A4A724EF23752556A86179A1DA8FF57
+              4493A17F782AFAF9B8C74D2D51DBF1FC58973E9FA317FE2A39B6FCF4DD4044DC
+              230A31BB6B8D55DD1FECACD3730138B0BD427D2E8582AE2B03B713FFECF32E9C
+              EAF3C837C67D61BDE835B81CA59A43E1B49BE0E2975E282AE0C1CC27B7FCB27B
+              3CE21EF75D1718DFDE9E233B63AA12A1D974140B628228BEEEF187D30FDC41A7
+              A6A3C941A424C8AFE178EFEDA51303E2D589F9E57D615AACC5F713B7C46B7F39
+              7B6F091B9A025B869D1D8F93028F1F9585D7FFFB8BE7D34916A3F54004A5A336
+              59EC45262282676E09EA9C9A1404976EB913773DE2C0C9AE67B6F5FEFABB977A
+              0F6F9BC3F7F7DF68D93AE65974BF7F67485DF614F5A83F0E0329CAEC8C918A53
+              CD444C93630CC3306B5D85BC01FFC6018DA629E4F9DAC72E8C518B1151EA22A2
+              8690A0748DB8E5001155383D8D4E120A1589E49A1515D8798ED557AB42160F5B
+              99623DEA8C8949329832B5539A402C4AC7968551226A3082742788DA8998C684
+              E24D54481E56168DCF2890732C738C5112CA8284720BC6A067204206C8C66432
+              C91CCFD5135183A8304FD9CCA69C4E1174BC79F2623877C914F855218B1C6364
+              59BEF76029AA3A30CE35F1B8A286F96C367E4767E50DBAA344D46034D0473734
+              E8AC445411D0E478877478AF1081902F2A88D2B82A6491B30768653E0FFA0228
+              7995AB7EE32C2984614F101A2B33E377AEABA7BD93B71B3A8F5EBF847CE70D21
+              2A0CB29CA1B180A78FD5388BEA7F58BB56B34D43A83FCE5929A67CF2B2422B37
+              899846B332286B1B38963DE6B499554330EBCBED28D7CC1029098EEA87BED750
+              78B089DB52555A70BA98377BAB1DE60F0F3E6D6879B57D6D6176A0C12E8B7315
+              1E27051E9F67B863CFFEB187232A9574BF17BB6F18298B7CAEB9A6ACA1B5BE8C
+              276A958F2E8F42DB86626859971970A55C1E99872B6301787E6B2DD124C111D8
+              3D3A3D282FD17B4EBFB57919EBD495C1B9812A502E353FE16AFCBA21985D4D55
+              F0C18D6998980B13CDCAB8EF0DC347376750FF4AA2C9D05A57C66FAA76362A85
+              CA6739B90928C50B658BB9E7188153FF73AD35F0B74FC6E1FADD9C43F050FAC7
+              7CF08F4FC7E1B92DB5E932E2EBC896453D438137959BD23E238AF143EEFE5048
+              42812E05AE67701D82B1598CB07F7B1D9CFFD20FBF3F350C83138B6AFD920D96
+              B11EB7F70D2F40E78E3AB01526171A8F83C74B81EB99E47CE221A2D2567A3F40
+              955EF50A2ABD197F08461FF861062551ECCC0C8AD2320A01782E07FA6258E7B2
+              692ABD1154E97D32E3895032473D596A961F5BE961F2A9811564010E621C0A90
+              DAD19235F0C52F26C32393F3F785B8DC4EB3C160226A6D33E8E94E14775A0485
+              DDF9C81AF851ACF6EB40425B80BF0EAE2E7E8BAF83C7F17FF1DD9403FA62DCFF
+              876BA33F69DF585360CCC4ADD0B200FFEAFD62EC83AECDEB913365BC7585681D
+              60A5A08912A03B3D3438AA9970E8D60892950FF33104939F31889828F7CC2A6C
+              A66242CC822188F46788B86AF2DB26043E791C18E7CC162A5DA2FAE508C752D6
+              927CFF9FC9DB184CFBDB372C9C124DAFAE40F189B347366B566BE500FC0FF452
+              54C34098AE970000000049454E44AE426082}
             FileName = 'D:\Projects\OrdersBuild\Icons\icons8_settings_35px_3.png'
           end>
         Name = 'icons8_settings_35px_3'
+      end
+      item
+        MultiResBitmap.Height = 10
+        MultiResBitmap.Width = 10
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 3.500000000000000000
+            Width = 35
+            Height = 35
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
+              59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0666494441545847ED976B6C54451480CFCCDC7DF6B14B5F50D052DA52A0F232
+              40521EB60A05494084804224803CD21830628C482568455E2A1A22C110081408
+              282912A282D0488962B0414D5004B13CA4AD6911E896B674DB6D7777663CF7EE
+              142869BB77C59F7E9BC9CC3977EECCB9E79C792CFC4F1710553F0C242F2F2F59
+              4A690F06832DA74E9DBAA1F411F3AF8C19316284C5E5722D4603E60A214631C6
+              6CBA9E737EDBE170F42B2929B963748C10A66AD34C983021CD66B37D87CD4584
+              90144AA9167A02806D472010189C9E9E5E5B5151714DA94D139167264E9C9884
+              5FFF2B3693439AAE418F7D8B9E7B1EC3E651AAB050559B020DD98A55584374D0
+              4B4F6139A0445398F64C6E6E6E065697303F3AFD8058078171FD19244413D857
+              1600A9F468D013A5A5A5A795D82DA673262D2D6D310E3C4989063176CCA1411A
+              2CC9B1C2F2893618DB5F83E1290CE263089CB9C68D3E182E4F656565A92184C1
+              7498D02163F43AC64E60F2100DDE9B6587434B9DF0FA641B8CEAC7E07E7F4D19
+              6A8157D138827E670C32953A2CA68D21C07B8E4C657068991356280334D67594
+              A70ED36074BA06549044A50A8B69637065D8A26C0434D36F0058300904E10E25
+              86C5D4D0E25886ADAF5BBA951811696E11ADBFAFC46E31F79D0D247FCBB39EB4
+              ECF450BEFB0302B61F2C074F7D9B21B7E3696883ED9F974320280C794C06832D
+              33EA32A1812E31146130EBF46AA755C0A4C7429BADC54260509A1BA29C77375F
+              83288766E8352D944B79591AD8181A46A0DA5084C1F43E238A070C11B1993FA3
+              6F4CB95C870BD94A9BAE8EA273CA2F2855B7984E473AFBD27902E207259A02BF
+              F4B459437422581B38B88422D5340561B05B354D613A4C3A520211C79E394E29
+              3CAD545D8299729C4E3E3205373EB9B4706B74435B9345D7D380E6DFFFD18A66
+              A3D30344E6191C98FAE91C1E0C9E51AA4ED19FD356FA82DE7F5EC186F8A680AF
+              D16AD16EEB056F3E0DF985854ED5B5031119A343667CD9C03C271742DD395CE3
+              0FDCA10228A39E5D3FB950EF67E8346B0A1E0977E7C1D0697EEEECA3C40E4414
+              A676C436E88F5F7DD910287A5F2F2260941BC144F8C0935F541B70AFB3FA8587
+              DBC95A0264B9D1F71E6F3597F7DDE8CCAA4CC42D3A9F51B1B368CDCAEB117B26
+              7B56B163C39535C379EF1C0EB61E2123822DA11AE57D2D0B653D772F62122E0B
+              8BBCAA1B8261039FD76B14C183FA306BED03ABFEC013BD12BDB12628E8265D69
+              DA3363A67DD19B514B01257C019EC5B1DFEC1E5E6375F5EE231B2AA0EED3BD10
+              3F77019CBF2561F3FEC3EA0D4C78FCD5DFFC5BF8BC4DFA3CC65C820B11E5EE01
+              71493DD111EDD37349849663EA3E933BFDEB971865473134E33026C6A61704E7
+              B991C313FAD6BCBB093CC5472050EB85C3CD1C8F847B79D4E8B9052D4D774286
+              70A892927B2963AEA0BF8DE0C12BEDCE28650D25924052D830E5CC38BA0187DA
+              86CD0E2BE0D0577F8EC2BF26B5D1A3471B72747636CC9F3ABECEE7A5C6254F0F
+              4D73632887D147AF9D28DE995A5ABC3B05F787B7754D6363BD103C7401430F9E
+              C653E3E56E8DC9997E6C11C6FC4D2576202089BDEC6CDDEF1227D59138F0C58B
+              2D17AE9EEB617C6D9B0FF34847F2BF4E7CB66B73480079E2C0AE75E8A53A2625
+              F3B7FA50C5B9EDA66B7CD1FA15555D1A93FBDCD15E98601F2BB1533E293A9FD1
+              5259691CD13EAC3FDCFAD3C0F634C0BF31A106503D15DA05282C2CD4DB1DD2C3
+              666B35ECE832675207CC2DA094E429B1539A9B79EC2471B656545546B545C579
+              0EDE7425A50FBE835B8BD02FE2E06DACC73D9BC4A60D7EBC75DECC6965004FB2
+              1A7FF53B84924998C7C29DD88B50CAA8DF1ECC1B3A6E7249979EE10266AA66B7
+              7C2FB3EAF5FA44A05F539F0C2FD8A34361639A051C31B146FEA097369695D7D4
+              B15E3575D85EADEB5C710904FF69E84D84645326D6DD75DFFDE0328EB130DA88
+              4376FABC0302C48E1E876FCFAE189710ED0A40C6307C4D612CED5B3784AF7D45
+              21FAD28E8D8F27AEF84494D5F01CFC78591EDCA967A8A6E125DA84213A14E82A
+              EFD45A6C096FA30527B786F45C34E0D1F44B5C5232ED959A4EE2931F81042C7D
+              D233A92B3E89482E7EC49C37B25C32B979CFBA95573A352699B55471BF8C335B
+              6EFA2C6379B42F81736B1CA15A16F793579C96A847F7AC7D63043A6715631AE0
+              9E02362CB8CF00EE29F3F76E28C8C65D3B05A75BC65AE57A7D5E735FFF10BCB8
+              FAA32178F1F84D8906563F77EF78BFE05E3C155D26F07F853FE8AFE6C0F1E0BA
+              4B7D67860000FC036CA478B2BDFAD89A0000000049454E44AE426082}
+            FileName = 
+              'D:\Projects\OrdersBuild\Icons\icons8_admin_settings_male_35px_2.' +
+              'png'
+          end>
+        Name = 'icons8_admin_settings_male_35px_2'
       end>
     Destination = <
       item
@@ -3818,6 +3865,14 @@ object OrdersForm: TOrdersForm
         Layers = <
           item
             Name = 'icons8_settings_35px_3'
+            SourceRect.Right = 10.000000000000000000
+            SourceRect.Bottom = 10.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'icons8_admin_settings_male_35px_2'
             SourceRect.Right = 10.000000000000000000
             SourceRect.Bottom = 10.000000000000000000
           end>
@@ -3838,23 +3893,23 @@ object OrdersForm: TOrdersForm
             PNG = {
               89504E470D0A1A0A0000000D494844520000000E0000000E08060000001F482D
               D1000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              01EE49444154384F63201730426914E0E4E41401A4128058E1FFFFFFDEFBF7EF
-              BF0B964002181A819A6280D462088F81E1FFBFBF7F39D89933B6EFDC37072A04
-              064C501A0E4478985A94C5981852ECD81896A67131748671330B72FE6F844AC3
-              01864655D1FFDF67C57332449AB33248F03332982A32332809337D824AC3018A
+              01EF49444154384F63201730426914E0E4E41401A4128058E1FFFFFFDEFBF7EF
+              BF0B964002181A819A6280D462088F81E1DFDF3F7F39395832B6EFDC37072A04
+              064C501A0E4478985A94C5981852ECD81896A671317485F3300B72FE6B844AC3
+              01864655917FDF67C57332449AB33248F03332982A32332809317D824AC3018A
               53FF2D5691B9F74BE61A2B1323AFA40817C3FFFF0C0C2FDF7E63F8F5EFFF1725
               9EA71A4CE1B79F429562FAF1FF76EF06A043EAA15C30F8CFF8BF9EC9634B1394
-              0B06981A37F988FC65F87B8D99954514C4FFFBFFF7CB579F7974ABAE98C5FFFB
-              C77069516BD92E9038D6E8F8378BA3869153A89901E8D49D6FD4172C7BE7BD9E
-              89F1FFC6FF7FFF9E6464662CFDF78FF1198A468B901D42AC7FFE3684D8FE314B
-              34FA62F2E2DB1F86B6132F98BEBCFBFAE5FD87E73F989899BE49C8C8C93132B2
-              EE6186EA6130F6D9C4C5F98FE110131383DFF547FFA503E57E7C60FFC9F473C3
-              9D5F5C1FDE3CF8F5E7CF4F2D6014303132FE57E4E0E2ED814707372B53022333
-              833E84C7CC78F9FCEB5787CF3DFEC8CEF99781918DF1231B2B4B22D37F466716
-              362E5EA0071DE036CA6B4479323032F20199CF41F8DE0FBECFE79F33BC6715FA
-              26C22DC0F3F2DFFF7FB6DC7C7CE29CBC028F9918194E610D1C749056DEC1FF9D
-              99F91D3313C3DC052DA5690C0C0C0C004D14A45E89C119D30000000049454E44
-              AE426082}
+              0B06981A37F988FCF9FFF71A0B1B8B2888FFE7FFEF97AF3FF3E8565D318BFFF7
+              8FE1D2A2D6B25D2071ACD1F16F16470D23A7503303D0A93BDFA82F58F6CE7B3D
+              13E3FF8DFFFFFE3DC9C8CC58FAEF1FE333148D16213B8458FFFC6D08B1FD6396
+              60F4D9E4C5B73F0CED275E307D79F7EDCBBB0FCF7F3033337E93909193636464
+              DBC30CD5C360ECB3898BF31FC321262606BFEB8FFE4907CAFEF8C0FE83E9E786
+              3BBFB93EBC79F0EBCF9F9F5A4C0C8C4C8C8C0C8A1C5CBC3DF0E8E066654A6064
+              66D087F058182F5F78F3EAF0F9271FD939FF3230B0317E6463654964FACFE8CC
+              C2C6C50BF4A003DC46798D284F0646463E20F33908DFFBC1F7F9FC7386F7AC42
+              DF447804785EFEFDFFD796878F5F9C9357E0311323C329AC81830ED2CA3BF8BF
+              3131BF63616698BBA0A5348D8181810100157EA46256FB7D770000000049454E
+              44AE426082}
             FileName = 
               'D:\Projects\OrdersBuild\Icons\icons8_admin_settings_male_14px.pn' +
               'g'

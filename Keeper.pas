@@ -9,7 +9,7 @@ uses
   System.ImageList, FMX.ImgList, FMX.ListView.Types, FMX.ListView.Appearances,
   FMX.ListView.Adapters.Base, FMX.ListView, FMX.Gestures, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
-  Data.Bind.Components, Data.Bind.DBScope, System.Generics.Collections, KeeperAct;
+  Data.Bind.Components, Data.Bind.DBScope, System.Generics.Collections, KeeperAct, FMX.DialogService;
 
 type
   TKeeperForm = class(TForm)
@@ -31,32 +31,37 @@ type
     CollectorsBottomSB: TStatusBar;
     CollectorsBottomLV: TLabel;
     TeamGPL: TGridPanelLayout;
+    RefreshKeeperTeamBtn: TSpeedButton;
     DeleteCollectorsBtn: TSpeedButton;
-    GoToCollectorsBtn: TSpeedButton;
     CollectorsGPL: TGridPanelLayout;
     GoToTeamBtn: TSpeedButton;
-    RefreshCollectorBtn: TSpeedButton;
+    AddCollectorBtn: TSpeedButton;
     CollectorsLV: TListView;
     GM: TGestureManager;
     BL: TBindingsList;
     CollectorBS: TBindSourceDB;
     LinkFillControlToField2: TLinkFillControlToField;
-    TeamBS: TBindSourceDB;
     LinkListControlToField1: TLinkListControlToField;
+    RefreshCollectorBtn: TSpeedButton;
+    GoToCollectorsBtn: TSpeedButton;
+    TeamBS: TBindSourceDB;
     procedure TeamLVGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
     procedure CollectorsLVGesture(Sender: TObject;
       const EventInfo: TGestureEventInfo; var Handled: Boolean);
-    procedure GoToCollectorsBtnClick(Sender: TObject);
-    procedure GoToTeamBtnClick(Sender: TObject);
+    procedure DeleteCollectorsBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure TabsGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
-    procedure CollectorsLVUpdateObjects(const Sender: TObject;
-      const AItem: TListViewItem);
     procedure CollectorsLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure RefreshCollectorBtnClick(Sender: TObject);
+    procedure AddCollectorBtnClick(Sender: TObject);
+    procedure GoToCollectorsBtnClick(Sender: TObject);
+    procedure RefreshKeeperTeamBtnClick(Sender: TObject);
+    procedure GoToTeamBtnClick(Sender: TObject);
+    procedure TeamLVItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
   private
     { Private declarations }
     keeperAction: TKeeperAction;
@@ -64,11 +69,15 @@ type
     FKeeperCollectorUID: integer;
     FCollectorUID: integer;
     FKeeperCollectorName: string;
-    procedure updateCollectorCheckList();
+    FItemIndexLV: Integer;
+    FTeamCollectors: TList<Integer>;
+    procedure setSbInfo(index: smallint);
     procedure SetCollectorName(const Value: string);
     procedure SetCollectorUID(const Value: integer);
     procedure SetKeeperCollectorName(const Value: string);
     procedure SetKeeperCollectorUID(const Value: integer);
+    procedure SetItemIndexLV(const Value: Integer);
+    procedure setTeamCollectorsList();
 
   protected
     property CollectorUID: integer read FCollectorUID write SetCollectorUID;
@@ -76,10 +85,9 @@ type
 
     property KeeperCollectorUID: integer read FKeeperCollectorUID write SetKeeperCollectorUID;
     property KeeperCollectorName: string read FKeeperCollectorName write SetKeeperCollectorName;
+    property ItemIndexLV: Integer read FItemIndexLV write SetItemIndexLV;
   public
     { Public declarations }
-    FCollectorTeam: TList<Integer>;
-    FCheckedBtnA: TList<Integer>;
 
     constructor Create();
   end;
@@ -91,8 +99,22 @@ implementation
 
 {$R *.fmx}
 
-uses SConsts, ZXing.ScanManager, ModuleDataLocal, ModuleDataRemote,
+uses SConsts, ModuleDataLocal, ModuleDataRemote,
   Globals, Collectors;
+
+procedure TKeeperForm.AddCollectorBtnClick(Sender: TObject);
+begin
+  if (CollectorUID <> 0) and
+     (not FTeamCollectors.Contains(CollectorUID)) then
+    try
+      keeperAction.Add(CurrentUser.ID, CurrentUser.Name,
+                       CollectorUID, CollectorName);
+      FTeamCollectors.Add(CollectorUID);
+    finally
+      TKeeperAction.Get(CurrentUser.ID);
+      setSbInfo(0);
+    End;
+end;
 
 procedure TKeeperForm.CollectorsLVGesture(Sender: TObject;
   const EventInfo: TGestureEventInfo; var Handled: Boolean);
@@ -102,58 +124,23 @@ end;
 
 procedure TKeeperForm.CollectorsLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
-var
-  accessory: TListItemAccessory;
 begin
   CollectorUID := (AItem.Data['UID'].AsString).toInteger;
   CollectorName := AItem.Data['Name'].AsString;
-
-  accessory := AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA');
-
-  try
-    if accessory.Visible then
-      begin
-        accessory.Visible := False;
-        FCheckedBtnA.Remove(AItem.Index);
-
-        keeperAction.Delete(CurrentUser.ID, CollectorUID);
-      end
-    else
-      Begin
-        accessory.Visible := True;
-        FCheckedBtnA.Add(AItem.Index);
-        keeperAction.Add(CurrentUser.ID, CurrentUser.Name,
-                         CollectorUID, CollectorName);
-      End;
-  finally
-    TKeeperAction.Get(CurrentUser.ID);
-  end;
-
-
-end;
-
-procedure TKeeperForm.CollectorsLVUpdateObjects(const Sender: TObject;
-  const AItem: TListViewItem);
-var
-      ac: TListItemAccessory;
-begin
- ac := AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA');
-
- if Assigned(FCheckedBtnA) then
-  Begin
-    if ac <> nil then
-        AItem.Objects.FindObjectT<TListItemAccessory>('CheckBtnA').Visible := FCheckedBtnA.Contains(AItem.Index);
-  End;
+  ItemIndexLV := AItem.Index;
 end;
 
 constructor TKeeperForm.Create;
 begin
   inherited Create(Application);
+  keeperAction := TKeeperAction.Create();
+
   TKeeperAction.Get(CurrentUser.ID);
   TCollectors.Get(True);
-  updateCollectorCheckList();
+  Tabs.ActiveTab := TeamTab;
+  setTeamCollectorsList();
 
-  keeperAction := TKeeperAction.Create();
+  setSbInfo(1);
 end;
 
 procedure TKeeperForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -161,6 +148,18 @@ begin
   {$IFDEF ANDROID}
     Action := TCloseAction.caFree;
   {$ENDIF}
+end;
+
+procedure TKeeperForm.DeleteCollectorsBtnClick(Sender: TObject);
+begin
+  if KeeperCollectorUID <> 0 then
+   try
+     keeperAction.Delete(CurrentUser.ID, KeeperCollectorUID);
+     FTeamCollectors.Remove(KeeperCollectorUID);
+   finally
+     TKeeperAction.Get(CurrentUser.ID);
+     setSbInfo(0);
+   end;
 end;
 
 procedure TKeeperForm.GoToCollectorsBtnClick(Sender: TObject);
@@ -174,8 +173,28 @@ begin
 end;
 
 procedure TKeeperForm.RefreshCollectorBtnClick(Sender: TObject);
+//var
+//    collAct: TCollectors;
 begin
+//  collAct := TCollectors.Create();
+
+//  try
+//    collAct.Add;
+//  finally
+//    TCollectors.Get(True);
+//    setSbInfo(1);
+//  end;
   TCollectors.Get(True);
+
+end;
+
+procedure TKeeperForm.RefreshKeeperTeamBtnClick(Sender: TObject);
+begin
+  try
+    TKeeperAction.Get(CurrentUser.ID);
+  finally
+    setSbInfo(0);
+  end;
 end;
 
 procedure TKeeperForm.SetCollectorName(const Value: string);
@@ -188,6 +207,11 @@ begin
   FCollectorUID := Value;
 end;
 
+procedure TKeeperForm.SetItemIndexLV(const Value: Integer);
+begin
+  FItemIndexLV := Value;
+end;
+
 procedure TKeeperForm.SetKeeperCollectorName(const Value: string);
 begin
   FKeeperCollectorName := Value;
@@ -196,6 +220,38 @@ end;
 procedure TKeeperForm.SetKeeperCollectorUID(const Value: integer);
 begin
   FKeeperCollectorUID := Value;
+end;
+
+procedure TKeeperForm.setSbInfo(index: smallint);
+begin
+   case index of
+    0: Begin
+          TeamBottomLbl.Text := Format('—борщиков: %d', [AppDataLocal.KeeperAccess.RecordCount]);
+       End;
+    1: begin
+          CollectorsBottomLV.Text := Format('—борщиков: %d', [AppDataLocal.Collectors.RecordCount]);
+       end;
+   end;
+end;
+
+procedure TKeeperForm.setTeamCollectorsList;
+begin
+  FTeamCollectors := TList<Integer>.Create;
+
+  if (AppDataLocal.KeeperAccess.Active) AND
+     (not AppDataLocal.KeeperAccess.IsEmpty) then
+     try
+       FTeamCollectors.Clear;
+
+       while not AppDataLocal.KeeperAccess.Eof do
+        Begin
+          FTeamCollectors.Add(AppDataLocal.KeeperAccessCollectorUID.AsInteger);
+          AppDataLocal.KeeperAccess.Next;
+        End;
+     finally
+      setSbInfo(0);
+     end;
+
 end;
 
 procedure TKeeperForm.TabsGesture(Sender: TObject;
@@ -220,41 +276,11 @@ begin
   Tabs.OnGesture(Sender, EventInfo, Handled);
 end;
 
-procedure TKeeperForm.updateCollectorCheckList;
-var
-    i: integer;
-    AItem: TListViewItem;
-
-  procedure addCollectorUidOfTeamToList;
-  Begin
-    if (AppDataLocal.KeeperAccess.Active) and
-      (not AppDataLocal.KeeperAccess.IsEmpty) then
-      Begin
-        FCollectorTeam := TList<Integer>.Create;
-        FCollectorTeam.Clear;
-        AppDataLocal.KeeperAccess.First;
-        while not AppDataLocal.KeeperAccess.Eof do
-        begin
-          FCollectorTeam.Add(AppDataLocal.KeeperAccess.FieldByName('CollectorUID').AsInteger);
-          AppDataLocal.KeeperAccess.Next();
-        end;
-      end;
-  end;
+procedure TKeeperForm.TeamLVItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
 begin
-  FCheckedBtnA := TList<Integer>.Create;
-  FCheckedBtnA.Clear;
-  addCollectorUidOfTeamToList();
-
-  if Assigned(FCollectorTeam) then
-  Begin
-    for I := 0 to CollectorsLV.Items.Count - 1  do
-      Begin
-        AItem := (CollectorsLV.Items.Item[i] as TListViewItem);
-
-        if FCollectorTeam.Contains((AItem.Data['UID'].AsString).ToInteger) then
-           FCheckedBtnA.Add(AItem.Index)
-      end;
-  end;
+  KeeperCollectorUID := (AItem.Data['CollectorUID'].AsString).Tointeger;
+  KeeperCollectorName := AItem.Data['CollectorName'].AsString;
 end;
 
 end.

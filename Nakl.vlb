@@ -1,130 +1,178 @@
 ﻿[BackNaklBtn]
-Coordinates=535,922,88,58
+Coordinates=720,539,77,51
 
 [NumDocNaklLbl]
-Coordinates=649,922,107,58
+Coordinates=295,690,93,51
 
 [CollectLayout]
-Coordinates=606,1006,93,36
+Coordinates=842,690,82,33
 
 [MainLayout]
-Coordinates=1058,922,81,36
+Coordinates=761,690,71,33
 
 [CollectorLV]
-Coordinates=798,10,107,234
+Coordinates=826,10,89,195
+Visible=True
 
 [CollectorBtn]
-Coordinates=936,794,85,58
+Coordinates=431,539,76,51
 
 [SaveNaklBtn]
-Coordinates=420,922,89,58
+Coordinates=89,690,77,51
 
 [ProductNaklInfo]
-Coordinates=10,1006,106,36
+Coordinates=513,751,93,33
 
 [CollectorHeaderLbl]
-Coordinates=1047,794,125,58
+Coordinates=176,690,109,51
 
 [NaklBottomSB]
-Coordinates=267,1006,98,36
+Coordinates=335,751,86,33
 
 [CollectRect]
-Coordinates=499,1006,81,36
+Coordinates=168,751,70,33
 
 [RefreshBtn]
-Coordinates=10,922,79,58
+Coordinates=10,690,69,51
 
 [CountProdNaklLbl]
-Coordinates=609,794,119,58
+Coordinates=807,539,104,51
 
 [CollectorLeftLbl]
-Coordinates=289,922,105,58
+Coordinates=617,539,93,51
 
 [CountBuildProdNaklLbl]
-Coordinates=115,922,148,58
+Coordinates=507,690,130,51
 
-[ProductLV]
-Coordinates=205,10,116,498
+[CollectorEdit]
+Coordinates=921,539,78,51
+
+[CollectHeaderTB]
+Coordinates=1111,690,97,33
+
+[CollectorTB]
+Coordinates=431,751,72,33
+
+[CollectorFA]
+Coordinates=407,467,72,33
+
+[BackCollectBtn]
+Coordinates=517,539,90,51
+
+[NaklHeaderTB]
+Coordinates=1017,690,84,33
+
+[]
+Coordinates=375,10,153,321
 Visible=True
 ExplicitSubNodes=
 
-[CollectorEdit]
-Coordinates=183,794,88,58
-
-[CollectHeaderTB]
-Coordinates=782,922,112,36
-
-[CollectorTB]
-Coordinates=391,1006,82,36
-
-[CollectorFA]
-Coordinates=407,467,82,36
-
-[BackCollectBtn]
-Coordinates=297,794,102,58
-
-[NaklHeaderTB]
-Coordinates=142,1006,99,36
-
-[]
-Coordinates=920,922,112,36
-
 [AppDataLocal.Agents]
-Coordinates=708,578,139,102
+Coordinates=708,578,121,33
 Visible=False
 
 [AppDataLocal.EveryOne]
-Coordinates=754,794,156,58
+Coordinates=1112,539,134,51
 
 [AppDataLocal.VidDocs]
-Coordinates=10,794,147,102
+Coordinates=10,794,127,33
 Visible=False
 
 [AppDataLocal.Command]
-Coordinates=425,794,158,58
+Coordinates=285,539,136,51
 
 [AppDataLocal.Reestrs]
-Coordinates=373,578,143,124
+Coordinates=373,578,124,33
 Visible=False
 
 [AppDataLocal.OrdersHead]
-Coordinates=10,10,169,542
+Coordinates=10,10,145,33
 Visible=False
 
 [AppDataLocal.Brieforgs]
-Coordinates=873,578,151,102
+Coordinates=873,578,132,33
 Visible=False
 
 [AppDataLocal.Collectors]
-Coordinates=1460,190,156,36
+Coordinates=1606,200,136,33
 Visible=False
 
 [AppDataLocal.Drivers]
-Coordinates=542,578,140,102
+Coordinates=542,578,121,33
 Visible=False
 
 [AppDataLocal.CollectorBuild]
-Coordinates=168,578,179,146
+Coordinates=168,578,156,33
 Visible=False
 
 [AppDataLocal.OrdersMove]
-Coordinates=1040,10,169,36
-Visible=False
+Coordinates=478,10,146,303
 
 [AppDataLocal.Users]
-Coordinates=294,598,132,190
+Coordinates=294,598,115,33
 Visible=False
 
 [AppDataLocal.CollectorOrders]
-Coordinates=583,10,189,256
+Coordinates=583,10,164,33
 Visible=False
 
-[NaklBL]
-Coordinates=174,314,56,36
+[Tabs]
+Coordinates=10,751,40,33
 
-[CollectorsBS]
-Coordinates=985,54,143,146
+[CollectorSB]
+Coordinates=934,690,73,33
 
-[ProductsBS]
-Coordinates=401,65,156,402
+[SignForm.UsersBS]
+Coordinates=925,10,108,177
+
+[CollectorCountLbl]
+Coordinates=647,690,104,51
+
+[AppDataLocal.OrdersHeadLoad]
+Coordinates=10,10,170,519
+
+[ProductLV]
+Coordinates=190,10,97,411
+Visible=True
+
+[AppDataLocal.ProcessedDocLoad]
+Coordinates=634,10,182,213
+
+[ProductsTab]
+Coordinates=248,751,77,33
+
+[CameraScanBtn]
+Coordinates=1009,539,93,51
+
+[AppDataLocal.OrdersMoveLoad]
+Coordinates=297,10,171,33
+Visible=False
+
+[AppDataLocal.KeeperAccess]
+Coordinates=1150,40,157,33
+Visible=False
+
+[ClearEditButton1]
+Coordinates=60,751,98,33
+
+[CollectrorsBS]
+Coordinates=1043,10,140,159
+
+[KeeperForm.TeamBS]
+Coordinates=10,539,119,141
+
+[IL35]
+Coordinates=119,548,40,33
+
+[CollectorsSetting]
+Coordinates=398,690,99,51
+
+[KeeperForm.CollectorBS]
+Coordinates=139,539,136,123
+
+[NaklBS]
+Coordinates=297,10,153,321
+
+[MainBL]
+Coordinates=199,440,82,33
 

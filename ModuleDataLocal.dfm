@@ -520,19 +520,18 @@ object AppDataLocal: TAppDataLocal
     end
   end
   object KeeperAccess: TFDQuery
-    BeforeOpen = CollectorsBeforeOpen
     Connection = Connection
     Left = 336
     Top = 128
-    object KeeperAccessKeeperUid: TIntegerField
-      FieldName = 'KeeperUid'
+    object KeeperAccessKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
     end
     object KeeperAccessKeeperName: TStringField
       FieldName = 'KeeperName'
       Size = 50
     end
-    object KeeperAccessCollectorUid: TIntegerField
-      FieldName = 'CollectorUid'
+    object KeeperAccessCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
     end
     object KeeperAccessCollectorName: TStringField
       FieldName = 'CollectorName'

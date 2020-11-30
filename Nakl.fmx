@@ -3,7 +3,7 @@ object NaklForm: TNaklForm
   Top = 0
   Caption = 'NaklForm'
   ClientHeight = 624
-  ClientWidth = 335
+  ClientWidth = 311
   Position = ScreenCenter
   WindowState = wsMaximized
   FormFactor.Width = 320
@@ -14,12 +14,12 @@ object NaklForm: TNaklForm
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
-    Size.Width = 335.000000000000000000
+    Size.Width = 311.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object NaklHeaderTB: TToolBar
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -37,7 +37,7 @@ object NaklForm: TNaklForm
       object SaveNaklBtn: TButton
         Align = Right
         IconTintColor = claBlack
-        Position.X = 287.000000000000000000
+        Position.X = 263.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -51,7 +51,7 @@ object NaklForm: TNaklForm
         StyledSettings = [Family, Size, Style]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 239.000000000000000000
+        Size.Width = 215.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Arial'
@@ -66,7 +66,7 @@ object NaklForm: TNaklForm
     object CollectorTB: TToolBar
       Padding.Right = 7.000000000000000000
       Position.Y = 48.000000000000000000
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -105,7 +105,7 @@ object NaklForm: TNaklForm
         TextSettings.HorzAlign = Center
         Position.X = 70.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 258.000000000000000000
+        Size.Width = 234.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         StyledSettings = [Family]
@@ -129,20 +129,19 @@ object NaklForm: TNaklForm
         Size.PlatformDefault = False
         StyleLookup = 'cameratoolbutton'
         Visible = False
-        OnClick = CameraScanBtnClick
       end
     end
     object NaklBottomSB: TStatusBar
       Position.Y = 602.000000000000000000
       ShowSizeGrip = True
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'statusbarstyle'
       TabOrder = 2
       object ProductNaklInfo: TGridPanelLayout
         Align = Client
-        Size.Width = 335.000000000000000000
+        Size.Width = 311.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -174,7 +173,7 @@ object NaklForm: TNaklForm
         object CountProdNaklLbl: TLabel
           Align = VertCenter
           StyledSettings = [Family]
-          Size.Width = 167.500000000000000000
+          Size.Width = 155.500000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
@@ -186,8 +185,8 @@ object NaklForm: TNaklForm
         object CountBuildProdNaklLbl: TLabel
           Align = VertCenter
           StyledSettings = [Family]
-          Position.X = 167.500000000000000000
-          Size.Width = 167.500000000000000000
+          Position.X = 155.500000000000000000
+          Size.Width = 155.500000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 10.000000000000000000
@@ -201,7 +200,7 @@ object NaklForm: TNaklForm
     end
     object Tabs: TTabControl
       Align = Client
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 506.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
@@ -209,7 +208,7 @@ object NaklForm: TNaklForm
       TabOrder = 3
       TabPosition = PlatformDefault
       Sizes = (
-        335s
+        311s
         457s)
       object ProductsTab: TTabItem
         CustomIcon = <
@@ -217,7 +216,7 @@ object NaklForm: TNaklForm
           end>
         IsSelected = True
         ImageIndex = 0
-        Size.Width = 335.000000000000000000
+        Size.Width = 311.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -233,7 +232,7 @@ object NaklForm: TNaklForm
           OnUpdateObjects = ProductLVUpdateObjects
           SideSpace = 1
           Align = Client
-          Size.Width = 335.000000000000000000
+          Size.Width = 311.000000000000000000
           Size.Height = 457.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -500,222 +499,13 @@ object NaklForm: TNaklForm
           CanSwipeDelete = False
           OnItemClick = ProductLVItemClick
           SearchVisible = True
-          object CameraScanLayout: TLayout
-            Align = Client
-            Margins.Left = 7.000000000000000000
-            Margins.Top = 7.000000000000000000
-            Margins.Right = 7.000000000000000000
-            Margins.Bottom = 7.000000000000000000
-            Size.Width = 350.000000000000000000
-            Size.Height = 395.000000000000000000
-            Size.PlatformDefault = False
-            Visible = False
-            TabOrder = 1
-            object CameraScanRect: TRectangle
-              Align = Client
-              Size.Width = 350.000000000000000000
-              Size.Height = 395.000000000000000000
-              Size.PlatformDefault = False
-              object CameraScanHeaderTB: TToolBar
-                Padding.Left = 3.000000000000000000
-                Padding.Top = 3.000000000000000000
-                Padding.Right = 3.000000000000000000
-                Padding.Bottom = 3.000000000000000000
-                Margins.Left = 3.000000000000000000
-                Margins.Top = 3.000000000000000000
-                Margins.Right = 3.000000000000000000
-                Margins.Bottom = 3.000000000000000000
-                Position.X = 3.000000000000000000
-                Position.Y = 3.000000000000000000
-                Size.Width = 344.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 0
-                object BackCameraScanBtn: TSpeedButton
-                  Align = FitLeft
-                  IconTintColor = claBlack
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
-                  Size.PlatformDefault = False
-                  StyleLookup = 'backtoolbutton'
-                  OnClick = BackCameraScanBtnClick
-                end
-                object SaveCameraScanBtn: TSpeedButton
-                  Align = FitRight
-                  IconTintColor = claBlack
-                  Position.X = 296.000000000000000000
-                  Size.Width = 48.000000000000000000
-                  Size.Height = 48.000000000000000000
-                  Size.PlatformDefault = False
-                  StyleLookup = 'donetoolbutton'
-                  OnClick = SaveCameraScanBtnClick
-                end
-                object CameraScanHeaderLbl: TLabel
-                  Align = VertCenter
-                  StyledSettings = [Family]
-                  Position.X = 51.000000000000000000
-                  Position.Y = 12.000000000000000000
-                  Size.Width = 242.000000000000000000
-                  Size.Height = 23.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Size = 11.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.FontColor = claDarkcyan
-                  TextSettings.HorzAlign = Center
-                  Text = #1057#1082#1072#1085#1080#1088#1086#1074#1072#1085#1080#1077' '#1096#1090#1088#1080#1093#1082#1086#1076#1072
-                  TabOrder = 2
-                end
-              end
-              object CameraScanBottomTB: TToolBar
-                Align = Bottom
-                Padding.Left = 7.000000000000000000
-                Padding.Top = 2.000000000000000000
-                Padding.Right = 7.000000000000000000
-                Padding.Bottom = 2.000000000000000000
-                Margins.Left = 3.000000000000000000
-                Margins.Top = 3.000000000000000000
-                Margins.Right = 3.000000000000000000
-                Margins.Bottom = 3.000000000000000000
-                Position.X = 3.000000000000000000
-                Position.Y = 344.000000000000000000
-                Size.Width = 344.000000000000000000
-                Size.Height = 48.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 1
-                object CameraScanBottonBtnsGPL: TGridPanelLayout
-                  Align = Client
-                  Size.Width = 330.000000000000000000
-                  Size.Height = 44.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                  ColumnCollection = <
-                    item
-                      Value = 50.000000000000000000
-                    end
-                    item
-                      Value = 50.000000000000000000
-                    end>
-                  ControlCollection = <
-                    item
-                      Column = 0
-                      Control = StopCameraScanBtn
-                      Row = 0
-                    end
-                    item
-                      Column = 1
-                      Control = StartCameraScanBtn
-                      Row = 0
-                    end>
-                  RowCollection = <
-                    item
-                      Value = 100.000000000000000000
-                    end
-                    item
-                      SizeStyle = Auto
-                    end>
-                  object StopCameraScanBtn: TSpeedButton
-                    Align = VertCenter
-                    IconTintColor = claRed
-                    Position.X = 58.000000000000000000
-                    Position.Y = -2.000000000000000000
-                    Size.Width = 48.000000000000000000
-                    Size.Height = 48.000000000000000000
-                    Size.PlatformDefault = False
-                    StyleLookup = 'pausetoolbutton'
-                    OnClick = StopCameraScanBtnClick
-                  end
-                  object StartCameraScanBtn: TSpeedButton
-                    Align = VertCenter
-                    IconTintColor = claOlivedrab
-                    Position.X = 223.000000000000000000
-                    Position.Y = -2.000000000000000000
-                    Size.Width = 48.000000000000000000
-                    Size.Height = 48.000000000000000000
-                    Size.PlatformDefault = False
-                    StyleLookup = 'playtoolbutton'
-                    OnClick = StartCameraScanBtnClick
-                  end
-                end
-              end
-              object CameraScanImage: TImage
-                MultiResBitmap = <
-                  item
-                  end>
-                Align = Client
-                Size.Width = 350.000000000000000000
-                Size.Height = 205.000000000000000000
-                Size.PlatformDefault = False
-              end
-              object CameraScanLB: TListBox
-                Align = Bottom
-                Padding.Top = 3.000000000000000000
-                Margins.Left = 3.000000000000000000
-                Margins.Top = 5.000000000000000000
-                Margins.Right = 3.000000000000000000
-                Position.X = 3.000000000000000000
-                Position.Y = 264.000000000000000000
-                Size.Width = 344.000000000000000000
-                Size.Height = 77.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 3
-                DisableFocusEffect = True
-                DefaultItemStyles.ItemStyle = ''
-                DefaultItemStyles.GroupHeaderStyle = ''
-                DefaultItemStyles.GroupFooterStyle = ''
-                Viewport.Width = 344.000000000000000000
-                Viewport.Height = 77.000000000000000000
-                object CameraScanSearchLBGH: TListBoxGroupHeader
-                  TextSettings.Font.Size = 11.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.HorzAlign = Center
-                  StyledSettings = [Family, Style, FontColor]
-                  Size.Width = 344.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                  Text = #1056#1077#1079#1091#1083#1100#1090#1072#1090' '#1089#1082#1072#1085#1080#1088#1086#1074#1072#1085#1080#1103
-                end
-                object CameraScanLBI: TListBoxItem
-                  TextSettings.Font.Size = 11.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                  TextSettings.FontColor = claDarkcyan
-                  StyledSettings = [Family, Other]
-                  Padding.Left = 70.000000000000000000
-                  Padding.Right = 30.000000000000000000
-                  Position.Y = 30.000000000000000000
-                  TabOrder = 1
-                  Text = #1064#1090#1088#1080#1093#1082#1086#1076':'
-                  object CameraScanStrikeCodLbl: TLabel
-                    Align = VertCenter
-                    StyledSettings = [Family]
-                    Position.X = 70.000000000000000000
-                    Position.Y = 10.000000000000000000
-                    Size.Width = 244.000000000000000000
-                    Size.Height = 23.000000000000000000
-                    Size.PlatformDefault = False
-                    TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    TextSettings.FontColor = claRed
-                    TextSettings.HorzAlign = Center
-                    TabOrder = 0
-                  end
-                end
-              end
-            end
-            object CameraScanFA: TFloatAnimation
-              AnimationType = InOut
-              Duration = 0.500000000000000000
-              PropertyName = 'Position.Y'
-              StartValue = 0.000000000000000000
-              StopValue = 0.000000000000000000
-            end
-          end
         end
       end
     end
   end
   object CollectLayout: TLayout
     Align = Client
-    Size.Width = 335.000000000000000000
+    Size.Width = 311.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     Visible = False
@@ -724,12 +514,12 @@ object NaklForm: TNaklForm
       Align = Client
       Fill.Color = claBlack
       Opacity = 0.600000023841857900
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 554.000000000000000000
       Size.PlatformDefault = False
     end
     object CollectHeaderTB: TToolBar
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -745,14 +535,15 @@ object NaklForm: TNaklForm
         OnClick = BackCollectBtnClick
       end
       object RefreshBtn: TButton
-        Align = Right
+        Align = FitRight
         IconTintColor = claBlack
-        Position.X = 287.000000000000000000
+        Position.X = 263.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'refreshtoolbutton'
         TabOrder = 1
+        Visible = False
         OnClick = RefreshBtnClick
       end
       object CollectorHeaderLbl: TLabel
@@ -760,7 +551,7 @@ object NaklForm: TNaklForm
         StyledSettings = [Family]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 239.000000000000000000
+        Size.Width = 225.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'listboxheaderlabel'
@@ -770,6 +561,16 @@ object NaklForm: TNaklForm
         TextSettings.HorzAlign = Center
         Text = #1057#1073#1086#1088#1097#1080#1082#1080
         TabOrder = 2
+      end
+      object CollectorsSetting: TSpeedButton
+        Align = FitRight
+        Images = IL35
+        ImageIndex = 0
+        Position.X = 273.000000000000000000
+        Size.Width = 38.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = CollectorsSettingClick
       end
     end
     object CollectorFA: TFloatAnimation
@@ -789,7 +590,7 @@ object NaklForm: TNaklForm
       Margins.Top = 7.000000000000000000
       Margins.Right = 7.000000000000000000
       Margins.Bottom = 7.000000000000000000
-      Size.Width = 321.000000000000000000
+      Size.Width = 297.000000000000000000
       Size.Height = 540.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
@@ -834,14 +635,14 @@ object NaklForm: TNaklForm
     object CollectorSB: TStatusBar
       Position.Y = 602.000000000000000000
       ShowSizeGrip = True
-      Size.Width = 335.000000000000000000
+      Size.Width = 311.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       object CollectorCountLbl: TLabel
         Align = VertCenter
         StyledSettings = [Family]
-        Size.Width = 335.000000000000000000
+        Size.Width = 311.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 11.000000000000000000
@@ -852,45 +653,110 @@ object NaklForm: TNaklForm
       end
     end
   end
-  object StrikeCamera: TCameraComponent
-    OnSampleBufferReady = StrikeCameraSampleBufferReady
-    Left = 136
-    Top = 264
-  end
-  object CollectorsBS: TBindSourceDB
-    DataSet = AppDataLocal.Collectors
+  object CollectrorsBS: TBindSourceDB
+    DataSet = AppDataLocal.KeeperAccess
     ScopeMappings = <>
-    Left = 62
+    Left = 123
     Top = 312
   end
-  object NaklBL: TBindingsList
+  object IL35: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 10
+        MultiResBitmap.Width = 10
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Scale = 3.500000000000000000
+            Width = 35
+            Height = 35
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000230000002308060000001ED9B3
+              59000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              066A494441545847ED976B6C54451480CFCCDC7D74BBED6E1F145AB0405BDE4F
+              5348CAB30A2D92F010020A9100F2083160C418914AD08A145091101143205040
+              5142452201A191122522A2C6200FB13C02ADA10874DB6E61B7DDEEDE99EBB977
+              A74049DBBD2BFEF4DB4CE69C73EF9D3973CE99B977E17FDA80C8FE7120797979
+              A99AA6D955556D3871E2C42D698F9A7FE54C7676B6C5E5722D40076671CE872A
+              8A62D3ED28D7C6C4C4742F2D2DBD6BDC18254CF6A6193B766C86CD66FB1EC5F9
+              8490744AA912BE0280724C2814EA9F9999597DFDFAF56BD26C9AA822939F9F9F
+              82ABFF1DC5D4B0A56D8410DF61E49EC7B479A4292254F6A64047366317D1111D
+              8CD2D3D8F64AD514A623939B9B9B85DD25C658AB0B888F2130B20783642781CF
+              4E854093767468545959D949A9B68BE99AC9C8C85880038F93AA419C1D6BA88F
+              020B475B6169BE0D46F45060703A83A43802A7AF71E31E4C97A7A2A2A2CC5022
+              603A4D1890E17A1F6727307E8002EF4DB7C3FEC50E787DBC0D867667F070BC26
+              0CB4C0ABE81CC1B833063DA53922A69D21C03B0EE9C660FF12072C930E28ACED
+              2C4F1CA4C0B04C05A8201DA42922A69DC19D618BB511504C3F0160C1221084C7
+              483522A6861647B26C5DDD9A5BAA5191E1164EFD79A9B68BB9757AC9A24DCF7A
+              327232C3F51E0C09D85A520E9EBA26436FC6E36D82AD5F96434815863E3C8BC1
+              A6A9353DC14B171A8608980DFA0D8755C0B87EE1C3D66221D027C30DB18EFB87
+              AF416C8C62D815255C4B797D15B031748CC00DC31001D3E78CD8D76B008FEFF9
+              2B4E6F2AE43A2AD702CC7775289D597E419ADAC57439D21997CE53103F4AD514
+              94C049B38EE844B137308C1A144BD11484C14E299AC2749A74340D883832E928
+              A5F08C34B50956CA513AFED0043CF8B4C5859B9DDEA67B16DD4E434A70CF8665
+              7EE3A647882E3238300DD2995C554F4B53ABE8D76980BEA0DF3FBB606DD2DD60
+              63BDD5A2D4EA8D59C1BBA8B0D0216F6D4154CEE890A907BDCC737C1ED49CC53D
+              FEC837540875B4B39BC7E7E9F71936C59AAEE0416CC808514009724767A9B620
+              AA343523B6400F5CF56543A1187DBD8990D16EA91DE003CFA2E2EA90BBC81A14
+              1E6E27AB0990A5C6BD0F78CB5FDE759DA36F45073CA217312AB617AF5A7E33EA
+              C8E44CDF17B3F6CAAAC16ADA280EB684B0136A43B847FD53FF3CAD8EBBE7E3F1
+              725928E2AAEE08A60D1A7D3EA309AEEAC3ACB6F7AEFC930B5E81D158A50ABA5E
+              379A8ECCF0C95FA7316A29A0449D8BB18FFF76E7E02AAB2BADB3E6BD0E359FEF
+              86A45973E1FC1D0D36EE39209FC082C75FEDAD9B22E0F7E9F3187371958B5877
+              022475EC8481689E5ED588B08C36F53D933BE59B971865873135233127C6A1A7
+              82E3EC90C1C95DABDE5D0F9E7D872054ED83037E8EAF84077554EFB9038DF7EE
+              861D51A15213AA8F2A8A4B0D36117CF16A7647ACF486128D404AC4348D9E7A78
+              2D0EB505C5163B60FFC1AB43F1E3BBDA396C98A13B737260CEC431358D3E3C8D
+              103D35FEFA700D638C5E3B56B2BD5B59C9AE743C1FDED62DDEFA3A2178F8030C
+              237812D3FA72BBCE8C9E72643EE6FC4DA9B62004D4FED399DA3F349C5447C381
+              2F5E6CB870F56CA2B1DAA646AC231D8DFF75EC8B1D1BC30A68C7F6EE28020E35
+              8AA6B160A0114D2AB7DD768D295EB3ACB24D67729F3BDC8973F191545BE593E2
+              7359FE8A0AE315DD80FD871FFFD2BBB90CF06F4C5800AA9742B302858585BADC
+              A23C6CB680E1479B35D3ADD7AC024A499E545BC5EF17F1F9E2B76AADB232B6C9
+              91E829B9E34AC9EC7F178F16A17F8883AFBE0ECF6C129FD1FFC9C0EC69934F01
+              3CC5AA8237DE21948C5371A509299D08FEEDA241BB9A3770E4F8D23623C3054C
+              9362BBFC20FAD5E97D99DAFD5EE72C1FD89DE1B431C582729C513F18A575A7CA
+              AB6A68C7AA1A9457EA3677520782FF34741121399489A2FBE17B18DCC6711646
+              EA710BB77ABD051CC4B684AF6A67548C4A76BA429035081F93185BFBF6DF22E0
+              BBA78F638CA56F6D57723271A133F7B3A7421098E8DF6A6470FBE147B4094774
+              18D015BE49D528095FBD05EAEE58C376957BF1D57426A9631AEDD42D9324A576
+              81646C5DB27A5157520AD1B8F8196BDFA8724DD136EE2A5A7EA5556752594325
+              0F6A8966DBED806504773626736E4D2454E9CB83E41587D5F9C4AED56F646370
+              5630A6009E2960C346313578A6CCD9BDB6208768A1749C6E090B686BF479CDAD
+              FE317871E58601F8E1714EAA06D620776F7BBFE0413E256D16F07F45500DDE50
+              41C517D77DEA5A730400E01F960E77B3F219CBEA0000000049454E44AE426082}
+            FileName = 
+              'D:\Projects\OrdersBuild\Icons\icons8_admin_settings_male_35px.pn' +
+              'g'
+          end>
+        Name = 'icons8_admin_settings_male_35px'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'icons8_admin_settings_male_35px'
+            SourceRect.Right = 10.000000000000000000
+            SourceRect.Bottom = 10.000000000000000000
+          end>
+      end>
+    Left = 200
+    Top = 312
+  end
+  object NaklBS: TBindSourceDB
+    DataSet = AppDataLocal.OrdersMoveLoad
+    ScopeMappings = <>
+    Left = 40
+    Top = 312
+  end
+  object MainBL: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 60
-    Top = 261
+    Left = 44
+    Top = 229
     object LinkListControlToField1: TLinkListControlToField
       Category = 'Quick Bindings'
-      DataSource = CollectorsBS
-      Control = CollectorLV
-      FillExpressions = <
-        item
-          SourceMemberName = 'UID'
-          ControlMemberName = 'UID'
-        end
-        item
-          SourceMemberName = 'Name'
-          ControlMemberName = 'Name'
-        end
-        item
-          SourceMemberName = 'Screen'
-          ControlMemberName = 'Screen'
-        end>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
-    object LinkListControlToField2: TLinkListControlToField
-      Category = 'Quick Bindings'
-      DataSource = ProductsBS
+      DataSource = NaklBS
       Control = ProductLV
       FillExpressions = <
         item
@@ -898,66 +764,51 @@ object NaklForm: TNaklForm
           ControlMemberName = 'ProductName'
         end
         item
-          SourceMemberName = 'Screen'
-          ControlMemberName = 'Screen'
-        end
-        item
-          SourceMemberName = 'Sum_Predm'
-          ControlMemberName = 'Sum_Predm'
-        end
-        item
-          SourceMemberName = 'Price'
-          ControlMemberName = 'Price'
-        end
-        item
-          SourceMemberName = 'Article'
-          ControlMemberName = 'Article'
-        end
-        item
-          SourceMemberName = 'Date_Device'
-          ControlMemberName = 'Date_Device'
-        end
-        item
-          SourceMemberName = 'Status'
-          ControlMemberName = 'Status'
-        end
-        item
-          SourceMemberName = 'FolioUID'
-          ControlMemberName = 'FolioUID'
-        end
-        item
-          SourceMemberName = 'KON_KOLCH'
-          ControlMemberName = 'KON_KOLCH'
-        end
-        item
-          SourceMemberName = 'Qty'
-          ControlMemberName = 'Qty'
-        end
-        item
-          SourceMemberName = 'EDN_V_UPAK'
-          ControlMemberName = 'EDN_V_UPAK'
-        end
-        item
-          SourceMemberName = 'EDIN_IZMER'
-          ControlMemberName = 'EDIN_IZMER'
+          SourceMemberName = 'StrikeCode'
+          ControlMemberName = 'StrikeCode'
         end
         item
           SourceMemberName = 'Packages'
           ControlMemberName = 'Packages'
         end
         item
-          SourceMemberName = 'StrikeCode'
-          ControlMemberName = 'StrikeCode'
+          SourceMemberName = 'EDIN_IZMER'
+          ControlMemberName = 'EDIN_IZMER'
+        end
+        item
+          SourceMemberName = 'EDN_V_UPAK'
+          ControlMemberName = 'EDN_V_UPAK'
+        end
+        item
+          SourceMemberName = 'Qty'
+          ControlMemberName = 'Qty'
+        end
+        item
+          SourceMemberName = 'Price'
+          ControlMemberName = 'Price'
+        end
+        item
+          SourceMemberName = 'FolioUID'
+          ControlMemberName = 'FolioUID'
+        end
+        item
+          SourceMemberName = 'Article'
+          ControlMemberName = 'Article'
+        end
+        item
+          SourceMemberName = 'Status'
+          ControlMemberName = 'Status'
+        end
+        item
+          SourceMemberName = 'Date_Device'
+          ControlMemberName = 'Date_Device'
+        end
+        item
+          SourceMemberName = 'Screen'
+          ControlMemberName = 'Screen'
         end>
       FillHeaderExpressions = <>
-      FillHeaderFieldName = 'Article'
       FillBreakGroups = <>
     end
-  end
-  object ProductsBS: TBindSourceDB
-    DataSet = AppDataLocal.OrdersMove
-    ScopeMappings = <>
-    Left = 133
-    Top = 312
   end
 end

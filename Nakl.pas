@@ -10,8 +10,8 @@ uses
   FMX.Objects, FMX.Ani, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
   NaklAct, System.Generics.Collections, Globals, FMX.SearchBox, FMX.TabControl, FMX.Platform, FMX.VirtualKeyboard,
-  FMX.ListBox, System.Permissions, ZXing.BarcodeFormat, ZXing.ReadResult, ZXing.ScanManager,
-  FMX.Media, FMX.DialogService;
+  FMX.ListBox, System.Permissions, FMX.Media, FMX.DialogService,
+  System.ImageList, FMX.ImgList;
 
 type
   TListViewMyHelper = class helper for TListView
@@ -31,7 +31,6 @@ type
     CollectorBtn: TButton;
     CollectorEdit: TEdit;
     NaklBottomSB: TStatusBar;
-    ProductLV: TListView;
     ProductNaklInfo: TGridPanelLayout;
     CountProdNaklLbl: TLabel;
     CountBuildProdNaklLbl: TLabel;
@@ -43,34 +42,19 @@ type
     CollectorHeaderLbl: TLabel;
     CollectorLV: TListView;
     CollectorFA: TFloatAnimation;
-    CollectorsBS: TBindSourceDB;
-    NaklBL: TBindingsList;
-    LinkListControlToField1: TLinkListControlToField;
-    ProductsBS: TBindSourceDB;
-    LinkListControlToField2: TLinkListControlToField;
     CollectorSB: TStatusBar;
     CollectorCountLbl: TLabel;
     Tabs: TTabControl;
     ProductsTab: TTabItem;
-    CameraScanLayout: TLayout;
-    CameraScanRect: TRectangle;
-    CameraScanHeaderTB: TToolBar;
-    BackCameraScanBtn: TSpeedButton;
-    SaveCameraScanBtn: TSpeedButton;
-    CameraScanHeaderLbl: TLabel;
-    CameraScanBottomTB: TToolBar;
-    CameraScanBottonBtnsGPL: TGridPanelLayout;
-    StopCameraScanBtn: TSpeedButton;
-    StartCameraScanBtn: TSpeedButton;
-    CameraScanImage: TImage;
-    CameraScanLB: TListBox;
-    CameraScanSearchLBGH: TListBoxGroupHeader;
-    CameraScanLBI: TListBoxItem;
-    CameraScanStrikeCodLbl: TLabel;
-    CameraScanFA: TFloatAnimation;
     CameraScanBtn: TSpeedButton;
     ClearEditButton1: TClearEditButton;
-    StrikeCamera: TCameraComponent;
+    ProductLV: TListView;
+    CollectrorsBS: TBindSourceDB;
+    CollectorsSetting: TSpeedButton;
+    IL35: TImageList;
+    NaklBS: TBindSourceDB;
+    MainBL: TBindingsList;
+    LinkListControlToField1: TLinkListControlToField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BackCollectBtnClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
@@ -85,15 +69,9 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure ProductLVClick(Sender: TObject);
-    procedure StrikeCameraSampleBufferReady(Sender: TObject;
-      const ATime: TMediaTime);
-    procedure StopCameraScanBtnClick(Sender: TObject);
-    procedure BackCameraScanBtnClick(Sender: TObject);
-    procedure SaveCameraScanBtnClick(Sender: TObject);
-    procedure StartCameraScanBtnClick(Sender: TObject);
-    procedure CameraScanBtnClick(Sender: TObject);
     procedure ProductLVKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
+    procedure CollectorsSettingClick(Sender: TObject);
   private
     { Private declarations }
     FUnicumNumP: integer;
@@ -103,19 +81,6 @@ type
     FStatusP: integer;
     NaklAct: TNaklAction;
     strSearchValue: string;
-
-    // Считывание штрихкода по камере
-    fPermissionCamera: String;
-    fScanInProgress: Boolean;
-    fScanBitmap: TBitmap;
-    function AppEvent(AAppEvent: TApplicationEvent; AContext: TObject): Boolean;
-    procedure ParseImage();
-    procedure CameraPermissionRequestResult(Sender: TObject;
-      const APermissions: TArray<string>;
-      const AGrantResults: TArray<TPermissionStatus>);
-    procedure ExplainReason(Sender: TObject; const APermissions: TArray<string>;
-      const APostRationaleProc: TProc);
-
 
     procedure setNaklBottomSBInfo(KolProd, KolBuildProd: integer);
     procedure SetNumDocP(const Value: integer);
@@ -163,75 +128,52 @@ uses ModuleDataLocal, Collectors, Sign, {$IFDEF ANDROID}
     Androidapi.Helpers,
     Androidapi.JNI.JavaTypes,
     Androidapi.JNI.Os
-  {$ENDIF};
+  {$ENDIF}, KeeperAct, Keeper;
 
-function TNaklForm.AppEvent(AAppEvent: TApplicationEvent;
-  AContext: TObject): Boolean;
-begin
-  case AAppEvent of
-    TApplicationEvent.WillBecomeInactive, TApplicationEvent.EnteredBackground,
-      TApplicationEvent.WillTerminate:
-      StrikeCamera.Active := false;
-  end;
-end;
 
-procedure TNaklForm.BackCameraScanBtnClick(Sender: TObject);
-begin
-  StrikeCamera.Active := False;
-  PanelHide(CameraScanLayout, CameraScanFA);
-end;
 
 procedure TNaklForm.BackCollectBtnClick(Sender: TObject);
 begin
   PanelHide(CollectLayout, CollectorFA);
 end;
 
-procedure TNaklForm.CameraPermissionRequestResult(Sender: TObject;
-  const APermissions: TArray<string>;
-  const AGrantResults: TArray<TPermissionStatus>);
-begin
-  if (Length(AGrantResults) = 1) and
-    (AGrantResults[0] = TPermissionStatus.Granted) then
-  begin
-    StrikeCamera.Active := false;
-    StrikeCamera.Quality := FMX.Media.TVideoCaptureQuality.MediumQuality;
-    StrikeCamera.Kind := FMX.Media.TCameraKind.BackCamera;
-    StrikeCamera.FocusMode := FMX.Media.TFocusMode.ContinuousAutoFocus;
-    StrikeCamera.Active := True;
-  end
-  else
-    TDialogService.ShowMessage
-      ('Сканирование невозможно, т.к. не предоставлен доступ к камере устройства!')
-end;
-
-procedure TNaklForm.CameraScanBtnClick(Sender: TObject);
-begin
-   PanelView(CameraScanLayout, CameraScanFA);
-end;
-
 procedure TNaklForm.CollectorEditClick(Sender: TObject);
-var
-    Collectors: TCollectors;
 begin
   try
-    Collectors := TCollectors.Create();
+    TKeeperAction.Get(CurrentUser.ID);
     setCollectSB();
-    PanelView(CollectLayout, CollectorFA);
-    //PanelCollectorsView();
+
+    PanelCollectorsView();
   finally
-    Collectors.Free;
+
   end;
 end;
 
 procedure TNaklForm.CollectorLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
-  CollectorEdit.Text := AItem.Data['Name'].AsString;
-  CollectorNakl.UID := (AItem.Data['UID'].AsString).ToInteger;
-  CollectorNakl.Name := AItem.Data['Name'].AsString;
+  CollectorEdit.Text := AItem.Data['CollectorName'].AsString;
+  CollectorNakl.UID := (AItem.Data['CollectorUID'].AsString).ToInteger;
+  CollectorNakl.Name := AItem.Data['CollectorName'].AsString;
 
   PanelHide(CollectLayout, CollectorFA);
-  //PanelCollectorsHide();
+end;
+
+procedure TNaklForm.CollectorsSettingClick(Sender: TObject);
+var
+    keeperF: TKeeperForm;
+begin
+    keeperF := TKeeperForm.Create();
+    {$IFDEF ANDROID}
+    try
+      keeperF.ShowModal(procedure(AResult: TModalResult)
+                        Begin
+                        End);
+    finally
+      TKeeperAction.Get(CurrentUser.ID);
+      setCollectSB();
+    end;
+    {$ENDIF}
 end;
 
 constructor TNaklForm.Create(UnicumNum, NumDoc, KolProd, KolBuildProd, Status, CollectorUID: integer; Collector: string);
@@ -257,38 +199,12 @@ begin
     CollectorEdit.Text := Collector;
 
     setNaklBottomSBInfo(KolProd, FProdChecked.Count);
-
-  if TPlatformServices.Current.SupportsPlatformService
-    (IFMXApplicationEventService, IInterface(AppEventSvc)) then
-  begin
-    AppEventSvc.SetApplicationEventHandler(AppEvent);
-  end;
-
-  fScanBitmap := nil;
-
-{$IFDEF ANDROID}
-  fPermissionCamera := JStringToString(TJManifest_permission.JavaClass.CAMERA);
-{$ENDIF}
-end;
-
-procedure TNaklForm.ExplainReason(Sender: TObject;
-  const APermissions: TArray<string>; const APostRationaleProc: TProc);
-begin
-   TDialogService.ShowMessage
-    ('Приложению необходим доступ к камере устройства...',
-    procedure(const AResult: TModalResult)
-    begin
-      APostRationaleProc;
-    end)
 end;
 
 procedure TNaklForm.FormClose(Sender: TObject; var Action: TCloseAction);
 Begin
   {$IFDEF ANDROID}
       Action := TCloseAction.caFree;
-
-      if Assigned(fScanBitmap) then
-        FreeAndNil(fScanBitmap);
   {$ENDIF}
 end;
 
@@ -341,66 +257,6 @@ begin
   FA.Inverse := False;
   FA.StartValue := Self.Height + 30;
   FA.Start;
-end;
-
-procedure TNaklForm.ParseImage;
-begin
-  TThread.CreateAnonymousThread(
-    procedure
-    var
-      ReadResult: TReadResult;
-      ScanManager: TScanManager;
-
-    begin
-      try
-        fScanInProgress := True;
-        ScanManager := TScanManager.Create(TBarcodeFormat.Auto, nil);
-
-        try
-
-          ReadResult := ScanManager.Scan(fScanBitmap);
-
-        except
-          on E: Exception do
-          begin
-
-            TThread.Synchronize(TThread.CurrentThread,
-              procedure
-              begin
-                TDialogService.ShowMessage(E.Message);
-              end);
-
-            exit;
-          end;
-
-        end;
-
-        TThread.Synchronize(TThread.CurrentThread,
-          procedure
-          begin
-
-            if (Length(CameraScanSearchLBGH.Text) > 10) then
-            begin
-              CameraScanSearchLBGH.Text := '*';
-            end;
-
-            CameraScanSearchLBGH.Text := CameraScanSearchLBGH.Text + '*';
-            if (ReadResult <> nil) then
-            begin
-               CameraScanStrikeCodLbl.Text := ReadResult.Text;
-            end;
-
-          end);
-
-      finally
-        if ReadResult <> nil then
-          FreeAndNil(ReadResult);
-
-        ScanManager.Free;
-        fScanInProgress := false;
-      end;
-
-    end).Start();
 end;
 
 procedure TNaklForm.ProductLVClick(Sender: TObject);
@@ -456,25 +312,12 @@ begin
 end;
 
 procedure TNaklForm.RefreshBtnClick(Sender: TObject);
-var
-    Collectors: TCollectors;
 begin
-  Collectors := TCollectors.Create();
   try
-    Collectors.Add();
+    TKeeperAction.Get(CurrentUser.ID);
   finally
-    Collectors.Get();
-    Collectors.Free;
     setCollectSB();
   end;
-end;
-
-procedure TNaklForm.SaveCameraScanBtnClick(Sender: TObject);
-begin
-    StrikeCamera.Active := False;
-    PanelHide(CameraScanLayout, CameraScanFA);
-    if Length(CameraScanStrikeCodLbl.Text) > 0 then
-       ProductLV.SearchBox.Text := CameraScanStrikeCodLbl.Text;
 end;
 
 procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);
@@ -487,8 +330,8 @@ end;
 
 procedure TNaklForm.setCollectSB;
 begin
-  if AppDataLocal.Collectors.Active then
-     CollectorCountLbl.Text := Format('Количество сборщиков: %d', [AppDataLocal.Collectors.RecordCount]);
+  if AppDataLocal.KeeperAccess.Active then
+     CollectorCountLbl.Text := Format('Cборщиков: %d', [AppDataLocal.KeeperAccess.RecordCount]);
 end;
 
 procedure TNaklForm.SetKolBuildProdP(const Value: integer);
@@ -520,41 +363,6 @@ end;
 procedure TNaklForm.SetUnicumNumP(const Value: integer);
 begin
   FUnicumNumP := Value;
-end;
-
-procedure TNaklForm.StartCameraScanBtnClick(Sender: TObject);
-begin
-  PermissionsService.RequestPermissions([fPermissionCamera],
-    CameraPermissionRequestResult, ExplainReason);
-end;
-
-procedure TNaklForm.StopCameraScanBtnClick(Sender: TObject);
-begin
-  StrikeCamera.Active := false;
-end;
-
-procedure TNaklForm.StrikeCameraSampleBufferReady(Sender: TObject;
-  const ATime: TMediaTime);
-begin
-  TThread.Synchronize(TThread.CurrentThread,
-  procedure
-  begin
-    StrikeCamera.SampleBufferToBitmap(CameraScanImage.Bitmap, True);
-
-    if (fScanInProgress) then
-    begin
-      exit;
-    end;
-
-
-    if Assigned(fScanBitmap) then
-      FreeAndNil(fScanBitmap);
-
-    fScanBitmap := TBitmap.Create();
-    fScanBitmap.Assign(CameraScanImage.Bitmap);
-
-    ParseImage();
-  end);
 end;
 
 procedure TNaklForm.updateFCheckedBtn;

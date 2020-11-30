@@ -156,11 +156,11 @@ type
     ProcessedDocLoadOrderBuildDate: TDateTimeField;
     ProcessedDocLoadOrderDatePD: TDateTimeField;
     KeeperAccess: TFDQuery;
-    KeeperAccessScreen: TBlobField;
-    KeeperAccessKeeperUid: TIntegerField;
+    KeeperAccessKeeperUID: TIntegerField;
     KeeperAccessKeeperName: TStringField;
-    KeeperAccessCollectorUid: TIntegerField;
+    KeeperAccessCollectorUID: TIntegerField;
     KeeperAccessCollectorName: TStringField;
+    KeeperAccessScreen: TBlobField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

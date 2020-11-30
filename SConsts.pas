@@ -383,6 +383,11 @@ resourcestring
     SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, %d, ''%s''';                   // --Headers-- //
     SSQLLoadMoveAudit                 = 'EXEC DELIVERY..S_LoadMoveAudit %d, %d, ''%s'', ''%s'', ''%s'', %d, %d, ''%s''';   // ---Moves---//
 
+
+    SSQLInsKeeperTeam            = 'EXEC DELIVERY..S_InsKeeperTeam %d, ''%s'', %d, ''%s''';               // Команда сборшиков
+    SSQLDelKeeperTeam            = 'EXEC DELIVERY..S_DelKeeperTeam %d';
+    SSQLGetKeeperTeam            = 'EXEC DELIVERY..S_GetKeeperTeam';
+
 implementation
 
 end.

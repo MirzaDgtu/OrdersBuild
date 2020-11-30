@@ -1,141 +1,151 @@
 ﻿[KeeperHeaderTB]
-Coordinates=861,907,97,33
-
-[GoToCollectorsBtn]
-Coordinates=10,907,108,51
+Coordinates=1262,1076,114,36
 
 [GoToTeamBtn]
-Coordinates=775,794,85,51
+Coordinates=727,1076,98,58
 
 [TeamBottomTB]
-Coordinates=1101,907,91,33
+Coordinates=637,1160,104,36
 
 [BackBtn]
-Coordinates=353,907,56,51
+Coordinates=343,1076,62,58
 
 [CollectorsTab]
-Coordinates=862,984,83,33
+Coordinates=109,1160,94,36
 
 [IL35]
-Coordinates=472,298,40,33
+Coordinates=472,298,40,36
 
 [CollectorsBottomLV]
-Coordinates=435,907,113,51
+Coordinates=189,1076,128,58
 
 [CollectorsBottomSB]
-Coordinates=10,984,115,33
+Coordinates=922,1160,130,36
 
 [Tabs]
-Coordinates=447,984,40,33
+Coordinates=229,1160,43,36
 
 [CollectorsLV]
-Coordinates=10,555,89,213
+Coordinates=989,10,107,256
 
 [KeeperHeaderLbl]
-Coordinates=574,907,99,51
+Coordinates=586,1076,115,58
 
 [CollectorsLayout]
-Coordinates=738,984,98,33
+Coordinates=500,1160,111,36
 
 [TeamGPL]
-Coordinates=248,984,62,33
+Coordinates=10,1160,73,36
 
 [TeamBottomLbl]
-Coordinates=886,794,92,51
+Coordinates=525,948,105,58
 
 [TeamLV]
-Coordinates=746,10,97,231
+Coordinates=1010,320,116,278
 Visible=True
 
 [TeamBottomSB]
-Coordinates=984,907,91,33
+Coordinates=1131,1076,105,36
 
 [CollectorsGPL]
-Coordinates=336,984,85,33
+Coordinates=1007,1076,98,36
 
 [TeamTab]
-Coordinates=653,984,59,33
+Coordinates=405,1160,69,36
 
 [OkBtn]
-Coordinates=144,907,45,51
+Coordinates=1123,948,50,58
 
 [CollectorsBottomTB]
-Coordinates=513,984,114,33
+Coordinates=767,1160,129,36
 
 [GM]
-Coordinates=57,467,40,33
+Coordinates=57,467,40,36
 
 [MainLayout]
-Coordinates=151,984,71,33
-
-[AppDataLocal.KeeperAccess]
-Coordinates=1380,380,157,33
-Visible=False
-
-[DeleteCollectorsBtn]
-Coordinates=215,907,112,51
+Coordinates=298,1160,81,36
 
 []
-Coordinates=369,573,140,159
+Coordinates=923,46,140,159
 
 [BL]
-Coordinates=0,0,40,33
+Coordinates=0,0,40,36
 
 [AppDataLocal.CollectorBuild]
-Coordinates=863,555,156,123
+Coordinates=828,666,179,146
 
 [AppDataLocal.CollectorOrders]
-Coordinates=532,555,164,213
+Coordinates=10,666,189,256
 
 [AppDataLocal.VidDocs]
-Coordinates=462,794,127,87
+Coordinates=352,948,147,102
 
 [AppDataLocal.Users]
-Coordinates=722,555,115,159
+Coordinates=462,666,132,190
 
 [AppDataLocal.OrdersHead]
-Coordinates=10,10,145,519
+Coordinates=10,10,169,630
 
 [AppDataLocal.OrdersHeadLoad]
-Coordinates=181,10,170,519
+Coordinates=205,10,197,630
 
 [AppDataLocal.Collectors]
-Coordinates=1200,400,136,33
+Coordinates=1200,400,156,36
 Visible=False
 
 [AppDataLocal.EveryOne]
-Coordinates=615,794,134,51
+Coordinates=1199,948,156,58
 
 [AppDataLocal.Reestrs]
-Coordinates=1045,555,124,105
+Coordinates=1033,666,143,124
 
 [AppDataLocal.OrdersMoveLoad]
-Coordinates=377,10,171,303
+Coordinates=623,10,198,366
 
 [AppDataLocal.OrdersMove]
-Coordinates=574,10,146,303
+Coordinates=428,10,169,366
 
 [AppDataLocal.Brieforgs]
-Coordinates=10,794,132,87
+Coordinates=175,948,151,102
 
 [AppDataLocal.Drivers]
-Coordinates=315,794,121,87
+Coordinates=1202,666,140,102
 
 [AppDataLocal.Agents]
-Coordinates=168,794,121,87
+Coordinates=10,948,139,102
 
 [AppDataLocal.Command]
-Coordinates=699,907,136,51
+Coordinates=805,948,158,58
 
 [AppDataLocal.ProcessedDocLoad]
-Coordinates=324,555,182,213
+Coordinates=225,666,211,256
 
 [CollectorBS]
-Coordinates=179,600,119,123
+Coordinates=1176,65,143,146
 
-[TeamBS]
-Coordinates=923,46,140,159
+[AddCollectorBtn]
+Coordinates=989,948,108,58
+
+[DeleteCollectorsBtn]
+Coordinates=431,1076,129,58
+
+[RefreshKeeperTeamBtn]
+Coordinates=10,1076,153,58
+
+[AppDataLocal.]
+Coordinates=1380,380,157,33
+Visible=False
 
 [RefreshCollectorBtn]
-Coordinates=1004,794,135,51
+Coordinates=851,1076,130,58
+
+[AppDataLocal.KeeperAccess]
+Coordinates=1150,310,182,36
+Visible=False
+
+[GoToCollectorsBtn]
+Coordinates=656,948,123,58
+
+[TeamBS]
+Coordinates=1150,310,167,190
 

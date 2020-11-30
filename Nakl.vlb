@@ -1,69 +1,66 @@
 ﻿[BackNaklBtn]
-Coordinates=720,539,77,51
+Coordinates=416,758,77,51
 
 [NumDocNaklLbl]
-Coordinates=295,690,93,51
+Coordinates=172,758,93,51
 
 [CollectLayout]
-Coordinates=842,690,82,33
+Coordinates=10,912,82,33
 
 [MainLayout]
-Coordinates=761,690,71,33
+Coordinates=352,835,71,33
 
 [CollectorLV]
-Coordinates=826,10,89,195
+Coordinates=942,10,89,195
 Visible=True
 
 [CollectorBtn]
-Coordinates=431,539,76,51
+Coordinates=948,555,76,51
 
 [SaveNaklBtn]
-Coordinates=89,690,77,51
+Coordinates=472,555,77,51
 
 [ProductNaklInfo]
-Coordinates=513,751,93,33
+Coordinates=221,912,93,33
 
 [CollectorHeaderLbl]
-Coordinates=176,690,109,51
+Coordinates=675,758,109,51
 
 [NaklBottomSB]
-Coordinates=335,751,86,33
+Coordinates=860,835,86,33
 
 [CollectRect]
-Coordinates=168,751,70,33
+Coordinates=972,835,70,33
 
 [RefreshBtn]
-Coordinates=10,690,69,51
+Coordinates=707,555,69,51
 
 [CountProdNaklLbl]
-Coordinates=807,539,104,51
+Coordinates=940,758,104,51
 
 [CollectorLeftLbl]
-Coordinates=617,539,93,51
+Coordinates=10,835,93,51
 
 [CountBuildProdNaklLbl]
-Coordinates=507,690,130,51
+Coordinates=519,758,130,51
 
 [CollectorEdit]
-Coordinates=921,539,78,51
+Coordinates=129,835,78,51
 
 [CollectHeaderTB]
-Coordinates=1111,690,97,33
+Coordinates=639,835,97,33
 
 [CollectorTB]
-Coordinates=431,751,72,33
+Coordinates=762,835,72,33
 
 [CollectorFA]
 Coordinates=407,467,72,33
 
-[BackCollectBtn]
-Coordinates=517,539,90,51
-
 [NaklHeaderTB]
-Coordinates=1017,690,84,33
+Coordinates=340,912,84,33
 
 []
-Coordinates=375,10,153,321
+Coordinates=253,1072,140,159
 Visible=True
 ExplicitSubNodes=
 
@@ -72,14 +69,14 @@ Coordinates=708,578,121,33
 Visible=False
 
 [AppDataLocal.EveryOne]
-Coordinates=1112,539,134,51
+Coordinates=1050,555,134,51
 
 [AppDataLocal.VidDocs]
 Coordinates=10,794,127,33
 Visible=False
 
 [AppDataLocal.Command]
-Coordinates=285,539,136,51
+Coordinates=10,758,136,51
 
 [AppDataLocal.Reestrs]
 Coordinates=373,578,124,33
@@ -106,7 +103,7 @@ Coordinates=168,578,156,33
 Visible=False
 
 [AppDataLocal.OrdersMove]
-Coordinates=478,10,146,303
+Coordinates=562,10,146,303
 
 [AppDataLocal.Users]
 Coordinates=294,598,115,33
@@ -117,62 +114,79 @@ Coordinates=583,10,164,33
 Visible=False
 
 [Tabs]
-Coordinates=10,751,40,33
+Coordinates=573,835,40,33
 
 [CollectorSB]
-Coordinates=934,690,73,33
+Coordinates=1068,835,73,33
 
 [SignForm.UsersBS]
-Coordinates=925,10,108,177
+Coordinates=10,555,108,177
 
 [CollectorCountLbl]
-Coordinates=647,690,104,51
+Coordinates=810,758,104,51
 
 [AppDataLocal.OrdersHeadLoad]
 Coordinates=10,10,170,519
 
 [ProductLV]
-Coordinates=190,10,97,411
+Coordinates=206,10,97,411
 Visible=True
 
 [AppDataLocal.ProcessedDocLoad]
-Coordinates=634,10,182,213
+Coordinates=734,10,182,213
 
 [ProductsTab]
-Coordinates=248,751,77,33
+Coordinates=118,912,77,33
 
 [CameraScanBtn]
-Coordinates=1009,539,93,51
+Coordinates=233,835,93,51
 
 [AppDataLocal.OrdersMoveLoad]
 Coordinates=297,10,171,33
 Visible=False
 
-[AppDataLocal.KeeperAccess]
-Coordinates=1150,40,157,33
-Visible=False
-
 [ClearEditButton1]
-Coordinates=60,751,98,33
-
-[CollectrorsBS]
-Coordinates=1043,10,140,159
-
-[KeeperForm.TeamBS]
-Coordinates=10,539,119,141
+Coordinates=449,835,98,33
 
 [IL35]
 Coordinates=119,548,40,33
 
 [CollectorsSetting]
-Coordinates=398,690,99,51
+Coordinates=291,758,99,51
 
 [KeeperForm.CollectorBS]
-Coordinates=139,539,136,123
+Coordinates=310,555,136,123
 
 [NaklBS]
-Coordinates=297,10,153,321
+Coordinates=383,55,153,321
 
 [MainBL]
-Coordinates=199,440,82,33
+Coordinates=199,440,51,33
+
+[RefreshCollectorsBtn]
+Coordinates=802,555,120,51
+
+[BackCollectorsBtn]
+Coordinates=575,555,106,51
+
+[CollectorsBottomTB]
+Coordinates=450,912,114,33
+
+[KeeperForm.]
+Coordinates=144,555,140,159
+
+[KeeperForm.TeamBS]
+Coordinates=144,555,119,51
+Visible=True
+
+[AppDataLocal.]
+Coordinates=177,922,157,33
+Visible=False
+
+[AppDataLocal.KeeperAccess]
+Coordinates=1070,30,157,33
+Visible=False
+
+[CollectorsBS]
+Coordinates=1070,30,140,159
 

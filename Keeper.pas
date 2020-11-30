@@ -41,10 +41,10 @@ type
     BL: TBindingsList;
     CollectorBS: TBindSourceDB;
     LinkFillControlToField2: TLinkFillControlToField;
-    LinkListControlToField1: TLinkListControlToField;
     RefreshCollectorBtn: TSpeedButton;
     GoToCollectorsBtn: TSpeedButton;
     TeamBS: TBindSourceDB;
+    LinkFillControlToField1: TLinkFillControlToField;
     procedure TeamLVGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
     procedure CollectorsLVGesture(Sender: TObject;
@@ -173,19 +173,8 @@ begin
 end;
 
 procedure TKeeperForm.RefreshCollectorBtnClick(Sender: TObject);
-//var
-//    collAct: TCollectors;
 begin
-//  collAct := TCollectors.Create();
-
-//  try
-//    collAct.Add;
-//  finally
-//    TCollectors.Get(True);
-//    setSbInfo(1);
-//  end;
   TCollectors.Get(True);
-
 end;
 
 procedure TKeeperForm.RefreshKeeperTeamBtnClick(Sender: TObject);

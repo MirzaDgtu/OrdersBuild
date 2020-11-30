@@ -372,4 +372,23 @@ object AppDataRemote: TAppDataRemote
       FieldName = 'Status'
     end
   end
+  object KeeperAccess: TUniQuery
+    Connection = Connection
+    Left = 240
+    Top = 72
+    object KeeperAccessKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object KeeperAccessKeeperName: TStringField
+      FieldName = 'KeeperName'
+      Size = 50
+    end
+    object KeeperAccessCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
+    end
+    object KeeperAccessCollectorName: TStringField
+      FieldName = 'CollectorName'
+      Size = 50
+    end
+  end
 end

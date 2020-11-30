@@ -525,6 +525,7 @@ Coordinates=148,120,40,36
 
 [AppDataLocal.OrdersMoveLoad]
 Coordinates=613,10,198,366
+Visible=False
 
 [AppDataLocal.OrdersHeadLoad]
 Coordinates=390,10,197,630

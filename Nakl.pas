@@ -37,7 +37,6 @@ type
     CollectLayout: TLayout;
     CollectRect: TRectangle;
     CollectHeaderTB: TToolBar;
-    BackCollectBtn: TButton;
     RefreshBtn: TButton;
     CollectorHeaderLbl: TLabel;
     CollectorLV: TListView;
@@ -49,14 +48,17 @@ type
     CameraScanBtn: TSpeedButton;
     ClearEditButton1: TClearEditButton;
     ProductLV: TListView;
-    CollectrorsBS: TBindSourceDB;
     CollectorsSetting: TSpeedButton;
     IL35: TImageList;
     NaklBS: TBindSourceDB;
     MainBL: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
+    CollectorsBottomTB: TToolBar;
+    RefreshCollectorsBtn: TSpeedButton;
+    BackCollectorsBtn: TSpeedButton;
+    CollectorsBS: TBindSourceDB;
+    LinkFillControlToField1: TLinkFillControlToField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure BackCollectBtnClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
     procedure CollectorLVItemClick(const Sender: TObject;
       const AItem: TListViewItem);
@@ -72,6 +74,8 @@ type
     procedure ProductLVKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
     procedure CollectorsSettingClick(Sender: TObject);
+    procedure RefreshCollectorsBtnClick(Sender: TObject);
+    procedure BackCollectorsBtnClick(Sender: TObject);
   private
     { Private declarations }
     FUnicumNumP: integer;
@@ -124,17 +128,17 @@ implementation
 
 {$R *.fmx}
 
-uses ModuleDataLocal, Collectors, Sign, {$IFDEF ANDROID}
+uses Collectors, Sign, {$IFDEF ANDROID}
     Androidapi.Helpers,
     Androidapi.JNI.JavaTypes,
     Androidapi.JNI.Os
-  {$ENDIF}, KeeperAct, Keeper;
+  {$ENDIF}, KeeperAct, Keeper, ModuleDataLocal;
 
 
 
-procedure TNaklForm.BackCollectBtnClick(Sender: TObject);
+procedure TNaklForm.BackCollectorsBtnClick(Sender: TObject);
 begin
-  PanelHide(CollectLayout, CollectorFA);
+  PanelCollectorsHide();
 end;
 
 procedure TNaklForm.CollectorEditClick(Sender: TObject);
@@ -152,9 +156,9 @@ end;
 procedure TNaklForm.CollectorLVItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
-  CollectorEdit.Text := AItem.Data['CollectorName'].AsString;
-  CollectorNakl.UID := (AItem.Data['CollectorUID'].AsString).ToInteger;
-  CollectorNakl.Name := AItem.Data['CollectorName'].AsString;
+  CollectorEdit.Text := AItem.Data['Name'].AsString;
+  CollectorNakl.UID := (AItem.Data['UID'].AsString).ToInteger;
+  CollectorNakl.Name := AItem.Data['Name'].AsString;
 
   PanelHide(CollectLayout, CollectorFA);
 end;
@@ -168,10 +172,13 @@ begin
     try
       keeperF.ShowModal(procedure(AResult: TModalResult)
                         Begin
+                          if AResult = mrCancel then
+                            Begin
+                              TKeeperAction.Get(CurrentUser.ID);
+                              setCollectSB();
+                            End;
                         End);
     finally
-      TKeeperAction.Get(CurrentUser.ID);
-      setCollectSB();
     end;
     {$ENDIF}
 end;
@@ -318,6 +325,12 @@ begin
   finally
     setCollectSB();
   end;
+end;
+
+procedure TNaklForm.RefreshCollectorsBtnClick(Sender: TObject);
+begin
+  TKeeperAction.Get(CurrentUser.ID);
+  setCollectSB();
 end;
 
 procedure TNaklForm.SaveNaklBtnClick(Sender: TObject);

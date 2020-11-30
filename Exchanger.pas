@@ -22,10 +22,12 @@ type
     procedure getNaklDetailLocal(UnicumNum: integer);           // Получение детализации документа с локального сервера
     procedure getProcessedDocRemote(); overload;                // Получение отработанных документов с удаленного сервера
     procedure getProcessedDocRemote(DBeg, DEnd: TDate); overload; // Получение отработанных документов с удаленного сервера
+    procedure getKeeperTeam();                                    // Получение команд сборщиков
 
     procedure clearNaklHeadLocal();                             // Очистка шапок накладной локальной базы данных
     procedure clearNaklMoveLocal();                             // Очистка детализации накладных локальной базы данных
     procedure clearProcessedDocLocal();                         // Очистка отработанных документов
+    procedure clearKeeperTeam(UID: integer);                    // Очистка команды сборщиков
 
     procedure addNaklHeadRemoteToLocal();                       // Добавление документов в локальную БД полученных с удаленного сервера
     procedure addNaklMoveRemoteToLocal(UnicumNum: integer);     // Добавление деталихцаии документа в локальную БД полученных с уделенного сервера
@@ -35,6 +37,7 @@ type
     procedure pushNaklMoveLocalToRemote(UnicumNum: integer);           // Отправление детализации документа с локальной БД на удаленный сервер
     procedure pushProcessedDocLocalToRemote(); overload;                  // Отправка отработанных документов с локального сервера на удаленный сервер
     procedure pushProcessedDocLocalToRemote(BegD, EndD: TDate); overload; // Отправка отработанных документов с локального сервера на удаленный сервер
+    procedure pushKeeperTeam(UID: integer);                               // Отправка локальных команд с локального сервера нга удаленный сервер
 
     procedure start();
 
@@ -49,7 +52,8 @@ type
 
 implementation
 
-uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote, ProcessedDoc;
+uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote, ProcessedDoc,
+  KeeperAct;
 
 { TExcangerNakl }
 
@@ -134,6 +138,15 @@ begin
     end;
 end;
 
+procedure TExcangerNakl.clearKeeperTeam(UID: integer);
+begin
+   try
+      AppDataRemote.Command.SQL.Text := Format(SSQLDelKeeperTeam, [UID]);
+      AppDataRemote.Command.Execute;
+   finally
+   end;
+end;
+
 procedure TExcangerNakl.clearNaklHeadLocal;
 begin
   try
@@ -188,6 +201,11 @@ destructor TExcangerNakl.Destroy;
 begin
   AppDataRemote.Connection.Connected := False;
   inherited;
+end;
+
+procedure TExcangerNakl.getKeeperTeam;
+begin
+   TKeeperAction.Add;
 end;
 
 procedure TExcangerNakl.getNaklDetailLocal(UnicumNum: integer);
@@ -261,6 +279,27 @@ begin
     TProcessedDoc.Add(BegD, EndD);
   except
   end;
+end;
+
+procedure TExcangerNakl.pushKeeperTeam(UID: integer);
+  procedure getKeeperTeamLocal(UID: integer);
+  Begin
+    AppDataLocal.KeeperAccess.Active := False;
+    AppDataLocal.KeeperAccess.SQL.Text := Format(SSQLGetKeeperAccessLoc, [UID]);
+    AppDataLocal.KeeperAccess.Active := True;
+  End;
+begin
+  getKeeperTeamLocal(UID);
+
+  if not AppDataLocal.KeeperAccess.IsEmpty then
+    try
+      AppDataRemote.Command.SQL.Text := Format(SSQLInsKeeperTeam, [AppDataLocal.KeeperAccess.FieldByName('KeeperUID').asInteger,
+                                                                   AppDataLocal.KeeperAccess.FieldByName('KeeperName').AsString,
+                                                                   AppDataLocal.KeeperAccess.FieldByName('CollectorUID').AsInteger,
+                                                                   AppDataLocal.KeeperAccess.FieldByName('CollectorName').AsString]);
+      AppDataRemote.Command.Execute;
+    finally
+    end;
 end;
 
 procedure TExcangerNakl.pushNaklHeadLocalToRemote(UnicumNum: integer);

@@ -100,6 +100,11 @@ type
     ProcessedDocCollectorUID: TIntegerField;
     ProcessedDocOrderBuidDate: TDateField;
     ProcessedDocStatus: TIntegerField;
+    KeeperAccess: TUniQuery;
+    KeeperAccessKeeperUID: TIntegerField;
+    KeeperAccessKeeperName: TStringField;
+    KeeperAccessCollectorUID: TIntegerField;
+    KeeperAccessCollectorName: TStringField;
   private
     { Private declarations }
   public

@@ -420,7 +420,7 @@ var
     NaklAct: TNaklAction;
     iValMS: integer;
 begin
-   PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
+     PanelHide(NaklRigthMenuLayout, NaklRightMenuFA);
 
    if NaklRec.UnicumNum > 0 then
      try

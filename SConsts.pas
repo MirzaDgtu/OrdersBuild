@@ -363,6 +363,8 @@ resourcestring
                             'WHERE KeeperUID = %d AND ' +                                     // Удаление сборщика из команды кладовщика
                                  ' CollectorUid = %d ';                                       //-----*********-----//
 
+      SSQLClearKeeperAccessLoc = 'DELETE FROM KeeperAccess';                                  //--- Очистка всего списка сборщиков
+
 
 
 

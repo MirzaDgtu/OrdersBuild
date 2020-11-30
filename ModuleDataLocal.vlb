@@ -218,7 +218,7 @@ Coordinates=262,800,141,33
 Coordinates=123,800,134,33
 
 []
-Coordinates=499,10,80,159
+Coordinates=232,745,85,141
 Visible=True
 
 [CollectorsUID]
@@ -292,6 +292,7 @@ Coordinates=293,960,73,33
 
 [OrdersMoveLoad]
 Coordinates=288,10,99,303
+Visible=True
 
 [StringField15]
 Coordinates=204,960,79,33
@@ -400,4 +401,37 @@ Coordinates=425,242,121,33
 
 [UsersLastUser]
 Coordinates=425,294,87,33
+
+[ProcessedDocLoadOrderDatePD]
+Coordinates=1150,1,175,33
+
+[ProcessedDocLoadOrderBuildDate]
+Coordinates=1150,53,186,33
+
+[ProcessedDocLoadStatus]
+Coordinates=292,924,141,33
+
+[IntegerField11]
+Coordinates=683,924,84,33
+
+[IntegerField10]
+Coordinates=203,924,84,33
+
+[ProcessedDocLoad]
+Coordinates=435,294,110,213
+
+[FloatField11]
+Coordinates=16,778,74,33
+
+[IntegerField9]
+Coordinates=955,313,78,33
+
+[NTFC]
+Coordinates=425,732,41,33
+
+[StringField16]
+Coordinates=955,417,79,33
+
+[StringField17]
+Coordinates=955,625,79,33
 

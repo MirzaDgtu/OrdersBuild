@@ -5,8 +5,11 @@
     </ProjectExtensions>
     <PropertyGroup>
         <DeviceId Condition="'$(Platform)'=='Android'">c03a1d5</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='Android64'">VP</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='Android64'">c03a1d5</DeviceId>
     </PropertyGroup>
+    <ItemGroup Condition="'$(Platform)'=='iOSDevice64'"/>
+    <ItemGroup Condition="'$(Platform)'=='Win64'"/>
+    <ItemGroup Condition="'$(Platform)'=='iOSDevice32'"/>
     <ItemGroup Condition="'$(Platform)'=='Win32'">
         <DeployFile Include="OrdersBuild.todo" Condition="'$(Config)'=='Debug'">
             <RemoteDir>OrdersBuild\</RemoteDir>
@@ -28,7 +31,18 @@
             <Required>True</Required>
         </DeployFile>
     </ItemGroup>
-    <ItemGroup Condition="'$(Platform)'=='Win64'"/>
+    <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
+    <ItemGroup Condition="'$(Platform)'=='OSX32'">
+        <DeployFile Include="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib">
+            <RemoteDir>OrdersBuild.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>libcgunwind.1.0.dylib</RemoteName>
+            <DeployClass>DependencyModule</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Android'">
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_SplashImage_426x320.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>OrdersBuild\res\drawable-small\</RemoteDir>
@@ -496,6 +510,27 @@
             <RemoteName>OrdersBuild.todo</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='OSX64'"/>
+    <ItemGroup Condition="'$(Platform)'=='iOSSimulator'">
+        <DeployFile Include="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib">
+            <RemoteDir>OrdersBuild.app\</RemoteDir>
+            <RemoteName>libcgunwind.1.0.dylib</RemoteName>
+            <DeployClass>DependencyModule</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\Redist\iossimulator\libpcre.dylib">
+            <RemoteDir>OrdersBuild.app\</RemoteDir>
+            <RemoteName>libpcre.dylib</RemoteName>
+            <DeployClass>DependencyModule</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

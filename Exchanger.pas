@@ -293,11 +293,17 @@ begin
 
   if not AppDataLocal.KeeperAccess.IsEmpty then
     try
-      AppDataRemote.Command.SQL.Text := Format(SSQLInsKeeperTeam, [AppDataLocal.KeeperAccess.FieldByName('KeeperUID').asInteger,
-                                                                   AppDataLocal.KeeperAccess.FieldByName('KeeperName').AsString,
-                                                                   AppDataLocal.KeeperAccess.FieldByName('CollectorUID').AsInteger,
-                                                                   AppDataLocal.KeeperAccess.FieldByName('CollectorName').AsString]);
-      AppDataRemote.Command.Execute;
+      clearKeeperTeam(UID);
+
+      while not AppDataLocal.KeeperAccess.EOf do
+        Begin
+          AppDataRemote.Command.SQL.Text := Format(SSQLInsKeeperTeam, [AppDataLocal.KeeperAccess.FieldByName('KeeperUID').asInteger,
+                                                                       AppDataLocal.KeeperAccess.FieldByName('KeeperName').AsString,
+                                                                       AppDataLocal.KeeperAccess.FieldByName('CollectorUID').AsInteger,
+                                                                       AppDataLocal.KeeperAccess.FieldByName('CollectorName').AsString]);
+          AppDataRemote.Command.Execute;
+          AppDataLocal.KeeperAccess.Next;
+        end;
     finally
     end;
 end;

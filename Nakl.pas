@@ -50,7 +50,6 @@ type
     ProductLV: TListView;
     CollectorsSetting: TSpeedButton;
     IL35: TImageList;
-    NaklBS: TBindSourceDB;
     MainBL: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
     CollectorsBottomTB: TToolBar;
@@ -58,6 +57,8 @@ type
     BackCollectorsBtn: TSpeedButton;
     CollectorsBS: TBindSourceDB;
     LinkFillControlToField1: TLinkFillControlToField;
+    NaklBS: TBindSourceDB;
+    KeeperTeamBottomLbl: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure RefreshBtnClick(Sender: TObject);
     procedure CollectorLVItemClick(const Sender: TObject;
@@ -146,6 +147,7 @@ begin
   try
     TKeeperAction.Get(CurrentUser.ID);
     setCollectSB();
+    KeeperTeamBottomLbl.Text := Format('Команда: %s', [CurrentUser.Name]);
 
     PanelCollectorsView();
   finally

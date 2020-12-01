@@ -1152,17 +1152,6 @@ var
 begin
       try
         task := TTask.Create(procedure()
-                                procedure getCollectorsDiraction();
-                                var
-                                  Collectors: TCollectors;
-                                begin
-                                  Collectors := TCollectors.Create();
-                                  try
-                                    Collectors.Add();
-                                  finally
-                                    Collectors.Free;
-                                  end;
-                                end;
                              Begin
                                 exchanger := TExcangerNakl.Create(DBegSynchEdit.Date, DEndSynchEdit.Date, ReestrSynchEdit.Text);
                                   try
@@ -1172,57 +1161,59 @@ begin
 
                                       IndicateSynchLbl.Text := 'Передача собранных документов...';
                                       exchanger.pushNaklHeadLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 40;
-                                      IndicateSynchText.Text := '11';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 45;
+                                      IndicateSynchText.Text := '12';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Передача документов сборщиков...';
                                       exchanger.pushProcessedDocLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 80;
-                                      IndicateSynchText.Text := '22';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 90;
+                                      IndicateSynchText.Text := '24';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Передача команд сборщиков...';
                                       exchanger.pushKeeperTeam(CurrentUser.ID);
-                                      IndicateSynchPie.EndAngle := 120;
-                                      IndicateSynchText.Text := '33';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 115;
+                                      IndicateSynchText.Text := '36';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра документов...';
                                       exchanger.clearNaklHeadLocal();
-                                      IndicateSynchPie.EndAngle := 160;
-                                      IndicateSynchText.Text := '44';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 155;
+                                      IndicateSynchText.Text := '48';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
                                       exchanger.clearNaklMoveLocal();
                                       IndicateSynchPie.EndAngle := 200;
-                                      IndicateSynchText.Text := '55';
-                                      Sleep(1500);
+                                      IndicateSynchText.Text := '60';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Получение документов с сервера...';
                                       exchanger.addNaklHeadRemoteToLocal();
-                                      IndicateSynchPie.EndAngle := 240;
-                                      IndicateSynchText.Text := '66';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 245;
+                                      IndicateSynchText.Text := '72';
+                                      Sleep(500);
 
+                                      {
                                       IndicateSynchLbl.Text := 'Получение сборщиков...';
-                                      getCollectorsDiraction();
+                                      exchanger.getCollectorsRemote();
                                       IndicateSynchPie.EndAngle := 280;
                                       IndicateSynchText.Text := '77';
                                       Sleep(1500);
+                                      }
 
                                       IndicateSynchLbl.Text := 'Получение документов сборщиков...';
                                       exchanger.getProcessedDocRemote();
-                                      IndicateSynchPie.EndAngle := 320;
-                                      IndicateSynchText.Text := '88';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 290;
+                                      IndicateSynchText.Text := '84';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Получение команд сборщиков...';
                                       exchanger.getKeeperTeam;
-                                      IndicateSynchPie.EndAngle := 358;
-                                      IndicateSynchText.Text := '99';
-                                      Sleep(1500);
+                                      IndicateSynchPie.EndAngle := 335;
+                                      IndicateSynchText.Text := '96';
+                                      Sleep(500);
 
                                       IndicateSynchPie.EndAngle := 360;
                                       IndicateSynchText.Text := '100';

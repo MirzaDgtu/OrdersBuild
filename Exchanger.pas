@@ -22,7 +22,8 @@ type
     procedure getNaklDetailLocal(UnicumNum: integer);           // Получение детализации документа с локального сервера
     procedure getProcessedDocRemote(); overload;                // Получение отработанных документов с удаленного сервера
     procedure getProcessedDocRemote(DBeg, DEnd: TDate); overload; // Получение отработанных документов с удаленного сервера
-    procedure getKeeperTeam();                                    // Получение команд сборщиков
+    procedure getCollectorsRemote();                              // Получение списка сборщиков с удаленного репозитория
+    procedure getKeeperTeam();                                    // Получение команд сборщиков с удаленного репозитория
 
     procedure clearNaklHeadLocal();                             // Очистка шапок накладной локальной базы данных
     procedure clearNaklMoveLocal();                             // Очистка детализации накладных локальной базы данных
@@ -53,7 +54,7 @@ type
 implementation
 
 uses SConsts, Globals, ModuleDataLocal, ModuleDataRemote, ProcessedDoc,
-  KeeperAct;
+  KeeperAct, Collectors;
 
 { TExcangerNakl }
 
@@ -201,6 +202,18 @@ destructor TExcangerNakl.Destroy;
 begin
   AppDataRemote.Connection.Connected := False;
   inherited;
+end;
+
+procedure TExcangerNakl.getCollectorsRemote;
+var
+  Collectors: TCollectors;
+begin
+  Collectors := TCollectors.Create();
+  try
+    Collectors.Add();
+  finally
+    Collectors.Free;
+  end;
 end;
 
 procedure TExcangerNakl.getKeeperTeam;

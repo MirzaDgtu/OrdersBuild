@@ -132,7 +132,7 @@ resourcestring
                                                         'CollectorUID, ' +                                //-----**********************-----//
                                                         'OrderBuildDate,  ' +                             //-----**********************-----//
                                                         'Status) ' +                                      //-----**********************-----//
-                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d)';            //-----**********************-----//
+                              'VALUES 	(''%s'', ''%s'', ''%s'', %d, ''%s'', %d, datetime(''now'',''localtime''), %d)';            //-----**********************-----//
 
 
       SSQLGetCollectorOrders = 'SELECT 	PD.UID, ' +                                                       //-----************-----//
@@ -235,17 +235,16 @@ resourcestring
                                               'M.Status = 1) AS "ColBuildProd::SMALLINT", ' +             //-----*******************-----//
                                               'Date_Device, ' +                                           //-----*******************-----//
                                               'I.Screen, ' +                                              //-----*******************-----//
-                                              'ifnull(PD.CollectorUID, 0) as "CollectorUID::SMALLINT", ' +               //-----*******************-----//
-                                              'PD.Collector, ' +                                                         //-----*******************-----//
-                                              'ifNull(PD.KeeperUID, 0) as "KeeperUID::SMALLINT", ' +                     //-----*******************-----//
-                                              'PD.Keeper ' +                                                             //-----*******************-----//
+                                              'ifnull(H.CollectorUID, 0) as "CollectorUID::SMALLINT", ' +               //-----*******************-----//
+                                              'H.Collector, ' +                                                         //-----*******************-----//
+                                              'ifNull(H.KeeperUID, 0) as "KeeperUID::SMALLINT", ' +                     //-----*******************-----//
+                                              'H.Keeper ' +                                                             //-----*******************-----//
                                      'FROM OrdersHeader H ' +                                                            //-----*******************-----//
-                                     'LEFT JOIN ProcessedDoc PD ON PD.FolioUID = H.FolioUID ' +                          //-----*******************-----//
                                      'left join Icons I ON I.UID = (SELECT CASE WHEN IfNull(H.Status,0) = 0 THEN 7 ' +   //-----*******************-----//
                                                                                'WHEN IfNull(H.Status,0) = 1 THEN 7 ' +   //-----*******************-----//
                                                                                'WHEN IfNull(H.Status, 0) = 2 THEN 26 ' + //-----*******************-----//
                                                                                'WHEN IfNull(H.Status, 0) = 3 THEN 24 ' + //-----*******************-----//
-                                                                               'END)';                                   //-----*******************-----//
+                                                                               'END) ';                                   //-----*******************-----//
 
 
       SSQLGetOrdersMove            = 'SELECT FolioUID,  ' +
@@ -279,6 +278,10 @@ resourcestring
 
       SSQLUpdateStatusOrdersHeader      = 'UPDATE OrdersHeader ' +                                        //------*******************-----//
                                           'SET Status = %d, ' +                                           //-----Обновление статуса-------//
+                                          '    Keeper = ''%s'', ' +
+                                          '    KeeperUID = %d, ' +
+                                          '    Collector = ''%s'', ' +
+                                          '    CollectorUID = %d, ' +
                                           '    Date_Device = datetime(''now'',''localtime'') ' +          //--накладной в локальной базе--//
                                           'WHERE FolioUID = ''%s''';                                      //------*******************-----//
 
@@ -292,7 +295,7 @@ resourcestring
 
 
       SSQLDeleteOrdersMoveLocal         = 'DELETE FROM OrdersMove ' +                                          //----- Удаление товаров при ----//     -- лучше не пользоваться
-                                     'WHERE FolioUID = %d';                                               //----корректировке наклданой ---//
+                                          'WHERE FolioUID = %d';                                               //----корректировке наклданой ---//
 
       SSQLClearOrdersMoveLocal          = 'DELETE FROM OrdersMove';                                       //---- Очистка полного списка товаров -- //
 
@@ -324,8 +327,12 @@ resourcestring
                                                 'NAMEP_USER, ' +                                              //-----*********-----//
                                                 'ADRES_USER, ' +                                              //-----*********-----//
                                                 'ProjectName, ' +
-                                                'Date_Device) ' +                                             //-----*********-----//
-                            'VALUES (%d, %d, %d, %d, %d, ''%s'', %d, ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', %d, ''%s'', ''%s'', ''%s'', ''%s'')';
+                                                'Date_Device, ' +
+                                                'Keeper, ' +
+                                                'KeeperUID, ' +                                               //-----*********-----//
+                                                'Collector, ' +
+                                                'CollectorUID) ' +
+                            'VALUES (%d, %d, %d, %d, %d, ''%s'', %d, ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', %d, ''%s'', ''%s'', ''%s'', ''%s'', ''%s'', %d, ''%s'', %d)';
 
       SSQLAddOrdersMove    = 'INSERT INTO OrdersMove(FolioUID, ' +                                                  //-----*********-----//
                                                    'Article, ' +                                                    //-----*********-----//
@@ -382,7 +389,7 @@ resourcestring
 
 
     SSQLInsProcessedDoc               = 'EXEC DELIVERY..S_InsProcessedDoc ''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d';
-    SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, %d, ''%s''';                   // --Headers-- //
+    SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, ''%s'', ''%s'', %d, ''%s'', %d';                   // --Headers-- //
     SSQLLoadMoveAudit                 = 'EXEC DELIVERY..S_LoadMoveAudit %d, %d, ''%s'', ''%s'', ''%s'', %d, %d, ''%s''';   // ---Moves---//
 
 

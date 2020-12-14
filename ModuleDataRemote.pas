@@ -105,6 +105,10 @@ type
     KeeperAccessKeeperName: TStringField;
     KeeperAccessCollectorUID: TIntegerField;
     KeeperAccessCollectorName: TStringField;
+    OrdersHeaderKeeper: TStringField;
+    OrdersHeaderKeeperUID: TIntegerField;
+    OrdersHeaderCollector: TStringField;
+    OrdersHeaderCollectorUID: TIntegerField;
   private
     { Private declarations }
   public

@@ -12,7 +12,8 @@ type
     class procedure Add(BegD, EndD: TDate); overload;
     class procedure Add(Unicum_Num: integer; OrderDatePD: string;
       Keeper: string; KeeperUID: integer;
-      Collector: string; CollectorUID: integer; OrderBuildDate: string; Status: integer); overload;
+      Collector: string; CollectorUID: integer;
+      Status: integer); overload;
 
     procedure Delete; overload;
     class procedure Delete(Unicum_Num: integer); overload;
@@ -36,11 +37,11 @@ uses ModuleDataLocal, Globals, SConsts, ModuleDataRemote;
 
 procedure TProcessedDoc.Add;
 begin
+  //
 end;
 
 class procedure TProcessedDoc.Add(Unicum_Num: integer; OrderDatePD: string;
-  Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer;
-  OrderBuildDate: string; Status: integer);
+  Keeper: string; KeeperUID: integer; Collector: string; CollectorUID: integer; Status: integer);
 begin
     try
       AppDataLocal.Connection.StartTransaction;
@@ -52,7 +53,6 @@ begin
                                                                             KeeperUID,
                                                                             Collector,
                                                                             CollectorUID,
-                                                                            OrderBuildDate,
                                                                             Status]));
       except
         AppDataLocal.Connection.Rollback;
@@ -77,14 +77,13 @@ begin
     try
       while not AppDataRemote.ProcessedDoc.Eof do
       begin
-         Add(AppDataRemote.ProcessedDoc.FieldByName('FolioUID').AsInteger,
-             AppDataRemote.ProcessedDoc.FieldByName('DATE_P_POR').AsString,
-             AppDataRemote.ProcessedDoc.FieldByName('Keeper').AsString,
-             AppDataRemote.ProcessedDoc.FieldByName('KeeperUID').AsInteger,
-             AppDataRemote.ProcessedDoc.FieldByName('Collector').AsString,
-             AppDataRemote.ProcessedDoc.FieldByName('CollectorUID').AsInteger,
-             AppDataRemote.ProcessedDoc.FieldByName('OrderBuidDate').AsString,
-             AppDataRemote.ProcessedDoc.FieldByName('Status').AsInteger);
+         TProcessedDoc.Add(AppDataRemote.ProcessedDoc.FieldByName('FolioUID').AsInteger,
+                           AppDataRemote.ProcessedDoc.FieldByName('DATE_P_POR').AsString,
+                           AppDataRemote.ProcessedDoc.FieldByName('Keeper').AsString,
+                           AppDataRemote.ProcessedDoc.FieldByName('KeeperUID').AsInteger,
+                           AppDataRemote.ProcessedDoc.FieldByName('Collector').AsString,
+                           AppDataRemote.ProcessedDoc.FieldByName('CollectorUID').AsInteger,
+                           AppDataRemote.ProcessedDoc.FieldByName('Status').AsInteger);
          AppDataRemote.ProcessedDoc.Next;
       end;
     finally

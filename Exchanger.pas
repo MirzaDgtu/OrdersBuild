@@ -92,7 +92,11 @@ begin
                                                                            StringReplace(AppDataRemote.OrdersHeader.FieldByName('NAMEP_USER').AsString,  '''', EmptyStr, [rfReplaceAll]),
                                                                            AppDataRemote.OrdersHeader.FieldByName('ADRES_USER').AsString,
                                                                            AppDataRemote.OrdersHeader.FieldByName('ProjectName').AsString,
-                                                                           AppDataRemote.OrdersHeader.FieldByName('Date_Device').AsString]));
+                                                                           AppDataRemote.OrdersHeader.FieldByName('Date_Device').AsString,
+                                                                           AppDataRemote.OrdersHeader.FieldByName('Keeper').AsString,
+                                                                           AppDataRemote.OrdersHeader.FieldByName('KeeperUID').AsInteger,
+                                                                           AppDataRemote.OrdersHeader.FieldByName('Collector').AsString,
+                                                                           AppDataRemote.OrdersHeader.FieldByName('CollectorUID').AsInteger]));
           addNaklMoveRemoteToLocal(AppDataRemote.OrdersHeader.FieldByName('FolioUID').AsInteger);
           AppDataRemote.OrdersHeader.Next;
         end;
@@ -330,9 +334,8 @@ procedure TExcangerNakl.pushNaklHeadLocalToRemote;
   procedure getOrdersBuildNakl();
   Begin
     AppDataLocal.OrdersHeadLoad.Active := False;
-    AppDataLocal.OrdersHeadLoad.SQL.Text := SSQLGetOrdersHeaderLocal + ' WHERE IfNull(H.Status, 0) > 1';
+    AppDataLocal.OrdersHeadLoad.SQL.Text := SSQLGetOrdersHeaderLocal + ' WHERE IfNull(H.Status, 0) > 1 ';
     AppDataLocal.OrdersHeadLoad.Active := True;
-    AppDataLocal.OrdersHeadLoad.First;
   end;
 begin
   getOrdersBuildNakl();
@@ -346,8 +349,11 @@ begin
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('OrderUID').AsInteger,
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('OrderDate').AsString,
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('Status').AsInteger,
-                                                                        CurrentUser.ID,
-                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Date_Device').AsString]);
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Date_Device').AsString,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Keeper').AsString,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('KeeperUID').AsInteger,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Collector').AsString,
+                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('CollectorUID').AsInteger]);
            AppDataRemote.Command.ExecSQL;
            pushNaklMoveLocalToRemote(AppDataLocal.OrdersHeadLoad.FieldByName('FolioUID').AsInteger);
            AppDataLocal.OrdersHeadLoad.Next;

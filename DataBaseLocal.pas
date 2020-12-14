@@ -50,7 +50,12 @@ resourcestring
                                                                           '"NAMEP_USER"	VARCHAR(110), ' +
                                                                           '"ADRES_USER"	VARCHAR(150), ' +
                                                                           '"ProjectName"	VARCHAR(50), ' +
-                                                                          '"Date_Device" NUMERIC)';
+                                                                          '"Date_Device" NUMERIC, '  +
+                                                                          '"Keeper" VARCHAR(50), ' +
+                                                                          '"KeeperUID" INTEGER ' +
+                                                                          '"Collate" VARCHAR(50), ' +
+                                                                          '"CollateUID" INTEGER)';
+
 
     SSQLCreateOrdersMove = 'CREATE TABLE IF NOT EXISTS "OrdersMove" ("FolioUID" INTEGER  NULL, ' +                                                            // Создает таблицу OrdersMove
                                                                     '"Article" VARCHAR(20)  NULL, ' +

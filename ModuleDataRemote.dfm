@@ -203,6 +203,20 @@ object AppDataRemote: TAppDataRemote
     object OrdersHeaderDATE_DEVICE: TStringField
       FieldName = 'DATE_DEVICE'
     end
+    object OrdersHeaderKeeper: TStringField
+      FieldName = 'Keeper'
+      Size = 50
+    end
+    object OrdersHeaderKeeperUID: TIntegerField
+      FieldName = 'KeeperUID'
+    end
+    object OrdersHeaderCollector: TStringField
+      FieldName = 'Collector'
+      Size = 50
+    end
+    object OrdersHeaderCollectorUID: TIntegerField
+      FieldName = 'CollectorUID'
+    end
   end
   object OrdersMove: TUniQuery
     Connection = Connection

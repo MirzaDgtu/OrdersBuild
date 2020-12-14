@@ -91,16 +91,20 @@ begin
         if (KolProd > KolProdBuild) and
            (KolProdBuild > 0) then
             Begin
-             strReq := Format(SSQLUpdateStatusOrdersHeader, [2,  Unicum_Num.ToString]);
+             strReq := Format(SSQLUpdateStatusOrdersHeader, [2, CurrentUser.Name, CurrentUser.ID,
+                                                             CollectorNakl.Name, CollectorNakl.UID,
+                                                             Unicum_Num.ToString]);
                TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
-                                 CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()), 2);
+                                 CollectorNakl.Name, CollectorNakl.UID, 2);
             End
         else if (KolProdBuild > 0) and
                 (KolProd = KolProdBuild) then
              Begin
-               strReq := Format(SSQLUpdateStatusOrdersHeader, [3, Unicum_Num.ToString]);
+               strReq := Format(SSQLUpdateStatusOrdersHeader, [3, CurrentUser.Name, CurrentUser.ID,
+                                                               CollectorNakl.Name, CollectorNakl.UID,
+                                                               Unicum_Num.ToString]);
                TProcessedDoc.Add(Unicum_Num, NaklRec.OrderDate, CurrentUser.Name, CurrentUser.ID,
-                                 CollectorNakl.Name, CollectorNakl.UID, FormatDateTime('yyyy-mm-dd', Now()), 3);
+                                 CollectorNakl.Name, CollectorNakl.UID, 3);
 
                ntf := AppDataLocal.NTFC.CreateNotification;
                try
@@ -114,7 +118,9 @@ begin
                end;
              End
         else
-             strReq := Format(SSQLUpdateStatusOrdersHeader, [1, Unicum_Num.ToString]);
+             strReq := Format(SSQLUpdateStatusOrdersHeader, [1, EmptyStr, 0,
+                                                             EmptyStr, 0,
+                                                             Unicum_Num.ToString]);
 
         AppDataLocal.Command.Command.Execute(strReq);
       except

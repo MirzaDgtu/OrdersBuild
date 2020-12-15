@@ -224,6 +224,6 @@
     <Transaction>1899.12.30 00:00:00.000.700,=D:\Projects\OrdersBuild\Unit1.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
-		<NoProfile Android64="" Android="c03a1d5"/>
+		<NoProfile Android64="" Android=""/>
 	</ActiveMobileDevice>
 </BorlandProject>

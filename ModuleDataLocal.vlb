@@ -48,9 +48,6 @@ Coordinates=275,524,94,33
 [VidDocs]
 Coordinates=233,539,55,87
 
-[CollectorOrdersUID]
-Coordinates=373,264,110,33
-
 [Drivers]
 Coordinates=84,539,69,87
 
@@ -65,9 +62,6 @@ Coordinates=275,576,84,33
 
 [OrdersHeadSUM_POR]
 Coordinates=373,420,124,33
-
-[CollectorOrdersOrderBuildDate]
-Coordinates=373,472,168,33
 
 [OrdersMoveDate_Device]
 Coordinates=373,524,135,33
@@ -218,7 +212,7 @@ Coordinates=262,800,141,33
 Coordinates=123,800,134,33
 
 []
-Coordinates=232,745,85,141
+Coordinates=373,472,168,33
 Visible=True
 
 [CollectorsUID]
@@ -374,9 +368,6 @@ Coordinates=955,105,125,33
 
 [IntegerField8]
 Coordinates=955,157,78,33
-
-[CollectorOrdersOrderDatePD]
-Coordinates=955,209,157,33
 
 [IntegerField6]
 Coordinates=955,261,78,33

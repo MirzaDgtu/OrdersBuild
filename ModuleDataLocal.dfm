@@ -120,9 +120,6 @@ object AppDataLocal: TAppDataLocal
     Connection = Connection
     Left = 96
     Top = 120
-    object CollectorOrdersUID: TIntegerField
-      FieldName = 'UID'
-    end
     object CollectorOrdersFolioUID: TFloatField
       FieldName = 'FolioUID'
     end
@@ -143,13 +140,11 @@ object AppDataLocal: TAppDataLocal
     object CollectorOrdersScreen: TBlobField
       FieldName = 'Screen'
     end
-    object CollectorOrdersOrderBuildDate: TWideMemoField
-      FieldName = 'OrderBuildDate'
-      BlobType = ftWideMemo
+    object CollectorOrdersOrderDate: TDateTimeField
+      FieldName = 'OrderDate'
     end
-    object CollectorOrdersOrderDatePD: TWideMemoField
-      FieldName = 'OrderDatePD'
-      BlobType = ftWideMemo
+    object CollectorOrdersDate_Device: TDateTimeField
+      FieldName = 'Date_Device'
     end
   end
   object OrdersMove: TFDQuery

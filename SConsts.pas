@@ -199,6 +199,35 @@ resourcestring
                                                    'Collector, ' +                                        //-----************-----//
                                                    'I.Screen ';
 
+      SSQLGetCollectCountOrdersHead = 'SELECT DISTINCT PH.CollectorUID, ' +                               // -- Обновленная версия получения количества обработанных
+                                                      'PH.Collector, ' +                                  // --  сборщиками накладных
+                                                      'COUNT(PH.FolioUID) as "DocKol::INT", ' +
+                                                      'I.Screen ' +
+                                      'FROM OrdersHeader PH ' +
+                                      ' LEFT JOIN Icons I ON I.UID = 22 ' +
+                                      'WHERE PH.CollectorUID > 0 ' +
+                                      'GROUP BY PH.CollectorUID, ' +
+                                               'PH.Collector, ' +
+                                               'I.Screen';
+
+      SSQLGetCollectorOrdersOH = 'SELECT   PH.Collector, ' +
+                                 '         PH.CollectorUID, ' +
+                                 '         PH.Keeper, ' +
+                                 '         PH.KeeperUid, ' +
+                                 '         PH.FolioUID, ' +
+                                 '         PH.OrderDate as "OrderDate::datetime", ' +
+                                 '         PH.Date_Device as "Date_Device::datetime", ' +
+                                 '         I.Screen ' +
+                                 '     FROM OrdersHeader PH ' +
+                                 '      left join Icons I ON I.UID = (SELECT CASE WHEN IfNull(PH.Status,0) = 0 THEN 7 ' +   //-----*******************-----//
+                                                                                 'WHEN IfNull(PH.Status,0) = 1 THEN 7 ' +       //-----*******************-----//
+                                                                                 'WHEN IfNull(PH.Status, 0) = 2 THEN 26 ' +     //-----*******************-----//
+                                                                                 'WHEN IfNull(PH.Status, 0) = 3 THEN 24 ' +     //-----*******************-----//
+                                                                                 'END) ' +
+                                 '     WHERE CollectorUID = %d ' +
+                                 //'     GROUP BY CollectorUID ' +
+                                 '     Order BY FolioUID ';
+
       SSQLClearProcessedOrders = 'DELETE FROM ProcessedDoc '+                                             //----******************************---
                                  'WHERE Status = 3 ';                                                     // Очистка всех записей из собранных накладных
 

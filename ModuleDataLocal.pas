@@ -38,7 +38,6 @@ type
     CollectorBuildDocKol: TIntegerField;
     CollectorBuildScreen: TBlobField;
     CollectorOrders: TFDQuery;
-    CollectorOrdersUID: TIntegerField;
     CollectorOrdersFolioUID: TFloatField;
     CollectorOrdersKeeper: TStringField;
     CollectorOrdersKeeperUID: TIntegerField;
@@ -47,7 +46,6 @@ type
     CollectorOrdersScreen: TBlobField;
     CollectorBuildCollectorUID: TIntegerField;
     CollectorBuildCollector: TStringField;
-    CollectorOrdersOrderBuildDate: TWideMemoField;
     OrdersMove: TFDQuery;
     OrdersHead: TFDQuery;
     OrdersMoveFolioUID: TIntegerField;
@@ -94,7 +92,6 @@ type
     OrdersHeadCollector: TStringField;
     OrdersHeadKeeperUID: TIntegerField;
     OrdersHeadKeeper: TStringField;
-    CollectorOrdersOrderDatePD: TWideMemoField;
     OrdersMoveLoad: TFDQuery;
     IntegerField1: TIntegerField;
     StringField1: TStringField;
@@ -161,6 +158,8 @@ type
     KeeperAccessCollectorUID: TIntegerField;
     KeeperAccessCollectorName: TStringField;
     KeeperAccessScreen: TBlobField;
+    CollectorOrdersOrderDate: TDateTimeField;
+    CollectorOrdersDate_Device: TDateTimeField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

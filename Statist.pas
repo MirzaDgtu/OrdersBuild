@@ -41,7 +41,7 @@ class procedure TStatist.Get(CollectorUID: integer);
 begin
   //DONE -opmp: Получить список собранных накладных сборщиком
   try
-    AppDataLocal.CollectorOrders.SQL.Text := (Format(SSQLGetCollectorOrders, [CollectorUID]));
+    AppDataLocal.CollectorOrders.SQL.Text := (Format(SSQLGetCollectorOrdersOH, [CollectorUID]));
     AppDataLocal.CollectorOrders.Active := True;
   except
     AppDataLocal.CollectorOrders.Active := False;
@@ -52,7 +52,7 @@ procedure TStatist.Get;
 begin
   try
     AppDataLocal.CollectorBuild.Active := False;
-    AppDataLocal.CollectorBuild.SQL.Text := SSQLGetCollectCountOrdersOverride;
+    AppDataLocal.CollectorBuild.SQL.Text := SSQLGetCollectCountOrdersHead;
     AppDataLocal.CollectorBuild.Active := True;
   except
     AppDataLocal.CollectorBuild.Active := False;

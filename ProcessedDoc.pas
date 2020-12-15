@@ -19,6 +19,7 @@ type
     class procedure Delete(Unicum_Num: integer); overload;
 
     procedure Get(); overload;
+    class procedure Get(CollectorUID: integer); overload;
     class procedure Get(BegOD, EndOD: string); overload;
     class procedure Get(CollectorUID: integer; BegOD, EndOD: string); overload;
 
@@ -116,6 +117,11 @@ begin
   end;
 end;
 
+class procedure TProcessedDoc.Get(CollectorUID: integer);
+begin
+
+end;
+
 constructor TProcessedDoc.Create;
 begin
   inherited Create();
@@ -137,7 +143,13 @@ end;
 
 procedure TProcessedDoc.Get;
 begin
-  //
+   try
+     AppDataLocal.CollectorBuild.Active := False;
+     AppDataLocal.CollectorBuild.SQL.Text := SSQLGetCollectCountOrdersHead;
+     AppDataLocal.CollectorBuild.Active := True;
+   except
+     AppDataLocal.CollectorBuild.Active := False;
+   end;
 end;
 
 class procedure TProcessedDoc.Get(BegOD, EndOD: string);

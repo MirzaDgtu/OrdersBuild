@@ -3,7 +3,7 @@ object OrdersForm: TOrdersForm
   Top = 0
   Caption = 'OrdersForm'
   ClientHeight = 624
-  ClientWidth = 330
+  ClientWidth = 344
   Position = ScreenCenter
   WindowState = wsMaximized
   FormFactor.Width = 320
@@ -15,12 +15,12 @@ object OrdersForm: TOrdersForm
   DesignerMasterStyle = 3
   object MainLayout: TLayout
     Align = Client
-    Size.Width = 330.000000000000000000
+    Size.Width = 344.000000000000000000
     Size.Height = 624.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object OrdersHeaderTB: TToolBar
-      Size.Width = 330.000000000000000000
+      Size.Width = 344.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -30,7 +30,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family, Size]
         Position.X = 48.000000000000000000
         Position.Y = 12.000000000000000000
-        Size.Width = 234.000000000000000000
+        Size.Width = 248.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -52,7 +52,7 @@ object OrdersForm: TOrdersForm
       object NextTabBtn: TButton
         Align = Right
         IconTintColor = claBlack
-        Position.X = 282.000000000000000000
+        Position.X = 296.000000000000000000
         Size.Width = 48.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -67,7 +67,7 @@ object OrdersForm: TOrdersForm
       OnGesture = TabsOrderGesture
       Align = Client
       Images = IL32
-      Size.Width = 330.000000000000000000
+      Size.Width = 344.000000000000000000
       Size.Height = 576.000000000000000000
       Size.PlatformDefault = False
       TabHeight = 49.000000000000000000
@@ -76,11 +76,11 @@ object OrdersForm: TOrdersForm
       TabPosition = PlatformDefault
       OnChange = TabsOrderChange
       Sizes = (
-        330s
+        344s
         527s
-        330s
+        344s
         527s
-        330s
+        344s
         527s)
       object OrdersTab: TTabItem
         CustomIcon = <
@@ -91,7 +91,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family, Size, FontColor]
         IsSelected = False
         ImageIndex = 0
-        Size.Width = 110.000000000000000000
+        Size.Width = 114.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -101,14 +101,14 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object NaklLayout: TLayout
           Align = Client
-          Size.Width = 330.000000000000000000
+          Size.Width = 344.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object NaklHeaderTB: TToolBar
             Align = Bottom
             Position.Y = 479.000000000000000000
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -126,7 +126,7 @@ object OrdersForm: TOrdersForm
             object RightNaklMenuBtn: TButton
               Align = Right
               IconTintColor = claBlack
-              Position.X = 282.000000000000000000
+              Position.X = 296.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -139,7 +139,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 234.000000000000000000
+              Size.Width = 248.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -158,7 +158,7 @@ object OrdersForm: TOrdersForm
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 457.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -456,13 +456,13 @@ object OrdersForm: TOrdersForm
           object OrdersBottomSB: TStatusBar
             Position.Y = 457.000000000000000000
             ShowSizeGrip = True
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             object OrdersBottomGPL: TGridPanelLayout
               Align = Client
-              Size.Width = 330.000000000000000000
+              Size.Width = 344.000000000000000000
               Size.Height = 22.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
@@ -494,7 +494,7 @@ object OrdersForm: TOrdersForm
               object KolDocLbl: TLabel
                 Align = VertCenter
                 StyledSettings = [Family, FontColor]
-                Size.Width = 165.000000000000000000
+                Size.Width = 172.000000000000000000
                 Size.Height = 22.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 10.000000000000000000
@@ -506,8 +506,8 @@ object OrdersForm: TOrdersForm
               object KolBuildDocLbl: TLabel
                 Align = VertCenter
                 StyledSettings = [Family]
-                Position.X = 165.000000000000000000
-                Size.Width = 165.000000000000000000
+                Position.X = 172.000000000000000000
+                Size.Width = 172.000000000000000000
                 Size.Height = 22.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 10.000000000000000000
@@ -1537,7 +1537,7 @@ object OrdersForm: TOrdersForm
         TextSettings.FontColor = claAqua
         IsSelected = False
         ImageIndex = 1
-        Size.Width = 110.000000000000000000
+        Size.Width = 114.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -1547,14 +1547,14 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object StatistLayout: TLayout
           Align = Client
-          Size.Width = 330.000000000000000000
+          Size.Width = 344.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object StatistBottomTB: TToolBar
             Align = Bottom
             Position.Y = 479.000000000000000000
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -1572,7 +1572,7 @@ object OrdersForm: TOrdersForm
             object RightStatistMenuBtn: TButton
               Align = Right
               IconTintColor = claBlack
-              Position.X = 282.000000000000000000
+              Position.X = 296.000000000000000000
               Size.Width = 48.000000000000000000
               Size.Height = 48.000000000000000000
               Size.PlatformDefault = False
@@ -1585,7 +1585,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 48.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 234.000000000000000000
+              Size.Width = 248.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -1604,7 +1604,7 @@ object OrdersForm: TOrdersForm
             HeaderAppearanceClassName = 'TListHeaderObjects'
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -1915,7 +1915,7 @@ object OrdersForm: TOrdersForm
         StyledSettings = [Family, Size, FontColor]
         IsSelected = True
         ImageIndex = 2
-        Size.Width = 110.000000000000000000
+        Size.Width = 116.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
@@ -1925,7 +1925,7 @@ object OrdersForm: TOrdersForm
         ExplicitSize.cy = 49.000000000000000000
         object SynchLayout: TLayout
           Align = Client
-          Size.Width = 330.000000000000000000
+          Size.Width = 344.000000000000000000
           Size.Height = 527.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -1934,7 +1934,7 @@ object OrdersForm: TOrdersForm
             OnGesture = SynchRectGesture
             Align = Client
             Fill.Color = claWhite
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 479.000000000000000000
             Size.PlatformDefault = False
           end
@@ -1944,7 +1944,7 @@ object OrdersForm: TOrdersForm
             Margins.Right = 7.000000000000000000
             Position.X = 7.000000000000000000
             Position.Y = 166.000000000000000000
-            Size.Width = 316.000000000000000000
+            Size.Width = 330.000000000000000000
             Size.Height = 147.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -1953,13 +1953,13 @@ object OrdersForm: TOrdersForm
             DefaultItemStyles.ItemStyle = ''
             DefaultItemStyles.GroupHeaderStyle = ''
             DefaultItemStyles.GroupFooterStyle = ''
-            Viewport.Width = 316.000000000000000000
+            Viewport.Width = 330.000000000000000000
             Viewport.Height = 147.000000000000000000
             object SynchParamLBGH: TListBoxGroupHeader
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               TextSettings.HorzAlign = Center
               StyledSettings = [Family, Size, Style, FontColor]
-              Size.Width = 316.000000000000000000
+              Size.Width = 330.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
@@ -1973,7 +1973,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
               Position.Y = 36.000000000000000000
-              Size.Width = 316.000000000000000000
+              Size.Width = 330.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
@@ -1984,7 +1984,7 @@ object OrdersForm: TOrdersForm
                 Align = VertCenter
                 Position.X = 100.000000000000000000
                 Position.Y = 2.000000000000000000
-                Size.Width = 186.000000000000000000
+                Size.Width = 200.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Family]
@@ -2002,7 +2002,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
               Position.Y = 72.000000000000000000
-              Size.Width = 316.000000000000000000
+              Size.Width = 330.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
@@ -2013,7 +2013,7 @@ object OrdersForm: TOrdersForm
                 Align = VertCenter
                 Position.X = 100.000000000000000000
                 Position.Y = 2.000000000000000000
-                Size.Width = 186.000000000000000000
+                Size.Width = 200.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Family]
@@ -2031,7 +2031,7 @@ object OrdersForm: TOrdersForm
               Padding.Left = 100.000000000000000000
               Padding.Right = 30.000000000000000000
               Position.Y = 108.000000000000000000
-              Size.Width = 316.000000000000000000
+              Size.Width = 330.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 3
@@ -2067,7 +2067,7 @@ object OrdersForm: TOrdersForm
                 TextSettings.HorzAlign = Center
                 Position.X = 100.000000000000000000
                 Position.Y = 2.000000000000000000
-                Size.Width = 186.000000000000000000
+                Size.Width = 200.000000000000000000
                 Size.Height = 32.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Family]
@@ -2079,7 +2079,7 @@ object OrdersForm: TOrdersForm
             Align = Bottom
             Padding.Left = 5.000000000000000000
             Position.Y = 479.000000000000000000
-            Size.Width = 330.000000000000000000
+            Size.Width = 344.000000000000000000
             Size.Height = 48.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -2102,7 +2102,7 @@ object OrdersForm: TOrdersForm
               StyledSettings = [Family]
               Position.X = 53.000000000000000000
               Position.Y = 12.000000000000000000
-              Size.Width = 277.000000000000000000
+              Size.Width = 291.000000000000000000
               Size.Height = 23.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 13.000000000000000000
@@ -3301,13 +3301,9 @@ object OrdersForm: TOrdersForm
     end
     object LinkListControlToField8: TLinkListControlToField
       Category = 'Quick Bindings'
-      DataSource = StatistNaklBS
+      DataSource = CollectorOrdersBS
       Control = StatistNalkLV
       FillExpressions = <
-        item
-          SourceMemberName = 'UID'
-          ControlMemberName = 'UID'
-        end
         item
           SourceMemberName = 'FolioUID'
           ControlMemberName = 'FolioUID'
@@ -3321,14 +3317,6 @@ object OrdersForm: TOrdersForm
           ControlMemberName = 'Keeper'
         end
         item
-          SourceMemberName = 'OrderDatePD'
-          ControlMemberName = 'OrderDatePD'
-        end
-        item
-          SourceMemberName = 'OrderBuildDate'
-          ControlMemberName = 'OrderBuildDate'
-        end
-        item
           SourceMemberName = 'Collector'
           ControlMemberName = 'Collector'
         end
@@ -3339,6 +3327,14 @@ object OrdersForm: TOrdersForm
         item
           SourceMemberName = 'KeeperUID'
           ControlMemberName = 'KeeperUID'
+        end
+        item
+          SourceMemberName = 'Date_Device'
+          ControlMemberName = 'OrderBuildDate'
+        end
+        item
+          SourceMemberName = 'OrderDate'
+          ControlMemberName = 'OrderDatePD'
         end>
       FillHeaderExpressions = <>
       FillBreakGroups = <>
@@ -3378,12 +3374,6 @@ object OrdersForm: TOrdersForm
     DataSet = AppDataLocal.OrdersHead
     ScopeMappings = <>
     Left = 192
-    Top = 336
-  end
-  object StatistNaklBS: TBindSourceDB
-    DataSet = AppDataLocal.CollectorOrders
-    ScopeMappings = <>
-    Left = 256
     Top = 336
   end
   object GM: TGestureManager
@@ -3928,5 +3918,11 @@ object OrdersForm: TOrdersForm
       end>
     Left = 208
     Top = 384
+  end
+  object CollectorOrdersBS: TBindSourceDB
+    DataSet = AppDataLocal.CollectorOrders
+    ScopeMappings = <>
+    Left = 272
+    Top = 280
   end
 end

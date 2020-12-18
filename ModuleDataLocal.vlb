@@ -208,11 +208,8 @@ Coordinates=411,800,139,33
 [OrdersMoveProductName]
 Coordinates=262,800,141,33
 
-[OrdersHeadDate_Device]
-Coordinates=123,800,134,33
-
 []
-Coordinates=373,472,168,33
+Coordinates=123,800,134,33
 Visible=True
 
 [CollectorsUID]
@@ -326,9 +323,6 @@ Coordinates=439,1031,66,33
 
 [SmallintField1]
 Coordinates=683,1057,84,33
-
-[LargeintField1]
-Coordinates=350,1057,84,33
 
 [StringField7]
 Coordinates=271,1031,73,33

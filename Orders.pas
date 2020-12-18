@@ -1150,6 +1150,7 @@ var
     exchanger: TExcangerNakl;
     task: ITask;
 begin
+
       try
         task := TTask.Create(procedure()
                              Begin
@@ -1161,8 +1162,8 @@ begin
 
                                       IndicateSynchLbl.Text := 'Передача собранных документов...';
                                       exchanger.pushNaklHeadLocalToRemote;
-                                      IndicateSynchPie.EndAngle := 45;
-                                      IndicateSynchText.Text := '15';
+                                      IndicateSynchPie.EndAngle := 60;
+                                      IndicateSynchText.Text := '14';
                                       Sleep(500);
 
                                     //  IndicateSynchLbl.Text := 'Передача документов сборщиков...';
@@ -1173,33 +1174,32 @@ begin
 
                                       IndicateSynchLbl.Text := 'Передача команд сборщиков...';
                                       exchanger.pushKeeperTeam(CurrentUser.ID);
-                                      IndicateSynchPie.EndAngle := 115;
-                                      IndicateSynchText.Text := '30';
+                                      IndicateSynchPie.EndAngle := 120;
+                                      IndicateSynchText.Text := '28';
                                       Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра документов...';
                                       exchanger.clearNaklHeadLocal();
-                                      IndicateSynchPie.EndAngle := 155;
-                                      IndicateSynchText.Text := '45';
+                                      IndicateSynchPie.EndAngle := 180;
+                                      IndicateSynchText.Text := '40';
                                       Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Очистка реестра деталей документов...';
                                       exchanger.clearNaklMoveLocal();
-                                      IndicateSynchPie.EndAngle := 200;
-                                      IndicateSynchText.Text := '60';
+                                      IndicateSynchPie.EndAngle := 240;
+                                      IndicateSynchText.Text := '65';
                                       Sleep(500);
 
-                                    //  IndicateSynchLbl.Text := 'Получение документов с сервера...';
-                                    //  exchanger.addNaklHeadRemoteToLocal();
-                                    //  IndicateSynchPie.EndAngle := 245;
-                                    //  IndicateSynchText.Text := '72';
-                                    //  Sleep(500);
-
+                                      IndicateSynchLbl.Text := 'Получение документов с сервера...';
+                                      exchanger.addNaklHeadRemoteToLocal();
+                                      IndicateSynchPie.EndAngle := 245;
+                                      IndicateSynchText.Text := '80';
+                                      Sleep(500);
 
                                       IndicateSynchLbl.Text := 'Получение сборщиков...';
                                       exchanger.getCollectorsRemote();
-                                      IndicateSynchPie.EndAngle := 280;
-                                      IndicateSynchText.Text := '75';
+                                      IndicateSynchPie.EndAngle := 300;
+                                      IndicateSynchText.Text := '95';
                                       Sleep(500);
 
 
@@ -1211,8 +1211,8 @@ begin
 
                                       IndicateSynchLbl.Text := 'Получение команд сборщиков...';
                                       exchanger.getKeeperTeam;
-                                      IndicateSynchPie.EndAngle := 335;
-                                      IndicateSynchText.Text := '90';
+                                      IndicateSynchPie.EndAngle := 350;
+                                      IndicateSynchText.Text := '99';
                                       Sleep(500);
 
                                       IndicateSynchPie.EndAngle := 360;
@@ -1220,7 +1220,7 @@ begin
                                     except
                                       on Ex: Exception do
                                         Begin
-                                         exchanger.Destroy;
+                                         exchanger.DisposeOf;
                                          IndicateSynchLayout.Visible := False;
 
                                          if (Assigned(task) and (task.Status = TTaskStatus.Exception)) then
@@ -1229,7 +1229,7 @@ begin
                                         End;
                                     end;
                                   finally
-                                     exchanger.Destroy;
+                                     exchanger.DisposeOf;
                                      IndicateSynchLayout.Visible := False;
                                   end;
                              End);

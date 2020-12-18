@@ -55,7 +55,7 @@ begin
       TKeeperAction.Delete;
 
       AppDataLocal.Connection.StartTransaction;
-      try
+     // try
          while not AppDataRemote.KeeperAccess.Eof do
          begin
            AppDataLocal.Command.Command.Execute(Format(SSQLInsKeeperAccessLoc, [AppDataRemote.KeeperAccess.FieldByName('KeeperUID').AsInteger,
@@ -64,9 +64,9 @@ begin
                                                                                 AppDataRemote.KeeperAccess.FieldByName('CollectorName').AsString]));
            AppDataRemote.KeeperAccess.Next;
          end;
-      except
-         AppDataLocal.Connection.Rollback;
-      end;
+     // except
+     //    AppDataLocal.Connection.Rollback;
+     // end;
     finally
       AppDataLocal.Connection.Commit;
     end;

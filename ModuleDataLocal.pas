@@ -81,7 +81,6 @@ type
     OrdersHeadColProd: TSmallintField;
     OrdersHeadColBuildProd: TSmallintField;
     OrdersHeadScreen: TBlobField;
-    OrdersHeadDate_Device: TLargeintField;
     Collectors: TFDQuery;
     CollectorsUID: TIntegerField;
     CollectorsName: TStringField;
@@ -128,7 +127,6 @@ type
     SmallintField1: TSmallintField;
     SmallintField2: TSmallintField;
     BlobField2: TBlobField;
-    LargeintField1: TLargeintField;
     IntegerField6: TIntegerField;
     IntegerField7: TIntegerField;
     StringField14: TStringField;
@@ -160,6 +158,8 @@ type
     KeeperAccessScreen: TBlobField;
     CollectorOrdersOrderDate: TDateTimeField;
     CollectorOrdersDate_Device: TDateTimeField;
+    OrdersHeadLoadDate_Device: TDateTimeField;
+    OrdersHeadDate_Device: TDateTimeField;
     procedure ConnectionBeforeConnect(Sender: TObject);
     procedure BrieforgsBeforeOpen(DataSet: TDataSet);
     procedure DriversBeforeOpen(DataSet: TDataSet);

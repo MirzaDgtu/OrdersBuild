@@ -270,9 +270,6 @@ object AppDataLocal: TAppDataLocal
     object OrdersHeadScreen: TBlobField
       FieldName = 'Screen'
     end
-    object OrdersHeadDate_Device: TLargeintField
-      FieldName = 'Date_Device'
-    end
     object OrdersHeadStatus: TIntegerField
       FieldName = 'Status'
     end
@@ -289,6 +286,9 @@ object AppDataLocal: TAppDataLocal
     object OrdersHeadKeeper: TStringField
       FieldName = 'Keeper'
       Size = 50
+    end
+    object OrdersHeadDate_Device: TDateTimeField
+      FieldName = 'Date_Device'
     end
   end
   object Collectors: TFDQuery
@@ -430,9 +430,6 @@ object AppDataLocal: TAppDataLocal
     object BlobField2: TBlobField
       FieldName = 'Screen'
     end
-    object LargeintField1: TLargeintField
-      FieldName = 'Date_Device'
-    end
     object IntegerField6: TIntegerField
       FieldName = 'Status'
     end
@@ -449,6 +446,9 @@ object AppDataLocal: TAppDataLocal
     object StringField15: TStringField
       FieldName = 'Keeper'
       Size = 50
+    end
+    object OrdersHeadLoadDate_Device: TDateTimeField
+      FieldName = 'Date_Device'
     end
   end
   object Users: TFDQuery

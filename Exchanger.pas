@@ -349,7 +349,7 @@ begin
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('OrderUID').AsInteger,
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('OrderDate').AsString,
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('Status').AsInteger,
-                                                                        AppDataLocal.OrdersHeadLoad.FieldByName('Date_Device').AsString,
+                                                                        FormatDateTime('yyyy-MM-dd hh:mm:ss', AppDataLocal.OrdersHeadLoad.FieldByName('Date_Device').AsDateTime),
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('Keeper').AsString,
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('KeeperUID').AsInteger,
                                                                         AppDataLocal.OrdersHeadLoad.FieldByName('Collector').AsString,

@@ -262,7 +262,7 @@ resourcestring
                                               'FROM OrdersMove M ' +                                      //-----*******************-----//
                                               'WHERE M.FolioUID = H.FolioUID AND ' +                      //-----*******************-----//
                                               'M.Status = 1) AS "ColBuildProd::SMALLINT", ' +             //-----*******************-----//
-                                              'Date_Device, ' +                                           //-----*******************-----//
+                                              'Date_Device as "Date_Device::datetime", ' +                                           //-----*******************-----//
                                               'I.Screen, ' +                                              //-----*******************-----//
                                               'ifnull(H.CollectorUID, 0) as "CollectorUID::SMALLINT", ' +               //-----*******************-----//
                                               'H.Collector, ' +                                                         //-----*******************-----//
@@ -418,7 +418,7 @@ resourcestring
 
 
     SSQLInsProcessedDoc               = 'EXEC DELIVERY..S_InsProcessedDoc ''%s'', ''%s'', ''%s'', %d, ''%s'', %d, ''%s'', %d';
-    SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, ''%s'', ''%s'', %d, ''%s'', %d';                   // --Headers-- //
+    SSQLLoadNaclAudit                 = 'EXEC DELIVERY..S_LoadNaclAudit %d, %d, ''%s'', %d, ''%s'', ''%s'', %d, ''%s'', %d'; // --Headers-- //
     SSQLLoadMoveAudit                 = 'EXEC DELIVERY..S_LoadMoveAudit %d, %d, ''%s'', ''%s'', ''%s'', %d, %d, ''%s''';   // ---Moves---//
 
 
